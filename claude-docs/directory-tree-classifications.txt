@@ -1,0 +1,284 @@
+UBL REPOSITORY DIRECTORY TREE WITH CLASSIFICATIONS
+==================================================
+Branch: ubl-2.5-python
+Total Files: 2,539
+Date: 2025-10-24
+
+Legend:
+-------
+[BS]  = BUILD_SCRIPT
+[CFG] = CONFIG
+[INP] = INPUT_SOURCE
+[GEN] = GENERATED
+[XSL] = XSLT_STYLESHEET
+[UTL] = UTILITY
+[STC] = STATIC_RESOURCE
+[ARC] = ARCHIVED_VERSION
+[TST] = TEST_SAMPLE
+[DOC] = DOCUMENTATION
+[GIT] = GIT_INFRASTRUCTURE
+
+Repository Root:
+================
+
+/
+├── .gitignore                                  [GIT]
+│
+├── build.sh                                    [BS] Entry point
+├── build-common.sh                             [BS] Core orchestration
+├── build.py                                    [BS] Python alternative
+├── build-github.sh                             [BS] GitHub wrapper
+├── build.xml                                   [BS] Main ANT (2261 lines)
+├── build-py.xml                                [BS] Python ANT
+├── RealtaServerAnt.xml                         [BS] Realta integration
+│
+├── config-UBL.xml                              [CFG] Main config
+├── config-UBL-Signature.xml                    [CFG] Signature config
+├── ident-UBL.xml                               [CFG] Identification
+├── ident-UBL-Endorsed.xml                      [CFG] Endorsed ID
+├── ident-UBL-Signature.xml                     [CFG] Signature ID
+├── massageModelName.xml                        [CFG] Name rules
+├── realta-user-parameters.xml                  [CFG] Realta params
+├── UBL-CVA-Skeleton.cva                        [CFG] CVA skeleton
+├── UBL-DefaultDTQ-2.5.sch                      [CFG] Schematron wrapper
+├── spellcheck-UBL.txt                          [CFG] Dictionary
+├── skeletonDisplayEditSubset.ods               [CFG] ODS template
+│
+├── UBL.xml                                     [INP] Hub document
+├── UBL-Party-summary-information.xml           [INP] Party info
+├── UBL-Schema-summary-information.xml          [INP] Schema info
+├── UBL-2.4.xml                                 [INP] Prev version
+│
+├── UBL-Entities-2.4-os.gc                      [GEN] Prev GC
+├── UBL-Signature-Entities-2.4-os.gc            [GEN] Prev signature
+├── summary-processes-ent.xml                   [GEN] Entities
+├── summary-parties-ent.xml                     [GEN] Entities
+├── summary-namespaces-ent.xml                  [GEN] Entities
+├── summary-schemas-ent.xml                     [GEN] Entities
+├── summary-examples-ent.xml                    [GEN] Entities
+├── old2newDoc-from-previous-stage-documents-ent.xml  [GEN]
+├── old2newDoc-from-previous-stage-library-ent.xml    [GEN]
+├── old2newDoc-from-previous-version-documents-ent.xml [GEN]
+├── old2newDoc-from-previous-version-library-ent.xml   [GEN]
+│
+├── assembleEntities.xsl                        [XSL] Entity assembly
+├── gc2endorsed.xsl                             [XSL] GC to endorsed
+├── gc2sch.xsl                                  [XSL] GC to Schematron
+├── hub-integrity.xsl                           [XSL] Hub validation
+├── hub2processSummary.xsl                      [XSL] Process extract
+├── namespaceCheck.xsl                          [XSL] NS validation
+├── partydoc2db.xsl                             [XSL] Party to DocBook
+├── schemadoc2db.xsl                            [XSL] Schema to DocBook
+│
+├── architecture.png                            [STC] Architecture diagram
+├── drawio-export.png                           [STC] Screenshot
+│
+├── README.md                                   [DOC]
+├── CONTRIBUTING.md                             [DOC]
+├── LICENSE.md                                  [DOC]
+│
+├── .claude-code-thoughts/                      [DOC] Analysis working dir
+│   └── analysis.md                             Thought process log
+│
+├── claude-docs/                                [DOC] Analysis deliverables
+│   ├── build-analysis.md                       Comprehensive report
+│   └── directory-tree-classifications.txt      This file
+│
+├── art/                                        [STC] 89 high-res PNGs (600 DPI)
+│   └── UBL-*-Process.png                       Process diagrams
+│
+├── htmlart/                                    [STC] 89 web-res PNGs (96 DPI)
+│   └── UBL-*-Process.png                       Same as art/, optimized
+│
+├── images/                                     [STC] 49 source files
+│   ├── *.svg                                   Vector sources
+│   ├── *.drawio                                DrawIO sources
+│   └── *.png                                   Original images
+│
+├── raw/                                        Mixed classifications
+│   ├── cl/                                     [INP] Code lists
+│   │   ├── gc/default/*.gc                     17 code list GC files
+│   │   └── master-code-list-UBL-*.xml          Code list inputs
+│   │
+│   ├── endorsed/                               [INP] Endorsed subset
+│   │   └── xsd/common/*.xsd                    2 endorsed XSD fragments
+│   │
+│   ├── json/                                   [TST] 67 JSON samples
+│   │   └── UBL-*.json                          Sample instances
+│   │
+│   ├── json-schema/                            [INP] JSON schema fragments
+│   │   └── common/*.json                       Hand-authored components
+│   │
+│   ├── mod/                                    [INP] + [STC] Documentation
+│   │   ├── summary/                            Report resources
+│   │   │   ├── readme-Reports.html             [STC]
+│   │   │   └── ReportLegend*.png               [STC] 4 images
+│   │   └── *.xml                               [INP] Doc fragments
+│   │
+│   ├── val/                                    [INP] Validation environment
+│   │   ├── test.sh                             Main validation
+│   │   ├── testsamples.sh                      Sample validation
+│   │   ├── test.bat                            Windows validation
+│   │   ├── testsamples.bat                     Windows samples
+│   │   └── *.xml, *.xsd                        Validation configs
+│   │
+│   ├── xml/                                    [TST] 78 XML samples
+│   │   └── UBL-*.xml                           Sample instances
+│   │
+│   └── xsd/                                    [INP] XSD fragments
+│       └── common/*.xsd                        8 hand-authored XSD
+│
+├── os-UBL-2.0/                                 [ARC] UBL 2.0 (copied then deleted)
+│   └── cl/gc/.../*.gc                          Code lists
+│
+├── os-UBL-2.1/                                 [ARC] UBL 2.1 (copied then deleted)
+│   └── cl/gc/.../*.gc                          Code lists
+│
+├── os-UBL-2.2/                                 [ARC] UBL 2.2 (copied then deleted)
+│   └── cl/gc/.../*.gc                          Code lists
+│
+├── os-UBL-2.3/                                 [ARC] UBL 2.3 (copied then deleted)
+│   └── cl/gc/.../*.gc                          Code lists
+│
+├── os-UBL-2.4/                                 [ARC] UBL 2.4 (KEPT for comparison!)
+│   └── cl/gc/default/*.gc                      14 code list GC files
+│
+├── db/                                         [UTL] DocBook toolkit
+│   └── spec-0.8/                               OASIS spec format
+│       ├── docbook/                            DTD, schemas, XSL (300+ files)
+│       ├── htmlruntime/spec-0.8/
+│       │   └── stylesheets/
+│       │       └── oasis-specification-html-offline.xsl [XSL]
+│       └── validate/
+│           └── xjparse.jar                     [UTL] XML validator
+│
+└── utilities/                                  [UTL] + [XSL] Build tools
+    │
+    ├── Crane-ods2obdgc/                        [UTL] ODS→GC converter
+    │   ├── Crane-ods2obdgc.xsl                 [XSL] Main transform
+    │   └── support/                            [XSL] 2 helpers
+    │
+    ├── Crane-gc2odsxml/                        [UTL] GC→ODS converter
+    │   ├── Crane-gc2odsxml.xsl                 [XSL] Main transform
+    │   └── support/                            [XSL] 3 helpers
+    │
+    ├── Crane-gc2obdndr/                        [UTL] GC→XSD/JSON/Docs
+    │   ├── Crane-gc2obdndr.xsl                 [XSL] Main engine
+    │   ├── Crane-checkgc4obdndr.xsl            [XSL] NDR checker
+    │   ├── Crane-gc2obdsummary.xsl             [XSL] Summary gen
+    │   ├── Crane-mergegc.xsl                   [XSL] GC merger
+    │   ├── Crane-normalizegc.xsl               [XSL] GC normalizer
+    │   └── support/                            [XSL] 15+ helpers
+    │       ├── Crane-commonndr.xsl
+    │       ├── Crane-utilndr.xsl
+    │       ├── Crane-commonjson.xsl
+    │       ├── ndrSubset.xsl
+    │       └── ...
+    │
+    ├── Crane-cva-gc-xsl/                       [UTL] CVA/GC→HTML
+    │   ├── Crane-cva2html.xsl                  [XSL] CVA to HTML
+    │   ├── Crane-gc2html.xsl                   [XSL] GC to HTML
+    │   └── variants/                           [XSL] 4 alternatives
+    │
+    ├── Crane-cva2sch/                          [UTL] CVA→Schematron
+    │   └── utility/                            [XSL] 5 transformers
+    │       ├── Crane-cva2schXSLT.xsl
+    │       ├── Crane-genericode-CodeList.xsl
+    │       └── ...
+    │
+    ├── schxslt/                                [UTL] Schematron validator
+    │   └── 2.0/
+    │       └── pipeline-for-svrl.xsl           [XSL] SVRL pipeline
+    │
+    ├── saxon/                                  [UTL] Saxon 6.x (XSLT 1.0)
+    │   └── saxon.jar                           Legacy processor
+    │
+    ├── saxon9he/                               [UTL] Saxon 9 HE (XSLT 2.0/3.0)
+    │   └── saxon9he.jar                        Main XSLT processor
+    │
+    ├── ant/                                    [UTL] Apache ANT
+    │   ├── bin/                                Executables
+    │   └── lib/*.jar                           ANT libraries
+    │
+    ├── genericode/                             [UTL] Genericode toolkit
+    │   └── xsd/*.xsd                           Genericode schemas
+    │
+    ├── xml-dir/                                [UTL] XML directory tools
+    │   └── lib/*.jar                           XML utilities
+    │
+    └── aspell/                                 [UTL] Spell checker
+        └── *                                   Dictionary files
+
+
+FILE COUNT SUMMARY BY CLASSIFICATION:
+======================================
+
+XSLT_STYLESHEET        421 files   (16.6%)
+UTILITY               1485 files   (58.5%)
+STATIC_RESOURCE        227 files   (8.9%)
+ARCHIVED_VERSION       148 files   (5.8%)
+TEST_SAMPLE            145 files   (5.7%)
+INPUT_SOURCE            78 files   (3.1%)
+GENERATED               11 files   (0.4%)
+CONFIG                  11 files   (0.4%)
+BUILD_SCRIPT             7 files   (0.3%)
+DOCUMENTATION            5 files   (0.2%)
+GIT_INFRASTRUCTURE       1 file    (0.0%)
+─────────────────────────────────────────
+TOTAL                 2539 files  (100.0%)
+
+
+KEY BUILD TRANSFORMATIONS:
+==========================
+
+1. Google Sheets → Genericode
+   wget + Crane-ods2obdgc.xsl → UBL-Entities.gc
+
+2. Genericode → XSD/JSON Schemas  
+   Crane-gc2obdndr.xsl + config → xsd/ + json-schema/
+
+3. Genericode → Schematron
+   gc2sch.xsl + Crane-cva2sch → val/UBL-DefaultDTQ.xsl
+
+4. Hub → HTML/PDF
+   UBL.xml + entity XSLs + Realta API → documentation
+
+5. Summary Reports
+   Crane-gc2obdsummary.xsl → HTML reports
+
+
+EXTERNAL DEPENDENCIES:
+======================
+
+Required:
+- Java 8+ (for Saxon, ANT)
+- wget (for Google Sheets download)
+- bash/sh (for shell scripts)
+- 7z (for final compression)
+
+Optional:
+- LibreOffice/soffice (ODS→XLS conversion)
+- pandoc (document conversion)
+- Realta API credentials (professional docs)
+
+
+BUILD OUTPUTS (3 archives):
+============================
+
+1. UBL-2.5-csd01-{label}-archive-only.7z
+   └── Build logs, Google sheets, intermediate files
+
+2. UBL-2.5-csd01-{label}-iso-iec-19845.7z
+   └── ISO/IEC format documentation
+
+3. UBL-2.5-csd01-{label}.7z (MAIN DISTRIBUTION)
+   ├── csd01-2.5/              Full model package
+   └── Endorsed-csd01-2.5/     Endorsed subset
+
+
+USAGE: 99.6% of files are used in build process
+UNUSED: ~9 files (0.4%) - mostly historical or unclear status
+
+═══════════════════════════════════════════════════════════════
+END OF DIRECTORY TREE CLASSIFICATIONS
+═══════════════════════════════════════════════════════════════
