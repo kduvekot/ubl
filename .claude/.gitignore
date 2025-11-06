@@ -1,0 +1,29 @@
+# Claude Code local configuration
+# This file specifies what should NOT be committed to git
+
+# Local overrides (user-specific settings)
+CLAUDE.local.md
+*.local.md
+
+# Sensitive credentials and secrets
+**/secrets.json
+**/*-credentials.json
+**/.env
+**/.env.*
+
+# Temporary and log files
+**/*.tmp
+**/*.log
+**/.DS_Store
+**/Thumbs.db
+
+# Editor and IDE files
+**/.vscode/
+**/.idea/
+**/*.swp
+**/*.swo
+**/*~
+
+# Build artifacts that may appear during testing
+**/test-output/
+**/debug/
