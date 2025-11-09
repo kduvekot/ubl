@@ -1380,3 +1380,226 @@ The Python implementation should closely follow the XSLT logic while taking adva
 - Generation of short names from long names
 
 This analysis provides everything needed to recreate the exact transformation logic in native Python code.
+
+---
+
+## Appendix D: Actual Spreadsheet Analysis
+
+### Downloaded Spreadsheets
+
+The actual source spreadsheets used in the UBL build process were downloaded and analyzed:
+
+- **Library Spreadsheet**: `UBL-Library-Google.ods` (639 KB)
+  - URL: https://docs.google.com/spreadsheets/d/18o1YqjHWUw0-s8mb3ja4i99obOUhs-4zpgso6RZrGaY
+  - Sheet: `CommonLibrary`
+
+- **Documents Spreadsheet**: `UBL-Documents-Google.ods` (912 KB)
+  - URL: https://docs.google.com/spreadsheets/d/1024Th-Uj8cqliNEJc-3pDOR7DxAAW7gCG4e-pbtarsg
+  - Sheets: `ApplicationResponse`, `AttachedDocument`, `AwardedNotification`, `BillOfLading`, `BusinessCard`, etc.
+
+- **Signature Spreadsheet**: `UBL-Signature-Google.ods` (16 KB)
+  - URL: https://docs.google.com/spreadsheets/d/1T6z2NZ4mc69YllZOXE5TnT5Ey-FlVtaXN1oQ4AIMp7g
+
+### Actual Column Structure
+
+The actual UBL spreadsheets have **26 columns** (A through Z), not 45 as shown in the empty template. The structure is identical across all document sheets and the library sheet.
+
+| # | Letter | Column Name | Type | Notes |
+|---|--------|-------------|------|-------|
+| 1 | A | Component Name | **FORMULA** | Always calculated from Object Class Qualifier + Object Class |
+| 2 | B | Subset Cardinality | MANUAL | Subset-specific cardinality constraints |
+| 3 | C | Cardinality | MANUAL | Base model cardinality (0..1, 1, 0..n, 1..n) |
+| 4 | D | Endorsed Cardinality | MANUAL | Future cardinality when breaking backwards compatibility |
+| 5 | E | Endorsed Cardinality Rationale | MANUAL | Explanation for endorsed changes |
+| 6 | F | Definition | MANUAL/FORMULA | Manual for BBIEs/ASBIEs, formula for ABIEs |
+| 7 | G | Deprecated Definition | MANUAL | Historical definitions when changed |
+| 8 | H | Alternative Business Terms | MIXED | Sometimes formula, sometimes manual |
+| 9 | I | Examples | MANUAL | Sample values |
+| 10 | J | **Dictionary Entry Name** | **MANUAL** | **PRIMARY KEY** - unique identifier |
+| 11 | K | Object Class Qualifier | MANUAL | Qualifiers for the object class |
+| 12 | L | Object Class | MANUAL | The business object being modeled |
+| 13 | M | Property Term Qualifier | FORMULA/MANUAL | Derived for some component types |
+| 14 | N | Property Term Possessive Noun | MIXED | Sometimes calculated |
+| 15 | O | Property Term Primary Noun | MIXED | Sometimes calculated |
+| 16 | P | Property Term | MIXED | Sometimes calculated from parts |
+| 17 | Q | Representation Term | MANUAL | How the property is represented (Identifier, Text, Code, etc.) |
+| 18 | R | Data Type Qualifier | MANUAL | Qualifiers for data type |
+| 19 | S | Data Type | MANUAL | The data type (e.g., Code Type, Identifier Type) |
+| 20 | T | Associated Object Class Qualifier | MANUAL | Qualifier for associated ABIE |
+| 21 | U | Associated Object Class | MANUAL | Related ABIE for associations |
+| 22 | V | Component Type | MANUAL | ABIE, BBIE, or ASBIE |
+| 23 | W | UN/TDED Code | MANUAL | UN Trade Data Elements Directory code |
+| 24 | X | Current Version | MANUAL | Version when introduced |
+| 25 | Y | Last Changed | MANUAL | Version of last change |
+| 26 | Z | Editor's Notes | MANUAL | Internal notes for editors |
+
+### Formula Columns Explained
+
+#### Column A: Component Name (ALWAYS FORMULA)
+
+```
+Formula: =SUBSTITUTE(CONCATENATE([.K];[.L]);" ";"")
+Purpose: Removes spaces from Object Class Qualifier + Object Class
+Example: "Activity" + "Data Line" → "ActivityDataLine"
+```
+
+This column is **never** manually entered - it's always calculated from the object class components.
+
+#### Column F: Definition (FORMULA for ABIEs)
+
+For Aggregate Business Information Entities (ABIEs), the definition is generated:
+
+```
+Formula: =CONCATENATE(IF([.K]="";"";CONCATENATE([.K];"_ "));[.L];". Details")
+Purpose: Creates standard ABIE definition
+Example: "Activity Data Line. Details" or "Acknowledged_ Receipt. Details"
+```
+
+For Basic BIEs (BBIEs) and Association BIEs (ASBIEs), this column contains manually-entered semantic definitions.
+
+#### Column M: Property Term Qualifier (FORMULA for BBIEs)
+
+For BBIEs, complex formulas derive the property term qualifier from representation terms:
+
+```
+Formula: =SUBSTITUTE(CONCATENATE([.M];[.N];
+         IF([.O]="Identifier";"ID";
+         IF(AND([.O]="Text";OR([.M]<>"";[.N]<>""));"";[.O]));
+         IF(AND([.Q]<>"Text";[.O]<>[.Q];...)
+         IF([.Q]="Identifier";"ID";[.Q]);""));" ";"")
+         
+Purpose: Derives the property term qualifier from property components
+Example: "Action" + "Code" with RepresentationTerm="Code" → "ActionCode"
+```
+
+This formula handles special cases like converting "Identifier" to "ID" and removing redundant "Text" qualifiers.
+
+#### Column J: Dictionary Entry Name (ALWAYS MANUAL - PRIMARY KEY)
+
+This is the **most critical column** - it is:
+- Always manually entered
+- Never calculated by formula
+- The primary key for the genericode output
+- Used to uniquely identify each Business Information Entity
+
+**Format**: Follows CCTS naming rules, e.g.:
+- ABIE: `Activity Data Line`
+- BBIE: `Activity Data Line. Identifier. Identifier`
+- ASBIE: `Activity Data Line. Acknowledged_ Receipt`
+
+### Formula vs Manual Input Summary
+
+**100% Formula** (Never manual input):
+- Column A: Component Name
+
+**100% Manual** (Never formulas):
+- Column C: Cardinality
+- Column D: Endorsed Cardinality
+- Column E: Endorsed Cardinality Rationale
+- Column I: Examples
+- **Column J: Dictionary Entry Name (PRIMARY KEY)**
+- Column K: Object Class Qualifier
+- Column L: Object Class
+- Column Q: Representation Term
+- Column R: Data Type Qualifier
+- Column S: Data Type
+- Column T: Associated Object Class Qualifier
+- Column U: Associated Object Class
+- Column V: Component Type
+- Column W: UN/TDED Code
+- Column X: Current Version
+- Column Y: Last Changed
+- Column Z: Editor's Notes
+
+**Context-Dependent** (Formula or manual depending on row type):
+- Column F: Definition (formula for ABIEs, manual for BBIEs/ASBIEs)
+- Column H: Alternative Business Terms (mixed)
+- Column M: Property Term Qualifier (formula for some BBIEs)
+- Column N: Property Term Possessive Noun (formula for some rows)
+- Column O: Property Term Primary Noun (formula for some rows)
+- Column P: Property Term (formula for some rows)
+
+### Component Types and Formula Usage
+
+The spreadsheet contains three types of components, each with different formula patterns:
+
+#### 1. ABIE (Aggregate Business Information Entity)
+**Pink/red background rows**
+- Column A (Component Name): Formula
+- Column F (Definition): Formula (generates "ObjectClass. Details")
+- Column J (Dictionary Entry Name): Manual - just the object class
+- Other semantic columns: Usually empty
+
+#### 2. BBIE (Basic Business Information Entity)
+**White background rows**
+- Column A (Component Name): Formula
+- Column F (Definition): Manual - semantic business definition
+- Column J (Dictionary Entry Name): Manual - full DEN with property and representation
+- Columns M-P (Property Term parts): Often formulas that derive from components
+- Columns Q-S (Data Type info): Manual
+
+#### 3. ASBIE (Association Business Information Entity)  
+**Green background rows**
+- Column A (Component Name): Formula
+- Column F (Definition): Manual - relationship description
+- Column J (Dictionary Entry Name): Manual - full DEN with associated object class
+- Columns T-U (Associated Object Class): Manual
+- Representation Term column: Usually "Association"
+
+### Verification Against Template
+
+The empty template file (`Empty CCTS Model.ods`) that was initially analyzed had **45 columns** with additional subset-related columns and context columns. The actual production spreadsheets use a **streamlined 26-column structure** that focuses on the core CCTS metamodel elements.
+
+**Key differences**:
+1. Template has subset profile columns (Subset MyProf 1, Subset MyProf 2, Subset Comment) - production has single Subset Cardinality
+2. Template has extensive Context columns (Business Process, Region, Industry, etc.) - production omits these
+3. Template includes CCL Dictionary Entry Name column - production omits
+4. Template has marker columns (ABIE, BBIE, ASBIE, END) - production uses Component Type column
+
+The **core 26 columns** documented above are what's actually used in the UBL 2.5 build process.
+
+### Python Implementation Considerations
+
+When implementing the Python version, be aware that:
+
+1. **Formula cells should be ignored** - only read the calculated/displayed value, not the formula itself
+2. **Column A values are derived** - but the ODS file stores the calculated result, so just read it as text
+3. **Column J is the key** - ensure this is always present and unique
+4. **Empty cells are common** - many columns are only populated for specific component types
+5. **Component Type (Column V)** determines which other columns should have data
+
+### Row Structure Pattern
+
+Typical row grouping in the spreadsheets:
+
+```
+Row 1: ABIE (pink) - Activity Data Line
+  - Component Name: ActivityDataLine (formula)
+  - Dictionary Entry Name: Activity Data Line (manual)
+  - Object Class: Activity Data Line (manual)
+  - Component Type: ABIE
+  - Definition: Activity Data Line. Details (formula)
+
+Row 2: BBIE (white) - Identifier property
+  - Component Name: ActivityDataLineIdentifier (formula)
+  - Dictionary Entry Name: Activity Data Line. Identifier. Identifier (manual)
+  - Object Class: Activity Data Line (manual)
+  - Property Term: Identifier (manual/formula)
+  - Representation Term: Identifier (manual)
+  - Component Type: BBIE
+  - Definition: Identifies the Activity Data Line (manual)
+
+Row 3: ASBIE (green) - Reference to another ABIE
+  - Component Name: AcknowledgedReceipt (formula)
+  - Dictionary Entry Name: Activity Data Line. Acknowledged_ Receipt (manual)
+  - Object Class: Activity Data Line (manual)
+  - Associated Object Class: Receipt (manual)
+  - Representation Term: Association (manual)
+  - Component Type: ASBIE
+  - Definition: Reference to receipt acknowledgement (manual)
+```
+
+This hierarchical structure groups child elements under their parent ABIE.
+
+---
+
