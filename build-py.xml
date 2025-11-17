@@ -369,6 +369,12 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     <touch if:set="gcBaseErrors"
            file="${dir}/${UBLstage}-${UBLversion}/INVALID-BASE-GC-FILE-GENERATED.txt"/>
 
+    <!--once UBL-2.5 CSD01 is created then this temporary file copy is not needed-->
+    <echo message="Temporarily creating shadow UBL ${UBLprevStageVersion} ${UBLprevStage} from UBL ${UBLversion} ${UBLstage} because it doesn't exist"/>
+    <copy preservelastmodified="true"
+          tofile="${dir}/UBL-Entities-${UBLprevStageVersion}-${UBLprevStage}.gc"
+          file=  "${dir}/UBL-Entities-${UBLversion}.gc"/>
+
     <!--Endorsed model artefacts have different identification information-->
     <antcallback target="-ods2gc" return="returnGCE">
       <param name="okay"   value="gc-okay"/>
