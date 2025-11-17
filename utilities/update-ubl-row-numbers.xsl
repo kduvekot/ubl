@@ -12,12 +12,24 @@
     java -jar utilities/saxon9he/saxon9he.jar \
       -xsl:utilities/update-ubl-row-numbers.xsl \
       -s:UBL.xml \
-      -o:UBL-updated.xml \
+      -o:UBL.xml \
       gc-uri=UBL-Entities-2.5.gc
 
   This script updates all <ulink role="DEN-Row"> elements to match the
   actual row numbers calculated from the .gc file, using the same algorithm
   as hub-integrity.xsl for validation.
+
+  WORKFLOW FOR ADDING NEW REFERENCES:
+
+  1. When adding a new link in UBL.xml, use "0" as a placeholder:
+     <ulink role="DEN-Row" remap="Party. Details">0</ulink>
+
+  2. The @remap attribute must contain the exact Dictionary Entry Name (DEN)
+     from the .gc file (e.g., "Party. Details", "Invoice. Details", etc.)
+
+  3. Run this script to automatically fill in the correct row numbers
+
+  4. The script will warn you if a DEN is not found in the .gc file
 -->
 
   <xsl:output method="xml" indent="no" encoding="UTF-8"/>
@@ -27,6 +39,9 @@
 
   <!-- Load the genericode file -->
   <xsl:variable name="gc" select="document(translate($gc-uri,'\','/'))"/>
+
+  <!-- Track statistics -->
+  <xsl:variable name="total-refs" select="count(//ulink[@role='DEN-Row'])"/>
 
   <!-- Key to look up rows by Dictionary Entry Name (DEN) -->
   <xsl:key name="rows"
@@ -72,6 +87,19 @@
             gc:Value[@ColumnRef='ModelName']/gc:SimpleValue = $model
           ])"/>
 
+        <!-- Log if we're updating a value (not just confirming it's correct) -->
+        <xsl:if test=". != $rowNum">
+          <xsl:message>
+            <xsl:text>  Updated: </xsl:text>
+            <xsl:value-of select="$den"/>
+            <xsl:text> (</xsl:text>
+            <xsl:value-of select="."/>
+            <xsl:text> → </xsl:text>
+            <xsl:value-of select="$rowNum"/>
+            <xsl:text>)</xsl:text>
+          </xsl:message>
+        </xsl:if>
+
         <!-- Output the calculated row number -->
         <xsl:value-of select="$rowNum"/>
       </xsl:when>
@@ -80,13 +108,38 @@
           DEN not found in .gc file - keep original value and warn
           (hub-integrity.xsl will catch this as an error)
         -->
-        <xsl:message>
-          <xsl:text>WARNING: DEN not found in .gc file: </xsl:text>
+        <xsl:message terminate="no">
+          <xsl:text>ERROR: DEN not found in .gc file: "</xsl:text>
           <xsl:value-of select="$den"/>
+          <xsl:text>" - keeping original value </xsl:text>
+          <xsl:value-of select="."/>
         </xsl:message>
         <xsl:value-of select="."/>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+
+  <!-- Print summary report at the end -->
+  <xsl:template match="/">
+    <xsl:message>
+      <xsl:text>&#xa;========================================&#xa;</xsl:text>
+      <xsl:text>UBL Row Number Auto-Update&#xa;</xsl:text>
+      <xsl:text>========================================&#xa;</xsl:text>
+      <xsl:text>Source: </xsl:text>
+      <xsl:value-of select="base-uri(/)"/>
+      <xsl:text>&#xa;</xsl:text>
+      <xsl:text>GC file: </xsl:text>
+      <xsl:value-of select="$gc-uri"/>
+      <xsl:text>&#xa;</xsl:text>
+      <xsl:text>Total DEN-Row references: </xsl:text>
+      <xsl:value-of select="$total-refs"/>
+      <xsl:text>&#xa;</xsl:text>
+      <xsl:text>========================================&#xa;</xsl:text>
+    </xsl:message>
+    <xsl:next-match/>
+    <xsl:message>
+      <xsl:text>&#xa;Done. Check output for any ERROR messages.&#xa;</xsl:text>
+    </xsl:message>
   </xsl:template>
 
 </xsl:stylesheet>

@@ -177,6 +177,81 @@ Extend `hub-integrity.xsl` to:
 - The `@remap` attribute contains the Dictionary Entry Name (DEN) which is unique
 - This same logic is used in `hub-integrity.xsl` for validation
 
+## Workflow for Adding New References
+
+When editing UBL.xml and adding new row number references:
+
+### Step 1: Use Placeholder "0"
+
+```xml
+<para>
+  The Party ABIE (line
+  <ulink url="mod/summary/reports/UBL-Invoice-&version;.html#Table-Party.Details"
+         conformance="skip"
+         role="DEN-Row"
+         remap="Party. Details">0</ulink>)
+  contains the following elements...
+</para>
+```
+
+**Key points:**
+- Use `0` as the row number (clearly a placeholder)
+- The `@remap` attribute must exactly match the Dictionary Entry Name (DEN) from the .gc file
+- Use dot-space separator: `"Party. Details"` not `"Party.Details"`
+
+### Step 2: Find the Correct DEN
+
+**Option A: From HTML reports**
+- Open `mod/summary/reports/UBL-Invoice-2.5.html`
+- Find your element
+- The URL anchor shows the DEN: `#Table-Party.Details`
+- Use everything after `Table-`: `Party. Details`
+
+**Option B: From .gc file**
+```bash
+grep -i "party. details" UBL-Entities-2.5.gc
+```
+
+**Option C: Copy from existing references**
+```bash
+grep 'role="DEN-Row"' UBL.xml | grep -i party
+```
+
+### Step 3: Run Auto-Update
+
+```bash
+java -jar utilities/saxon9he/saxon9he.jar \
+  -xsl:utilities/update-ubl-row-numbers.xsl \
+  -s:UBL.xml -o:UBL.xml \
+  gc-uri=UBL-Entities-2.5.gc
+```
+
+### Step 4: Check the Output
+
+The script will show:
+```
+========================================
+UBL Row Number Auto-Update
+========================================
+Source: file:/home/user/ubl/UBL.xml
+GC file: UBL-Entities-2.5.gc
+Total DEN-Row references: 234
+========================================
+  Updated: Party. Details (0 → 1744)
+  Updated: PartyName. Details (0 → 1793)
+
+Done. Check output for any ERROR messages.
+```
+
+### If You Get the DEN Wrong
+
+```
+ERROR: DEN not found in .gc file: "Partty. Details" - keeping original value 0
+                                   ^^^^^^ typo!
+```
+
+Fix the `@remap` attribute and run again.
+
 ## Testing
 
 Test the auto-update script with:
@@ -187,9 +262,24 @@ ant -Ddir=target -ods2gc-for-base
 # Run auto-update
 java -jar utilities/saxon9he/saxon9he.jar \
   -xsl:utilities/update-ubl-row-numbers.xsl \
-  -s:UBL.xml -o:UBL-updated.xml \
+  -s:UBL.xml -o:UBL.xml \
   gc-uri=target/UBL-Entities-2.5.gc
 
 # Verify no mismatches
 ant -Ddir=target -consistency-check
 ```
+
+## Quick Reference: DEN Examples
+
+Common Dictionary Entry Names you might reference:
+
+| Element | DEN (for @remap) |
+|---------|------------------|
+| Invoice ABIE | `Invoice. Details` |
+| Period ABIE | `Period. Details` |
+| Party ABIE | `Party. Details` |
+| PartyName ABIE | `Party Name. Details` |
+| SupplierParty ABIE | `Supplier Party. Details` |
+| MonetaryTotal ABIE | `Monetary Total. Details` |
+
+Note: Always include the space after the dot!
