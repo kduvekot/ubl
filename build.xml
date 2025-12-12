@@ -40,16 +40,11 @@
   <echo if:set="skip-publish" message="!!!!!!!!!!!!!! Incomplete execution requested: documentation not being generated in the absence of secret values!!!!!!!!!!!!!!!!"/>
   <!--override abieExtensions as "no" for UBL 2.2 and earlier-->
   <property name="abieExtensions" value="yes"/>
-  <!--performance configuration - cpuCount controls parallel execution
-      cpuCountOverride: set via command line to override platform-based default
-      platform=local: default 16 parallel workers
-      platform=github: default 1 worker (sequential) due to memory constraints
-  -->
+  <!--performance locally; use cpuCountOverride to override default-->
   <if>
     <isset property="cpuCountOverride"/>
     <then>
       <property name="cpuCount" value="${cpuCountOverride}"/>
-      <echo message="Using cpuCount override: ${cpuCount}"/>
     </then>
     <else>
       <if>
@@ -63,7 +58,6 @@
       </if>
     </else>
   </if>
-  <echo message="cpuCount=${cpuCount}"/>
   <!--documentation-->
   <echo message="dir=${dir}"/>
   <echo message="thisdir=${thisdir}"/>
@@ -818,7 +812,6 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
 
 <target name="-reports" depends="-report-all-only" unless="html-okay">
   <property name="parallelGroupCount" value="${cpuCount}"/>
-  <echo message="Starting reports generation with parallelGroupCount=${parallelGroupCount}"/>
 
  <if>
    <equals arg1="${parallelGroupCount}" arg2="1"/>
@@ -832,9 +825,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
   </sequential>
   </then>
   <else>
-    <!-- threadCount limits concurrent execution to cpuCount threads -->
-    <echo message="Running parallel reports with threadCount=${cpuCount}"/>
-    <parallel threadCount="${cpuCount}">
+    <parallel>
   <sequential>
     <antcall target="-gc2html">
       <param name="okay"    value="html-okay"/>
@@ -1196,10 +1187,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
   <delete file="${dir}/${UBLstage}-${UBLversion}/mod/summary/reports"/>
   <property name="alldocsname" value="All-UBL-${UBLversion}-Documents"/>
   <property name="doAllOnly" value="no"/>
-  <tstamp>
-    <format property="gc2html.start.${group}" pattern="yyyy-MM-dd HH:mm:ss"/>
-  </tstamp>
-  <echo message='[${gc2html.start.${group}}] Starting HTML reports generation (group ${group} of ${parallelGroupCount}) from "${source}" (endorsed=${endorsed})...'/>
+  <echo message='Creating HTML reports (group ${group}) from "${source}" GC file (endorsed=${endorsed})...'/>
   <java append="true" jar="utilities/saxon9he/saxon9he.jar" fork="true">
      <arg value="-xsl:${utilitydir}Crane-gc2obdndr/Crane-gc2obdsummary.xsl"/>
      <arg value="-s:${source}"/>
@@ -1215,10 +1203,6 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
      <arg value="do-all-only=${doAllOnly}"/>
      <arg value="endorsed=${endorsed}"/>
   </java>
-  <tstamp>
-    <format property="gc2html.end.${group}" pattern="yyyy-MM-dd HH:mm:ss"/>
-  </tstamp>
-  <echo message='[${gc2html.end.${group}}] Completed HTML reports generation (group ${group} of ${parallelGroupCount})'/>
 </target>
 
 <target name="-codelists">
