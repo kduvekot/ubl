@@ -1,0 +1,333 @@
+name: Parallel Build Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      cpu_count:
+        description: 'Number of parallel workers (1-16)'
+        required: true
+        default: '4'
+        type: choice
+        options:
+          - '1'
+          - '2'
+          - '4'
+          - '8'
+          - '16'
+      jvm_heap_max:
+        description: 'Maximum JVM heap size (e.g., 512m, 1g, 2g)'
+        required: true
+        default: '1g'
+        type: string
+      memory_monitor_interval:
+        description: 'Memory monitoring interval in seconds'
+        required: true
+        default: '5'
+        type: string
+
+jobs:
+  parallel-build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Display Runner Resources
+      run: |
+        echo "=============================================="
+        echo "GITHUB ACTIONS RUNNER RESOURCE INFORMATION"
+        echo "=============================================="
+        echo ""
+        echo "--- CPU Information ---"
+        echo "CPU Cores: $(nproc)"
+        lscpu | grep -E 'Model name|Socket|Core|Thread|CPU\(s\)|MHz'
+        echo ""
+        echo "--- Memory Information ---"
+        free -h
+        cat /proc/meminfo | grep -E 'MemTotal|MemFree|MemAvailable|SwapTotal|SwapFree'
+        echo ""
+        echo "--- Disk Space ---"
+        df -h /
+        echo ""
+        echo "--- System Limits ---"
+        ulimit -a
+        echo ""
+        echo "=============================================="
+        echo "BUILD CONFIGURATION"
+        echo "=============================================="
+        echo "CPU Count for parallel build: ${{ github.event.inputs.cpu_count }}"
+        echo "JVM Max Heap: ${{ github.event.inputs.jvm_heap_max }}"
+        echo "Memory monitor interval: ${{ github.event.inputs.memory_monitor_interval }}s"
+        echo "=============================================="
+
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'zulu'
+        java-version: 8
+        java-package: jdk
+
+    - name: Dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y aspell libreoffice pandoc
+
+    - name: Create Memory Monitor Script
+      run: |
+        cat > /tmp/memory-monitor.sh << 'MONITOR_EOF'
+        #!/bin/bash
+        LOG_FILE="$1"
+        INTERVAL="${2:-5}"
+
+        echo "Starting memory monitor (interval: ${INTERVAL}s, log: ${LOG_FILE})"
+        echo "timestamp,mem_total_mb,mem_used_mb,mem_free_mb,mem_available_mb,swap_used_mb,java_rss_mb,java_procs,load_avg" > "$LOG_FILE"
+
+        while true; do
+          TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+
+          # Memory stats from /proc/meminfo
+          MEM_TOTAL=$(awk '/MemTotal/ {print int($2/1024)}' /proc/meminfo)
+          MEM_FREE=$(awk '/MemFree/ {print int($2/1024)}' /proc/meminfo)
+          MEM_AVAILABLE=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+          SWAP_TOTAL=$(awk '/SwapTotal/ {print int($2/1024)}' /proc/meminfo)
+          SWAP_FREE=$(awk '/SwapFree/ {print int($2/1024)}' /proc/meminfo)
+
+          MEM_USED=$((MEM_TOTAL - MEM_FREE))
+          SWAP_USED=$((SWAP_TOTAL - SWAP_FREE))
+
+          # Java process memory (RSS in MB)
+          JAVA_RSS=$(ps aux | grep '[j]ava' | awk '{sum += $6} END {print int(sum/1024)}')
+          JAVA_PROCS=$(ps aux | grep '[j]ava' | wc -l)
+
+          # Load average
+          LOAD_AVG=$(cat /proc/loadavg | awk '{print $1}')
+
+          echo "${TIMESTAMP},${MEM_TOTAL},${MEM_USED},${MEM_FREE},${MEM_AVAILABLE},${SWAP_USED},${JAVA_RSS:-0},${JAVA_PROCS},${LOAD_AVG}" >> "$LOG_FILE"
+
+          # Alert on low memory
+          if [ "$MEM_AVAILABLE" -lt 500 ]; then
+            echo "[ALERT] Low memory! Available: ${MEM_AVAILABLE}MB at ${TIMESTAMP}" >> "${LOG_FILE}.alerts"
+          fi
+
+          sleep "$INTERVAL"
+        done
+        MONITOR_EOF
+        chmod +x /tmp/memory-monitor.sh
+
+    - name: Create Java Process Monitor Script
+      run: |
+        cat > /tmp/java-monitor.sh << 'JAVA_MONITOR_EOF'
+        #!/bin/bash
+        LOG_FILE="$1"
+        INTERVAL="${2:-10}"
+
+        echo "Starting Java process monitor (interval: ${INTERVAL}s, log: ${LOG_FILE})"
+
+        while true; do
+          TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+          echo "" >> "$LOG_FILE"
+          echo "=== Java Processes at ${TIMESTAMP} ===" >> "$LOG_FILE"
+
+          # Detailed Java process info
+          ps aux | grep '[j]ava' | while read line; do
+            PID=$(echo "$line" | awk '{print $2}')
+            RSS_MB=$(echo "$line" | awk '{print int($6/1024)}')
+            VSZ_MB=$(echo "$line" | awk '{print int($5/1024)}')
+            CPU=$(echo "$line" | awk '{print $3}')
+
+            # Try to get JVM heap info if jstat is available
+            HEAP_INFO=""
+            if command -v jstat &> /dev/null; then
+              HEAP_INFO=$(jstat -gc $PID 2>/dev/null | tail -1 || echo "N/A")
+            fi
+
+            echo "PID: $PID, RSS: ${RSS_MB}MB, VSZ: ${VSZ_MB}MB, CPU: ${CPU}%, Heap: $HEAP_INFO" >> "$LOG_FILE"
+          done
+
+          # Count total Java processes
+          JAVA_COUNT=$(ps aux | grep '[j]ava' | wc -l)
+          echo "Total Java processes: $JAVA_COUNT" >> "$LOG_FILE"
+
+          sleep "$INTERVAL"
+        done
+        JAVA_MONITOR_EOF
+        chmod +x /tmp/java-monitor.sh
+
+    - name: Start Memory Monitors
+      run: |
+        mkdir -p target/diagnostics
+
+        # Start memory monitor in background
+        nohup /tmp/memory-monitor.sh target/diagnostics/memory-stats.csv ${{ github.event.inputs.memory_monitor_interval }} &
+        echo $! > /tmp/memory-monitor.pid
+        echo "Memory monitor started with PID $(cat /tmp/memory-monitor.pid)"
+
+        # Start Java process monitor in background
+        nohup /tmp/java-monitor.sh target/diagnostics/java-processes.log 10 &
+        echo $! > /tmp/java-monitor.pid
+        echo "Java monitor started with PID $(cat /tmp/java-monitor.pid)"
+
+    - name: Generate Timestamp
+      id: timestamp
+      run: |
+        timestamp=$(date -u +%Y%m%d-%H%M)
+        echo "timestamp=${timestamp}" >> $GITHUB_OUTPUT
+        echo "Generated timestamp: ${timestamp}"
+
+    - name: Build with Parallel Configuration
+      id: build
+      env:
+        REALTA_USERNAME: ${{ secrets.REALTA_USERNAME }}
+        REALTA_PASSWORD: ${{ secrets.REALTA_PASSWORD }}
+        BUILD_CPU_COUNT: ${{ github.event.inputs.cpu_count }}
+        BUILD_JVM_HEAP_MAX: ${{ github.event.inputs.jvm_heap_max }}
+      run: |
+        mkdir -p target
+
+        # Export diagnostic settings
+        export DIAGNOSTIC_MODE=true
+
+        # Log build start
+        echo "=============================================="
+        echo "Starting build with CPU_COUNT=${BUILD_CPU_COUNT}, JVM_HEAP_MAX=${BUILD_JVM_HEAP_MAX}"
+        echo "Start time: $(date)"
+        echo "=============================================="
+
+        # Run build with custom CPU count
+        # Using build-diagnostic.sh which passes cpuCount to Ant
+        bash build-diagnostic.sh target github ${{ steps.timestamp.outputs.timestamp }}z "${REALTA_USERNAME:-}" "${REALTA_PASSWORD:-}" DELETE-REPOSITORY-FILES-AS-WELL
+        BUILD_EXIT_CODE=$?
+
+        echo "=============================================="
+        echo "Build completed with exit code: $BUILD_EXIT_CODE"
+        echo "End time: $(date)"
+        echo "=============================================="
+
+        # Save exit code for later
+        echo "build_exit_code=$BUILD_EXIT_CODE" >> $GITHUB_OUTPUT
+
+    - name: Stop Memory Monitors
+      if: always()
+      run: |
+        echo "Stopping memory monitors..."
+
+        if [ -f /tmp/memory-monitor.pid ]; then
+          kill $(cat /tmp/memory-monitor.pid) 2>/dev/null || true
+          echo "Memory monitor stopped"
+        fi
+
+        if [ -f /tmp/java-monitor.pid ]; then
+          kill $(cat /tmp/java-monitor.pid) 2>/dev/null || true
+          echo "Java monitor stopped"
+        fi
+
+    - name: Analyze Memory Usage
+      if: always()
+      run: |
+        echo "=============================================="
+        echo "MEMORY USAGE ANALYSIS"
+        echo "=============================================="
+
+        if [ -f target/diagnostics/memory-stats.csv ]; then
+          echo ""
+          echo "--- Memory Statistics Summary ---"
+          echo "Total samples: $(wc -l < target/diagnostics/memory-stats.csv)"
+          echo ""
+
+          # Find peak memory usage
+          echo "--- Peak Memory Usage ---"
+          awk -F',' 'NR>1 {if($3>max) {max=$3; line=$0}} END {print "Peak memory used: " max "MB"; print "At: " line}' target/diagnostics/memory-stats.csv
+          echo ""
+
+          # Find minimum available memory
+          echo "--- Minimum Available Memory ---"
+          awk -F',' 'NR>1 {if(min=="" || $5<min) {min=$5; line=$0}} END {print "Minimum available: " min "MB"; print "At: " line}' target/diagnostics/memory-stats.csv
+          echo ""
+
+          # Find peak Java memory
+          echo "--- Peak Java RSS Memory ---"
+          awk -F',' 'NR>1 {if($7>max) {max=$7; line=$0}} END {print "Peak Java RSS: " max "MB"; print "At: " line}' target/diagnostics/memory-stats.csv
+          echo ""
+
+          # Find max concurrent Java processes
+          echo "--- Maximum Concurrent Java Processes ---"
+          awk -F',' 'NR>1 {if($8>max) {max=$8; line=$0}} END {print "Max Java procs: " max; print "At: " line}' target/diagnostics/memory-stats.csv
+          echo ""
+
+          echo "--- Last 20 Memory Samples ---"
+          tail -20 target/diagnostics/memory-stats.csv
+          echo ""
+        else
+          echo "No memory stats file found!"
+        fi
+
+        if [ -f target/diagnostics/memory-stats.csv.alerts ]; then
+          echo ""
+          echo "--- LOW MEMORY ALERTS ---"
+          cat target/diagnostics/memory-stats.csv.alerts
+        fi
+
+        if [ -f target/diagnostics/java-processes.log ]; then
+          echo ""
+          echo "--- Java Process Log (last 50 lines) ---"
+          tail -50 target/diagnostics/java-processes.log
+        fi
+
+    - name: Check for OOM Killer Activity
+      if: always()
+      run: |
+        echo "=============================================="
+        echo "OOM KILLER CHECK"
+        echo "=============================================="
+
+        # Check dmesg for OOM killer messages (may require sudo)
+        echo "--- Checking dmesg for OOM messages ---"
+        dmesg 2>/dev/null | grep -i "oom\|out of memory\|killed process" || echo "No OOM messages found in dmesg (or no access)"
+
+        # Check system journal
+        echo ""
+        echo "--- Checking journal for OOM messages ---"
+        journalctl -k 2>/dev/null | grep -i "oom\|out of memory\|killed" | tail -20 || echo "No journal access or no OOM messages"
+
+    - name: List Build Output
+      if: always()
+      run: |
+        echo "=== Build Directory Structure ==="
+        echo "Current directory: $(pwd)"
+        echo ""
+        echo "--- Root directory contents ---"
+        ls -lah
+        echo ""
+        if [ -d target ]; then
+          echo "--- Target directory ---"
+          ls -lah target/
+          echo ""
+          if [ -d target/diagnostics ]; then
+            echo "--- Diagnostics files ---"
+            ls -lah target/diagnostics/
+          fi
+        else
+          echo "target directory does not exist"
+        fi
+        echo ""
+        echo "--- Zip files in root ---"
+        ls -lh *.7z 2>/dev/null || echo "No zip files found"
+
+    - name: Upload Diagnostics
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: parallel-build-diagnostics-cpu${{ github.event.inputs.cpu_count }}-${{ steps.timestamp.outputs.timestamp }}z
+        path: |
+          target/diagnostics/
+          target/**/build.console.*.txt
+          target/**/*-archive-only/
+        if-no-files-found: warn
+
+    - name: Upload Build Artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: UBL-parallel-test-cpu${{ github.event.inputs.cpu_count }}-${{ steps.timestamp.outputs.timestamp }}z
+        path: ./*
+        if-no-files-found: warn
