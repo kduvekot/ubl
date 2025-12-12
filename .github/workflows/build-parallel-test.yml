@@ -1,6 +1,10 @@
 name: Parallel Build Test
 
 on:
+  # Trigger on push when commit message contains [parallel-test]
+  push:
+    branches:
+      - 'claude/ant-parallel-build-setup-*'
   # Manual trigger from GitHub UI (requires workflow on default branch)
   workflow_dispatch:
     inputs:
@@ -29,9 +33,56 @@ on:
 jobs:
   parallel-build-test:
     runs-on: ubuntu-latest
+    # Only run if: workflow_dispatch OR commit message contains [parallel-test]
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.head_commit.message, '[parallel-test]')
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Parse Parameters from Commit Message
+      id: params
+      run: |
+        # Default values
+        CPU_COUNT="4"
+        JVM_HEAP="1g"
+        MONITOR_INTERVAL="5"
+
+        if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+          # Use workflow_dispatch inputs
+          CPU_COUNT="${{ github.event.inputs.cpu_count }}"
+          JVM_HEAP="${{ github.event.inputs.jvm_heap_max }}"
+          MONITOR_INTERVAL="${{ github.event.inputs.memory_monitor_interval }}"
+        else
+          # Parse from commit message: [parallel-test cpu=4 heap=1g interval=5]
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          echo "Parsing commit message: $COMMIT_MSG"
+
+          # Extract cpu value
+          if [[ "$COMMIT_MSG" =~ cpu=([0-9]+) ]]; then
+            CPU_COUNT="${BASH_REMATCH[1]}"
+          fi
+
+          # Extract heap value
+          if [[ "$COMMIT_MSG" =~ heap=([0-9]+[mgMG]) ]]; then
+            JVM_HEAP="${BASH_REMATCH[1]}"
+          fi
+
+          # Extract interval value
+          if [[ "$COMMIT_MSG" =~ interval=([0-9]+) ]]; then
+            MONITOR_INTERVAL="${BASH_REMATCH[1]}"
+          fi
+        fi
+
+        echo "cpu_count=$CPU_COUNT" >> $GITHUB_OUTPUT
+        echo "jvm_heap=$JVM_HEAP" >> $GITHUB_OUTPUT
+        echo "monitor_interval=$MONITOR_INTERVAL" >> $GITHUB_OUTPUT
+
+        echo "Parsed parameters:"
+        echo "  CPU Count: $CPU_COUNT"
+        echo "  JVM Heap: $JVM_HEAP"
+        echo "  Monitor Interval: $MONITOR_INTERVAL"
 
     - name: Display Runner Resources
       run: |
@@ -56,9 +107,9 @@ jobs:
         echo "=============================================="
         echo "BUILD CONFIGURATION"
         echo "=============================================="
-        echo "CPU Count for parallel build: ${{ github.event.inputs.cpu_count }}"
-        echo "JVM Max Heap: ${{ github.event.inputs.jvm_heap_max }}"
-        echo "Memory monitor interval: ${{ github.event.inputs.memory_monitor_interval }}s"
+        echo "CPU Count for parallel build: ${{ steps.params.outputs.cpu_count }}"
+        echo "JVM Max Heap: ${{ steps.params.outputs.jvm_heap }}"
+        echo "Memory monitor interval: ${{ steps.params.outputs.monitor_interval }}s"
         echo "=============================================="
 
     - name: Set up JDK 1.8
@@ -159,7 +210,7 @@ jobs:
         mkdir -p target/diagnostics
 
         # Start memory monitor in background
-        nohup /tmp/memory-monitor.sh target/diagnostics/memory-stats.csv ${{ github.event.inputs.memory_monitor_interval }} &
+        nohup /tmp/memory-monitor.sh target/diagnostics/memory-stats.csv ${{ steps.params.outputs.monitor_interval }} &
         echo $! > /tmp/memory-monitor.pid
         echo "Memory monitor started with PID $(cat /tmp/memory-monitor.pid)"
 
@@ -180,8 +231,8 @@ jobs:
       env:
         REALTA_USERNAME: ${{ secrets.REALTA_USERNAME }}
         REALTA_PASSWORD: ${{ secrets.REALTA_PASSWORD }}
-        BUILD_CPU_COUNT: ${{ github.event.inputs.cpu_count }}
-        BUILD_JVM_HEAP_MAX: ${{ github.event.inputs.jvm_heap_max }}
+        BUILD_CPU_COUNT: ${{ steps.params.outputs.cpu_count }}
+        BUILD_JVM_HEAP_MAX: ${{ steps.params.outputs.jvm_heap }}
       run: |
         mkdir -p target
 
@@ -318,7 +369,7 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: parallel-build-diagnostics-cpu${{ github.event.inputs.cpu_count }}-${{ steps.timestamp.outputs.timestamp }}z
+        name: parallel-build-diagnostics-cpu${{ steps.params.outputs.cpu_count }}-${{ steps.timestamp.outputs.timestamp }}z
         path: |
           target/diagnostics/
           target/**/build.console.*.txt
@@ -329,6 +380,6 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: UBL-parallel-test-cpu${{ github.event.inputs.cpu_count }}-${{ steps.timestamp.outputs.timestamp }}z
+        name: UBL-parallel-test-cpu${{ steps.params.outputs.cpu_count }}-${{ steps.timestamp.outputs.timestamp }}z
         path: ./*
         if-no-files-found: warn
