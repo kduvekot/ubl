@@ -1,6 +1,7 @@
 name: Parallel Build Test
 
 on:
+  # Manual trigger from GitHub UI (requires workflow on default branch)
   workflow_dispatch:
     inputs:
       cpu_count:
