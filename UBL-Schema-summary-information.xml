@@ -1033,4 +1033,22 @@
       <receiverRole>Requestor</receiverRole>
       <examples/>
    </schema>
+   <schema>
+      <name>Waste Movement</name>
+      <processes>
+         <process>Waste Shipment Management</process>
+      </processes>
+      <submitterRole>Sender</submitterRole>
+      <receiverRole>Receiver</receiverRole>
+      <examples/>
+   </schema>
+   <schema>
+      <name>Waste Notification</name>
+      <processes>
+         <process>Waste Shipment Management</process>
+      </processes>
+      <submitterRole>Sender</submitterRole>
+      <receiverRole>Receiver</receiverRole>
+      <examples/>
+   </schema>
 </schemadocs>
