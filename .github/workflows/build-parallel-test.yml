@@ -33,8 +33,8 @@ on:
 jobs:
   parallel-build-test:
     runs-on: ubuntu-latest
-    # Only run if: workflow_dispatch OR commit message contains [parallel-test]
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[parallel-test]')
+    # Only run if: workflow_dispatch OR commit message contains PARALLEL-TEST
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, 'PARALLEL-TEST')
 
     steps:
     - uses: actions/checkout@v4
@@ -53,7 +53,7 @@ jobs:
           JVM_HEAP="${{ github.event.inputs.jvm_heap_max }}"
           MONITOR_INTERVAL="${{ github.event.inputs.memory_monitor_interval }}"
         else
-          # Parse from commit message: [parallel-test cpu=4 heap=1g interval=5]
+          # Parse from commit message: PARALLEL-TEST cpu=4 heap=1g interval=5
           COMMIT_MSG="${{ github.event.head_commit.message }}"
           echo "Parsing commit message: $COMMIT_MSG"
 
