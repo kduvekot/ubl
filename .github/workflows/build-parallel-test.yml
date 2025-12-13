@@ -369,9 +369,9 @@ jobs:
       with:
         name: parallel-build-diagnostics-cpu${{ steps.params.outputs.cpu_count }}-${{ steps.timestamp.outputs.timestamp }}z
         path: |
+          diagnostics/
           target/diagnostics/
-          target/**/build.console.*.txt
-          target/**/*-archive-only/
+          *.7z
         if-no-files-found: warn
 
     - name: Upload Build Artifacts
