@@ -49,6 +49,7 @@
 48,2021-09-27,8cdd81b,cecileguasch,Update  BRIN process diagram.drawio,, , , , , ,8cdd81b, , , , , , , , , , , , , , , , , , , , , 
 49,2021-10-20,2298f6d,Kees Duvekot,Merge pull request #4 from oasis-tcs/UBL-330,, , , , , ,2298f6d, , , , , , , , , , , , , , , , , , , , , 
 50,2021-11-10,8610606,gkholman,UBL-335 Update XSD schema fragment for BDNDR unqualified data types,, , , , , ,8610606, , , , , , , , , , , , , , , , , , , , , 
+#,Date,SHA,Author,Message,Event,main,ubl-2.3-csd05-copy,ubl-2.3-cs02,ubl-2.3-os,ubl-2.4-csd01wd01,ubl-2.4-csd01wd02,review,ubl-2.3-os-iso,ubl-2.4-csd01,ubl-2.4-csd02-prd01-13,ubl-2.4-csd02,ubl-2.4-csd02-tsc,ubl-2.4-cs01-work,ubl-2.4-cs01,tsc-ubl-2.5-experimental,ubl-2.5-dev,ubl-2.4-os,ubl-2.4-os-iso-pub,retest,ubl-2.5-kenneth,UBL-433-xsd-doc,ubl-2.5-python,ubl-2.5-retry,server-test,ubl-2.5-2025-layout,kentest,ubl-2.5
 51,2021-11-12,04b283c,cecileguasch,Business Information Registration Notification,, , , , , ,04b283c, , , , , , , , , , , , , , , , , , , , , 
 52,2021-11-12,a450294,cecileguasch,Draft Business Information Registration Notification BP Diagram,, , , , , ,a450294, , , , , , , , , , , , , , , , , , , , , 
 53,2022-02-02,3cf4130,cecileguasch,Business Registration Information Request Notice Diagram.drawio,, , , , , ,3cf4130, , , , , , , , , , , , , , , , , , , , , 
@@ -99,6 +100,7 @@
 98,2023-01-29,93da54f,gkholman,Accommodate bad GC file so that it is returned for diagnostics,, , , , , ,93da54f, , , , , , , , , , , , , , , , , , , , , 
 99,2023-01-29,7cc9a32,gkholman,Remove invalid space from identification short name in generated GC file,, , , , , ,7cc9a32, , , , , , , , , , , , , , , , , , , , , 
 100,2023-01-29,75f789f,gkholman,Inadvertent drop of multi-directory copy,, , , , , ,75f789f, , , , , , , , , , , , , , , , , , , , , 
+#,Date,SHA,Author,Message,Event,main,ubl-2.3-csd05-copy,ubl-2.3-cs02,ubl-2.3-os,ubl-2.4-csd01wd01,ubl-2.4-csd01wd02,review,ubl-2.3-os-iso,ubl-2.4-csd01,ubl-2.4-csd02-prd01-13,ubl-2.4-csd02,ubl-2.4-csd02-tsc,ubl-2.4-cs01-work,ubl-2.4-cs01,tsc-ubl-2.5-experimental,ubl-2.5-dev,ubl-2.4-os,ubl-2.4-os-iso-pub,retest,ubl-2.5-kenneth,UBL-433-xsd-doc,ubl-2.5-python,ubl-2.5-retry,server-test,ubl-2.5-2025-layout,kentest,ubl-2.5
 101,2023-01-29,8df3b11,gkholman,Improve check of assembled documentation,, , , , , ,8df3b11, , , , , , , , , , , , , , , , , , , , , 
 102,2023-01-29,98dbb62,gkholman,UBL-183 Generate and document XML catalogues,, , , , , ,98dbb62, , , , , , , , , , , , , , , , , , , , , 
 103,2023-01-29,3af4b6c,Kees Duvekot,update links to Google Sheets,, , , , , ,3af4b6c, , , , , , , , , , , , , , , , , , , , , 
@@ -149,6 +151,7 @@
 148,2023-02-07,be9528c,Kees Duvekot,Merge pull request #19 from oasis-tcs/kd-ubl-331,, , , , , ,be9528c, , , , , , , , , , , , , , , , , , , , , 
 149,2023-02-07,48933e7,Kenneth Bengtsson,Updated CSD01 version numbering and publication date,, , , , , , , , ,48933e7, , , , , , , , , , , , , , , , , , 
 150,2023-02-07,5adbaf4,Kenneth Bengtsson,Updated CSD01 version numbering and date,, , , , , , , , ,5adbaf4, , , , , , , , , , , , , , , , , , 
+#,Date,SHA,Author,Message,Event,main,ubl-2.3-csd05-copy,ubl-2.3-cs02,ubl-2.3-os,ubl-2.4-csd01wd01,ubl-2.4-csd01wd02,review,ubl-2.3-os-iso,ubl-2.4-csd01,ubl-2.4-csd02-prd01-13,ubl-2.4-csd02,ubl-2.4-csd02-tsc,ubl-2.4-cs01-work,ubl-2.4-cs01,tsc-ubl-2.5-experimental,ubl-2.5-dev,ubl-2.4-os,ubl-2.4-os-iso-pub,retest,ubl-2.5-kenneth,UBL-433-xsd-doc,ubl-2.5-python,ubl-2.5-retry,server-test,ubl-2.5-2025-layout,kentest,ubl-2.5
 151,2023-02-07,e1cd08b,Kenneth Bengtsson,Updated CSD01 version numbering,, , , , , , , , ,e1cd08b, , , , , , , , , , , , , , , , , , 
 152,2023-02-07,d773543,Kenneth Bengtsson,Updated stage to csd01,, , , , , , , , ,d773543, , , , , , , , , , , , , , , , , , 
 153,2023-02-07,b1b2916,Kenneth Bengtsson,Update config-UBL.xml,, , , , , , , , ,b1b2916, , , , , , , , , , , , , , , , , , 
@@ -199,6 +202,7 @@
 198,2023-07-25,d88d78c,Kenneth Bengtsson,Update config-UBL-Signature.xml,, , , , , , , , , , ,d88d78c, , , , , , , , , , , , , , , , 
 199,2023-07-25,9b42a40,Kenneth Bengtsson,Update config-UBL.xml,TIP: ubl-2.4-csd02 | BRANCH: ubl-2.4-cs01-work from ubl-2.4-csd02, , , , , , , , , , ,9b42a40 ⊢→ubl-2.4-cs01-work ◆, ,9b42a40, , , , , , , , , , , , , , 
 200,2023-09-20,a98cff7,Kenneth Bengtsson,UBL 2.4 CSD02 entities,, , , , , , , , , , , , ,a98cff7, , , , , , , , , , , , , , 
+#,Date,SHA,Author,Message,Event,main,ubl-2.3-csd05-copy,ubl-2.3-cs02,ubl-2.3-os,ubl-2.4-csd01wd01,ubl-2.4-csd01wd02,review,ubl-2.3-os-iso,ubl-2.4-csd01,ubl-2.4-csd02-prd01-13,ubl-2.4-csd02,ubl-2.4-csd02-tsc,ubl-2.4-cs01-work,ubl-2.4-cs01,tsc-ubl-2.5-experimental,ubl-2.5-dev,ubl-2.4-os,ubl-2.4-os-iso-pub,retest,ubl-2.5-kenneth,UBL-433-xsd-doc,ubl-2.5-python,ubl-2.5-retry,server-test,ubl-2.5-2025-layout,kentest,ubl-2.5
 201,2023-09-20,5a35dc8,Kenneth Bengtsson,UBL 2.4 CSD02 signature entities,, , , , , , , , , , , , ,5a35dc8, , , , , , , , , , , , , , 
 202,2023-09-20,0c76c6a,Kenneth Bengtsson,Updated CS01 version and date,, , , , , , , , , , , , ,0c76c6a, , , , , , , , , , , , , , 
 203,2023-09-20,d0a8090,Kenneth Bengtsson,Updated CS01 version,, , , , , , , , , , , , ,d0a8090, , , , , , , , , , , , , , 
@@ -249,6 +253,7 @@
 248,2024-05-30,43fedc8,gkholman,Improved publication status reporting,, , , , , , , , , , , , , , , ,43fedc8, , , , , , , , , , , 
 249,2024-05-30,55141c3,gkholman,Improved publication status reporting,, , , , , , , , , , , , , ,55141c3, , , , , , , , , , , , , 
 250,2024-05-30,3355bcd,gkholman,Use version of API interface as used on server,, , , , , , , , , , , , , , , ,3355bcd, , , , , , , , , , , 
+#,Date,SHA,Author,Message,Event,main,ubl-2.3-csd05-copy,ubl-2.3-cs02,ubl-2.3-os,ubl-2.4-csd01wd01,ubl-2.4-csd01wd02,review,ubl-2.3-os-iso,ubl-2.4-csd01,ubl-2.4-csd02-prd01-13,ubl-2.4-csd02,ubl-2.4-csd02-tsc,ubl-2.4-cs01-work,ubl-2.4-cs01,tsc-ubl-2.5-experimental,ubl-2.5-dev,ubl-2.4-os,ubl-2.4-os-iso-pub,retest,ubl-2.5-kenneth,UBL-433-xsd-doc,ubl-2.5-python,ubl-2.5-retry,server-test,ubl-2.5-2025-layout,kentest,ubl-2.5
 251,2024-05-30,6cc2cf5,gkholman,Use version of API interface as used on server,BRANCH: ubl-2.4-os from ubl-2.4-cs01, , , , , , , , , , , , , ,6cc2cf5 ⊢→ubl-2.4-os, , ,6cc2cf5, , , , , , , , , , 
 252,2024-06-19,a1a389f,Kees Duvekot,update to os,, , , , , , , , , , , , , , , , ,a1a389f, , , , , , , , , , 
 253,2024-06-19,40b2634,Kees Duvekot,os stage,, , , , , , , , , , , , , , , , ,40b2634, , , , , , , , , , 
@@ -299,6 +304,7 @@
 298,2025-05-22,e634eda,gkholman,Change Saxon invocations,, , , , , , , , , , , , , , , ,e634eda, , , , , , , , , , , 
 299,2025-05-22,d3ae13b,gkholman,Location of temporary file,, , , , , , , , , , , , , , , ,d3ae13b, , , , , , , , , , , 
 300,2025-05-22,09e4eb7,gkholman,Ensure absolute directory at invocation,, , , , , , , , , , , , , , , ,09e4eb7, , , , , , , , , , , 
+#,Date,SHA,Author,Message,Event,main,ubl-2.3-csd05-copy,ubl-2.3-cs02,ubl-2.3-os,ubl-2.4-csd01wd01,ubl-2.4-csd01wd02,review,ubl-2.3-os-iso,ubl-2.4-csd01,ubl-2.4-csd02-prd01-13,ubl-2.4-csd02,ubl-2.4-csd02-tsc,ubl-2.4-cs01-work,ubl-2.4-cs01,tsc-ubl-2.5-experimental,ubl-2.5-dev,ubl-2.4-os,ubl-2.4-os-iso-pub,retest,ubl-2.5-kenneth,UBL-433-xsd-doc,ubl-2.5-python,ubl-2.5-retry,server-test,ubl-2.5-2025-layout,kentest,ubl-2.5
 301,2025-05-22,9bca7da,gkholman,Try tweaking count of parallel processes,, , , , , , , , , , , , , , , ,9bca7da, , , , , , , , , , , 
 302,2025-05-23,e61dcae,gkholman,Try tweaking count of parallel processes,, , , , , , , , , , , , , , , ,e61dcae, , , , , , , , , , , 
 303,2025-05-23,14a7538,gkholman,Retest an earlier commit,, , , , , , , , , , , , , , , , , , ,14a7538, , , , , , , , 
@@ -349,6 +355,7 @@
 348,2025-08-13,e52d6ba,gkholman,"Addressing the hub integrity reports, first attempt",, , , , , , , , , , , , , , , , , , , , , ,e52d6ba, , , , , 
 349,2025-08-13,df76cf1,gkholman,Match the URI with the text in the rows documenting endorsed schemas,, , , , , , , , , , , , , , , , , , , , , ,df76cf1, , , , , 
 350,2025-08-13,1623053,gkholman,Third attempt at clearing integrity errors,, , , , , , , , , , , , , , , , , , , , , ,1623053, , , , , 
+#,Date,SHA,Author,Message,Event,main,ubl-2.3-csd05-copy,ubl-2.3-cs02,ubl-2.3-os,ubl-2.4-csd01wd01,ubl-2.4-csd01wd02,review,ubl-2.3-os-iso,ubl-2.4-csd01,ubl-2.4-csd02-prd01-13,ubl-2.4-csd02,ubl-2.4-csd02-tsc,ubl-2.4-cs01-work,ubl-2.4-cs01,tsc-ubl-2.5-experimental,ubl-2.5-dev,ubl-2.4-os,ubl-2.4-os-iso-pub,retest,ubl-2.5-kenneth,UBL-433-xsd-doc,ubl-2.5-python,ubl-2.5-retry,server-test,ubl-2.5-2025-layout,kentest,ubl-2.5
 351,2025-08-13,ebc8d4d,gkholman,"Fifth try: check only maindoc endorsed schemas, don't point to non-endorsed endorsed schemas, and point to directory name without slash",, , , , , , , , , , , , , , , , , , , , , ,ebc8d4d, , , , , 
 352,2025-08-13,09e538e,gkholman,Special case relative directory references in the hub; repair document spreadsheet definition for Attached Document,, , , , , , , , , , , , , , , , , , , , , ,09e538e, , , , , 
 353,2025-08-16,8995532,gkholman,Try new compress options with 7zip,, , , , , , , , , , , , , , , , , , , , , ,8995532, , , , , 
@@ -399,6 +406,7 @@
 398,2025-10-19,9a0fc84,kduvekot,refactor build.py to be more python like,, , , , , , , , , , , , , , , , , , , , , ,9a0fc84, , , , , 
 399,2025-10-19,3f42d7b,kduvekot,add pip install to build.yml,, , , , , , , , , , , , , , , , , , , , , ,3f42d7b, , , , , 
 400,2025-10-19,d710dc4,kduvekot,latest version of the build.py script,, , , , , , , , , , , , , , , , , , , , , ,d710dc4, , , , , 
+#,Date,SHA,Author,Message,Event,main,ubl-2.3-csd05-copy,ubl-2.3-cs02,ubl-2.3-os,ubl-2.4-csd01wd01,ubl-2.4-csd01wd02,review,ubl-2.3-os-iso,ubl-2.4-csd01,ubl-2.4-csd02-prd01-13,ubl-2.4-csd02,ubl-2.4-csd02-tsc,ubl-2.4-cs01-work,ubl-2.4-cs01,tsc-ubl-2.5-experimental,ubl-2.5-dev,ubl-2.4-os,ubl-2.4-os-iso-pub,retest,ubl-2.5-kenneth,UBL-433-xsd-doc,ubl-2.5-python,ubl-2.5-retry,server-test,ubl-2.5-2025-layout,kentest,ubl-2.5
 401,2025-10-19,f640e32,kduvekot,use python with full paths,, , , , , , , , , , , , , , , , , , , , , ,f640e32, , , , , 
 402,2025-10-19,d2942fc,kduvekot,change compression algoritme to match shell,, , , , , , , , , , , , , , , , , , , , , ,d2942fc, , , , , 
 403,2025-10-20,0d4ad4a,kduvekot,some more compression related changes,, , , , , , , , , , , , , , , , , , , , , ,0d4ad4a, , , , , 
@@ -449,6 +457,7 @@
 448,2025-11-20,50509b3,Kenneth Bengtsson,Waste Movement processes,, , , , , , , , , , , , , , , , , , , , , , ,50509b3, , , , 
 449,2025-11-20,b8d3a9f,Kenneth Bengtsson,Waste Movement processes,, , , , , , , , , , , , , , , , , , , , , , ,b8d3a9f, , , , 
 450,2025-11-20,853264c,Kenneth Bengtsson,Delete art/UBL-2.5-WasteMovementStatementProcess.png,, , , , , , , , , , , , , , , , , , , , , , ,853264c, , , , 
+#,Date,SHA,Author,Message,Event,main,ubl-2.3-csd05-copy,ubl-2.3-cs02,ubl-2.3-os,ubl-2.4-csd01wd01,ubl-2.4-csd01wd02,review,ubl-2.3-os-iso,ubl-2.4-csd01,ubl-2.4-csd02-prd01-13,ubl-2.4-csd02,ubl-2.4-csd02-tsc,ubl-2.4-cs01-work,ubl-2.4-cs01,tsc-ubl-2.5-experimental,ubl-2.5-dev,ubl-2.4-os,ubl-2.4-os-iso-pub,retest,ubl-2.5-kenneth,UBL-433-xsd-doc,ubl-2.5-python,ubl-2.5-retry,server-test,ubl-2.5-2025-layout,kentest,ubl-2.5
 451,2025-11-20,0c0b4a9,Kenneth Bengtsson,Waste Notification Process,, , , , , , , , , , , , , , , , , , , , , , ,0c0b4a9, , , , 
 452,2025-11-20,24ac8c7,Kenneth Bengtsson,Waste Notification Process,, , , , , , , , , , , , , , , , , , , , , , ,24ac8c7, , , , 
 453,2025-11-20,c8303d0,Kenneth Bengtsson,Delete htmlart/UBL-2.5-WasteMovementStatementProcess.png,, , , , , , , , , , , , , , , , , , , , , , ,c8303d0, , , , 
@@ -499,6 +508,7 @@
 498,2026-02-09,7f2b4ea,Kenneth Bengtsson,Updated to CSD03 version number,, , , , , , , , , , , , , , , , , , , , , , , , , , ,7f2b4ea
 499,2026-02-09,22f30d9,Kenneth Bengtsson,Updated CSD03 version number and release date,, , , , , , , , , , , , , , , , , , , , , , , , , , ,22f30d9
 500,2026-02-09,28960f7,Kenneth Bengtsson,Updated CSD03 version and release date,, , , , , , , , , , , , , , , , , , , , , , , , , , ,28960f7
+#,Date,SHA,Author,Message,Event,main,ubl-2.3-csd05-copy,ubl-2.3-cs02,ubl-2.3-os,ubl-2.4-csd01wd01,ubl-2.4-csd01wd02,review,ubl-2.3-os-iso,ubl-2.4-csd01,ubl-2.4-csd02-prd01-13,ubl-2.4-csd02,ubl-2.4-csd02-tsc,ubl-2.4-cs01-work,ubl-2.4-cs01,tsc-ubl-2.5-experimental,ubl-2.5-dev,ubl-2.4-os,ubl-2.4-os-iso-pub,retest,ubl-2.5-kenneth,UBL-433-xsd-doc,ubl-2.5-python,ubl-2.5-retry,server-test,ubl-2.5-2025-layout,kentest,ubl-2.5
 501,2026-02-09,9a4ee63,Kenneth Bengtsson,Updated CSD03 version number,, , , , , , , , , , , , , , , , , , , , , , , , , , ,9a4ee63
 502,2026-02-09,18d4448,Kenneth Bengtsson,Updated CSD03 version number,, , , , , , , , , , , , , , , , , , , , , , , , , , ,18d4448
 503,2026-02-09,6fbccae,Kenneth Bengtsson,Updated CSD03 version number,, , , , , , , , , , , , , , , , , , , , , , , , , , ,6fbccae
