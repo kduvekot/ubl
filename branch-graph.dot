@@ -4,6 +4,11 @@ digraph UBL_Branch_Graph {
     fontname="Helvetica";
     node [fontname="Helvetica", fontsize=10, style=filled, shape=box, margin="0.15,0.08"];
     edge [fontname="Helvetica", fontsize=8, color="#484f58"];
+    label="oasis-tcs/ubl — Complete Branch Interconnection Graph\n(generated 2026-03-31)";
+    labelloc=t;
+    labeljust=l;
+    fontcolor="#58a6ff";
+    fontsize=14;
 
     // ===== LEGEND =====
     subgraph cluster_legend {
@@ -17,16 +22,19 @@ digraph UBL_Branch_Graph {
 
         leg1 [label="Branch tip (main tree)", fillcolor="#1a3a1a", fontcolor="#7ee787", shape=box];
         leg2 [label="Branch tip (disconnected tree)", fillcolor="#3a1a1a", fontcolor="#f85149", shape=box];
-        leg3 [label="Key commit / merge point", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=ellipse];
-        leg4 [label="Force-pushed branch", fillcolor="#3a2a0a", fontcolor="#d29922", shape=box];
-        leg5 [label="39-file content gap\n(no git parentage)", fillcolor="#3a2a0a", fontcolor="#d29922", shape=diamond];
-        leg6 [label="Merge (PR)", fillcolor="#1a2a3a", fontcolor="#58a6ff", shape=octagon];
+        leg3 [label="Key commit / merge-base", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=ellipse];
+        leg4 [label="Force-pushed / changed branch", fillcolor="#3a2a0a", fontcolor="#d29922", shape=box];
+        leg5 [label="PR merge commit", fillcolor="#1a2a3a", fontcolor="#58a6ff", shape=octagon];
+        leg6 [label="Content gap (no git link)", fillcolor="#3a2a0a", fontcolor="#d29922", shape=diamond];
         leg1 -> leg2 -> leg3 -> leg4 -> leg5 -> leg6 [style=invis];
     }
 
-    // ===== MAIN TREE =====
+    // ============================================================
+    // MAIN TREE (root: 71129c9, 2018-04-11)
+    // 21 branches, all trace back to 2018 root
+    // ============================================================
     subgraph cluster_main {
-        label="MAIN TREE  (root: 71129c9, 2018-04-11)  —  All branches trace back to this root";
+        label="MAIN TREE  (root: 71129c9, 2018-04-11)  —  21 branches, all connected";
         labeljust=l;
         fontcolor="#7ee787";
         fontsize=12;
@@ -35,56 +43,76 @@ digraph UBL_Branch_Graph {
         bgcolor="#0d1117";
 
         // Root
-        root [label="71129c9\n2018-04-11\nInitial repo\n(Robin Cover)", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=ellipse];
+        root [label="71129c9\n2018-04-11\n\"Initial repo boilerplate\"\n(Robin Cover)", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=ellipse];
 
-        // UBL 2.3 chain
-        csd05copy [label="ubl-2.3-csd05-copy\n57dda2e  (7 commits)\n2021-05-16", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-        cs02 [label="ubl-2.3-cs02\n47eb1f5  (8 commits)\n2021-05-23", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-
-        // Pivot
-        pivot [label="f71d2be\n2021-05-26\n\"Add polish to README\"\nPIVOT — ancestor of 17 branches", fillcolor="#1a2a3a", fontcolor="#ffa657", shape=ellipse, penwidth=2, color="#ffa657"];
-
-        // Main branch
-        main [label="main\nc12b81a  (13 commits)\n2025-10-08", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-
-        // Review
-        review [label="review\n876778c  (19 commits)\n2023-02-01", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-
-        // UBL 2.3 OS
-        os23 [label="ubl-2.3-os\nbc99520  (16 commits)\n2021-06-18", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-        osiso23 [label="ubl-2.3-os-iso\nbc99520  (= ubl-2.3-os)\n2021-06-18", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-
-        // Retest
-        retest [label="retest\n15c714c  (227 commits)\n2025-05-23", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-
-        // UBL 2.4 chain
-        subgraph cluster_24 {
-            label="UBL 2.4 lineage";
+        // ---- UBL 2.3 ----
+        subgraph cluster_23 {
+            label="UBL 2.3 lineage";
             fontcolor="#79c0ff";
             fontsize=10;
             style=dashed;
             color="#1a2a3a";
             bgcolor="#0d1117";
 
-            csd01wd01 [label="ubl-2.4-csd01wd01\n21efa9e  (39 commits)\n2021-06-01", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-            csd01wd02 [label="ubl-2.4-csd01wd02\n33d4527  (142 commits)\n2023-02-07", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-            csd01 [label="ubl-2.4-csd01\n0b0b0b3  (168 commits)\n2023-09-26", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-            csd02prd [label="ubl-2.4-csd02-prd01-13\n= ubl-2.4-csd02-tsc\n476e1ad  (183 commits)\n2023-07-04", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-            csd02 [label="ubl-2.4-csd02\n9b42a40  (188 commits)\n2023-07-25", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-            cs01work [label="ubl-2.4-cs01-work\n7c01887  (196 commits)\n2023-09-20", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+            csd05copy [label="ubl-2.3-csd05-copy\n57dda2e  (7 commits)\n2021-05-16\n\"Rebuild results on edit branch\"", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+            cs02 [label="ubl-2.3-cs02\n47eb1f5  (8 commits)\n2021-05-23\n\"First attempt at CS02\"", fillcolor="#1a3a1a", fontcolor="#7ee787"];
 
-            // Shared commit between 2.4 and 2.5
-            shared_b9df [label="b9df309\n2023-10-24\n\"Update UBL.xml\"\nShared by 2.4-cs01,\n2.4-os and 2.5-dev", fillcolor="#1a2a3a", fontcolor="#58a6ff", shape=ellipse, fontsize=8];
+            // Pivot — the common ancestor of most branches
+            pivot [label="f71d2be\n2021-05-26\n\"Add polish to README\"\nPIVOT — ancestor of\n17+ main-tree branches", fillcolor="#1a2a3a", fontcolor="#ffa657", shape=ellipse, penwidth=2, color="#ffa657"];
 
-            cs01 [label="ubl-2.4-cs01\n8c4d077  (213 commits)\n2024-06-24", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-            os24 [label="ubl-2.4-os\n779bf4b  (220 commits)\n2025-03-23", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-            osisopub [label="ubl-2.4-os-iso-pub\nc55958d  (228 commits)\n2025-06-20", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+            // PR#1 merged csd05-copy into review
+            pr1 [label="6d153bf\nPR #1\ncsd05-copy → review", fillcolor="#1a2a3a", fontcolor="#58a6ff", shape=octagon, fontsize=8];
 
-            // Fork point for os vs os-iso-pub
-            os24fork [label="8c99636\n2024-06-23\nDivergence point", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=ellipse, fontsize=8];
+            os23 [label="ubl-2.3-os\nbc99520  (16 commits)\n2021-06-18\n\"Repair text in Status section\"", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+            osiso23 [label="ubl-2.3-os-iso\nbc99520 (= ubl-2.3-os)\n2021-06-18  IDENTICAL", fillcolor="#1a3a1a", fontcolor="#7ee787"];
         }
 
-        // UBL 2.5 main tree
+        // Review (contains ubl-2.3-os)
+        review [label="review\n876778c  (19 commits)\n2023-02-01\n\"Added Purchase Order example\n+ updated to 2.4 XSDs\"", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+
+        // Main
+        main [label="main\nc12b81a  (13 commits)\n2025-10-08\n\"sync main repo build.yml\"", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+
+        // ---- UBL 2.4 ----
+        subgraph cluster_24 {
+            label="UBL 2.4 lineage  (PRs #4-#27)";
+            fontcolor="#79c0ff";
+            fontsize=10;
+            style=dashed;
+            color="#1a2a3a";
+            bgcolor="#0d1117";
+
+            csd01wd01 [label="ubl-2.4-csd01wd01\n21efa9e  (39 commits)\n2021-06-01\n\"Revised README diagram\"", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+
+            // PRs #4-#20 merged into csd01wd02
+            csd01wd02 [label="ubl-2.4-csd01wd02\n33d4527  (142 commits)\n2023-02-07\n\"Merge PR #20\"\nReceived PRs #4-#20", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+
+            // csd01 diverged from csd01wd02 at 33d4527
+            csd01 [label="ubl-2.4-csd01\n0b0b0b3  (168 commits)\n2023-09-26\n\"Merge PR #24\"\nReceived PRs #21,#23,#24", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+
+            csd02prd [label="ubl-2.4-csd02-prd01-13\n= ubl-2.4-csd02-tsc\n476e1ad  (183 commits)\n2023-07-04  IDENTICAL TIPS", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+            csd02 [label="ubl-2.4-csd02\n9b42a40  (188 commits)\n2023-07-25\n\"Update config-UBL.xml\"", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+            cs01work [label="ubl-2.4-cs01-work\n7c01887  (196 commits)\n2023-09-20\n\"Updated CS01 version\"", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+
+            // PR#27 — THE KEY MERGE connecting 2.4 to 2.5
+            pr27 [label="16ca084\n2023-09-26\nPR #27\n\"Merging docx into cs01\"\n\nKEY MERGE:\n2.4-cs01-work + PR#26\nParent of both 2.4-cs01\nand 2.5-dev lineages", fillcolor="#1a2a3a", fontcolor="#58a6ff", shape=octagon, penwidth=2, color="#58a6ff"];
+
+            // b9df309 — shared between 2.4-cs01, 2.4-os, and 2.5-dev
+            shared_b9df [label="b9df309\n2023-10-24\n\"Update UBL.xml\"\nLAST SHARED COMMIT\nbetween 2.4-cs01/os\nand 2.5-dev", fillcolor="#1a2a3a", fontcolor="#ffa657", shape=ellipse, fontsize=9, penwidth=2, color="#ffa657"];
+
+            cs01 [label="ubl-2.4-cs01\n8c4d077  (213 commits)\n2024-06-24\n\"Test server recreate\"", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+
+            // Fork for os vs os-iso-pub
+            os24fork [label="8c99636\n2024-06-23\n\"update os + date\"", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=ellipse, fontsize=8];
+
+            os24 [label="ubl-2.4-os\n779bf4b  (220 commits)\n2025-03-23\n\"Retrying 2.4 OS publishing\"", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+            osisopub [label="ubl-2.4-os-iso-pub\nc55958d  (228 commits)\n2025-06-20\n\"Second attempt, commenting\nout content\"", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+        }
+
+        // Old kentest
+        old_kentest [label="OLD kentest\n6cc2cf5  (2024-05-30)\n\"Use version of API interface\"\n(pre-force-push, still reachable\nvia ubl-2.4-cs01)", fillcolor="#3a2a0a", fontcolor="#d29922"];
+
+        // ---- UBL 2.5 (main tree) ----
         subgraph cluster_25_main {
             label="UBL 2.5 lineage (main tree)";
             fontcolor="#79c0ff";
@@ -93,26 +121,34 @@ digraph UBL_Branch_Graph {
             color="#1a2a3a";
             bgcolor="#0d1117";
 
-            // The merge that connects 2.4 to 2.5
-            merge27 [label="16ca084\n2023-09-26\nMerge PR #27\n\"test-2.4cs01\"\n\nMERGES 2.4-cs01-work\nINTO 2.5 lineage", fillcolor="#1a2a3a", fontcolor="#58a6ff", shape=octagon, penwidth=2, color="#58a6ff"];
+            tsc25exp [label="tsc-ubl-2.5-experimental\n0b381cc  (216 commits)\n2023-10-12\n\"Add files via upload\"\n+14 commits after PR#27", fillcolor="#1a3a1a", fontcolor="#7ee787"];
 
-            tsc25exp [label="tsc-ubl-2.5-experimental\n0b381cc  (216 commits)\n2023-10-12", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-            fork25dev [label="76dcc63\n2025-04-10\n\"Repair JSON schemas\"\nDivergence point", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=ellipse, fontsize=8];
-            kenneth [label="ubl-2.5-kenneth\n154a8bc  (240 commits)\n2025-04-30", fillcolor="#1a3a1a", fontcolor="#7ee787"];
-            dev25 [label="ubl-2.5-dev\n39fae0d  (272 commits)\n2025-06-11", fillcolor="#1a3a1a", fontcolor="#7ee787", penwidth=2, color="#d29922"];
-            xsddoc [label="UBL-433-xsd-doc\n4c0ffc3  (275 commits)\n2025-07-06", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+            // 153236e — shared between ubl-2.5-dev and retest
+            shared_retest [label="153236e\n2025-04-07\n\"Test server with 2.5-csd01\"\nShared by ubl-2.5-dev\nand retest", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=ellipse, fontsize=8];
+
+            // 76dcc63 — divergence between ubl-2.5-dev and ubl-2.5-kenneth
+            fork25dev [label="76dcc63\n2025-04-10\n\"Repair JSON schemas\"\nDivergence: dev vs kenneth", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=ellipse, fontsize=8];
+
+            kenneth [label="ubl-2.5-kenneth\n154a8bc  (240 commits)\n2025-04-30\n\"Update spellcheck-UBL.txt\"\n+12 after divergence", fillcolor="#1a3a1a", fontcolor="#7ee787"];
+            dev25 [label="ubl-2.5-dev\n39fae0d  (272 commits)\n2025-06-11\n\"Polish up column heading\"\n+32 after divergence", fillcolor="#1a3a1a", fontcolor="#7ee787", penwidth=2, color="#d29922"];
+            xsddoc [label="UBL-433-xsd-doc\n4c0ffc3  (275 commits)\n2025-07-06\n\"Include deprecated columns\nin XSDs\"\n+3 after ubl-2.5-dev tip", fillcolor="#1a3a1a", fontcolor="#7ee787"];
         }
 
-        // Old kentest (pre-force-push)
-        old_kentest [label="OLD kentest\n6cc2cf5  (2024-05-30)\n\"Use version of API interface\"\n(pre-force-push, still in repo)", fillcolor="#3a2a0a", fontcolor="#d29922"];
+        // Retest (branches from 153236e in ubl-2.5-dev)
+        retest [label="retest\n15c714c  (227 commits)\n2025-05-23\n\"Old spreadsheet references\"\n+2 after 153236e", fillcolor="#1a3a1a", fontcolor="#7ee787"];
     }
 
-    // ===== 39-FILE GAP =====
-    gap [label="39-FILE CONTENT GAP\n\n12 files added (2.5 artwork, DebitNote example, LICENSE)\n11 files deleted (2.0/2.2 artwork, old example, version file)\n16 files modified (README, UBL.xml, configs, XSL tools)\n\nContent taken from ubl-2.5-dev → dc1249d\nbut git parentage was NOT preserved\n(fresh git init / import)", fillcolor="#3a2a0a", fontcolor="#d29922", shape=diamond, fontsize=9, margin="0.3,0.2"];
+    // ============================================================
+    // 39-FILE CONTENT GAP
+    // ============================================================
+    gap [label="39-FILE CONTENT GAP\n(no git parentage link)\n\n+12 files: 2.5 billing artwork,\nDebitNote-2.5-Example.xml, LICENSE\n-11 files: 2.0/2.2 artwork,\nDebitNote-2.1-Example.xml, version file\n~16 modified: README, UBL.xml,\nconfig, build.sh, XSL tools\n\nContent = ubl-2.5-dev tip\n+ Invoice Status Response work\ncommitted as orphan root", fillcolor="#3a2a0a", fontcolor="#d29922", shape=diamond, fontsize=9, margin="0.3,0.2"];
 
-    // ===== DISCONNECTED TREE =====
+    // ============================================================
+    // DISCONNECTED TREE (root: dc1249d, 2025-08-06)
+    // 6 branches, separate history
+    // ============================================================
     subgraph cluster_disconnected {
-        label="DISCONNECTED TREE  (root: dc1249d, 2025-08-06)  —  No git link to main tree";
+        label="DISCONNECTED TREE  (root: dc1249d, 2025-08-06)  —  6 branches, no git link to main tree\nPRs #28-#34, #37 operate within this tree";
         labeljust=l;
         fontcolor="#f85149";
         fontsize=12;
@@ -122,73 +158,117 @@ digraph UBL_Branch_Graph {
 
         dc_root [label="dc1249d\n2025-08-06\n\"Updated with Invoice\nStatus Response\"\n(Kenneth Bengtsson)\nORPHAN ROOT — no parent", fillcolor="#3a1a1a", fontcolor="#f85149", shape=ellipse, penwidth=2, color="#f85149"];
 
-        python25 [label="ubl-2.5-python\n6c4d314  (98 commits)\n2025-11-17\nFORCE-PUSHED: was be9aa9d\n(20 commits rolled back)", fillcolor="#3a2a0a", fontcolor="#d29922"];
+        // PR#28: 7zip test merged into ubl-2.5
+        pr28 [label="0b44c38\nPR #28\n\"7zip test\"\n→ ubl-2.5", fillcolor="#1a2a3a", fontcolor="#58a6ff", shape=octagon, fontsize=8];
 
-        branchpoint [label="b122814\n2025-12-03\nBranching point\nfor 4 branches", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=ellipse, fontsize=8];
+        // PR#29,30: ubl-2.5 merged INTO ubl-2.5-python
+        pr29_30 [label="cc12281\nPRs #29,#30\nubl-2.5 → ubl-2.5-python\n\"add Python env + resync\"", fillcolor="#1a2a3a", fontcolor="#58a6ff", shape=octagon, fontsize=8];
 
-        retry [label="ubl-2.5-retry\nf738ca3  (149 commits)\n2026-01-21", fillcolor="#3a1a1a", fontcolor="#f85149"];
-        servertest [label="server-test\n68aabb9  (148 commits)\n2026-01-21", fillcolor="#3a1a1a", fontcolor="#f85149"];
-        layout2025 [label="ubl-2.5-2025-layout\n5e984b8  (154 commits)\n2026-01-15", fillcolor="#3a1a1a", fontcolor="#f85149"];
-        kentest_new [label="kentest\n7f8f046  (156 commits)\n2026-01-21\nFORCE-PUSHED from\nmain tree (6cc2cf5)", fillcolor="#3a2a0a", fontcolor="#d29922"];
-        ubl25 [label="ubl-2.5\n3d81e8a  (174 commits)\n2026-02-09\nMOST RECENT BRANCH\n+2700 build output files", fillcolor="#3a1a1a", fontcolor="#f85149", penwidth=2, color="#f85149"];
+        // PR#31,33: kduvekot fork merged into ubl-2.5-python
+        pr31_33 [label="6c4d314\nPRs #31,#33\nkduvekot → ubl-2.5-python\n\"update to csd02 + fix files\"", fillcolor="#1a2a3a", fontcolor="#58a6ff", shape=octagon, fontsize=8];
+
+        python25 [label="ubl-2.5-python\n6c4d314  (98 commits)\n2025-11-17\n\"Merge PR #33\"\nFORCE-PUSHED: was be9aa9d\n(20 commits rolled back)", fillcolor="#3a2a0a", fontcolor="#d29922"];
+
+        branchpoint [label="b122814\n2025-12-03\n\"Updated date to today\"\nBranching point", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=ellipse, fontsize=8];
+
+        retry [label="ubl-2.5-retry\nf738ca3  (149 commits)\n2026-01-21\n\"Retry with unchanged .gc files\"", fillcolor="#3a1a1a", fontcolor="#f85149"];
+        servertest [label="server-test\n68aabb9  (148 commits)\n2026-01-21\n\"Retry server access\"", fillcolor="#3a1a1a", fontcolor="#f85149"];
+        layout2025 [label="ubl-2.5-2025-layout\n5e984b8  (154 commits)\n2026-01-15\n\"Test access to production server\"", fillcolor="#3a1a1a", fontcolor="#f85149"];
+        kentest_new [label="kentest\n7f8f046  (156 commits)\n2026-01-21\n\"Run on Réalta QA server\"\nFORCE-PUSHED from main\ntree (was 6cc2cf5)", fillcolor="#3a2a0a", fontcolor="#d29922"];
+
+        // PR#37: ubl-2.5-2025-layout merged into ubl-2.5
+        pr37 [label="27b46f5\nPR #37\n\"2025 layout\"\n→ ubl-2.5", fillcolor="#1a2a3a", fontcolor="#58a6ff", shape=octagon, fontsize=8];
+
+        // PR#32,34: merged into ubl-2.5
+        pr32_34 [label="eec48c4\nPRs #32,#34\npython + claude fixes\n→ ubl-2.5", fillcolor="#1a2a3a", fontcolor="#58a6ff", shape=octagon, fontsize=8];
+
+        ubl25 [label="ubl-2.5\n3d81e8a  (174 commits)\n2026-02-09\n\"Updated CSD03 version\"\nMOST RECENT\n+10 CSD03 commits after PR#37", fillcolor="#3a1a1a", fontcolor="#f85149", penwidth=2, color="#f85149"];
     }
 
-    // ===== EDGES: MAIN TREE =====
+    // ============================================================
+    // EDGES: UBL 2.3
+    // ============================================================
     root -> csd05copy [label=" 7 commits", fontcolor="#8b949e", color="#3a5a3a"];
-    csd05copy -> cs02 [label=" +1", fontcolor="#8b949e", color="#3a5a3a"];
-    cs02 -> pivot [label=" +4", fontcolor="#8b949e", color="#3a5a3a"];
-
-    pivot -> main [label=" +1", fontcolor="#8b949e", color="#3a5a3a"];
-    pivot -> review [label=" +7", fontcolor="#8b949e", color="#3a5a3a"];
+    csd05copy -> cs02 [label=" +1 commit", fontcolor="#8b949e", color="#3a5a3a"];
+    csd05copy -> pr1 [label=" PR #1", fontcolor="#58a6ff", color="#58a6ff", style=dashed];
+    cs02 -> pivot [label=" +4 commits", fontcolor="#8b949e", color="#3a5a3a"];
     pivot -> os23 [label=" +4", fontcolor="#8b949e", color="#3a5a3a"];
     os23 -> osiso23 [label=" identical", fontcolor="#8b949e", color="#3a5a3a", style=dashed];
-    pivot -> retest [label=" +215", fontcolor="#8b949e", color="#3a5a3a"];
+    os23 -> review [label=" ubl-2.3-os IS\nancestor of review", fontcolor="#8b949e", color="#3a5a3a"];
+    pr1 -> review [style=invis];
 
-    // 2.4 edges
+    // ============================================================
+    // EDGES: Main + Review
+    // ============================================================
+    pivot -> main [label=" +1 commit", fontcolor="#8b949e", color="#3a5a3a"];
+
+    // ============================================================
+    // EDGES: UBL 2.4
+    // ============================================================
     pivot -> csd01wd01 [label=" +27", fontcolor="#8b949e", color="#3a5a3a"];
-    csd01wd01 -> csd01wd02 [label=" +103", fontcolor="#8b949e", color="#3a5a3a"];
-    csd01wd02 -> csd01 [label=" +26\n(diverged)", fontcolor="#8b949e", color="#3a5a3a"];
+    csd01wd01 -> csd01wd02 [label=" +103 commits\nPRs #4-#20", fontcolor="#8b949e", color="#3a5a3a"];
+    csd01wd02 -> csd01 [label=" diverged\nPRs #21,#23,#24", fontcolor="#8b949e", color="#3a5a3a"];
     csd01wd02 -> csd02prd [label=" +41", fontcolor="#8b949e", color="#3a5a3a"];
     csd02prd -> csd02 [label=" +5", fontcolor="#8b949e", color="#3a5a3a"];
     csd02 -> cs01work [label=" +8", fontcolor="#8b949e", color="#3a5a3a"];
 
-    // 2.4 cs01-work is the KEY LINK — it gets merged into 2.5-dev
-    cs01work -> merge27 [label=" merged as\nparent 1\nof PR #27", fontcolor="#58a6ff", color="#58a6ff", style=bold, penwidth=2];
+    // THE KEY MERGE: 2.4-cs01-work + PR#26 → PR#27
+    cs01work -> pr27 [label=" parent 1", fontcolor="#58a6ff", color="#58a6ff", style=bold, penwidth=2];
+    csd01 -> pr27 [label=" parent 2\n(via PR#26)", fontcolor="#58a6ff", color="#58a6ff", style=dashed];
 
-    // After the merge, 2.4 and 2.5 share commit b9df309
-    cs01work -> shared_b9df [label=" continues\nas 2.4", fontcolor="#8b949e", color="#3a5a3a"];
-    shared_b9df -> cs01 [label=" +17", fontcolor="#8b949e", color="#3a5a3a"];
-    shared_b9df -> os24fork [color="#3a5a3a"];
-    shared_b9df -> os24 [label=" +24", fontcolor="#8b949e", color="#3a5a3a"];
-    os24fork -> os24 [style=invis];
+    // After PR#27, shared history continues
+    pr27 -> shared_b9df [label=" +2 commits\nshared path", fontcolor="#8b949e", color="#3a5a3a"];
+
+    // b9df309 is where 2.4 and 2.5 DIVERGE
+    shared_b9df -> cs01 [label=" → 2.4-cs01\n+7 commits", fontcolor="#8b949e", color="#3a5a3a"];
+    shared_b9df -> tsc25exp [label=" → 2.5 lineage\n(see below)", fontcolor="#58a6ff", color="#58a6ff", style=bold, penwidth=2];
+
+    cs01 -> old_kentest [label=" old kentest was\nchild of cs01", fontcolor="#d29922", color="#d29922", style=dashed];
+    shared_b9df -> os24fork [label=" → 2.4-os lineage", fontcolor="#8b949e", color="#3a5a3a"];
+    os24fork -> os24 [label=" +continued", fontcolor="#8b949e", color="#3a5a3a"];
     os24fork -> osisopub [label=" diverged\n2024-06-23", fontcolor="#8b949e", color="#3a5a3a"];
-    cs01 -> old_kentest [label=" ancestor", fontcolor="#d29922", color="#d29922", style=dashed];
 
-    // b9df309 is also in ubl-2.5-dev (shared history after merge)
-    shared_b9df -> merge27 [label=" also in\n2.5-dev\nhistory", fontcolor="#58a6ff", color="#58a6ff", style=dotted, constraint=false];
+    // ============================================================
+    // EDGES: UBL 2.5 (main tree)
+    // ============================================================
+    pr27 -> tsc25exp [label=" diverged\n+14 commits", fontcolor="#8b949e", color="#3a5a3a"];
 
-    // 2.5 main tree edges — merge27 has TWO parents
-    // Parent 2 comes from the pre-existing 2.5 lineage (via earlier PRs)
-    pivot -> merge27 [label=" parent 2:\nprior 2.5 work\n(PRs #4-#26)", fontcolor="#8b949e", color="#3a5a3a"];
-    merge27 -> tsc25exp [label=" diverged", fontcolor="#8b949e", color="#3a5a3a"];
-    merge27 -> fork25dev [color="#3a5a3a"];
-    fork25dev -> kenneth [label=" +12", fontcolor="#8b949e", color="#3a5a3a"];
-    fork25dev -> dev25 [label=" +32", fontcolor="#8b949e", color="#3a5a3a"];
-    dev25 -> xsddoc [label=" +3", fontcolor="#8b949e", color="#3a5a3a"];
+    // retest branches from deep within ubl-2.5-dev
+    shared_b9df -> shared_retest [label=" many commits\n(2.5 development)", fontcolor="#8b949e", color="#3a5a3a"];
+    shared_retest -> retest [label=" +2 commits", fontcolor="#8b949e", color="#3a5a3a"];
+    shared_retest -> fork25dev [label=" +3 days", fontcolor="#8b949e", color="#3a5a3a"];
 
-    // ===== THE GAP =====
+    fork25dev -> kenneth [label=" +12 commits\ndiverged", fontcolor="#8b949e", color="#3a5a3a"];
+    fork25dev -> dev25 [label=" +32 commits\ndiverged", fontcolor="#8b949e", color="#3a5a3a"];
+    dev25 -> xsddoc [label=" +3 commits", fontcolor="#8b949e", color="#3a5a3a"];
+
+    // ============================================================
+    // THE CONTENT GAP
+    // ============================================================
     dev25 -> gap [label="content snapshot\ntaken from here\n(2025-06-11)", fontcolor="#d29922", color="#d29922", style=bold, penwidth=2];
-    gap -> dc_root [label="committed as\norphan root\n(2025-08-06)", fontcolor="#d29922", color="#d29922", style=bold, penwidth=2];
+    gap -> dc_root [label="committed as\norphan root\n(2025-08-06)\n~2 months later", fontcolor="#d29922", color="#d29922", style=bold, penwidth=2];
 
-    // ===== EDGES: DISCONNECTED TREE =====
-    dc_root -> python25 [label=" 98 commits", fontcolor="#8b949e", color="#5a3a3a"];
-    python25 -> branchpoint [label=" ~50 commits", fontcolor="#8b949e", color="#5a3a3a"];
+    // ============================================================
+    // EDGES: DISCONNECTED TREE
+    // ============================================================
+    dc_root -> pr28 [label=" initial 2.5 work", fontcolor="#8b949e", color="#5a3a3a"];
+    pr28 -> pr29_30 [label=" ubl-2.5 synced\nto ubl-2.5-python", fontcolor="#8b949e", color="#5a3a3a"];
+    pr29_30 -> pr31_33 [label=" kduvekot fork\nmerged in", fontcolor="#8b949e", color="#5a3a3a"];
+    pr31_33 -> python25 [label=" = tip", fontcolor="#8b949e", color="#5a3a3a"];
+
+    python25 -> branchpoint [label=" ~50 commits\n(date updates, fixes)", fontcolor="#8b949e", color="#5a3a3a"];
     branchpoint -> retry [label=" +2", fontcolor="#8b949e", color="#5a3a3a"];
-    branchpoint -> servertest [label=" +many", fontcolor="#8b949e", color="#5a3a3a"];
-    branchpoint -> layout2025 [label=" +6", fontcolor="#8b949e", color="#5a3a3a"];
+    branchpoint -> servertest [label=" +50", fontcolor="#8b949e", color="#5a3a3a"];
+    branchpoint -> layout2025 [label=" +6 (2025 layout\nwork)", fontcolor="#8b949e", color="#5a3a3a"];
     layout2025 -> kentest_new [label=" +2", fontcolor="#8b949e", color="#5a3a3a"];
-    layout2025 -> ubl25 [label=" +20", fontcolor="#8b949e", color="#5a3a3a"];
+
+    // ubl-2.5 receives merges from multiple sources
+    pr28 -> pr32_34 [style=invis];
+    python25 -> pr32_34 [label=" PR#32\npython → ubl-2.5", fontcolor="#58a6ff", color="#58a6ff", style=dashed];
+    pr32_34 -> pr37 [style=invis];
+    layout2025 -> pr37 [label=" PR#37\nlayout → ubl-2.5", fontcolor="#58a6ff", color="#58a6ff", style=dashed];
+    pr37 -> ubl25 [label=" +10 CSD03\ncommits", fontcolor="#8b949e", color="#5a3a3a"];
 
     // Force push arrows
-    old_kentest -> kentest_new [label="FORCE\nPUSHED", fontcolor="#f85149", color="#f85149", style=dashed, penwidth=2, constraint=false];
+    old_kentest -> kentest_new [label="FORCE PUSHED\n(complete history rewrite)", fontcolor="#f85149", color="#f85149", style=dashed, penwidth=2, constraint=false];
 }
