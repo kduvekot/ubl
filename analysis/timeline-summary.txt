@@ -1,0 +1,110 @@
+CHRONOLOGICAL TIMELINE SUMMARY
+============================================================
+
+Total unique commits: 505
+Total branches: 27
+Date range: 2018-04-11 to 2026-02-09
+
+BRANCH COLUMN ORDER:
+  Col 7: main (13 commits, tip: 2025-10-08)
+  Col 8: ubl-2.3-csd05-copy (7 commits, tip: 2021-05-16)
+  Col 9: ubl-2.3-cs02 (8 commits, tip: 2021-05-23)
+  Col 10: ubl-2.3-os (16 commits, tip: 2021-06-18)
+  Col 11: ubl-2.3-os-iso (16 commits, tip: 2021-06-18)
+  Col 12: review (19 commits, tip: 2023-02-01)
+  Col 13: ubl-2.4-csd01wd01 (39 commits, tip: 2021-06-01)
+  Col 14: ubl-2.4-csd01wd02 (142 commits, tip: 2023-02-07)
+  Col 15: ubl-2.4-csd01 (168 commits, tip: 2023-09-26)
+  Col 16: ubl-2.4-csd02-prd01-13 (183 commits, tip: 2023-07-04)
+  Col 17: ubl-2.4-csd02-tsc (183 commits, tip: 2023-07-04)
+  Col 18: ubl-2.4-csd02 (188 commits, tip: 2023-07-25)
+  Col 19: ubl-2.4-cs01-work (196 commits, tip: 2023-09-20)
+  Col 20: ubl-2.4-cs01 (213 commits, tip: 2024-06-24)
+  Col 21: ubl-2.4-os (220 commits, tip: 2025-03-23)
+  Col 22: ubl-2.4-os-iso-pub (228 commits, tip: 2025-06-20)
+  Col 23: tsc-ubl-2.5-experimental (216 commits, tip: 2023-10-12)
+  Col 24: ubl-2.5-dev (272 commits, tip: 2025-06-11)
+  Col 25: ubl-2.5-kenneth (240 commits, tip: 2025-04-30)
+  Col 26: UBL-433-xsd-doc (275 commits, tip: 2025-07-06)
+  Col 27: retest (227 commits, tip: 2025-05-23)
+  Col 28: ubl-2.5-python (98 commits, tip: 2025-11-17)
+  Col 29: ubl-2.5-retry (149 commits, tip: 2026-01-21)
+  Col 30: server-test (148 commits, tip: 2026-01-21)
+  Col 31: ubl-2.5-2025-layout (154 commits, tip: 2026-01-15)
+  Col 32: kentest (156 commits, tip: 2026-01-21)
+  Col 33: ubl-2.5 (174 commits, tip: 2026-02-09)
+
+CELL NOTATION:
+  abc1234     = commit on its primary (most specific) branch
+  (abc1234)   = commit shared from another branch
+  ROOT ...    = first commit on this branch
+  TIP ...     = latest commit on this branch
+  MERGE ...   = merge commit
+
+KEY EVENTS:
+  2021-05-23 79201eb MERGE: Merge branch 'ubl-2.3-cs02' into review
+  2021-06-07 89d22de MERGE: Merge branch 'ubl-2.3-os' into review
+  2021-10-20 2298f6d MERGE: Merge pull request #4 from oasis-tcs/UBL-330
+  2022-11-09 654d43a MERGE: Merge pull request #5 from oasis-tcs/UBL-335
+  2022-11-29 9015b67 MERGE: Merge pull request #6 from oasis-tcs/UBL-339-skip-publishing
+  2022-11-29 1993c26 MERGE: Merge pull request #7 from oasis-tcs/UBL-338-invalid-schematron
+  2022-11-29 890762a MERGE: Merge pull request #8 from oasis-tcs/UBL-337-schxslt
+  2022-12-07 560a40b MERGE: Merge pull request #9 from oasis-tcs/kd-action-updates
+  2022-12-21 7e1af45 MERGE: Merge pull request #10 from oasis-tcs/ubl-2.4-csd01wd02-new-samples
+  2023-01-24 d13f707 MERGE: Merge pull request #11 from oasis-tcs/ubl-2.4-csd01wd02-rework-Ken
+  2023-01-29 a8fe6b0 MERGE: Merge pull request #12 from oasis-tcs/ubl-332-oasis-2020
+  2023-01-30 c6e6337 MERGE: Merge pull request #13 from oasis-tcs/ubl-2.4-csd01wd02-handle-bad-gc
+  2023-01-30 2c7d346 MERGE: Merge pull request #14 from oasis-tcs/UBL-183-catalog
+  2023-01-30 63da49a MERGE: Merge pull request #15 from oasis-tcs/ubl-2.4-csd01wd02-pub
+  2023-01-31 d6c76d2 MERGE: Merge pull request #16 from oasis-tcs/UBL-359-work
+  2023-02-06 294527e MERGE: Merge pull request #17 from oasis-tcs/UBL-360
+  2023-02-07 be9528c MERGE: Merge pull request #19 from oasis-tcs/kd-ubl-331
+  2023-02-07 33d4527 MERGE: Merge pull request #20 from oasis-tcs/ubl-2.4-csd01wd02-kdtemp
+  2023-02-07 35bbc9f MERGE: Merge pull request #21 from oasis-tcs/ubl-2.4-csd01wd02
+  2023-02-28 8482207 MERGE: Merge pull request #23 from oasis-tcs/csd01-kd
+  2023-09-26 0b0b0b3 MERGE: Merge pull request #24 from oasis-tcs/ubl-2.4-csd01-docx
+  2023-09-26 c7ec642 MERGE: Merge pull request #26 from oasis-tcs/ubl-2.4-csd01-docx
+  2023-09-26 16ca084 MERGE: Merge pull request #27 from oasis-tcs/test-2.4cs01
+  2025-08-20 0b44c38 MERGE: Merge pull request #28 from oasis-tcs/ubl-2.5-7zip-test
+  2025-10-07 0baef61 MERGE: Merge pull request #29 from oasis-tcs/ubl-2.5
+  2025-10-12 cc12281 MERGE: Merge pull request #30 from oasis-tcs/ubl-2.5
+  2025-11-06 b9c6933 MERGE: Merge pull request #1 from claude code
+  2025-11-06 6e283a1 MERGE: Merge pull request #2 from kduvekot/github-workflow-changes
+  2025-11-17 e8782d2 MERGE: Merge pull request #3 from kduvekot/claude/review-git-history-01NCwMMBJVmEzNmra8BS9Bbu
+  2025-11-17 7628a9c MERGE: Merge pull request #31 from kduvekot/ubl-2.5-python
+  2025-11-17 814ecd6 MERGE: Merge branch 'ubl-2.5' into ubl-2.5-python
+  2025-11-17 fefb987 MERGE: Merge pull request #4 from kduvekot/claude/investigate-shadow-ubl-01Nvm5Y3Vacd3gexB9X546pL
+  2025-11-17 6c4d314 MERGE: Merge pull request #33 from kduvekot/ubl-2.5-python
+  2025-11-17 05bfda6 MERGE: Merge pull request #5 from oasis-tcs/ubl-2.5-python
+  2025-11-17 a791013 MERGE: Merge pull request #32 from oasis-tcs/ubl-2.5-python
+  2025-11-17 eec48c4 MERGE: Merge pull request #34 from kduvekot/claude/fix-spreadsheet-links
+  2026-01-28 27b46f5 MERGE: Ubl 2.5 2025 layout
+
+BRANCH TIPS:
+  main: c12b81a (2025-10-08) sync main repo build.yml
+  ubl-2.3-csd05-copy: 57dda2e (2021-05-16) Rebuild results on edit branch
+  ubl-2.3-cs02: 47eb1f5 (2021-05-23) First attempt at CS02
+  ubl-2.3-os: bc99520 (2021-06-18) Repair text in Status section
+  ubl-2.3-os-iso: bc99520 (2021-06-18) Repair text in Status section
+  review: 876778c (2023-02-01) Added Purchase Order example + updated to 2.4 XSDs
+  ubl-2.4-csd01wd01: 21efa9e (2021-06-01) Revised README diagram
+  ubl-2.4-csd01wd02: 33d4527 (2023-02-07) Merge pull request #20 from oasis-tcs/ubl-2.4-csd01wd02-kdtemp
+  ubl-2.4-csd01: 0b0b0b3 (2023-09-26) Merge pull request #24 from oasis-tcs/ubl-2.4-csd01-docx
+  ubl-2.4-csd02-prd01-13: 476e1ad (2023-07-04) Previous stage version set to 2.4
+  ubl-2.4-csd02-tsc: 476e1ad (2023-07-04) Previous stage version set to 2.4
+  ubl-2.4-csd02: 9b42a40 (2023-07-25) Update config-UBL.xml
+  ubl-2.4-cs01-work: 7c01887 (2023-09-20) Updated CS01 version
+  ubl-2.4-cs01: 8c4d077 (2024-06-24) Test of server ability to recreate outputs
+  ubl-2.4-os: 779bf4b (2025-03-23) Retrying 2.4 OS publishing
+  ubl-2.4-os-iso-pub: c55958d (2025-06-20) Second attempt, commenting out content rather than using condition= applicability
+  tsc-ubl-2.5-experimental: 0b381cc (2023-10-12) Add files via upload
+  ubl-2.5-dev: 39fae0d (2025-06-11) Polish up column heading that doesn't need to be abbreviated
+  ubl-2.5-kenneth: 154a8bc (2025-04-30) Update spellcheck-UBL.txt
+  UBL-433-xsd-doc: 4c0ffc3 (2025-07-06) UBL-433 Include deprecated columns in XSDs
+  retest: 15c714c (2025-05-23) Old spreadsheet references out of date
+  ubl-2.5-python: 6c4d314 (2025-11-17) Merge pull request #33 from kduvekot/ubl-2.5-python
+  ubl-2.5-retry: f738ca3 (2026-01-21) Retry with unchanged .gc files
+  server-test: 68aabb9 (2026-01-21) Retry server access
+  ubl-2.5-2025-layout: 5e984b8 (2026-01-15) Test access to production server
+  kentest: 7f8f046 (2026-01-21) Run on Réalta QA server for server test
+  ubl-2.5: 3d81e8a (2026-02-09) Updated CSD03 version number, release date, and editor
