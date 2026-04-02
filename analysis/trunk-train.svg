@@ -268,20 +268,14 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <path d="M 330,190.90762561076215 L 318,202.90762561076215 L 300,202.90762561076215 L 300,214.90762561076215" class="line-dead-rel" fill="none"/>
 <circle cx="300" cy="214.90762561076215" r="4" class="dot-branch-release"/>
 <line x1="297" y1="214.90762561076215" x2="303" y2="214.90762561076215" stroke="#7ee787" stroke-width="2"/>
-<text x="292" y="218.90762561076215" class="lbl-rel" text-anchor="end">★ 2.3 CSD05  12 May 2021</text>
-<text x="292" y="228.90762561076215" class="lbl" text-anchor="end">ubl-2.3-csd05-copy</text>
 <path d="M 330,180.90762561076215 L 318,192.90762561076215 L 255,192.90762561076215 L 255,216.90762561076215" class="line-dead-rel" fill="none"/>
 <circle cx="255" cy="204.90762561076215" r="2.5" class="dot-branch-release"/>
 <circle cx="255" cy="216.90762561076215" r="4" class="dot-branch-release"/>
 <line x1="252" y1="216.90762561076215" x2="258" y2="216.90762561076215" stroke="#7ee787" stroke-width="2"/>
-<text x="247" y="220.90762561076215" class="lbl-rel" text-anchor="end">★ 2.3 CS02  25 May 2021</text>
-<text x="247" y="230.90762561076215" class="lbl" text-anchor="end">ubl-2.3-cs02</text>
 <path d="M 330,287.2455989221646 L 318,299.2455989221646 L 255,299.2455989221646 L 255,323.2455989221646" class="line-dead-rel" fill="none"/>
 <circle cx="255" cy="311.2455989221646" r="2.5" class="dot-branch-release"/>
 <circle cx="255" cy="323.2455989221646" r="4" class="dot-branch-release"/>
 <line x1="252" y1="323.2455989221646" x2="258" y2="323.2455989221646" stroke="#7ee787" stroke-width="2"/>
-<text x="247" y="327.2455989221646" class="lbl-rel" text-anchor="end">★ 2.3 OS  15 Jun 2021</text>
-<text x="247" y="337.2455989221646" class="lbl" text-anchor="end">ubl-2.3-os (+os-iso)</text>
 <path d="M 330,277.2455989221646 L 318,289.2455989221646 L 210,289.2455989221646 L 210,349.2455989221646" class="line-dead" fill="none"/>
 <circle cx="210" cy="301.2455989221646" r="2.5" class="dot-branch"/>
 <circle cx="210" cy="313.2455989221646" r="2.5" class="dot-branch"/>
@@ -289,15 +283,12 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="210" cy="337.2455989221646" r="2.5" class="dot-branch"/>
 <circle cx="210" cy="349.2455989221646" r="2.5" class="dot-branch"/>
 <line x1="207" y1="349.2455989221646" x2="213" y2="349.2455989221646" stroke="#484f58" stroke-width="2"/>
-<text x="202" y="353.2455989221646" class="lbl" text-anchor="end">review (5)</text>
 <path d="M 330,297.2455989221646 L 318,309.2455989221646 L 300,309.2455989221646 L 300,321.2455989221646" class="line-dead" fill="none"/>
 <circle cx="300" cy="321.2455989221646" r="2.5" class="dot-branch"/>
 <line x1="297" y1="321.2455989221646" x2="303" y2="321.2455989221646" stroke="#484f58" stroke-width="2"/>
-<text x="292" y="325.2455989221646" class="lbl" text-anchor="end">main (1)</text>
 <path d="M 330,2039.589794324613 L 318,2051.5897943246127 L 300,2051.5897943246127 L 300,2063.5897943246127" class="line-dead" fill="none"/>
 <circle cx="300" cy="2063.5897943246127" r="2.5" class="dot-branch"/>
 <line x1="297" y1="2063.5897943246127" x2="303" y2="2063.5897943246127" stroke="#484f58" stroke-width="2"/>
-<text x="292" y="2067.5897943246127" class="lbl" text-anchor="end">ubl-2.4-csd01 tip (1)</text>
 <path d="M 330,2466.3448376866445 L 318,2478.3448376866445 L 165,2478.3448376866445 L 165,2646.3448376866445" class="line-dead" fill="none"/>
 <circle cx="165" cy="2490.3448376866445" r="2.5" class="dot-branch"/>
 <circle cx="165" cy="2502.3448376866445" r="2.5" class="dot-branch"/>
@@ -314,7 +305,6 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="165" cy="2634.3448376866445" r="2.5" class="dot-branch"/>
 <circle cx="165" cy="2646.3448376866445" r="2.5" class="dot-branch"/>
 <line x1="162" y1="2646.3448376866445" x2="168" y2="2646.3448376866445" stroke="#484f58" stroke-width="2"/>
-<text x="157" y="2650.3448376866445" class="lbl" text-anchor="end">tsc-ubl-2.5-exp (14)</text>
 <path d="M 330,2537.4615666921604 L 318,2549.4615666921604 L 300,2549.4615666921604 L 300,2633.4615666921604" class="line-dead" fill="none"/>
 <circle cx="300" cy="2561.4615666921604" r="2.5" class="dot-branch"/>
 <circle cx="300" cy="2573.4615666921604" r="2.5" class="dot-branch"/>
@@ -324,7 +314,6 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="300" cy="2621.4615666921604" r="2.5" class="dot-branch"/>
 <circle cx="300" cy="2633.4615666921604" r="2.5" class="dot-branch"/>
 <line x1="297" y1="2633.4615666921604" x2="303" y2="2633.4615666921604" stroke="#484f58" stroke-width="2"/>
-<text x="292" y="2637.4615666921604" class="lbl" text-anchor="end">ubl-2.4-cs01 tip (7)</text>
 <path d="M 330,2527.4615666921604 L 318,2539.4615666921604 L 255,2539.4615666921604 L 255,2707.4615666921604" class="line-dead-rel" fill="none"/>
 <circle cx="255" cy="2551.4615666921604" r="2.5" class="dot-branch-release"/>
 <circle cx="255" cy="2563.4615666921604" r="2.5" class="dot-branch-release"/>
@@ -341,8 +330,6 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="255" cy="2695.4615666921604" r="2.5" class="dot-branch-release"/>
 <circle cx="255" cy="2707.4615666921604" r="4" class="dot-branch-release"/>
 <line x1="252" y1="2707.4615666921604" x2="258" y2="2707.4615666921604" stroke="#7ee787" stroke-width="2"/>
-<text x="247" y="2711.4615666921604" class="lbl-rel" text-anchor="end">★ 2.4 OS  20 Jun 2024</text>
-<text x="247" y="2721.4615666921604" class="lbl" text-anchor="end">ubl-2.4-os</text>
 <path d="M 330,2517.4615666921604 L 318,2529.4615666921604 L 210,2529.4615666921604 L 210,2793.4615666921604" class="line-dead" fill="none"/>
 <circle cx="210" cy="2541.4615666921604" r="2.5" class="dot-branch"/>
 <circle cx="210" cy="2553.4615666921604" r="2.5" class="dot-branch"/>
@@ -367,17 +354,14 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="210" cy="2781.4615666921604" r="2.5" class="dot-branch"/>
 <circle cx="210" cy="2793.4615666921604" r="2.5" class="dot-branch"/>
 <line x1="207" y1="2793.4615666921604" x2="213" y2="2793.4615666921604" stroke="#484f58" stroke-width="2"/>
-<text x="202" y="2797.4615666921604" class="lbl" text-anchor="end">ubl-2.4-os-iso-pub (22)</text>
 <path d="M 330,2814.2658415231435 L 318,2826.2658415231435 L 300,2826.2658415231435 L 300,2850.2658415231435" class="line-dead" fill="none"/>
 <circle cx="300" cy="2838.2658415231435" r="2.5" class="dot-branch"/>
 <circle cx="300" cy="2850.2658415231435" r="2.5" class="dot-branch"/>
 <line x1="297" y1="2850.2658415231435" x2="303" y2="2850.2658415231435" stroke="#484f58" stroke-width="2"/>
-<text x="292" y="2854.2658415231435" class="lbl" text-anchor="end">retest (2)</text>
 <path d="M 330,2975.4536156428017 L 318,2987.4536156428017 L 300,2987.4536156428017 L 300,3011.4536156428017" class="line-dead" fill="none"/>
 <circle cx="300" cy="2999.4536156428017" r="2.5" class="dot-branch"/>
 <circle cx="300" cy="3011.4536156428017" r="2.5" class="dot-branch"/>
 <line x1="297" y1="3011.4536156428017" x2="303" y2="3011.4536156428017" stroke="#484f58" stroke-width="2"/>
-<text x="292" y="3015.4536156428017" class="lbl" text-anchor="end">ubl-2.5-kenneth (2)</text>
 <path d="M 330,4799.5015565688045 L 318,4811.5015565688045 L 255,4811.5015565688045 L 255,4919.5015565688045" class="line-dead" fill="none"/>
 <circle cx="255" cy="4823.5015565688045" r="2.5" class="dot-branch"/>
 <circle cx="255" cy="4835.5015565688045" r="2.5" class="dot-branch"/>
@@ -389,15 +373,12 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="255" cy="4907.5015565688045" r="2.5" class="dot-branch"/>
 <circle cx="255" cy="4919.5015565688045" r="2.5" class="dot-branch"/>
 <line x1="252" y1="4919.5015565688045" x2="258" y2="4919.5015565688045" stroke="#484f58" stroke-width="2"/>
-<text x="247" y="4923.5015565688045" class="lbl" text-anchor="end">kentest (9)</text>
 <path d="M 330,4809.5015565688045 L 318,4821.5015565688045 L 300,4821.5015565688045 L 300,4833.5015565688045" class="line-dead" fill="none"/>
 <circle cx="300" cy="4833.5015565688045" r="2.5" class="dot-branch"/>
 <line x1="297" y1="4833.5015565688045" x2="303" y2="4833.5015565688045" stroke="#484f58" stroke-width="2"/>
-<text x="292" y="4837.5015565688045" class="lbl" text-anchor="end">server-test (1)</text>
 <path d="M 330,4849.210114765924 L 318,4861.210114765924 L 300,4861.210114765924 L 300,4873.210114765924" class="line-dead" fill="none"/>
 <circle cx="300" cy="4873.210114765924" r="2.5" class="dot-branch"/>
 <line x1="297" y1="4873.210114765924" x2="303" y2="4873.210114765924" stroke="#484f58" stroke-width="2"/>
-<text x="292" y="4877.210114765924" class="lbl" text-anchor="end">ubl-2.5-retry (1)</text>
 <circle cx="330" cy="90" r="4" class="dot-merge"/>
 <circle cx="330" cy="100.92869714997444" r="2.5" class="dot-trunk"/>
 <circle cx="330" cy="140.92869714997443" r="2.5" class="dot-trunk"/>
@@ -726,35 +707,54 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="330" cy="5039.020197021217" r="2.5" class="dot-trunk"/>
 <circle cx="330" cy="5046.0709465145255" r="2.5" class="dot-trunk"/>
 <circle cx="330" cy="5052.304110938559" r="5" class="dot-release"/>
-<text x="338" y="2043.589794324613" class="lbl-rel">★ 2.4 CSD01  08 Feb 2023</text>
-<text x="338" y="2337.307645670623" class="lbl-rel">★ 2.4 CSD02  26 Jul 2023</text>
-<text x="338" y="2521.4615666921604" class="lbl-rel">★ 2.4 CS01  17 Oct 2023</text>
-<text x="338" y="4115.388584699645" class="lbl-rel">★ 2.5 CSD01  20 Aug 2025</text>
-<text x="338" y="4803.5015565688045" class="lbl-rel">★ 2.5 CSD02  03 Dec 2025</text>
-<text x="338" y="5056.304110938559" class="lbl-rel">★ 2.5 CSD03  11 Feb 2026</text>
-<text x="338" y="94" class="lbl-mile">Repo created  11 Apr 2018</text>
-<text x="338" y="281.2455989221646" class="lbl-mile">PIVOT  26 May 2021</text>
-<text x="338" y="3454.741372938959" class="lbl-mile">UBL-433-xsd-doc  06 Jul 2025</text>
-<text x="338" y="3846.829064838918" class="lbl-mile">dc1249d (recovered)  06 Aug 2025</text>
-<text x="338" y="253.90762561076218" class="lbl-pr">← merge</text>
-<text x="338" y="672.0192424934193" class="lbl-pr">← PR#4</text>
-<text x="338" y="730.0192424934193" class="lbl-pr">← PR#5</text>
-<text x="338" y="814.1370324555879" class="lbl-pr">← PR#6</text>
-<text x="338" y="872.1370324555879" class="lbl-pr">← PR#7</text>
-<text x="338" y="932.1370324555879" class="lbl-pr">← PR#8</text>
-<text x="338" y="992.1370324555879" class="lbl-pr">← PR#9</text>
-<text x="338" y="1052.1370324555878" class="lbl-pr">← PR#10</text>
-<text x="338" y="1112.1370324555878" class="lbl-pr">← PR#11</text>
-<text x="338" y="1182.1370324555878" class="lbl-pr">← PR#12</text>
-<text x="338" y="1255.1790658843747" class="lbl-pr">← PR#13</text>
-<text x="338" y="1313.1790658843747" class="lbl-pr">← PR#14</text>
-<text x="338" y="1371.1790658843747" class="lbl-pr">← PR#15</text>
-<text x="338" y="1431.1790658843747" class="lbl-pr">← PR#16</text>
-<text x="338" y="1551.1790658843747" class="lbl-pr">← PR#17</text>
-<text x="338" y="1921.179065884375" class="lbl-pr">← PR#21</text>
-<text x="338" y="2035.8301933311318" class="lbl-pr">← PR#23</text>
-<text x="338" y="2469.3448376866445" class="lbl-pr">← PR#27</text>
-<text x="338" y="4385.968970455942" class="lbl-pr">← PR#32</text>
-<text x="338" y="4445.968970455942" class="lbl-pr">← PR#34</text>
-<text x="338" y="4932.5015565688045" class="lbl-pr">← merge</text>
+<text x="292" y="218.9" class="lbl-rel" text-anchor="end">★ 2.3 CSD05  12 May 2021</text>
+<text x="247" y="229.9" class="lbl-rel" text-anchor="end">★ 2.3 CS02  25 May 2021</text>
+<text x="292" y="240.9" class="lbl" text-anchor="end">ubl-2.3-csd05-copy</text>
+<text x="247" y="250.9" class="lbl" text-anchor="end">ubl-2.3-cs02</text>
+<text x="292" y="325.2" class="lbl" text-anchor="end">main (1)</text>
+<text x="247" y="336.2" class="lbl-rel" text-anchor="end">★ 2.3 OS  15 Jun 2021</text>
+<text x="247" y="347.2" class="lbl" text-anchor="end">ubl-2.3-os (+os-iso)</text>
+<text x="202" y="357.2" class="lbl" text-anchor="end">review (5)</text>
+<text x="292" y="2067.6" class="lbl" text-anchor="end">ubl-2.4-csd01 tip (1)</text>
+<text x="292" y="2637.5" class="lbl" text-anchor="end">ubl-2.4-cs01 tip (7)</text>
+<text x="157" y="2650.3" class="lbl" text-anchor="end">tsc-ubl-2.5-exp (14)</text>
+<text x="247" y="2711.5" class="lbl-rel" text-anchor="end">★ 2.4 OS  20 Jun 2024</text>
+<text x="247" y="2722.5" class="lbl" text-anchor="end">ubl-2.4-os</text>
+<text x="202" y="2797.5" class="lbl" text-anchor="end">ubl-2.4-os-iso-pub (22)</text>
+<text x="292" y="2854.3" class="lbl" text-anchor="end">retest (2)</text>
+<text x="292" y="3015.5" class="lbl" text-anchor="end">ubl-2.5-kenneth (2)</text>
+<text x="292" y="4837.5" class="lbl" text-anchor="end">server-test (1)</text>
+<text x="292" y="4877.2" class="lbl" text-anchor="end">ubl-2.5-retry (1)</text>
+<text x="247" y="4923.5" class="lbl" text-anchor="end">kentest (9)</text>
+<text x="338" y="94.0" class="lbl-mile" text-anchor="start">Repo created  11 Apr 2018</text>
+<text x="338" y="253.9" class="lbl-pr" text-anchor="start">← merge</text>
+<text x="338" y="281.2" class="lbl-mile" text-anchor="start">PIVOT  26 May 2021</text>
+<text x="338" y="672.0" class="lbl-pr" text-anchor="start">← PR#4</text>
+<text x="338" y="730.0" class="lbl-pr" text-anchor="start">← PR#5</text>
+<text x="338" y="814.1" class="lbl-pr" text-anchor="start">← PR#6</text>
+<text x="338" y="872.1" class="lbl-pr" text-anchor="start">← PR#7</text>
+<text x="338" y="932.1" class="lbl-pr" text-anchor="start">← PR#8</text>
+<text x="338" y="992.1" class="lbl-pr" text-anchor="start">← PR#9</text>
+<text x="338" y="1052.1" class="lbl-pr" text-anchor="start">← PR#10</text>
+<text x="338" y="1112.1" class="lbl-pr" text-anchor="start">← PR#11</text>
+<text x="338" y="1182.1" class="lbl-pr" text-anchor="start">← PR#12</text>
+<text x="338" y="1255.2" class="lbl-pr" text-anchor="start">← PR#13</text>
+<text x="338" y="1313.2" class="lbl-pr" text-anchor="start">← PR#14</text>
+<text x="338" y="1371.2" class="lbl-pr" text-anchor="start">← PR#15</text>
+<text x="338" y="1431.2" class="lbl-pr" text-anchor="start">← PR#16</text>
+<text x="338" y="1551.2" class="lbl-pr" text-anchor="start">← PR#17</text>
+<text x="338" y="1921.2" class="lbl-pr" text-anchor="start">← PR#21</text>
+<text x="338" y="2035.8" class="lbl-pr" text-anchor="start">← PR#23</text>
+<text x="338" y="2044.8" class="lbl-rel" text-anchor="start">★ 2.4 CSD01  08 Feb 2023</text>
+<text x="338" y="2337.3" class="lbl-rel" text-anchor="start">★ 2.4 CSD02  26 Jul 2023</text>
+<text x="338" y="2469.3" class="lbl-pr" text-anchor="start">← PR#27</text>
+<text x="338" y="2521.5" class="lbl-rel" text-anchor="start">★ 2.4 CS01  17 Oct 2023</text>
+<text x="338" y="3454.7" class="lbl-mile" text-anchor="start">UBL-433-xsd-doc  06 Jul 2025</text>
+<text x="338" y="3846.8" class="lbl-mile" text-anchor="start">dc1249d (recovered)  06 Aug 2025</text>
+<text x="338" y="4115.4" class="lbl-rel" text-anchor="start">★ 2.5 CSD01  20 Aug 2025</text>
+<text x="338" y="4386.0" class="lbl-pr" text-anchor="start">← PR#32</text>
+<text x="338" y="4446.0" class="lbl-pr" text-anchor="start">← PR#34</text>
+<text x="338" y="4803.5" class="lbl-rel" text-anchor="start">★ 2.5 CSD02  03 Dec 2025</text>
+<text x="338" y="4932.5" class="lbl-pr" text-anchor="start">← merge</text>
+<text x="338" y="5056.3" class="lbl-rel" text-anchor="start">★ 2.5 CSD03  11 Feb 2026</text>
 </svg>
