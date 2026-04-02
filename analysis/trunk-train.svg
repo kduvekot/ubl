@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1610" height="4767" style="background-color:#0d1117">
+<svg xmlns="http://www.w3.org/2000/svg" width="1610" height="4914" style="background-color:#0d1117">
 <style>
 text { font-family: Helvetica, Arial, sans-serif; }
 .dot-trunk { fill: #4a7a5a; }
@@ -23,738 +23,738 @@ text { font-family: Helvetica, Arial, sans-serif; }
 </style>
 <text x="10" y="16" fill="#58a6ff" font-size="13" font-weight="bold">oasis-tcs/ubl — Train Track View</text>
 <text x="10" y="30" fill="#8b949e" font-size="9">328 trunk commits (dots) · 160 PR branch commits (side tracks) · ★ = verified release · Blue = merge-back branches · Gray = dead ends</text>
-<text x="10" y="42" fill="#484f58" font-size="8">Generated 2026-04-02</text>
-<rect x="435" y="2544" width="30" height="556" class="rec-zone" rx="5"/>
-<line x1="10" y1="85" x2="420" y2="85" class="year-line"/>
-<text x="15" y="89" class="lbl-year">2018</text>
-<line x1="10" y1="113" x2="420" y2="113" class="year-line"/>
-<text x="15" y="117" class="lbl-year">2021</text>
-<line x1="10" y1="631" x2="420" y2="631" class="year-line"/>
-<text x="15" y="635" class="lbl-year">2022</text>
-<line x1="10" y1="729" x2="420" y2="729" class="year-line"/>
-<text x="15" y="733" class="lbl-year">2023</text>
-<line x1="10" y1="1583" x2="420" y2="1583" class="year-line"/>
-<text x="15" y="1587" class="lbl-year">2024</text>
-<line x1="10" y1="1835" x2="420" y2="1835" class="year-line"/>
-<text x="15" y="1839" class="lbl-year">2025</text>
-<line x1="10" y1="4397" x2="420" y2="4397" class="year-line"/>
-<text x="15" y="4401" class="lbl-year">2026</text>
-<line x1="450" y1="85" x2="450" y2="4663" class="line-trunk"/>
-<path d="M 450,155 L 482,155 Q 490,155 490,163 L 490,175 Q 490,183 482,183 L 450,183" class="line-pr" fill="none"/>
-<circle cx="490" cy="164.33333333333334" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="173.66666666666666" r="2.5" class="dot-pr"/>
-<text x="496" y="165.0" class="lbl-pr">merge (2)</text>
-<path d="M 450,603 L 482,603 Q 490,603 490,611 L 490,609 Q 490,617 482,617 L 450,617" class="line-pr" fill="none"/>
-<circle cx="490" cy="607.6666666666666" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="612.3333333333334" r="2.5" class="dot-pr"/>
-<text x="496" y="606.0" class="lbl-pr">PR#4 (2)</text>
-<text x="496" y="616.0" class="lbl-src">UBL-330</text>
-<path d="M 450,617 L 602,617 Q 610,617 610,625 L 610,623 Q 610,631 602,631 L 450,631" class="line-pr" fill="none"/>
-<circle cx="610" cy="624.0" r="2.5" class="dot-pr"/>
-<text x="616" y="620.0" class="lbl-pr">PR#5 (1)</text>
-<text x="616" y="630.0" class="lbl-src">UBL-335</text>
-<path d="M 450,645 L 482,645 Q 490,645 490,653 L 490,651 Q 490,659 482,659 L 450,659" class="line-pr" fill="none"/>
-<circle cx="490" cy="652.0" r="2.5" class="dot-pr"/>
-<text x="496" y="648.0" class="lbl-pr">PR#6 (1)</text>
-<text x="496" y="658.0" class="lbl-src">UBL-339-skip-publishing</text>
-<path d="M 450,659 L 602,659 Q 610,659 610,667 L 610,665 Q 610,673 602,673 L 450,673" class="line-pr" fill="none"/>
-<circle cx="610" cy="666.0" r="2.5" class="dot-pr"/>
-<text x="616" y="662.0" class="lbl-pr">PR#7 (1)</text>
-<text x="616" y="672.0" class="lbl-src">UBL-338-invalid-schematron</text>
-<path d="M 450,673 L 722,673 Q 730,673 730,681 L 730,679 Q 730,687 722,687 L 450,687" class="line-pr" fill="none"/>
-<circle cx="730" cy="677.6666666666666" r="2.5" class="dot-pr"/>
-<circle cx="730" cy="682.3333333333334" r="2.5" class="dot-pr"/>
-<text x="736" y="676.0" class="lbl-pr">PR#8 (2)</text>
-<text x="736" y="686.0" class="lbl-src">UBL-337-schxslt</text>
-<path d="M 450,687 L 842,687 Q 850,687 850,695 L 850,693 Q 850,701 842,701 L 450,701" class="line-pr" fill="none"/>
-<circle cx="850" cy="689.8" r="2.5" class="dot-pr"/>
-<circle cx="850" cy="692.6" r="2.5" class="dot-pr"/>
-<circle cx="850" cy="695.4" r="2.5" class="dot-pr"/>
-<circle cx="850" cy="698.2" r="2.5" class="dot-pr"/>
-<text x="856" y="690.0" class="lbl-pr">PR#9 (4)</text>
-<text x="856" y="700.0" class="lbl-src">kd-action-updates</text>
-<path d="M 450,701 L 962,701 Q 970,701 970,709 L 970,707 Q 970,715 962,715 L 450,715" class="line-pr" fill="none"/>
-<circle cx="970" cy="705.6666666666666" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="710.3333333333334" r="2.5" class="dot-pr"/>
-<text x="976" y="704.0" class="lbl-pr">PR#10 (2)</text>
-<text x="976" y="714.0" class="lbl-src">ubl-2.4-csd01wd02-new-samples</text>
-<path d="M 450,701 L 1082,701 Q 1090,701 1090,709 L 1090,721 Q 1090,729 1082,729 L 450,729" class="line-pr" fill="none"/>
-<circle cx="1090" cy="703.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="705.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="707.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="709.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="711.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="713.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="715.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="717.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="719.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="721.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="723.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="725.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="727.0" r="2.5" class="dot-pr"/>
-<text x="1096" y="711.0" class="lbl-pr">PR#11 (13)</text>
-<text x="1096" y="721.0" class="lbl-src">ubl-2.4-csd01wd02-rework-Ken</text>
-<path d="M 450,729 L 1202,729 Q 1210,729 1210,737 L 1210,749 Q 1210,757 1202,757 L 450,757" class="line-pr" fill="none"/>
-<circle cx="1210" cy="738.3333333333334" r="2.5" class="dot-pr"/>
-<circle cx="1210" cy="747.6666666666666" r="2.5" class="dot-pr"/>
-<text x="1216" y="739.0" class="lbl-pr">PR#12 (2)</text>
-<text x="1216" y="749.0" class="lbl-src">ubl-332-oasis-2020</text>
-<path d="M 450,771 L 482,771 Q 490,771 490,779 L 490,777 Q 490,785 482,785 L 450,785" class="line-pr" fill="none"/>
-<circle cx="490" cy="773.8" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="776.6" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="779.4" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="782.2" r="2.5" class="dot-pr"/>
-<text x="496" y="774.0" class="lbl-pr">PR#13 (4)</text>
-<text x="496" y="784.0" class="lbl-src">ubl-2.4-csd01wd02-handle-bad-gc</text>
-<path d="M 450,785 L 602,785 Q 610,785 610,793 L 610,791 Q 610,799 602,799 L 450,799" class="line-pr" fill="none"/>
-<circle cx="610" cy="792.0" r="2.5" class="dot-pr"/>
-<text x="616" y="788.0" class="lbl-pr">PR#14 (1)</text>
-<text x="616" y="798.0" class="lbl-src">UBL-183-catalog</text>
-<path d="M 450,799 L 722,799 Q 730,799 730,807 L 730,805 Q 730,813 722,813 L 450,813" class="line-pr" fill="none"/>
-<circle cx="730" cy="806.0" r="2.5" class="dot-pr"/>
-<text x="736" y="802.0" class="lbl-pr">PR#15 (1)</text>
-<text x="736" y="812.0" class="lbl-src">ubl-2.4-csd01wd02-pub</text>
-<path d="M 450,813 L 842,813 Q 850,813 850,821 L 850,819 Q 850,827 842,827 L 450,827" class="line-pr" fill="none"/>
-<circle cx="850" cy="815.3333333333334" r="2.5" class="dot-pr"/>
-<circle cx="850" cy="817.6666666666666" r="2.5" class="dot-pr"/>
-<circle cx="850" cy="820.0" r="2.5" class="dot-pr"/>
-<circle cx="850" cy="822.3333333333334" r="2.5" class="dot-pr"/>
-<circle cx="850" cy="824.6666666666666" r="2.5" class="dot-pr"/>
-<text x="856" y="816.0" class="lbl-pr">PR#16 (5)</text>
-<text x="856" y="826.0" class="lbl-src">UBL-359-work</text>
-<path d="M 450,827 L 962,827 Q 970,827 970,835 L 970,847 Q 970,855 962,855 L 450,855" class="line-pr" fill="none"/>
-<circle cx="970" cy="828.4736842105264" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="829.9473684210526" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="831.421052631579" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="832.8947368421053" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="834.3684210526316" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="835.8421052631579" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="837.3157894736842" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="838.7894736842105" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="840.2631578947369" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="841.7368421052631" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="843.2105263157895" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="844.6842105263158" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="846.1578947368421" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="847.6315789473684" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="849.1052631578947" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="850.578947368421" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="852.0526315789474" r="2.5" class="dot-pr"/>
-<circle cx="970" cy="853.5263157894736" r="2.5" class="dot-pr"/>
-<text x="976" y="837.0" class="lbl-pr">PR#17 (18)</text>
-<text x="976" y="847.0" class="lbl-src">UBL-360</text>
-<path d="M 450,855 L 1082,855 Q 1090,855 1090,863 L 1090,959 Q 1090,967 1082,967 L 450,967" class="line-pr" fill="none"/>
-<circle cx="1090" cy="859.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="863.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="867.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="871.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="875.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="879.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="883.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="887.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="891.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="895.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="899.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="903.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="907.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="911.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="915.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="919.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="923.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="927.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="931.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="935.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="939.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="943.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="947.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="951.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="955.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="959.0" r="2.5" class="dot-pr"/>
-<circle cx="1090" cy="963.0" r="2.5" class="dot-pr"/>
-<text x="1096" y="907.0" class="lbl-pr">PR#21 (27)</text>
-<text x="1096" y="917.0" class="lbl-src">ubl-2.4-csd01wd02</text>
-<path d="M 450,1009 L 482,1009 Q 490,1009 490,1017 L 490,1015 Q 490,1023 482,1023 L 450,1023" class="line-pr" fill="none"/>
-<circle cx="490" cy="1010.5555555555555" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="1012.1111111111111" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="1013.6666666666666" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="1015.2222222222222" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="1016.7777777777778" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="1018.3333333333334" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="1019.8888888888889" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="1021.4444444444445" r="2.5" class="dot-pr"/>
-<text x="496" y="1012.0" class="lbl-pr">PR#23 (8)</text>
-<text x="496" y="1022.0" class="lbl-src">csd01-kd</text>
-<path d="M 450,1499 L 482,1499 Q 490,1499 490,1507 L 490,1505 Q 490,1513 482,1513 L 450,1513" class="line-pr" fill="none"/>
-<circle cx="490" cy="1501.3333333333333" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="1503.6666666666667" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="1506.0" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="1508.3333333333333" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="1510.6666666666667" r="2.5" class="dot-pr"/>
-<text x="496" y="1502.0" class="lbl-pr">PR#27 (5)</text>
-<text x="496" y="1512.0" class="lbl-src">test-2.4cs01</text>
-<path d="M 450,3459 L 482,3459 Q 490,3459 490,3467 L 490,3465 Q 490,3473 482,3473 L 450,3473" class="line-pr" fill="none"/>
-<circle cx="490" cy="3466.0" r="2.5" class="dot-pr"/>
-<text x="496" y="3462.0" class="lbl-pr">PR#28 (1)</text>
-<text x="496" y="3472.0" class="lbl-src">ubl-2.5-7zip-test</text>
-<path d="M 450,3725 L 482,3725 Q 490,3725 490,3733 L 490,3731 Q 490,3739 482,3739 L 450,3739" class="line-pr" fill="none"/>
-<circle cx="490" cy="3725.264150943396" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3725.5283018867926" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3725.7924528301887" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3726.056603773585" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3726.3207547169814" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3726.5849056603774" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3726.8490566037735" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3727.1132075471696" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3727.377358490566" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3727.6415094339623" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3727.9056603773583" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3728.169811320755" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3728.433962264151" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3728.698113207547" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3728.9622641509436" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3729.2264150943397" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3729.490566037736" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3729.754716981132" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3730.0188679245284" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3730.2830188679245" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3730.5471698113206" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3730.811320754717" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3731.0754716981132" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3731.3396226415093" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3731.603773584906" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3731.867924528302" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3732.132075471698" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3732.396226415094" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3732.6603773584907" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3732.9245283018868" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3733.188679245283" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3733.4528301886794" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3733.7169811320755" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3733.9811320754716" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3734.245283018868" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3734.509433962264" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3734.7735849056603" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3735.0377358490564" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3735.301886792453" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3735.566037735849" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3735.830188679245" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3736.0943396226417" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3736.3584905660377" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3736.622641509434" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3736.8867924528304" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3737.1509433962265" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3737.4150943396226" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3737.6792452830186" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3737.943396226415" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3738.2075471698113" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3738.4716981132074" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="3738.735849056604" r="2.5" class="dot-pr"/>
-<text x="496" y="3728.0" class="lbl-pr">PR#32 (52)</text>
-<text x="496" y="3738.0" class="lbl-src">ubl-2.5-python</text>
-<path d="M 450,3739 L 602,3739 Q 610,3739 610,3747 L 610,3745 Q 610,3753 602,3753 L 450,3753" class="line-pr" fill="none"/>
-<circle cx="610" cy="3743.6666666666665" r="2.5" class="dot-pr"/>
-<circle cx="610" cy="3748.3333333333335" r="2.5" class="dot-pr"/>
-<text x="616" y="3742.0" class="lbl-pr">PR#34 (2)</text>
-<text x="616" y="3752.0" class="lbl-src">claude/fix-spreadsheet-links</text>
-<path d="M 450,4383 L 482,4383 Q 490,4383 490,4391 L 490,4417 Q 490,4425 482,4425 L 450,4425" class="line-pr" fill="none"/>
-<circle cx="490" cy="4388.25" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="4393.5" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="4398.75" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="4404.0" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="4409.25" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="4414.5" r="2.5" class="dot-pr"/>
-<circle cx="490" cy="4419.75" r="2.5" class="dot-pr"/>
-<text x="496" y="4400.0" class="lbl-pr">merge (7)</text>
-<path d="M 450,155 L 416,155 Q 410,155 410,161 L 410,169" class="line-dead-rel" fill="none"/>
-<circle cx="410" cy="169" r="4" class="dot-branch-release"/>
-<line x1="407" y1="169" x2="413" y2="169" stroke="#7ee787" stroke-width="2"/>
-<text x="402" y="173" class="lbl-rel" text-anchor="end">★ 2.3 CSD05  12 May 2021</text>
-<text x="402" y="183" class="lbl" text-anchor="end">ubl-2.3-csd05-copy</text>
-<path d="M 450,155 L 326,155 Q 320,155 320,161 L 320,183" class="line-dead-rel" fill="none"/>
-<circle cx="320" cy="169" r="2.5" class="dot-branch-release"/>
-<circle cx="320" cy="183" r="4" class="dot-branch-release"/>
-<line x1="317" y1="183" x2="323" y2="183" stroke="#7ee787" stroke-width="2"/>
-<text x="312" y="187" class="lbl-rel" text-anchor="end">★ 2.3 CS02  25 May 2021</text>
-<text x="312" y="197" class="lbl" text-anchor="end">ubl-2.3-cs02</text>
-<path d="M 450,211 L 416,211 Q 410,211 410,217 L 410,239" class="line-dead-rel" fill="none"/>
-<circle cx="410" cy="225" r="2.5" class="dot-branch-release"/>
-<circle cx="410" cy="239" r="4" class="dot-branch-release"/>
-<line x1="407" y1="239" x2="413" y2="239" stroke="#7ee787" stroke-width="2"/>
-<text x="402" y="243" class="lbl-rel" text-anchor="end">★ 2.3 OS  15 Jun 2021</text>
-<text x="402" y="253" class="lbl" text-anchor="end">ubl-2.3-os (+os-iso)</text>
-<path d="M 450,211 L 326,211 Q 320,211 320,217 L 320,281" class="line-dead" fill="none"/>
-<circle cx="320" cy="225" r="2.5" class="dot-branch"/>
-<circle cx="320" cy="239" r="2.5" class="dot-branch"/>
-<circle cx="320" cy="253" r="2.5" class="dot-branch"/>
-<circle cx="320" cy="267" r="2.5" class="dot-branch"/>
-<circle cx="320" cy="281" r="2.5" class="dot-branch"/>
-<line x1="317" y1="281" x2="323" y2="281" stroke="#484f58" stroke-width="2"/>
-<text x="312" y="285" class="lbl" text-anchor="end">review (5)</text>
-<path d="M 450,211 L 236,211 Q 230,211 230,217 L 230,225" class="line-dead" fill="none"/>
-<circle cx="230" cy="225" r="2.5" class="dot-branch"/>
-<line x1="227" y1="225" x2="233" y2="225" stroke="#484f58" stroke-width="2"/>
-<text x="222" y="229" class="lbl" text-anchor="end">main (1)</text>
-<path d="M 450,1037 L 416,1037 Q 410,1037 410,1043 L 410,1051" class="line-dead" fill="none"/>
-<circle cx="410" cy="1051" r="2.5" class="dot-branch"/>
-<line x1="407" y1="1051" x2="413" y2="1051" stroke="#484f58" stroke-width="2"/>
-<text x="402" y="1055" class="lbl" text-anchor="end">ubl-2.4-csd01 tip (1)</text>
-<path d="M 450,1513 L 416,1513 Q 410,1513 410,1519 L 410,1709" class="line-dead" fill="none"/>
-<circle cx="410" cy="1527" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1541" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1555" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1569" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1583" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1597" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1611" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1625" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1639" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1653" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1667" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1681" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1695" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="1709" r="2.5" class="dot-branch"/>
-<line x1="407" y1="1709" x2="413" y2="1709" stroke="#484f58" stroke-width="2"/>
-<text x="402" y="1713" class="lbl" text-anchor="end">tsc-ubl-2.5-exp (14)</text>
-<path d="M 450,1569 L 326,1569 Q 320,1569 320,1575 L 320,1667" class="line-dead" fill="none"/>
-<circle cx="320" cy="1583" r="2.5" class="dot-branch"/>
-<circle cx="320" cy="1597" r="2.5" class="dot-branch"/>
-<circle cx="320" cy="1611" r="2.5" class="dot-branch"/>
-<circle cx="320" cy="1625" r="2.5" class="dot-branch"/>
-<circle cx="320" cy="1639" r="2.5" class="dot-branch"/>
-<circle cx="320" cy="1653" r="2.5" class="dot-branch"/>
-<circle cx="320" cy="1667" r="2.5" class="dot-branch"/>
-<line x1="317" y1="1667" x2="323" y2="1667" stroke="#484f58" stroke-width="2"/>
-<text x="312" y="1671" class="lbl" text-anchor="end">ubl-2.4-cs01 tip (7)</text>
-<path d="M 450,1569 L 236,1569 Q 230,1569 230,1575 L 230,1765" class="line-dead-rel" fill="none"/>
-<circle cx="230" cy="1583" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1597" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1611" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1625" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1639" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1653" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1667" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1681" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1695" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1709" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1723" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1737" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1751" r="2.5" class="dot-branch-release"/>
-<circle cx="230" cy="1765" r="4" class="dot-branch-release"/>
-<line x1="227" y1="1765" x2="233" y2="1765" stroke="#7ee787" stroke-width="2"/>
-<text x="222" y="1769" class="lbl-rel" text-anchor="end">★ 2.4 OS  20 Jun 2024</text>
-<text x="222" y="1779" class="lbl" text-anchor="end">ubl-2.4-os</text>
-<path d="M 450,1569 L 146,1569 Q 140,1569 140,1575 L 140,1877" class="line-dead" fill="none"/>
-<circle cx="140" cy="1583" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1597" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1611" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1625" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1639" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1653" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1667" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1681" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1695" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1709" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1723" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1737" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1751" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1765" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1779" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1793" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1807" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1821" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1835" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1849" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1863" r="2.5" class="dot-branch"/>
-<circle cx="140" cy="1877" r="2.5" class="dot-branch"/>
-<line x1="137" y1="1877" x2="143" y2="1877" stroke="#484f58" stroke-width="2"/>
-<text x="132" y="1881" class="lbl" text-anchor="end">ubl-2.4-os-iso-pub (22)</text>
-<path d="M 450,1835 L 56,1835 Q 50,1835 50,1841 L 50,1863" class="line-dead" fill="none"/>
-<circle cx="50" cy="1849" r="2.5" class="dot-branch"/>
-<circle cx="50" cy="1863" r="2.5" class="dot-branch"/>
-<line x1="47" y1="1863" x2="53" y2="1863" stroke="#484f58" stroke-width="2"/>
-<text x="42" y="1867" class="lbl" text-anchor="end">retest (2)</text>
-<path d="M 450,2017 L 416,2017 Q 410,2017 410,2023 L 410,2045" class="line-dead" fill="none"/>
-<circle cx="410" cy="2031" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="2045" r="2.5" class="dot-branch"/>
-<line x1="407" y1="2045" x2="413" y2="2045" stroke="#484f58" stroke-width="2"/>
-<text x="402" y="2049" class="lbl" text-anchor="end">ubl-2.5-kenneth (2)</text>
-<path d="M 450,4383 L 416,4383 Q 410,4383 410,4389 L 410,4509" class="line-dead" fill="none"/>
-<circle cx="410" cy="4397" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="4411" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="4425" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="4439" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="4453" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="4467" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="4481" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="4495" r="2.5" class="dot-branch"/>
-<circle cx="410" cy="4509" r="2.5" class="dot-branch"/>
-<line x1="407" y1="4509" x2="413" y2="4509" stroke="#484f58" stroke-width="2"/>
-<text x="402" y="4513" class="lbl" text-anchor="end">kentest (9)</text>
-<path d="M 450,4383 L 326,4383 Q 320,4383 320,4389 L 320,4397" class="line-dead" fill="none"/>
-<circle cx="320" cy="4397" r="2.5" class="dot-branch"/>
-<line x1="317" y1="4397" x2="323" y2="4397" stroke="#484f58" stroke-width="2"/>
-<text x="312" y="4401" class="lbl" text-anchor="end">server-test (1)</text>
-<path d="M 450,4397 L 236,4397 Q 230,4397 230,4403 L 230,4411" class="line-dead" fill="none"/>
-<circle cx="230" cy="4411" r="2.5" class="dot-branch"/>
-<line x1="227" y1="4411" x2="233" y2="4411" stroke="#484f58" stroke-width="2"/>
-<text x="222" y="4415" class="lbl" text-anchor="end">ubl-2.5-retry (1)</text>
-<circle cx="450" cy="85" r="4" class="dot-merge"/>
-<circle cx="450" cy="99" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="113" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="127" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="141" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="155" r="4" class="dot-merge"/>
-<circle cx="450" cy="169" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="183" r="4" class="dot-merge"/>
-<circle cx="450" cy="197" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="211" r="4" class="dot-merge"/>
-<circle cx="450" cy="225" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="239" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="253" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="267" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="281" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="295" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="309" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="323" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="337" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="351" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="365" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="379" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="393" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="407" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="421" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="435" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="449" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="463" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="477" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="491" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="505" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="519" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="533" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="547" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="561" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="575" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="589" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="603" r="4" class="dot-merge"/>
-<circle cx="450" cy="617" r="4" class="dot-merge"/>
-<circle cx="450" cy="631" r="4" class="dot-merge"/>
-<circle cx="450" cy="645" r="4" class="dot-merge"/>
-<circle cx="450" cy="659" r="4" class="dot-merge"/>
-<circle cx="450" cy="673" r="4" class="dot-merge"/>
-<circle cx="450" cy="687" r="4" class="dot-merge"/>
-<circle cx="450" cy="701" r="4" class="dot-merge"/>
-<circle cx="450" cy="715" r="4" class="dot-merge"/>
-<circle cx="450" cy="729" r="4" class="dot-merge"/>
-<circle cx="450" cy="743" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="757" r="4" class="dot-merge"/>
-<circle cx="450" cy="771" r="4" class="dot-merge"/>
-<circle cx="450" cy="785" r="4" class="dot-merge"/>
-<circle cx="450" cy="799" r="4" class="dot-merge"/>
-<circle cx="450" cy="813" r="4" class="dot-merge"/>
-<circle cx="450" cy="827" r="4" class="dot-merge"/>
-<circle cx="450" cy="841" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="855" r="4" class="dot-merge"/>
-<circle cx="450" cy="869" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="883" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="897" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="911" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="925" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="939" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="953" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="967" r="4" class="dot-merge"/>
-<circle cx="450" cy="981" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="995" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1009" r="4" class="dot-merge"/>
-<circle cx="450" cy="1023" r="4" class="dot-merge"/>
-<circle cx="450" cy="1037" r="5" class="dot-release"/>
-<circle cx="450" cy="1051" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1065" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1079" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1093" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1107" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1121" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1135" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1149" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1163" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1177" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1191" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1205" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1219" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1233" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1247" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1261" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1275" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1289" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1303" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1317" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1331" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1345" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1359" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1373" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1387" r="5" class="dot-release"/>
-<circle cx="450" cy="1401" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1415" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1429" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1443" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1457" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1471" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1485" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1499" r="4" class="dot-merge"/>
-<circle cx="450" cy="1513" r="4" class="dot-merge"/>
-<circle cx="450" cy="1527" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1541" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1555" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1569" r="5" class="dot-release"/>
-<circle cx="450" cy="1583" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1597" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1611" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1625" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1639" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1653" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1667" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1681" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1695" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1709" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1723" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1737" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1751" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1765" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1779" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1793" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1807" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1821" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1835" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1849" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1863" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1877" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1891" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1905" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1919" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1933" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1947" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1961" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1975" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="1989" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2003" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2017" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2031" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2045" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2059" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2073" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2087" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2101" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2115" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2129" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2143" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2157" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2171" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2185" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2199" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2213" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2227" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2241" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2255" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2269" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2283" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2297" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2311" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2325" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2339" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2353" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2367" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2381" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2395" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2409" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2423" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2437" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2451" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2465" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2479" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2493" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2507" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2521" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="2535" r="4" class="dot-merge"/>
-<circle cx="450" cy="2549" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2563" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2577" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2591" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2605" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2619" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2633" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2647" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2661" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2675" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2689" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2703" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2717" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2731" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2745" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2759" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2773" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2787" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2801" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2815" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2829" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2843" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2857" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2871" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2885" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2899" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2913" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2927" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2941" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2955" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2969" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2983" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="2997" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="3011" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="3025" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="3039" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="3053" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="3067" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="3081" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="3095" r="2.5" class="dot-recovered"/>
-<circle cx="450" cy="3109" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3123" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3137" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3151" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3165" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3179" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3193" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3207" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3221" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3235" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3249" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3263" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3277" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3291" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3305" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3319" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3333" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3347" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3361" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3375" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3389" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3403" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3417" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3431" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3445" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3459" r="4" class="dot-merge"/>
-<circle cx="450" cy="3473" r="5" class="dot-release"/>
-<circle cx="450" cy="3487" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3501" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3515" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3529" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3543" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3557" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3571" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3585" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3599" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3613" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3627" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3641" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3655" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3669" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3683" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3697" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3711" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3725" r="4" class="dot-merge"/>
-<circle cx="450" cy="3739" r="4" class="dot-merge"/>
-<circle cx="450" cy="3753" r="4" class="dot-merge"/>
-<circle cx="450" cy="3767" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3781" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3795" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3809" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3823" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3837" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3851" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3865" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3879" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3893" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3907" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3921" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3935" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3949" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3963" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3977" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="3991" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4005" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4019" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4033" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4047" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4061" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4075" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4089" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4103" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4117" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4131" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4145" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4159" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4173" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4187" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4201" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4215" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4229" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4243" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4257" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4271" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4285" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4299" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4313" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4327" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4341" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4355" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4369" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4383" r="5" class="dot-release"/>
-<circle cx="450" cy="4397" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4411" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4425" r="4" class="dot-merge"/>
-<circle cx="450" cy="4439" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4453" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4467" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4481" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4495" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4509" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4523" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4537" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4551" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4565" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4579" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4593" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4607" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4621" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4635" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4649" r="2.5" class="dot-trunk"/>
-<circle cx="450" cy="4663" r="5" class="dot-release"/>
-<text x="458" y="1041" class="lbl-rel">★ 2.4 CSD01  08 Feb 2023</text>
-<text x="458" y="1391" class="lbl-rel">★ 2.4 CSD02  26 Jul 2023</text>
-<text x="458" y="1573" class="lbl-rel">★ 2.4 CS01  17 Oct 2023</text>
-<text x="458" y="3477" class="lbl-rel">★ 2.5 CSD01  20 Aug 2025</text>
-<text x="458" y="4387" class="lbl-rel">★ 2.5 CSD02  03 Dec 2025</text>
-<text x="458" y="4667" class="lbl-rel">★ 2.5 CSD03  11 Feb 2026</text>
-<text x="458" y="89" class="lbl-mile">Repo created  11 Apr 2018</text>
-<text x="458" y="215" class="lbl-mile">PIVOT  26 May 2021</text>
-<text x="458" y="2539" class="lbl-mile">UBL-433-xsd-doc  06 Jul 2025</text>
-<text x="458" y="3099" class="lbl-mile">dc1249d (recovered)  06 Aug 2025</text>
-<text x="458" y="186" class="lbl-pr">← merge</text>
-<text x="458" y="620" class="lbl-pr">← PR#4</text>
-<text x="458" y="634" class="lbl-pr">← PR#5</text>
-<text x="458" y="662" class="lbl-pr">← PR#6</text>
-<text x="458" y="676" class="lbl-pr">← PR#7</text>
-<text x="458" y="690" class="lbl-pr">← PR#8</text>
-<text x="458" y="704" class="lbl-pr">← PR#9</text>
-<text x="458" y="718" class="lbl-pr">← PR#10</text>
-<text x="458" y="732" class="lbl-pr">← PR#11</text>
-<text x="458" y="760" class="lbl-pr">← PR#12</text>
-<text x="458" y="788" class="lbl-pr">← PR#13</text>
-<text x="458" y="802" class="lbl-pr">← PR#14</text>
-<text x="458" y="816" class="lbl-pr">← PR#15</text>
-<text x="458" y="830" class="lbl-pr">← PR#16</text>
-<text x="458" y="858" class="lbl-pr">← PR#17</text>
-<text x="458" y="970" class="lbl-pr">← PR#21</text>
-<text x="458" y="1026" class="lbl-pr">← PR#23</text>
-<text x="458" y="1516" class="lbl-pr">← PR#27</text>
-<text x="458" y="3742" class="lbl-pr">← PR#32</text>
-<text x="458" y="3756" class="lbl-pr">← PR#34</text>
-<text x="458" y="4428" class="lbl-pr">← merge</text>
+<text x="10" y="42" fill="#484f58" font-size="8">Generated 2026-04-02 · Time-proportional spacing</text>
+<rect x="435" y="3279.708448282867" width="30" height="382.67298619315943" class="rec-zone" rx="5"/>
+<line x1="10" y1="90" x2="420" y2="90" class="year-line"/>
+<text x="15" y="94" class="lbl-year">2018</text>
+<line x1="10" y1="140.92869714997443" x2="420" y2="140.92869714997443" class="year-line"/>
+<text x="15" y="144.92869714997443" class="lbl-year">2021</text>
+<line x1="10" y1="681.0192424934191" x2="420" y2="681.0192424934191" class="year-line"/>
+<text x="15" y="685.0192424934191" class="lbl-year">2022</text>
+<line x1="10" y1="1031.1370324555878" x2="420" y2="1031.1370324555878" class="year-line"/>
+<text x="15" y="1035.1370324555878" class="lbl-year">2023</text>
+<line x1="10" y1="2407.2403270467776" x2="420" y2="2407.2403270467776" class="year-line"/>
+<text x="15" y="2411.2403270467776" class="lbl-year">2024</text>
+<line x1="10" y1="2656.818211160252" x2="420" y2="2656.818211160252" class="year-line"/>
+<text x="15" y="2660.818211160252" class="lbl-year">2025</text>
+<line x1="10" y1="4641.095817736365" x2="420" y2="4641.095817736365" class="year-line"/>
+<text x="15" y="4645.095817736365" class="lbl-year">2026</text>
+<line x1="450" y1="90" x2="450" y2="4834.856480575666" class="line-trunk"/>
+<path d="M 450,180.90762561076215 L 482,180.90762561076215 Q 490,180.90762561076215 490,188.90762561076215 L 490,228.90762561076218 Q 490,236.90762561076218 482,236.90762561076218 L 450,236.90762561076218" class="line-pr" fill="none"/>
+<circle cx="490" cy="199.57429227742884" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="218.2409589440955" r="2.5" class="dot-pr"/>
+<text x="496" y="204.90762561076218" class="lbl-pr">merge (2)</text>
+<path d="M 450,581.0192424934191 L 482,581.0192424934191 Q 490,581.0192424934191 490,589.0192424934191 L 490,629.0192424934191 Q 490,637.0192424934191 482,637.0192424934191 L 450,637.0192424934191" class="line-pr" fill="none"/>
+<circle cx="490" cy="599.6859091600858" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="618.3525758267525" r="2.5" class="dot-pr"/>
+<text x="496" y="605.0192424934191" class="lbl-pr">PR#4 (2)</text>
+<text x="496" y="615.0192424934191" class="lbl-src">UBL-330</text>
+<path d="M 450,637.0192424934191 L 602,637.0192424934191 Q 610,637.0192424934191 610,645.0192424934191 L 610,673.0192424934191 Q 610,681.0192424934191 602,681.0192424934191 L 450,681.0192424934191" class="line-pr" fill="none"/>
+<circle cx="610" cy="659.0192424934191" r="2.5" class="dot-pr"/>
+<text x="616" y="655.0192424934191" class="lbl-pr">PR#5 (1)</text>
+<text x="616" y="665.0192424934191" class="lbl-src">UBL-335</text>
+<path d="M 450,707.1370324555878 L 482,707.1370324555878 Q 490,707.1370324555878 490,715.1370324555878 L 490,743.1370324555878 Q 490,751.1370324555878 482,751.1370324555878 L 450,751.1370324555878" class="line-pr" fill="none"/>
+<circle cx="490" cy="729.1370324555878" r="2.5" class="dot-pr"/>
+<text x="496" y="725.1370324555878" class="lbl-pr">PR#6 (1)</text>
+<text x="496" y="735.1370324555878" class="lbl-src">UBL-339-skip-publishing</text>
+<path d="M 450,751.1370324555878 L 602,751.1370324555878 Q 610,751.1370324555878 610,759.1370324555878 L 610,787.1370324555878 Q 610,795.1370324555878 602,795.1370324555878 L 450,795.1370324555878" class="line-pr" fill="none"/>
+<circle cx="610" cy="773.1370324555878" r="2.5" class="dot-pr"/>
+<text x="616" y="769.1370324555878" class="lbl-pr">PR#7 (1)</text>
+<text x="616" y="779.1370324555878" class="lbl-src">UBL-338-invalid-schematron</text>
+<path d="M 450,795.1370324555878 L 722,795.1370324555878 Q 730,795.1370324555878 730,803.1370324555878 L 730,843.1370324555878 Q 730,851.1370324555878 722,851.1370324555878 L 450,851.1370324555878" class="line-pr" fill="none"/>
+<circle cx="730" cy="813.8036991222544" r="2.5" class="dot-pr"/>
+<circle cx="730" cy="832.4703657889212" r="2.5" class="dot-pr"/>
+<text x="736" y="819.1370324555878" class="lbl-pr">PR#8 (2)</text>
+<text x="736" y="829.1370324555878" class="lbl-src">UBL-337-schxslt</text>
+<path d="M 450,851.1370324555878 L 842,851.1370324555878 Q 850,851.1370324555878 850,859.1370324555878 L 850,903.1370324555878 Q 850,911.1370324555878 842,911.1370324555878 L 450,911.1370324555878" class="line-pr" fill="none"/>
+<circle cx="850" cy="863.1370324555878" r="2.5" class="dot-pr"/>
+<circle cx="850" cy="875.1370324555878" r="2.5" class="dot-pr"/>
+<circle cx="850" cy="887.1370324555878" r="2.5" class="dot-pr"/>
+<circle cx="850" cy="899.1370324555878" r="2.5" class="dot-pr"/>
+<text x="856" y="877.1370324555878" class="lbl-pr">PR#9 (4)</text>
+<text x="856" y="887.1370324555878" class="lbl-src">kd-action-updates</text>
+<path d="M 450,911.1370324555878 L 962,911.1370324555878 Q 970,911.1370324555878 970,919.1370324555878 L 970,963.1370324555878 Q 970,971.1370324555878 962,971.1370324555878 L 450,971.1370324555878" class="line-pr" fill="none"/>
+<circle cx="970" cy="931.1370324555878" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="951.1370324555878" r="2.5" class="dot-pr"/>
+<text x="976" y="937.1370324555878" class="lbl-pr">PR#10 (2)</text>
+<text x="976" y="947.1370324555878" class="lbl-src">ubl-2.4-csd01wd02-new-samples</text>
+<path d="M 450,911.1370324555878 L 1082,911.1370324555878 Q 1090,911.1370324555878 1090,919.1370324555878 L 1090,1023.1370324555878 Q 1090,1031.1370324555878 1082,1031.1370324555878 L 450,1031.1370324555878" class="line-pr" fill="none"/>
+<circle cx="1090" cy="919.7084610270164" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="928.2798895984449" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="936.8513181698735" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="945.4227467413021" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="953.9941753127307" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="962.5656038841593" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="971.1370324555878" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="979.7084610270164" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="988.2798895984449" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="996.8513181698735" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1005.422746741302" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1013.9941753127307" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1022.5656038841593" r="2.5" class="dot-pr"/>
+<text x="1096" y="967.1370324555878" class="lbl-pr">PR#11 (13)</text>
+<text x="1096" y="977.1370324555878" class="lbl-src">ubl-2.4-csd01wd02-rework-Ken</text>
+<path d="M 450,1031.1370324555878 L 1202,1031.1370324555878 Q 1210,1031.1370324555878 1210,1039.1370324555878 L 1210,1079.1370324555878 Q 1210,1087.1370324555878 1202,1087.1370324555878 L 450,1087.1370324555878" class="line-pr" fill="none"/>
+<circle cx="1210" cy="1049.8036991222546" r="2.5" class="dot-pr"/>
+<circle cx="1210" cy="1068.470365788921" r="2.5" class="dot-pr"/>
+<text x="1216" y="1055.1370324555878" class="lbl-pr">PR#12 (2)</text>
+<text x="1216" y="1065.1370324555878" class="lbl-src">ubl-332-oasis-2020</text>
+<path d="M 450,1100.1790658843747 L 482,1100.1790658843747 Q 490,1100.1790658843747 490,1108.1790658843747 L 490,1152.1790658843747 Q 490,1160.1790658843747 482,1160.1790658843747 L 450,1160.1790658843747" class="line-pr" fill="none"/>
+<circle cx="490" cy="1112.1790658843747" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="1124.1790658843747" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="1136.1790658843747" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="1148.1790658843747" r="2.5" class="dot-pr"/>
+<text x="496" y="1126.1790658843747" class="lbl-pr">PR#13 (4)</text>
+<text x="496" y="1136.1790658843747" class="lbl-src">ubl-2.4-csd01wd02-handle-bad-gc</text>
+<path d="M 450,1160.1790658843747 L 602,1160.1790658843747 Q 610,1160.1790658843747 610,1168.1790658843747 L 610,1196.1790658843747 Q 610,1204.1790658843747 602,1204.1790658843747 L 450,1204.1790658843747" class="line-pr" fill="none"/>
+<circle cx="610" cy="1182.1790658843747" r="2.5" class="dot-pr"/>
+<text x="616" y="1178.1790658843747" class="lbl-pr">PR#14 (1)</text>
+<text x="616" y="1188.1790658843747" class="lbl-src">UBL-183-catalog</text>
+<path d="M 450,1204.1790658843747 L 722,1204.1790658843747 Q 730,1204.1790658843747 730,1212.1790658843747 L 730,1240.1790658843747 Q 730,1248.1790658843747 722,1248.1790658843747 L 450,1248.1790658843747" class="line-pr" fill="none"/>
+<circle cx="730" cy="1226.1790658843747" r="2.5" class="dot-pr"/>
+<text x="736" y="1222.1790658843747" class="lbl-pr">PR#15 (1)</text>
+<text x="736" y="1232.1790658843747" class="lbl-src">ubl-2.4-csd01wd02-pub</text>
+<path d="M 450,1248.1790658843747 L 842,1248.1790658843747 Q 850,1248.1790658843747 850,1256.1790658843747 L 850,1300.1790658843747 Q 850,1308.1790658843747 842,1308.1790658843747 L 450,1308.1790658843747" class="line-pr" fill="none"/>
+<circle cx="850" cy="1258.1790658843747" r="2.5" class="dot-pr"/>
+<circle cx="850" cy="1268.1790658843747" r="2.5" class="dot-pr"/>
+<circle cx="850" cy="1278.1790658843747" r="2.5" class="dot-pr"/>
+<circle cx="850" cy="1288.1790658843747" r="2.5" class="dot-pr"/>
+<circle cx="850" cy="1298.1790658843747" r="2.5" class="dot-pr"/>
+<text x="856" y="1274.1790658843747" class="lbl-pr">PR#16 (5)</text>
+<text x="856" y="1284.1790658843747" class="lbl-src">UBL-359-work</text>
+<path d="M 450,1308.1790658843747 L 962,1308.1790658843747 Q 970,1308.1790658843747 970,1316.1790658843747 L 970,1420.1790658843747 Q 970,1428.1790658843747 962,1428.1790658843747 L 450,1428.1790658843747" class="line-pr" fill="none"/>
+<circle cx="970" cy="1314.4948553580589" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1320.810644831743" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1327.1264343054274" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1333.4422237791116" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1339.7580132527958" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1346.07380272648" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1352.389592200164" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1358.7053816738485" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1365.0211711475326" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1371.3369606212168" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1377.652750094901" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1383.9685395685851" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1390.2843290422695" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1396.6001185159537" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1402.9159079896378" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1409.231697463322" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1415.5474869370064" r="2.5" class="dot-pr"/>
+<circle cx="970" cy="1421.8632764106906" r="2.5" class="dot-pr"/>
+<text x="976" y="1364.1790658843747" class="lbl-pr">PR#17 (18)</text>
+<text x="976" y="1374.1790658843747" class="lbl-src">UBL-360</text>
+<path d="M 450,1428.1790658843747 L 1082,1428.1790658843747 Q 1090,1428.1790658843747 1090,1436.1790658843747 L 1090,1776.179065884375 Q 1090,1784.179065884375 1082,1784.179065884375 L 450,1784.179065884375" class="line-pr" fill="none"/>
+<circle cx="1090" cy="1440.8933515986605" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1453.6076373129463" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1466.3219230272318" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1479.0362087415176" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1491.7504944558034" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1504.464780170089" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1517.1790658843747" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1529.8933515986605" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1542.6076373129463" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1555.321923027232" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1568.0362087415176" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1580.7504944558034" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1593.4647801700892" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1606.1790658843747" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1618.8933515986605" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1631.6076373129463" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1644.321923027232" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1657.0362087415178" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1669.7504944558034" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1682.4647801700892" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1695.179065884375" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1707.8933515986605" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1720.6076373129463" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1733.321923027232" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1746.0362087415178" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1758.7504944558036" r="2.5" class="dot-pr"/>
+<circle cx="1090" cy="1771.4647801700892" r="2.5" class="dot-pr"/>
+<text x="1096" y="1602.1790658843747" class="lbl-pr">PR#21 (27)</text>
+<text x="1096" y="1612.1790658843747" class="lbl-src">ubl-2.4-csd01wd02</text>
+<path d="M 450,1838.8301933311318 L 482,1838.8301933311318 Q 490,1838.8301933311318 490,1846.8301933311318 L 490,1890.8301933311318 Q 490,1898.8301933311318 482,1898.8301933311318 L 450,1898.8301933311318" class="line-pr" fill="none"/>
+<circle cx="490" cy="1845.4968599977985" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="1852.163526664465" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="1858.8301933311318" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="1865.4968599977985" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="1872.163526664465" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="1878.8301933311318" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="1885.4968599977985" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="1892.163526664465" r="2.5" class="dot-pr"/>
+<text x="496" y="1864.8301933311318" class="lbl-pr">PR#23 (8)</text>
+<text x="496" y="1874.8301933311318" class="lbl-src">csd01-kd</text>
+<path d="M 450,2262.8972073237533 L 482,2262.8972073237533 Q 490,2262.8972073237533 490,2270.8972073237533 L 490,2314.8972073237533 Q 490,2322.8972073237533 482,2322.8972073237533 L 450,2322.8972073237533" class="line-pr" fill="none"/>
+<circle cx="490" cy="2272.8972073237533" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="2282.8972073237533" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="2292.8972073237533" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="2302.8972073237533" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="2312.8972073237533" r="2.5" class="dot-pr"/>
+<text x="496" y="2288.8972073237533" class="lbl-pr">PR#27 (5)</text>
+<text x="496" y="2298.8972073237533" class="lbl-src">test-2.4cs01</text>
+<path d="M 450,3867.9409543367537 L 482,3867.9409543367537 Q 490,3867.9409543367537 490,3875.9409543367537 L 490,3903.9409543367537 Q 490,3911.9409543367537 482,3911.9409543367537 L 450,3911.9409543367537" class="line-pr" fill="none"/>
+<circle cx="490" cy="3889.9409543367537" r="2.5" class="dot-pr"/>
+<text x="496" y="3885.9409543367537" class="lbl-pr">PR#28 (1)</text>
+<text x="496" y="3895.9409543367537" class="lbl-src">ubl-2.5-7zip-test</text>
+<path d="M 450,4123.52134009305 L 482,4123.52134009305 Q 490,4123.52134009305 490,4131.52134009305 L 490,4175.52134009305 Q 490,4183.52134009305 482,4183.52134009305 L 450,4183.52134009305" class="line-pr" fill="none"/>
+<circle cx="490" cy="4124.653415564748" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4125.785491036446" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4126.917566508144" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4128.049641979842" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4129.18171745154" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4130.313792923238" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4131.445868394937" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4132.577943866635" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4133.710019338333" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4134.842094810031" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4135.974170281729" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4137.106245753427" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4138.238321225125" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4139.370396696823" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4140.502472168521" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4141.634547640219" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4142.766623111917" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4143.898698583615" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4145.0307740553135" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4146.162849527012" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4147.2949249987105" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4148.4270004704085" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4149.559075942107" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4150.691151413805" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4151.823226885503" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4152.955302357201" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4154.087377828899" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4155.219453300597" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4156.351528772295" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4157.483604243993" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4158.615679715691" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4159.747755187389" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4160.879830659087" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4162.011906130786" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4163.143981602484" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4164.276057074182" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4165.40813254588" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4166.540208017578" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4167.672283489276" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4168.804358960974" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4169.936434432672" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4171.06850990437" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4172.200585376068" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4173.332660847766" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4174.4647363194645" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4175.5968117911625" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4176.7288872628615" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4177.8609627345595" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4178.993038206258" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4180.125113677956" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4181.257189149654" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4182.389264621352" r="2.5" class="dot-pr"/>
+<text x="496" y="4149.52134009305" class="lbl-pr">PR#32 (52)</text>
+<text x="496" y="4159.52134009305" class="lbl-src">ubl-2.5-python</text>
+<path d="M 450,4183.52134009305 L 602,4183.52134009305 Q 610,4183.52134009305 610,4191.52134009305 L 610,4231.52134009305 Q 610,4239.52134009305 602,4239.52134009305 L 450,4239.52134009305" class="line-pr" fill="none"/>
+<circle cx="610" cy="4202.188006759717" r="2.5" class="dot-pr"/>
+<circle cx="610" cy="4220.854673426383" r="2.5" class="dot-pr"/>
+<text x="616" y="4207.52134009305" class="lbl-pr">PR#34 (2)</text>
+<text x="616" y="4217.52134009305" class="lbl-src">claude/fix-spreadsheet-links</text>
+<path d="M 450,4596.053926205912 L 482,4596.053926205912 Q 490,4596.053926205912 490,4604.053926205912 L 490,4704.053926205912 Q 490,4712.053926205912 482,4712.053926205912 L 450,4712.053926205912" class="line-pr" fill="none"/>
+<circle cx="490" cy="4610.553926205912" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4625.053926205912" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4639.553926205912" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4654.053926205912" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4668.553926205912" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4683.053926205912" r="2.5" class="dot-pr"/>
+<circle cx="490" cy="4697.553926205912" r="2.5" class="dot-pr"/>
+<text x="496" y="4650.053926205912" class="lbl-pr">merge (7)</text>
+<path d="M 450,180.90762561076215 L 416,180.90762561076215 Q 410,180.90762561076215 410,186.90762561076215 L 410,192.90762561076215" class="line-dead-rel" fill="none"/>
+<circle cx="410" cy="192.90762561076215" r="4" class="dot-branch-release"/>
+<line x1="407" y1="192.90762561076215" x2="413" y2="192.90762561076215" stroke="#7ee787" stroke-width="2"/>
+<text x="402" y="196.90762561076215" class="lbl-rel" text-anchor="end">★ 2.3 CSD05  12 May 2021</text>
+<text x="402" y="206.90762561076215" class="lbl" text-anchor="end">ubl-2.3-csd05-copy</text>
+<path d="M 450,180.90762561076215 L 326,180.90762561076215 Q 320,180.90762561076215 320,186.90762561076215 L 320,204.90762561076215" class="line-dead-rel" fill="none"/>
+<circle cx="320" cy="192.90762561076215" r="2.5" class="dot-branch-release"/>
+<circle cx="320" cy="204.90762561076215" r="4" class="dot-branch-release"/>
+<line x1="317" y1="204.90762561076215" x2="323" y2="204.90762561076215" stroke="#7ee787" stroke-width="2"/>
+<text x="312" y="208.90762561076215" class="lbl-rel" text-anchor="end">★ 2.3 CS02  25 May 2021</text>
+<text x="312" y="218.90762561076215" class="lbl" text-anchor="end">ubl-2.3-cs02</text>
+<path d="M 450,263.2455989221646 L 416,263.2455989221646 Q 410,263.2455989221646 410,269.2455989221646 L 410,287.2455989221646" class="line-dead-rel" fill="none"/>
+<circle cx="410" cy="275.2455989221646" r="2.5" class="dot-branch-release"/>
+<circle cx="410" cy="287.2455989221646" r="4" class="dot-branch-release"/>
+<line x1="407" y1="287.2455989221646" x2="413" y2="287.2455989221646" stroke="#7ee787" stroke-width="2"/>
+<text x="402" y="291.2455989221646" class="lbl-rel" text-anchor="end">★ 2.3 OS  15 Jun 2021</text>
+<text x="402" y="301.2455989221646" class="lbl" text-anchor="end">ubl-2.3-os (+os-iso)</text>
+<path d="M 450,263.2455989221646 L 326,263.2455989221646 Q 320,263.2455989221646 320,269.2455989221646 L 320,323.2455989221646" class="line-dead" fill="none"/>
+<circle cx="320" cy="275.2455989221646" r="2.5" class="dot-branch"/>
+<circle cx="320" cy="287.2455989221646" r="2.5" class="dot-branch"/>
+<circle cx="320" cy="299.2455989221646" r="2.5" class="dot-branch"/>
+<circle cx="320" cy="311.2455989221646" r="2.5" class="dot-branch"/>
+<circle cx="320" cy="323.2455989221646" r="2.5" class="dot-branch"/>
+<line x1="317" y1="323.2455989221646" x2="323" y2="323.2455989221646" stroke="#484f58" stroke-width="2"/>
+<text x="312" y="327.2455989221646" class="lbl" text-anchor="end">review (5)</text>
+<path d="M 450,263.2455989221646 L 236,263.2455989221646 Q 230,263.2455989221646 230,269.2455989221646 L 230,275.2455989221646" class="line-dead" fill="none"/>
+<circle cx="230" cy="275.2455989221646" r="2.5" class="dot-branch"/>
+<line x1="227" y1="275.2455989221646" x2="233" y2="275.2455989221646" stroke="#484f58" stroke-width="2"/>
+<text x="222" y="279.2455989221646" class="lbl" text-anchor="end">main (1)</text>
+<path d="M 450,1905.589794324613 L 416,1905.589794324613 Q 410,1905.589794324613 410,1911.589794324613 L 410,1917.589794324613" class="line-dead" fill="none"/>
+<circle cx="410" cy="1917.589794324613" r="2.5" class="dot-branch"/>
+<line x1="407" y1="1917.589794324613" x2="413" y2="1917.589794324613" stroke="#484f58" stroke-width="2"/>
+<text x="402" y="1921.589794324613" class="lbl" text-anchor="end">ubl-2.4-csd01 tip (1)</text>
+<path d="M 450,2322.8972073237533 L 416,2322.8972073237533 Q 410,2322.8972073237533 410,2328.8972073237533 L 410,2490.8972073237533" class="line-dead" fill="none"/>
+<circle cx="410" cy="2334.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2346.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2358.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2370.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2382.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2394.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2406.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2418.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2430.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2442.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2454.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2466.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2478.8972073237533" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2490.8972073237533" r="2.5" class="dot-branch"/>
+<line x1="407" y1="2490.8972073237533" x2="413" y2="2490.8972073237533" stroke="#484f58" stroke-width="2"/>
+<text x="402" y="2494.8972073237533" class="lbl" text-anchor="end">tsc-ubl-2.5-exp (14)</text>
+<path d="M 450,2373.3132684357206 L 326,2373.3132684357206 Q 320,2373.3132684357206 320,2379.3132684357206 L 320,2457.3132684357206" class="line-dead" fill="none"/>
+<circle cx="320" cy="2385.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="320" cy="2397.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="320" cy="2409.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="320" cy="2421.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="320" cy="2433.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="320" cy="2445.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="320" cy="2457.3132684357206" r="2.5" class="dot-branch"/>
+<line x1="317" y1="2457.3132684357206" x2="323" y2="2457.3132684357206" stroke="#484f58" stroke-width="2"/>
+<text x="312" y="2461.3132684357206" class="lbl" text-anchor="end">ubl-2.4-cs01 tip (7)</text>
+<path d="M 450,2373.3132684357206 L 236,2373.3132684357206 Q 230,2373.3132684357206 230,2379.3132684357206 L 230,2541.3132684357206" class="line-dead-rel" fill="none"/>
+<circle cx="230" cy="2385.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2397.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2409.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2421.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2433.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2445.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2457.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2469.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2481.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2493.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2505.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2517.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2529.3132684357206" r="2.5" class="dot-branch-release"/>
+<circle cx="230" cy="2541.3132684357206" r="4" class="dot-branch-release"/>
+<line x1="227" y1="2541.3132684357206" x2="233" y2="2541.3132684357206" stroke="#7ee787" stroke-width="2"/>
+<text x="222" y="2545.3132684357206" class="lbl-rel" text-anchor="end">★ 2.4 OS  20 Jun 2024</text>
+<text x="222" y="2555.3132684357206" class="lbl" text-anchor="end">ubl-2.4-os</text>
+<path d="M 450,2373.3132684357206 L 146,2373.3132684357206 Q 140,2373.3132684357206 140,2379.3132684357206 L 140,2637.3132684357206" class="line-dead" fill="none"/>
+<circle cx="140" cy="2385.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2397.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2409.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2421.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2433.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2445.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2457.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2469.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2481.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2493.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2505.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2517.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2529.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2541.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2553.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2565.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2577.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2589.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2601.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2613.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2625.3132684357206" r="2.5" class="dot-branch"/>
+<circle cx="140" cy="2637.3132684357206" r="2.5" class="dot-branch"/>
+<line x1="137" y1="2637.3132684357206" x2="143" y2="2637.3132684357206" stroke="#484f58" stroke-width="2"/>
+<text x="132" y="2641.3132684357206" class="lbl" text-anchor="end">ubl-2.4-os-iso-pub (22)</text>
+<path d="M 450,2656.818211160252 L 56,2656.818211160252 Q 50,2656.818211160252 50,2662.818211160252 L 50,2680.818211160252" class="line-dead" fill="none"/>
+<circle cx="50" cy="2668.818211160252" r="2.5" class="dot-branch"/>
+<circle cx="50" cy="2680.818211160252" r="2.5" class="dot-branch"/>
+<line x1="47" y1="2680.818211160252" x2="53" y2="2680.818211160252" stroke="#484f58" stroke-width="2"/>
+<text x="42" y="2684.818211160252" class="lbl" text-anchor="end">retest (2)</text>
+<path d="M 450,2804.0059852799095 L 416,2804.0059852799095 Q 410,2804.0059852799095 410,2810.0059852799095 L 410,2828.0059852799095" class="line-dead" fill="none"/>
+<circle cx="410" cy="2816.0059852799095" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="2828.0059852799095" r="2.5" class="dot-branch"/>
+<line x1="407" y1="2828.0059852799095" x2="413" y2="2828.0059852799095" stroke="#484f58" stroke-width="2"/>
+<text x="402" y="2832.0059852799095" class="lbl" text-anchor="end">ubl-2.5-kenneth (2)</text>
+<path d="M 450,4596.053926205912 L 416,4596.053926205912 Q 410,4596.053926205912 410,4602.053926205912 L 410,4704.053926205912" class="line-dead" fill="none"/>
+<circle cx="410" cy="4608.053926205912" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="4620.053926205912" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="4632.053926205912" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="4644.053926205912" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="4656.053926205912" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="4668.053926205912" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="4680.053926205912" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="4692.053926205912" r="2.5" class="dot-branch"/>
+<circle cx="410" cy="4704.053926205912" r="2.5" class="dot-branch"/>
+<line x1="407" y1="4704.053926205912" x2="413" y2="4704.053926205912" stroke="#484f58" stroke-width="2"/>
+<text x="402" y="4708.053926205912" class="lbl" text-anchor="end">kentest (9)</text>
+<path d="M 450,4596.053926205912 L 326,4596.053926205912 Q 320,4596.053926205912 320,4602.053926205912 L 320,4608.053926205912" class="line-dead" fill="none"/>
+<circle cx="320" cy="4608.053926205912" r="2.5" class="dot-branch"/>
+<line x1="317" y1="4608.053926205912" x2="323" y2="4608.053926205912" stroke="#484f58" stroke-width="2"/>
+<text x="312" y="4612.053926205912" class="lbl" text-anchor="end">server-test (1)</text>
+<path d="M 450,4641.095817736365 L 236,4641.095817736365 Q 230,4641.095817736365 230,4647.095817736365 L 230,4653.095817736365" class="line-dead" fill="none"/>
+<circle cx="230" cy="4653.095817736365" r="2.5" class="dot-branch"/>
+<line x1="227" y1="4653.095817736365" x2="233" y2="4653.095817736365" stroke="#484f58" stroke-width="2"/>
+<text x="222" y="4657.095817736365" class="lbl" text-anchor="end">ubl-2.5-retry (1)</text>
+<circle cx="450" cy="90" r="4" class="dot-merge"/>
+<circle cx="450" cy="100.92869714997444" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="140.92869714997443" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="159.96920135752035" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="174.45655439574296" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="180.90762561076215" r="4" class="dot-merge"/>
+<circle cx="450" cy="201.93478462692894" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="236.90762561076218" r="4" class="dot-merge"/>
+<circle cx="450" cy="243.54340071372337" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="263.2455989221646" r="4" class="dot-merge"/>
+<circle cx="450" cy="292.9393339112324" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="316.2709700987133" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="327.50770685408474" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="336.67297638191314" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="346.06889850882317" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="355.2455989221646" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="362.86125424459937" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="370.2894131586033" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="383.96219669469536" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="392.34403168349417" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="399.02385996725246" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="405.7723923381907" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="412.7077611775719" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="420.0652593933062" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="426.95276616515446" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="434.1078448169538" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="444.73522489984754" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="452.20828452998927" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="460.18737963376856" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="468.1832904292533" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="485.31580981968557" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="493.0280471198572" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="499.05110107599484" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="508.4401554786" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="523.099879657842" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="529.7698844834746" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="549.0828718954757" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="581.0192424934191" r="4" class="dot-merge"/>
+<circle cx="450" cy="637.0192424934191" r="4" class="dot-merge"/>
+<circle cx="450" cy="681.0192424934191" r="4" class="dot-merge"/>
+<circle cx="450" cy="707.1370324555878" r="4" class="dot-merge"/>
+<circle cx="450" cy="751.1370324555878" r="4" class="dot-merge"/>
+<circle cx="450" cy="795.1370324555878" r="4" class="dot-merge"/>
+<circle cx="450" cy="851.1370324555878" r="4" class="dot-merge"/>
+<circle cx="450" cy="911.1370324555878" r="4" class="dot-merge"/>
+<circle cx="450" cy="971.1370324555878" r="4" class="dot-merge"/>
+<circle cx="450" cy="1031.1370324555878" r="4" class="dot-merge"/>
+<circle cx="450" cy="1064.9033600133748" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1087.1370324555878" r="4" class="dot-merge"/>
+<circle cx="450" cy="1100.1790658843747" r="4" class="dot-merge"/>
+<circle cx="450" cy="1160.1790658843747" r="4" class="dot-merge"/>
+<circle cx="450" cy="1204.1790658843747" r="4" class="dot-merge"/>
+<circle cx="450" cy="1248.1790658843747" r="4" class="dot-merge"/>
+<circle cx="450" cy="1308.1790658843747" r="4" class="dot-merge"/>
+<circle cx="450" cy="1368.1790658843747" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1428.1790658843747" r="4" class="dot-merge"/>
+<circle cx="450" cy="1478.3629743196666" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1520.1227194849525" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1561.8534336746438" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1608.5661866736914" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1650.3761351218634" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1692.1195815048131" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1739.1531427796947" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1784.179065884375" r="4" class="dot-merge"/>
+<circle cx="450" cy="1808.4957009486573" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1832.4075288950971" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1838.8301933311318" r="4" class="dot-merge"/>
+<circle cx="450" cy="1898.8301933311318" r="4" class="dot-merge"/>
+<circle cx="450" cy="1905.589794324613" r="5" class="dot-release"/>
+<circle cx="450" cy="1937.8698925493175" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1954.1421639617215" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1962.836603372974" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1968.8989407089837" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1975.0499980305642" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1981.0868081660562" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1987.1199555377195" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="1993.147601201499" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2016.1626343174057" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2022.2003595149463" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2031.860148358528" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2038.2998859132513" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2044.3594975297308" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2050.3880607760434" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2067.3470070048797" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2084.4369984455907" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2105.094439310732" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2112.1947703647443" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2130.3386036761235" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2138.7551140465016" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2165.42651906925" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2171.5069710957173" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2177.549267836951" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2183.8287008293014" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2189.860015307732" r="5" class="dot-release"/>
+<circle cx="450" cy="2219.9423320414785" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2226.080985634066" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2232.569825995245" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2238.625799846289" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2244.7287575884507" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2250.82453003073" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2256.8512578591635" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2262.8972073237533" r="4" class="dot-merge"/>
+<circle cx="450" cy="2322.8972073237533" r="4" class="dot-merge"/>
+<circle cx="450" cy="2351.6593374222234" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2358.769364561722" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2365.8311970518625" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2373.3132684357206" r="5" class="dot-release"/>
+<circle cx="450" cy="2407.2403270467776" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2436.7210941082967" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2462.3430965910143" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2469.7533491873614" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2477.279533551234" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2485.0764667421254" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2492.8557233934657" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2500.162925435715" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2507.8424872383694" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2515.1768074837246" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2522.897207323753" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2529.8811380051015" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2548.2519860113175" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2565.5321783494687" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2594.0259767681077" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2605.791990572605" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2613.7797589054558" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2621.1013566557067" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2656.818211160252" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2679.237016674318" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2690.9120483472147" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2712.8182111602514" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2729.5288500472893" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2737.9011651342976" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2746.300157760365" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2753.3128893418575" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2760.5340387775977" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2770.8191370155187" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2778.127015496273" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2784.530060047178" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2792.2362037035064" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2804.0059852799095" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2833.1551756365757" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2851.4311263201685" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2860.0059852799095" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2884.4849164633533" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2894.198555292197" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2914.0717455610225" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2931.69720720764" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2938.3329823106014" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2944.8130213896025" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2951.6317656247957" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2958.2128082414565" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2964.579580108299" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2971.30139676439" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2979.663709355271" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2986.758049489435" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="2998.927123497429" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3013.02849232418" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3036.941483495427" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3045.7676400857445" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3052.7273783342143" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3066.69468808996" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3085.8464205764058" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3100.2391731755697" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3108.894644915459" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3116.2607511033384" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3122.9736146968403" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3129.657967132539" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3136.0536243328006" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3147.090350157376" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3154.965674735195" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3176.8541045835195" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3196.1512859129753" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3205.9853385020365" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3213.9989918514966" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3228.1587152420275" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3238.0862877319564" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3265.2937425760674" r="4" class="dot-merge"/>
+<circle cx="450" cy="3284.708448282867" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3299.7278796464557" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3305.7656048439962" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3316.663389901594" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3340.19614855251" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3355.598539433474" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3363.510552524932" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3372.7163323939167" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3388.2179745181325" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3396.2123601170856" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3406.1595142583446" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3428.3366662924564" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3438.5860365240133" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3444.851827179953" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3452.919143311214" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3459.123712852665" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3465.1596076746832" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3472.215079044567" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3478.2445596207403" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3484.318682704182" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3490.4448862109666" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3496.598595476458" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3503.245057565471" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3509.2727032292505" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3516.0448043626016" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3538.1163053577707" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3559.9359967904543" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3579.660263801445" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3586.1194069452176" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3592.54125618894" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3600.5008820327607" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3608.766642316607" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3614.8937366599703" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3620.9705736200312" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3627.186437130773" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3633.3242029729577" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3639.337132838686" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3645.3500627044145" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3651.3583805198887" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3657.3814344760262" r="2.5" class="dot-recovered"/>
+<circle cx="450" cy="3663.402649975513" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3670.187935624887" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3676.2036296589663" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3682.2395244809845" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3688.307306574458" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3694.3174699763317" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3700.339604830969" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3706.5788034094703" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3728.6443611353657" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3736.9497273247352" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3744.031384469135" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3750.15758797592" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3756.2317110593613" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3762.2510870870365" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3768.892209968595" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3774.981682535009" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3780.9955340450556" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3787.2860104451393" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3794.123518457742" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3800.1474912618696" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3811.317006104111" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3830.0004209505464" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3840.303113362497" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3849.41060122521" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3857.92685014103" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3867.9409543367537" r="4" class="dot-merge"/>
+<circle cx="450" cy="3911.9409543367537" r="5" class="dot-release"/>
+<circle cx="450" cy="3941.386513993599" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3958.316019799783" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3978.4019976018253" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3987.976496433987" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="3999.384669710138" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4006.0810565987226" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4017.257034820191" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4023.6935270913" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4030.2862080685813" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4037.0597767276686" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4043.7897792735107" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4058.6539923747546" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4068.44799369126" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4075.107386911302" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4098.637450919239" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4108.425521517841" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4115.408074497199" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4123.52134009305" r="4" class="dot-merge"/>
+<circle cx="450" cy="4183.52134009305" r="4" class="dot-merge"/>
+<circle cx="450" cy="4239.52134009305" r="4" class="dot-merge"/>
+<circle cx="450" cy="4258.335162070695" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4264.357296925333" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4270.372069824783" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4276.403384303213" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4282.420919842793" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4288.440295870469" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4294.460591761015" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4300.478127300596" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4306.737931821292" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4312.749017633075" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4319.833348896314" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4328.289494012639" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4336.461610002014" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4350.741927838979" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4357.620916515328" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4368.757727029678" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4375.168142585508" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4385.152999153792" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4391.435834018653" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4397.521701299685" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4405.164027460134" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4411.188000264262" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4417.216563510575" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4423.24879456168" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4429.281941933344" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4435.313256411774" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4441.3289504458535" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4447.565564296409" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4453.696219605763" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4462.089352453069" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4470.803925491437" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4486.467297740502" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4511.0915307327305" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4527.202575350899" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4535.700513279457" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4541.734576719699" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4547.762222383479" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4553.786195187607" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4559.806491078153" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4565.824946988886" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4571.8424825284665" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4577.860018068047" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4583.960283138608" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4589.990680792108" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4596.053926205912" r="5" class="dot-release"/>
+<circle cx="450" cy="4641.095817736365" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4671.278796997142" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4712.053926205912" r="4" class="dot-merge"/>
+<circle cx="450" cy="4736.908925244041" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4742.940239722471" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4748.979794290385" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4755.005604030521" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4761.025899921067" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4767.042514835143" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4773.065568791281" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4779.103293988822" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4785.295657819906" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4791.334297828208" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4797.431868048926" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4803.492388486408" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4809.522786139908" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4815.5449209945455" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4821.572566658325" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4828.623316151633" r="2.5" class="dot-trunk"/>
+<circle cx="450" cy="4834.856480575666" r="5" class="dot-release"/>
+<text x="458" y="1909.589794324613" class="lbl-rel">★ 2.4 CSD01  08 Feb 2023</text>
+<text x="458" y="2193.860015307732" class="lbl-rel">★ 2.4 CSD02  26 Jul 2023</text>
+<text x="458" y="2377.3132684357206" class="lbl-rel">★ 2.4 CS01  17 Oct 2023</text>
+<text x="458" y="3915.9409543367537" class="lbl-rel">★ 2.5 CSD01  20 Aug 2025</text>
+<text x="458" y="4600.053926205912" class="lbl-rel">★ 2.5 CSD02  03 Dec 2025</text>
+<text x="458" y="4838.856480575666" class="lbl-rel">★ 2.5 CSD03  11 Feb 2026</text>
+<text x="458" y="94" class="lbl-mile">Repo created  11 Apr 2018</text>
+<text x="458" y="267.2455989221646" class="lbl-mile">PIVOT  26 May 2021</text>
+<text x="458" y="3269.2937425760674" class="lbl-mile">UBL-433-xsd-doc  06 Jul 2025</text>
+<text x="458" y="3661.3814344760262" class="lbl-mile">dc1249d (recovered)  06 Aug 2025</text>
+<text x="458" y="239.90762561076218" class="lbl-pr">← merge</text>
+<text x="458" y="640.0192424934191" class="lbl-pr">← PR#4</text>
+<text x="458" y="684.0192424934191" class="lbl-pr">← PR#5</text>
+<text x="458" y="754.1370324555878" class="lbl-pr">← PR#6</text>
+<text x="458" y="798.1370324555878" class="lbl-pr">← PR#7</text>
+<text x="458" y="854.1370324555878" class="lbl-pr">← PR#8</text>
+<text x="458" y="914.1370324555878" class="lbl-pr">← PR#9</text>
+<text x="458" y="974.1370324555878" class="lbl-pr">← PR#10</text>
+<text x="458" y="1034.1370324555878" class="lbl-pr">← PR#11</text>
+<text x="458" y="1090.1370324555878" class="lbl-pr">← PR#12</text>
+<text x="458" y="1163.1790658843747" class="lbl-pr">← PR#13</text>
+<text x="458" y="1207.1790658843747" class="lbl-pr">← PR#14</text>
+<text x="458" y="1251.1790658843747" class="lbl-pr">← PR#15</text>
+<text x="458" y="1311.1790658843747" class="lbl-pr">← PR#16</text>
+<text x="458" y="1431.1790658843747" class="lbl-pr">← PR#17</text>
+<text x="458" y="1787.179065884375" class="lbl-pr">← PR#21</text>
+<text x="458" y="1901.8301933311318" class="lbl-pr">← PR#23</text>
+<text x="458" y="2325.8972073237533" class="lbl-pr">← PR#27</text>
+<text x="458" y="4186.52134009305" class="lbl-pr">← PR#32</text>
+<text x="458" y="4242.52134009305" class="lbl-pr">← PR#34</text>
+<text x="458" y="4715.053926205912" class="lbl-pr">← merge</text>
 </svg>
