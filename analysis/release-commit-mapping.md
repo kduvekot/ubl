@@ -172,11 +172,22 @@ All UBL 2.5 releases are on the `ubl-2.5` branch (no separate branch per stage).
 | Entity-resolved | Zip `UBL-2.5.xml` has unfixed `&version;` bug in 2.3/2.4 sections ("UBL 2.5 is technically a minor release") — **matches b122814 only**; next commit `ea6223d` fixed this to "UBL 2.3"/"UBL 2.4" |
 | Uniqueness | **Three independent discriminators**: pubdate, entity-resolved text bug, zip filename timestamp |
 
-### UBL 2.5 CSD03 — `3d81e8a` (not yet verified)
+### UBL 2.5 CSD03 — `3d81e8a` ★ VERIFIED
 
-- Current branch tip of `ubl-2.5`
-- `config-UBL.xml` has `versionDate: 11 February 2026`, `versionDisplay: 2.5 CSD03`
-- No zip available for validation (release in progress at time of analysis)
+| Evidence | Detail |
+|----------|--------|
+| Blob matches | **672 / 1304** (51%) identical to commit tree |
+| Content differs | 2 files: `UBL-CommonSignatureComponents-2.5.xsd` (xsd + xsdrt) |
+| config-UBL.xml | `versionDate: 11 February 2026`, `versionDisplay: 2.5 CSD03` (same as parent `a66c455`) |
+| UBL.xml pubdate | `11 February 2026` — **differs from parent** `a66c455` (03 December 2025) |
+| UBL.xml stage | `csd03` — **differs from parent** (csd02) |
+| UBL.xml editor | `Kenneth Bengtsson` — **differs from parent** (TBD) |
+| Zip spec pubdate | `11 February 2026` ✓ |
+| XSD Release Date | `11 February 2026` ✓ |
+| XSD Generated on | `2026-02-09 15:16z` (commit at 19:13 +0400 = 15:13z — 3 min before build) |
+| Entity-resolved | Zip `UBL-2.5.xml` contains `Committee Specification Draft 03` and editor `Kenneth Bengtsson` — **matches 3d81e8a only** |
+| Branch tip | Yes — current tip of `ubl-2.5` |
+| Uniqueness | **Multiple discriminators**: pubdate, stage, editor name all changed from parent |
 
 ## Summary
 
@@ -191,7 +202,7 @@ All UBL 2.5 releases are on the `ubl-2.5` branch (no separate branch per stage).
 | UBL 2.4 OS | 20 Jun 2024 | `8c99636` | ★ 597/910 blobs | Signature XSD stage (CS01→OS) |
 | UBL 2.5 CSD01 | 20 Aug 2025 | `0b44c38` | ★ 620/2539 blobs | Merge commit; build from first-parent 09e538e |
 | UBL 2.5 CSD02 | 03 Dec 2025 | `b122814` | ★ 624/1256 blobs | Pubdate + entity text bug + zip timestamp |
-| UBL 2.5 CSD03 | 11 Feb 2026 | `3d81e8a` | No zip | Current tip, in progress |
+| UBL 2.5 CSD03 | 11 Feb 2026 | `3d81e8a` | ★ 672/1304 blobs | Pubdate + stage + editor all changed from parent |
 
 ## Sources
 
