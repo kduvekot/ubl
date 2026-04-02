@@ -1,0 +1,137 @@
+digraph UBL_Release_Graph {
+    rankdir=TB;
+    bgcolor="#0d1117";
+    fontname="Helvetica";
+    node [fontname="Helvetica", fontsize=10, style=filled, shape=box, margin="0.12,0.06"];
+    edge [fontname="Helvetica", fontsize=8, color="#484f58"];
+    label="oasis-tcs/ubl — Release-to-Commit Map with Branch Lineage\nAll 27 branches in ONE connected tree (root: 71129c9)\nAll releases forensically verified via blob fingerprinting against official OASIS distribution zips\n(generated 2026-04-02)";
+    labelloc=t;
+    labeljust=l;
+    fontcolor="#58a6ff";
+    fontsize=13;
+    newrank=true;
+
+    // ===== LEGEND =====
+    subgraph cluster_legend {
+        label="Legend";
+        labeljust=l;
+        fontcolor="#58a6ff";
+        fontsize=11;
+        style=dashed;
+        color="#30363d";
+        bgcolor="#161b22";
+        margin="12";
+
+        leg_rel [label="★ Release commit\n(verified against zip)", fillcolor="#1a4a1a", fontcolor="#7ee787", shape=box, penwidth=2, color="#7ee787"];
+        leg_branch [label="Branch / tip", fillcolor="#1a2a3a", fontcolor="#79c0ff", shape=box];
+        leg_fork [label="Fork / merge point", fillcolor="#1a2a3a", fontcolor="#ffa657", shape=diamond];
+        leg_pre [label="Pre-repo release", fillcolor="#2a1a2a", fontcolor="#d2a8ff", shape=box, style="filled,dashed"];
+        leg_rel -> leg_branch -> leg_fork -> leg_pre [style=invis];
+    }
+
+    // ===== PRE-REPO RELEASES =====
+    subgraph cluster_pre {
+        label="Pre-Repository (before 2018-04-11)";
+        labeljust=l;
+        fontcolor="#d2a8ff";
+        fontsize=10;
+        style=dashed;
+        color="#2a1a2a";
+        bgcolor="#0d1117";
+
+        ubl20 [label="UBL 2.0 OS\n12 Dec 2006", fillcolor="#2a1a2a", fontcolor="#d2a8ff", style="filled,dashed"];
+        ubl21 [label="UBL 2.1 OS\n04 Nov 2013", fillcolor="#2a1a2a", fontcolor="#d2a8ff", style="filled,dashed"];
+        ubl22 [label="UBL 2.2 OS\n09 Jul 2018", fillcolor="#2a1a2a", fontcolor="#d2a8ff", style="filled,dashed"];
+        ubl20 -> ubl21 -> ubl22 [color="#483a58", style=dashed];
+    }
+
+    // ===== REPO ROOT =====
+    root [label="71129c9\n11 Apr 2018\nRepo created\n(Robin Cover)", fillcolor="#1a2a3a", fontcolor="#ffa657", shape=diamond];
+
+    // ===== UBL 2.3 =====
+    subgraph cluster_23 {
+        label="UBL 2.3  (loaded 2021-05-15, 7 pre-repo stages)";
+        labeljust=l;
+        fontcolor="#58a6ff";
+        fontsize=11;
+        style=dashed;
+        color="#1a3a4a";
+        bgcolor="#0d1117";
+
+        csd05 [label="\"CSD05\" (internal)\n57dda2e  12 May 2021\nubl-2.3-csd05-copy\n(no OASIS zip)", fillcolor="#1a2a3a", fontcolor="#79c0ff", fontsize=9];
+
+        cs02 [label="★ CS02\n47eb1f5  25 May 2021\n590/891 blobs ✓\nubl-2.3-cs02\nDiscriminator: config versionDate", fillcolor="#1a4a1a", fontcolor="#7ee787", penwidth=2, color="#7ee787"];
+
+        os23 [label="★ OS\nbc99520  15 June 2021\n590/890 blobs ✓\nubl-2.3-os  (+ubl-2.3-os-iso)\nDiscriminator: entity text\n(\"membership of OASIS\")", fillcolor="#1a4a1a", fontcolor="#7ee787", penwidth=2, color="#7ee787"];
+
+        csd05 -> cs02 [color="#3a5a3a", label=" +1", fontcolor="#8b949e"];
+        cs02 -> os23 [color="#3a5a3a", label=" +8", fontcolor="#8b949e"];
+    }
+
+    // ===== PIVOT POINT =====
+    pivot [label="f71d2be\n26 May 2021\nPivot: ancestor of\nmain + all 2.4/2.5 branches", fillcolor="#1a2a3a", fontcolor="#ffa657", shape=diamond, fontsize=9];
+
+    // ===== UBL 2.4 =====
+    subgraph cluster_24 {
+        label="UBL 2.4  (4 releases, PRs #4-#27)";
+        labeljust=l;
+        fontcolor="#58a6ff";
+        fontsize=11;
+        style=dashed;
+        color="#1a3a4a";
+        bgcolor="#0d1117";
+
+        dev24 [label="csd01wd01 → csd01wd02\n142 commits  PRs #4-#20\n2021-06 to 2023-02", fillcolor="#161b22", fontcolor="#8b949e", fontsize=9];
+
+        csd01_24 [label="★ CSD01\n2e3c601  08 Feb 2023\n597/910 blobs ✓\nubl-2.4-csd01\nDiscriminator: UBL.xml pubdate\n(07→08 Feb)", fillcolor="#1a4a1a", fontcolor="#7ee787", penwidth=2, color="#7ee787"];
+
+        csd02_24 [label="★ CSD02\n9b42a40  26 Jul 2023\n597/910 blobs ✓\nubl-2.4-csd02  (branch tip)\nDiscriminator: config versionDate\n(25→26 Jul)", fillcolor="#1a4a1a", fontcolor="#7ee787", penwidth=2, color="#7ee787"];
+
+        pr27 [label="PR #27  16ca084\n26 Sep 2023\nMerge: cs01-work + csd01", fillcolor="#1a2a3a", fontcolor="#ffa657", shape=diamond, fontsize=9];
+
+        cs01_24 [label="★ CS01\nb9df309  17 Oct 2023\n597/910 blobs ✓\nubl-2.4-cs01\nDiscriminator: entity URL\n(cranesoftwrights.github.io)", fillcolor="#1a4a1a", fontcolor="#7ee787", penwidth=2, color="#7ee787"];
+
+        os_24 [label="★ OS\n8c99636  20 Jun 2024\n597/910 blobs ✓\nubl-2.4-os\nDiscriminator: Signature XSD\nstage (CS01→OS)", fillcolor="#1a4a1a", fontcolor="#7ee787", penwidth=2, color="#7ee787"];
+
+        dev24 -> csd01_24 [color="#3a5a3a", label=" +26\nPRs #21,#23", fontcolor="#8b949e"];
+        dev24 -> csd02_24 [color="#3a5a3a", label=" +46", fontcolor="#8b949e"];
+        csd02_24 -> pr27 [color="#3a5a3a", label=" via cs01-work\n+8", fontcolor="#8b949e"];
+        csd01_24 -> pr27 [color="#58a6ff", style=dashed, label=" PR#26", fontcolor="#58a6ff"];
+        pr27 -> cs01_24 [color="#3a5a3a", label=" +2", fontcolor="#8b949e"];
+        cs01_24 -> os_24 [color="#3a5a3a", label=" +14", fontcolor="#8b949e"];
+    }
+
+    // ===== UBL 2.5 =====
+    subgraph cluster_25 {
+        label="UBL 2.5  (3 releases, all on ubl-2.5 branch)";
+        labeljust=l;
+        fontcolor="#58a6ff";
+        fontsize=11;
+        style=dashed;
+        color="#1a3a4a";
+        bgcolor="#0d1117";
+
+        dev25 [label="tsc-2.5-experimental →\nubl-2.5-dev → ubl-2.5-kenneth\n→ UBL-433-xsd-doc\n275 commits  2023-10 to 2025-07", fillcolor="#161b22", fontcolor="#8b949e", fontsize=9];
+
+        recovered [label="40 recovered commits\n48ad2d8…dc1249d\nJul–Aug 2025\n(were unreachable,\nnow part of ubl-2.5\nfirst-parent chain)", fillcolor="#161b22", fontcolor="#d29922", fontsize=8, style="filled,dashed"];
+
+        csd01_25 [label="★ CSD01\n0b44c38  20 Aug 2025\n620/2539 blobs ✓\nubl-2.5  (merge PR#28)\nBuild from parent 09e538e\n(timestamp: 4 min match)", fillcolor="#1a4a1a", fontcolor="#7ee787", penwidth=2, color="#7ee787"];
+
+        csd02_25 [label="★ CSD02\nb122814  03 Dec 2025\n624/1256 blobs ✓\nubl-2.5\nDiscriminator: pubdate +\nentity text bug + zip\ntimestamp 1239z", fillcolor="#1a4a1a", fontcolor="#7ee787", penwidth=2, color="#7ee787"];
+
+        csd03_25 [label="★ CSD03\n3d81e8a  11 Feb 2026\n672/1304 blobs ✓\nubl-2.5  (branch tip)\nDiscriminator: pubdate +\nstage + editor name", fillcolor="#1a4a1a", fontcolor="#7ee787", penwidth=2, color="#7ee787"];
+
+        dev25 -> recovered [color="#d29922", label=" 4c0ffc3\nfork point", fontcolor="#d29922"];
+        recovered -> csd01_25 [color="#3a5a3a", label=" +8", fontcolor="#8b949e"];
+        csd01_25 -> csd02_25 [color="#3a5a3a", label=" +50", fontcolor="#8b949e"];
+        csd02_25 -> csd03_25 [color="#3a5a3a", label=" +46\n(incl PR#37)", fontcolor="#8b949e"];
+    }
+
+    // ===== CROSS-CLUSTER EDGES =====
+    ubl22 -> root [color="#484f58", style=dashed, label=" repo\n created", fontcolor="#8b949e"];
+    root -> csd05 [color="#3a5a3a", label=" 7 commits\n(via main → csd05-copy)", fontcolor="#8b949e"];
+    os23 -> pivot [color="#3a5a3a", label=" +4", fontcolor="#8b949e"];
+    pivot -> dev24 [color="#3a5a3a", label=" via csd01wd01\n+27", fontcolor="#8b949e"];
+    cs01_24 -> dev25 [color="#58a6ff", style=bold, penwidth=2, label=" 2.4 → 2.5\n b9df309\n diverged here", fontcolor="#58a6ff"];
+    os_24 -> dev25 [style=invis];  // layout help
+}
