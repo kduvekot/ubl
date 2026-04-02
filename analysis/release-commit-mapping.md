@@ -18,18 +18,19 @@ They are not tracked in the repo:
 
 | Release | Date | Note |
 |---------|------|------|
-| UBL 2.0 | 01 December 2006 | OASIS Standard |
+| UBL 2.0 | 12 December 2006 | OASIS Standard |
 | UBL 2.1 | 04 November 2013 | OASIS Standard |
 | UBL 2.2 | 09 July 2018 | OASIS Standard |
 
 ## UBL 2.3 Releases
 
-The 2.3 source was loaded into the repo on 2021-05-15. Earlier 2.3 stages (CSD01–CSD04, CSPRD01–02, CS01)
-predate the repo or were loaded as a bulk copy.
+The 2.3 source was loaded into the repo on 2021-05-15. Earlier 2.3 stages predate the repo or were loaded
+as a bulk copy. The official OASIS-published progression was: CSPRD01 (07 Aug 2019) → CSPRD02 (29 Jan 2020)
+→ CSD03 (29 Jul 2020) → CSD04 (25 Nov 2020) → CS01 (19 Jan 2021) → CS02 (25 May 2021) → OS (15 Jun 2021).
 
 | Release | Date | Commit | Branch | Note |
 |---------|------|--------|--------|------|
-| UBL 2.3 CSD05 | 12 May 2021 | `57dda2e` | `ubl-2.3-csd05-copy` | Branch tip. Copy of pre-existing CSD05 distribution. `config-UBL.xml` confirms `versionDisplay: 2.3 CSD05` |
+| UBL 2.3 CSD05 | 12 May 2021 | `57dda2e` | `ubl-2.3-csd05-copy` | Branch tip. Copy of pre-existing CSD05 distribution. `config-UBL.xml` confirms `versionDisplay: 2.3 CSD05`. Note: "CSD05" was not published on OASIS as a formal stage — the published progression was CSPRD01→CSPRD02→CSD03→CSD04→CS01→CS02→OS. This appears to be an internal working label. |
 | UBL 2.3 CS02 | 25 May 2021 | `47eb1f5` | `ubl-2.3-cs02` | Branch tip. `UBL.xml` stage=`cs02`, date=`25 May 2021`. Commit msg: "First attempt at CS02" |
 | UBL 2.3 OS | 15 June 2021 | `bc99520` | `ubl-2.3-os` | Branch tip. `UBL.xml` stage=`os`, date=`15 June 2021`. Also tip of `ubl-2.3-os-iso` (identical) |
 
