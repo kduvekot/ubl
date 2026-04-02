@@ -73,27 +73,27 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="415" cy="969.9370324555879" r="2.5" class="dot-pr"/>
 <text x="421" y="955.1370324555879" class="lbl-pr">PR#9 (4)</text>
 <text x="421" y="965.1370324555879" class="lbl-src">kd-action-updates</text>
-<path d="M 330,989.1370324555879 L 342,1001.1370324555879 L 360,1001.1370324555879 L 360,1037.1370324555878 L 342,1037.1370324555878 L 330,1049.1370324555878" class="line-pr" fill="none"/>
-<circle cx="360" cy="1013.1370324555879" r="2.5" class="dot-pr"/>
-<circle cx="360" cy="1025.1370324555878" r="2.5" class="dot-pr"/>
-<text x="366" y="1015.1370324555878" class="lbl-pr">PR#10 (2)</text>
-<text x="366" y="1025.1370324555878" class="lbl-src">ubl-2.4-csd01wd02-new-samples</text>
-<path d="M 330,994.1370324555879 L 342,1006.1370324555879 L 470,1006.1370324555879 L 470,1097.1370324555878 L 342,1097.1370324555878 L 330,1109.1370324555878" class="line-pr" fill="none"/>
-<circle cx="470" cy="1012.6370324555879" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1019.1370324555879" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1025.6370324555878" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1032.1370324555878" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1038.6370324555878" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1045.1370324555878" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1051.6370324555878" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1058.1370324555878" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1064.6370324555878" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1071.1370324555878" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1077.6370324555878" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1084.1370324555878" r="2.5" class="dot-pr"/>
-<circle cx="470" cy="1090.6370324555878" r="2.5" class="dot-pr"/>
-<text x="476" y="1047.6370324555878" class="lbl-pr">PR#11 (13)</text>
-<text x="476" y="1057.6370324555878" class="lbl-src">ubl-2.4-csd01wd02-rework-Ken</text>
+<path d="M 330,999.1370324555879 L 342,1011.1370324555879 L 360,1011.1370324555879 L 360,1037.1370324555878 L 342,1037.1370324555878 L 330,1049.1370324555878" class="line-pr" fill="none"/>
+<circle cx="360" cy="1019.8036991222546" r="2.5" class="dot-pr"/>
+<circle cx="360" cy="1028.4703657889213" r="2.5" class="dot-pr"/>
+<text x="366" y="1020.1370324555878" class="lbl-pr">PR#10 (2)</text>
+<text x="366" y="1030.1370324555878" class="lbl-src">ubl-2.4-csd01wd02-new-samples</text>
+<path d="M 330,989.1370324555879 L 342,1001.1370324555879 L 470,1001.1370324555879 L 470,1097.1370324555878 L 342,1097.1370324555878 L 330,1109.1370324555878" class="line-pr" fill="none"/>
+<circle cx="470" cy="1007.9941753127308" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1014.8513181698736" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1021.7084610270165" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1028.5656038841594" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1035.4227467413023" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1042.279889598445" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1049.1370324555878" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1055.9941753127307" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1062.8513181698736" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1069.7084610270165" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1076.5656038841594" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1083.422746741302" r="2.5" class="dot-pr"/>
+<circle cx="470" cy="1090.279889598445" r="2.5" class="dot-pr"/>
+<text x="476" y="1045.1370324555878" class="lbl-pr">PR#11 (13)</text>
+<text x="476" y="1055.1370324555878" class="lbl-src">ubl-2.4-csd01wd02-rework-Ken</text>
 <path d="M 330,1109.1370324555878 L 342,1121.1370324555878 L 360,1121.1370324555878 L 360,1167.1370324555878 L 342,1167.1370324555878 L 330,1179.1370324555878" class="line-pr" fill="none"/>
 <circle cx="360" cy="1136.470365788921" r="2.5" class="dot-pr"/>
 <circle cx="360" cy="1151.8036991222546" r="2.5" class="dot-pr"/>
@@ -265,35 +265,35 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="360" cy="4891.0015565688045" r="2.5" class="dot-pr"/>
 <circle cx="360" cy="4904.2515565688045" r="2.5" class="dot-pr"/>
 <text x="366" y="4860.5015565688045" class="lbl-pr">merge (7)</text>
-<path d="M 330,180.90762561076215 L 318,192.90762561076215 L 300,192.90762561076215 L 300,204.90762561076215" class="line-dead-rel" fill="none"/>
-<circle cx="300" cy="204.90762561076215" r="4" class="dot-branch-release"/>
-<line x1="297" y1="204.90762561076215" x2="303" y2="204.90762561076215" stroke="#7ee787" stroke-width="2"/>
-<text x="292" y="208.90762561076215" class="lbl-rel" text-anchor="end">★ 2.3 CSD05  12 May 2021</text>
-<text x="292" y="218.90762561076215" class="lbl" text-anchor="end">ubl-2.3-csd05-copy</text>
-<path d="M 330,186.90762561076215 L 318,198.90762561076215 L 255,198.90762561076215 L 255,222.90762561076215" class="line-dead-rel" fill="none"/>
-<circle cx="255" cy="210.90762561076215" r="2.5" class="dot-branch-release"/>
-<circle cx="255" cy="222.90762561076215" r="4" class="dot-branch-release"/>
-<line x1="252" y1="222.90762561076215" x2="258" y2="222.90762561076215" stroke="#7ee787" stroke-width="2"/>
-<text x="247" y="226.90762561076215" class="lbl-rel" text-anchor="end">★ 2.3 CS02  25 May 2021</text>
-<text x="247" y="236.90762561076215" class="lbl" text-anchor="end">ubl-2.3-cs02</text>
-<path d="M 330,277.2455989221646 L 318,289.2455989221646 L 255,289.2455989221646 L 255,313.2455989221646" class="line-dead-rel" fill="none"/>
-<circle cx="255" cy="301.2455989221646" r="2.5" class="dot-branch-release"/>
-<circle cx="255" cy="313.2455989221646" r="4" class="dot-branch-release"/>
-<line x1="252" y1="313.2455989221646" x2="258" y2="313.2455989221646" stroke="#7ee787" stroke-width="2"/>
-<text x="247" y="317.2455989221646" class="lbl-rel" text-anchor="end">★ 2.3 OS  15 Jun 2021</text>
-<text x="247" y="327.2455989221646" class="lbl" text-anchor="end">ubl-2.3-os (+os-iso)</text>
-<path d="M 330,283.2455989221646 L 318,295.2455989221646 L 210,295.2455989221646 L 210,355.2455989221646" class="line-dead" fill="none"/>
-<circle cx="210" cy="307.2455989221646" r="2.5" class="dot-branch"/>
-<circle cx="210" cy="319.2455989221646" r="2.5" class="dot-branch"/>
-<circle cx="210" cy="331.2455989221646" r="2.5" class="dot-branch"/>
-<circle cx="210" cy="343.2455989221646" r="2.5" class="dot-branch"/>
-<circle cx="210" cy="355.2455989221646" r="2.5" class="dot-branch"/>
-<line x1="207" y1="355.2455989221646" x2="213" y2="355.2455989221646" stroke="#484f58" stroke-width="2"/>
-<text x="202" y="359.2455989221646" class="lbl" text-anchor="end">review (5)</text>
-<path d="M 330,289.2455989221646 L 318,301.2455989221646 L 300,301.2455989221646 L 300,313.2455989221646" class="line-dead" fill="none"/>
-<circle cx="300" cy="313.2455989221646" r="2.5" class="dot-branch"/>
-<line x1="297" y1="313.2455989221646" x2="303" y2="313.2455989221646" stroke="#484f58" stroke-width="2"/>
-<text x="292" y="317.2455989221646" class="lbl" text-anchor="end">main (1)</text>
+<path d="M 330,190.90762561076215 L 318,202.90762561076215 L 300,202.90762561076215 L 300,214.90762561076215" class="line-dead-rel" fill="none"/>
+<circle cx="300" cy="214.90762561076215" r="4" class="dot-branch-release"/>
+<line x1="297" y1="214.90762561076215" x2="303" y2="214.90762561076215" stroke="#7ee787" stroke-width="2"/>
+<text x="292" y="218.90762561076215" class="lbl-rel" text-anchor="end">★ 2.3 CSD05  12 May 2021</text>
+<text x="292" y="228.90762561076215" class="lbl" text-anchor="end">ubl-2.3-csd05-copy</text>
+<path d="M 330,180.90762561076215 L 318,192.90762561076215 L 255,192.90762561076215 L 255,216.90762561076215" class="line-dead-rel" fill="none"/>
+<circle cx="255" cy="204.90762561076215" r="2.5" class="dot-branch-release"/>
+<circle cx="255" cy="216.90762561076215" r="4" class="dot-branch-release"/>
+<line x1="252" y1="216.90762561076215" x2="258" y2="216.90762561076215" stroke="#7ee787" stroke-width="2"/>
+<text x="247" y="220.90762561076215" class="lbl-rel" text-anchor="end">★ 2.3 CS02  25 May 2021</text>
+<text x="247" y="230.90762561076215" class="lbl" text-anchor="end">ubl-2.3-cs02</text>
+<path d="M 330,287.2455989221646 L 318,299.2455989221646 L 255,299.2455989221646 L 255,323.2455989221646" class="line-dead-rel" fill="none"/>
+<circle cx="255" cy="311.2455989221646" r="2.5" class="dot-branch-release"/>
+<circle cx="255" cy="323.2455989221646" r="4" class="dot-branch-release"/>
+<line x1="252" y1="323.2455989221646" x2="258" y2="323.2455989221646" stroke="#7ee787" stroke-width="2"/>
+<text x="247" y="327.2455989221646" class="lbl-rel" text-anchor="end">★ 2.3 OS  15 Jun 2021</text>
+<text x="247" y="337.2455989221646" class="lbl" text-anchor="end">ubl-2.3-os (+os-iso)</text>
+<path d="M 330,277.2455989221646 L 318,289.2455989221646 L 210,289.2455989221646 L 210,349.2455989221646" class="line-dead" fill="none"/>
+<circle cx="210" cy="301.2455989221646" r="2.5" class="dot-branch"/>
+<circle cx="210" cy="313.2455989221646" r="2.5" class="dot-branch"/>
+<circle cx="210" cy="325.2455989221646" r="2.5" class="dot-branch"/>
+<circle cx="210" cy="337.2455989221646" r="2.5" class="dot-branch"/>
+<circle cx="210" cy="349.2455989221646" r="2.5" class="dot-branch"/>
+<line x1="207" y1="349.2455989221646" x2="213" y2="349.2455989221646" stroke="#484f58" stroke-width="2"/>
+<text x="202" y="353.2455989221646" class="lbl" text-anchor="end">review (5)</text>
+<path d="M 330,297.2455989221646 L 318,309.2455989221646 L 300,309.2455989221646 L 300,321.2455989221646" class="line-dead" fill="none"/>
+<circle cx="300" cy="321.2455989221646" r="2.5" class="dot-branch"/>
+<line x1="297" y1="321.2455989221646" x2="303" y2="321.2455989221646" stroke="#484f58" stroke-width="2"/>
+<text x="292" y="325.2455989221646" class="lbl" text-anchor="end">main (1)</text>
 <path d="M 330,2039.589794324613 L 318,2051.5897943246127 L 300,2051.5897943246127 L 300,2063.5897943246127" class="line-dead" fill="none"/>
 <circle cx="300" cy="2063.5897943246127" r="2.5" class="dot-branch"/>
 <line x1="297" y1="2063.5897943246127" x2="303" y2="2063.5897943246127" stroke="#484f58" stroke-width="2"/>
@@ -315,35 +315,36 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="300" cy="2646.3448376866445" r="2.5" class="dot-branch"/>
 <line x1="297" y1="2646.3448376866445" x2="303" y2="2646.3448376866445" stroke="#484f58" stroke-width="2"/>
 <text x="292" y="2650.3448376866445" class="lbl" text-anchor="end">tsc-ubl-2.5-exp (14)</text>
-<path d="M 330,2517.4615666921604 L 318,2529.4615666921604 L 255,2529.4615666921604 L 255,2613.4615666921604" class="line-dead" fill="none"/>
-<circle cx="255" cy="2541.4615666921604" r="2.5" class="dot-branch"/>
-<circle cx="255" cy="2553.4615666921604" r="2.5" class="dot-branch"/>
-<circle cx="255" cy="2565.4615666921604" r="2.5" class="dot-branch"/>
-<circle cx="255" cy="2577.4615666921604" r="2.5" class="dot-branch"/>
-<circle cx="255" cy="2589.4615666921604" r="2.5" class="dot-branch"/>
-<circle cx="255" cy="2601.4615666921604" r="2.5" class="dot-branch"/>
-<circle cx="255" cy="2613.4615666921604" r="2.5" class="dot-branch"/>
-<line x1="252" y1="2613.4615666921604" x2="258" y2="2613.4615666921604" stroke="#484f58" stroke-width="2"/>
-<text x="247" y="2617.4615666921604" class="lbl" text-anchor="end">ubl-2.4-cs01 tip (7)</text>
-<path d="M 330,2523.4615666921604 L 318,2535.4615666921604 L 210,2535.4615666921604 L 210,2703.4615666921604" class="line-dead-rel" fill="none"/>
-<circle cx="210" cy="2547.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2559.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2571.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2583.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2595.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2607.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2619.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2631.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2643.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2655.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2667.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2679.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2691.4615666921604" r="2.5" class="dot-branch-release"/>
-<circle cx="210" cy="2703.4615666921604" r="4" class="dot-branch-release"/>
-<line x1="207" y1="2703.4615666921604" x2="213" y2="2703.4615666921604" stroke="#7ee787" stroke-width="2"/>
-<text x="202" y="2707.4615666921604" class="lbl-rel" text-anchor="end">★ 2.4 OS  20 Jun 2024</text>
-<text x="202" y="2717.4615666921604" class="lbl" text-anchor="end">ubl-2.4-os</text>
-<path d="M 330,2529.4615666921604 L 318,2541.4615666921604 L 165,2541.4615666921604 L 165,2805.4615666921604" class="line-dead" fill="none"/>
+<path d="M 330,2537.4615666921604 L 318,2549.4615666921604 L 255,2549.4615666921604 L 255,2633.4615666921604" class="line-dead" fill="none"/>
+<circle cx="255" cy="2561.4615666921604" r="2.5" class="dot-branch"/>
+<circle cx="255" cy="2573.4615666921604" r="2.5" class="dot-branch"/>
+<circle cx="255" cy="2585.4615666921604" r="2.5" class="dot-branch"/>
+<circle cx="255" cy="2597.4615666921604" r="2.5" class="dot-branch"/>
+<circle cx="255" cy="2609.4615666921604" r="2.5" class="dot-branch"/>
+<circle cx="255" cy="2621.4615666921604" r="2.5" class="dot-branch"/>
+<circle cx="255" cy="2633.4615666921604" r="2.5" class="dot-branch"/>
+<line x1="252" y1="2633.4615666921604" x2="258" y2="2633.4615666921604" stroke="#484f58" stroke-width="2"/>
+<text x="247" y="2637.4615666921604" class="lbl" text-anchor="end">ubl-2.4-cs01 tip (7)</text>
+<path d="M 330,2527.4615666921604 L 318,2539.4615666921604 L 210,2539.4615666921604 L 210,2707.4615666921604" class="line-dead-rel" fill="none"/>
+<circle cx="210" cy="2551.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2563.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2575.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2587.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2599.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2611.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2623.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2635.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2647.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2659.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2671.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2683.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2695.4615666921604" r="2.5" class="dot-branch-release"/>
+<circle cx="210" cy="2707.4615666921604" r="4" class="dot-branch-release"/>
+<line x1="207" y1="2707.4615666921604" x2="213" y2="2707.4615666921604" stroke="#7ee787" stroke-width="2"/>
+<text x="202" y="2711.4615666921604" class="lbl-rel" text-anchor="end">★ 2.4 OS  20 Jun 2024</text>
+<text x="202" y="2721.4615666921604" class="lbl" text-anchor="end">ubl-2.4-os</text>
+<path d="M 330,2517.4615666921604 L 318,2529.4615666921604 L 165,2529.4615666921604 L 165,2793.4615666921604" class="line-dead" fill="none"/>
+<circle cx="165" cy="2541.4615666921604" r="2.5" class="dot-branch"/>
 <circle cx="165" cy="2553.4615666921604" r="2.5" class="dot-branch"/>
 <circle cx="165" cy="2565.4615666921604" r="2.5" class="dot-branch"/>
 <circle cx="165" cy="2577.4615666921604" r="2.5" class="dot-branch"/>
@@ -365,9 +366,8 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="165" cy="2769.4615666921604" r="2.5" class="dot-branch"/>
 <circle cx="165" cy="2781.4615666921604" r="2.5" class="dot-branch"/>
 <circle cx="165" cy="2793.4615666921604" r="2.5" class="dot-branch"/>
-<circle cx="165" cy="2805.4615666921604" r="2.5" class="dot-branch"/>
-<line x1="162" y1="2805.4615666921604" x2="168" y2="2805.4615666921604" stroke="#484f58" stroke-width="2"/>
-<text x="157" y="2809.4615666921604" class="lbl" text-anchor="end">ubl-2.4-os-iso-pub (22)</text>
+<line x1="162" y1="2793.4615666921604" x2="168" y2="2793.4615666921604" stroke="#484f58" stroke-width="2"/>
+<text x="157" y="2797.4615666921604" class="lbl" text-anchor="end">ubl-2.4-os-iso-pub (22)</text>
 <path d="M 330,2814.2658415231435 L 318,2826.2658415231435 L 300,2826.2658415231435 L 300,2850.2658415231435" class="line-dead" fill="none"/>
 <circle cx="300" cy="2838.2658415231435" r="2.5" class="dot-branch"/>
 <circle cx="300" cy="2850.2658415231435" r="2.5" class="dot-branch"/>
@@ -390,10 +390,10 @@ text { font-family: Helvetica, Arial, sans-serif; }
 <circle cx="255" cy="4919.5015565688045" r="2.5" class="dot-branch"/>
 <line x1="252" y1="4919.5015565688045" x2="258" y2="4919.5015565688045" stroke="#484f58" stroke-width="2"/>
 <text x="247" y="4923.5015565688045" class="lbl" text-anchor="end">kentest (9)</text>
-<path d="M 330,4805.5015565688045 L 318,4817.5015565688045 L 300,4817.5015565688045 L 300,4829.5015565688045" class="line-dead" fill="none"/>
-<circle cx="300" cy="4829.5015565688045" r="2.5" class="dot-branch"/>
-<line x1="297" y1="4829.5015565688045" x2="303" y2="4829.5015565688045" stroke="#484f58" stroke-width="2"/>
-<text x="292" y="4833.5015565688045" class="lbl" text-anchor="end">server-test (1)</text>
+<path d="M 330,4809.5015565688045 L 318,4821.5015565688045 L 300,4821.5015565688045 L 300,4833.5015565688045" class="line-dead" fill="none"/>
+<circle cx="300" cy="4833.5015565688045" r="2.5" class="dot-branch"/>
+<line x1="297" y1="4833.5015565688045" x2="303" y2="4833.5015565688045" stroke="#484f58" stroke-width="2"/>
+<text x="292" y="4837.5015565688045" class="lbl" text-anchor="end">server-test (1)</text>
 <path d="M 330,4849.210114765924 L 318,4861.210114765924 L 210,4861.210114765924 L 210,4873.210114765924" class="line-dead" fill="none"/>
 <circle cx="210" cy="4873.210114765924" r="2.5" class="dot-branch"/>
 <line x1="207" y1="4873.210114765924" x2="213" y2="4873.210114765924" stroke="#484f58" stroke-width="2"/>
