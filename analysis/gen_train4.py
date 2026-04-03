@@ -178,7 +178,7 @@ DOT_R_SIG = 4
 DOT_R_REL = 5
 TRUNK_X = 300
 RIGHT_COL_SP = 55   # tighter column spacing for right side
-LEFT_COL_SP = 90     # wide enough for branch-name labels to fit between columns
+LEFT_COL_SP = 150    # wide enough for even release labels to fit between columns
 RIGHT_START = 30     # gap from trunk to first right column
 LEFT_START = 30      # gap from trunk to first left column
 
