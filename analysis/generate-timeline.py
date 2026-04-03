@@ -5,14 +5,24 @@ See timeline-rules.md for the conventions used.
 
 Uses the manually verified fork tree rather than auto-detection,
 since the deep branch overlaps cause algorithmic detection to fail.
+
+Usage: python3 generate-timeline.py [/path/to/ubl/clone]
+Output: chronological-timeline.csv in the current working directory.
 """
 
 import subprocess
 import sys
+import os
 from collections import OrderedDict, deque
 
+# Use command-line arg, or default to the repo containing this script
+if len(sys.argv) > 1:
+    REPO = os.path.abspath(sys.argv[1])
+else:
+    REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 def run(cmd):
-    return subprocess.check_output(cmd, shell=True, text=True).strip()
+    return subprocess.check_output(cmd, shell=True, text=True, cwd=REPO).strip()
 
 def get_first_parent_chain(branch_ref):
     """Get first-parent chain as list of SHAs (oldest first)."""
@@ -379,14 +389,16 @@ def main():
         row = [str(row_num), date, short_sha, author, message, event_str] + cols
         rows.append(row)
 
-    # Output
-    print(",".join(csv_escape(h) for h in header))
-    for i, row in enumerate(rows):
-        print(",".join(csv_escape(v) for v in row))
-        if (i + 1) % 50 == 0 and i + 1 < len(rows):
-            print(",".join(csv_escape(h) for h in header))
+    # Output to current working directory
+    outpath = os.path.join(os.getcwd(), "chronological-timeline.csv")
+    with open(outpath, "w") as f:
+        f.write(",".join(csv_escape(h) for h in header) + "\n")
+        for i, row in enumerate(rows):
+            f.write(",".join(csv_escape(v) for v in row) + "\n")
+            if (i + 1) % 50 == 0 and i + 1 < len(rows):
+                f.write(",".join(csv_escape(h) for h in header) + "\n")
 
-    print(f"\nGenerated {len(rows)} data rows", file=sys.stderr)
+    print(f"\nGenerated {len(rows)} data rows → {outpath}", file=sys.stderr)
 
     # Stats
     branch_counts = {}
