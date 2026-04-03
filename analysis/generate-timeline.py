@@ -255,8 +255,30 @@ def main():
             else:
                 print(f"  WARNING: fork sha {fork_sha_short} not found for {child}", file=sys.stderr)
 
-    # Sort branches by first appearance
-    sorted_branches = sorted(branch_names, key=lambda b: first_appearance.get(b, 9999))
+    # Column order aligned with train track diagram:
+    # 1. Trunk (ubl-2.5)
+    # 2. Right-side merge-back branches
+    # 3. Left-side dead-end branches (by fork point)
+    # 4. Other branches in the broader tree
+    TRAIN_TRACK_ORDER = [
+        'ubl-2.5',
+        # Right side (merge-back PRs)
+        'ubl-2.4-csd01wd02', 'ubl-2.5-python',
+        # Left side (dead-ends, by fork point)
+        'ubl-2.3-csd05-copy', 'ubl-2.3-cs02', 'ubl-2.3-os', 'ubl-2.3-os-iso',
+        'review', 'main', 'tsc-ubl-2.5-experimental',
+        'ubl-2.4-os', 'ubl-2.4-os-iso-pub', 'retest', 'ubl-2.5-kenneth',
+        'server-test', 'kentest', 'ubl-2.5-retry',
+        # Other (broader tree)
+        'ubl-2.5-dev', 'UBL-433-xsd-doc', 'ubl-2.5-2025-layout',
+        'ubl-2.4-csd01wd01', 'ubl-2.4-csd01', 'ubl-2.4-csd02-prd01-13',
+        'ubl-2.4-csd02-tsc', 'ubl-2.4-csd02', 'ubl-2.4-cs01-work', 'ubl-2.4-cs01',
+    ]
+    # Use train track order for known branches, append any new ones at the end
+    known = set(TRAIN_TRACK_ORDER)
+    sorted_branches = [b for b in TRAIN_TRACK_ORDER if b in branch_names]
+    sorted_branches += sorted([b for b in branch_names if b not in known],
+                              key=lambda b: first_appearance.get(b, 9999))
     col_idx = {name: i for i, name in enumerate(sorted_branches)}
     print(f"\nColumn order: {sorted_branches}", file=sys.stderr)
 
