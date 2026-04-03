@@ -8,7 +8,7 @@
 7,2021-05-16,00ffdbd,gkholman,Rebuild results on review branch,, , , , , , , , ,00ffdbd, , , , , , , , , , , , , , , , , , 
 8,2021-05-16,57dda2e,gkholman,Rebuild results on edit branch,BRANCH: ubl-2.3-cs02 | ◆ TIP: ubl-2.3-csd05-copy, , , ,57dda2e ⊢→ubl-2.3-cs02,⊢→ubl-2.3-cs02, , , , , , , , , , , , , , , , , , , , , , 
 9,2021-05-23,47eb1f5,gkholman,First attempt at CS02,BRANCH: ubl-2.3-os | ◆ TIP: ubl-2.3-cs02, , , , ,47eb1f5 ⊢→ubl-2.3-os,⊢→ubl-2.3-os, , , , , , , , , , , , , , , , , , , , , 
-10,2021-05-23,79201eb,gkholman,Merge branch 'ubl-2.3-cs02' into review,←merged← ubl-2.3-cs02, , , , , , , , ,79201eb, , , , , , , , , , , , , , , , , , 
+10,2021-05-23,79201eb,gkholman,Merge branch 'ubl-2.3-cs02' into review,→merged→ ubl-2.3-cs02, , , , , , , , ,79201eb, , , , , , , , , , , , , , , , , , 
 11,2021-05-23,02b08d9,gkholman,Update README.md with finer details,, , , , , , , , ,02b08d9, , , , , , , , , , , , , , , , , , 
 12,2021-05-26,f71d2be,gkholman,Add polish to the README file,BRANCH: ubl-2.4-csd01wd01, , , , , , , , ,f71d2be ⊢→ubl-2.4-csd01wd01, , , , , , , , , , , ,⊢→ubl-2.4-csd01wd01, , , , , , 
 13,2021-05-27,83f311a,gkholman,Improve documentation; rename summary inputs without version numbers,, , , , , , , , , , , , , , , , , , , , ,83f311a, , , , , , 
