@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="670" height="5132" style="background-color:#0d1117">
 <style>
-text { font-family: Helvetica, Arial, sans-serif; }
+text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stroke: #0d1117; stroke-width: 3px; stroke-linejoin: round; }
 .dot-trunk { fill: #4a7a5a; }
 .dot-release { fill: #7ee787; }
 .dot-merge { fill: #58a6ff; }
