@@ -603,7 +603,7 @@ for mb in merge_branches:
     # Total label block: PR text at y-4, source at y+6
     # Width is the longer of the two texts
     w = max(len(pr_txt) * 4.5, len(src_txt) * 4.0) if src_txt else len(pr_txt) * 4.5
-    h = 18 if src_txt else 10
+    h = 32 if src_txt else 14
     right_branch_labels.append({
         "x": x, "y": y - 4, "text": pr_txt, "cls": "lbl-pr",
         "anchor": "start", "h": h, "w": w, "_mb": mb
