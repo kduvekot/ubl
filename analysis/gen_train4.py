@@ -391,12 +391,13 @@ for mb in merge_branches:
                 dy = vert_start + (j + 1) * step
                 lines.append(f'<circle cx="{x_branch}" cy="{dy}" r="{DOT_R}" class="dot-pr"/>')
 
-    # Label at midpoint of vertical section
+    # Label at midpoint of vertical section — collect for collision resolution
     label_y = (y_fork + d + y_merge - d) / 2
     pr_label = mb["pr"] if mb["pr"] else "merge"
-    lines.append(f'<text x="{x_branch+6}" y="{label_y-4}" class="lbl-pr">{pr_label} ({n})</text>')
-    if mb["source"]:
-        lines.append(f'<text x="{x_branch+6}" y="{label_y+6}" class="lbl-src">{mb["source"]}</text>')
+    mb["_label_x"] = x_branch + 6
+    mb["_label_y"] = label_y
+    mb["_pr_text"] = f'{pr_label} ({n})'
+    mb["_src_text"] = mb["source"]
 
 # ─── LEFT SIDE: DEAD-END BRANCHES with 45° connections ───
 # Pre-compute fork offsets: furthest column (highest col) departs first (smallest y offset)
@@ -510,9 +511,11 @@ def resolve_collisions_2d(labels, min_gap=12, anchor="end"):
                     b_left, b_right = labels[j]["x"], labels[j]["x"] + b_w
                 if a_left >= b_right + 4 or b_left >= a_right + 4:
                     continue  # no x overlap, skip
-                # y overlap with min_gap
-                if labels[j]["y"] - labels[i]["y"] < min_gap:
-                    labels[j]["y"] = labels[i]["y"] + min_gap
+                # y overlap: account for label height when label is taller than min_gap
+                lbl_h = labels[i].get("h", 10)
+                needed = max(min_gap, lbl_h + 4)
+                if labels[j]["y"] - labels[i]["y"] < needed:
+                    labels[j]["y"] = labels[i]["y"] + needed
                     moved = True
         if not moved:
             break
@@ -588,6 +591,33 @@ for lbl in trunk_labels:
         lbl["x"] = max_cross_x + 8
 
 resolve_collisions_2d(trunk_labels, min_gap=11, anchor="start")
+
+# ─── RIGHT-SIDE BRANCH LABELS: 2D collision resolution ───
+# Build label entries with bounding boxes for resolve_collisions_2d
+right_branch_labels = []
+for mb in merge_branches:
+    x = mb["_label_x"]
+    y = mb["_label_y"]
+    pr_txt = mb["_pr_text"]
+    src_txt = mb["_src_text"] or ""
+    # Total label block: PR text at y-4, source at y+6
+    # Width is the longer of the two texts
+    w = max(len(pr_txt) * 4.5, len(src_txt) * 4.0) if src_txt else len(pr_txt) * 4.5
+    h = 18 if src_txt else 10
+    right_branch_labels.append({
+        "x": x, "y": y - 4, "text": pr_txt, "cls": "lbl-pr",
+        "anchor": "start", "h": h, "w": w, "_mb": mb
+    })
+
+resolve_collisions_2d(right_branch_labels, min_gap=28, anchor="start")
+
+# Render right-side branch labels
+for lbl in right_branch_labels:
+    mb = lbl["_mb"]
+    y = lbl["y"]
+    lines.append(f'<text x="{lbl["x"]}" y="{y:.1f}" class="lbl-pr">{mb["_pr_text"]}</text>')
+    if mb["_src_text"]:
+        lines.append(f'<text x="{lbl["x"]}" y="{y+10:.1f}" class="lbl-src">{mb["_src_text"]}</text>')
 
 # Build leader lines for displaced left labels
 leader_lines = []
