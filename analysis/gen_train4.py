@@ -253,11 +253,11 @@ for db in dead_sorted:
 
 max_left_col = max((db["col"] for db in dead_branches), default=0)
 
-svg_w = TRUNK_X + RIGHT_START + (max_right_col + 1) * RIGHT_COL_SP + 200
-left_margin = LEFT_START + (max_left_col + 1) * LEFT_COL_SP + 120
+svg_w = TRUNK_X + RIGHT_START + (max_right_col + 1) * RIGHT_COL_SP + 250
+left_margin = LEFT_START + (max_left_col + 1) * LEFT_COL_SP + 170
 if TRUNK_X < left_margin:
     TRUNK_X = left_margin  # ensure enough room for left branches + labels
-    svg_w = TRUNK_X + RIGHT_START + (max_right_col + 1) * RIGHT_COL_SP + 200
+    svg_w = TRUNK_X + RIGHT_START + (max_right_col + 1) * RIGHT_COL_SP + 250
 
 print(f"TRUNK_X={TRUNK_X}, svg_w={svg_w}")
 print(f"Right cols: max={max_right_col}, Left cols: max={max_left_col}")
@@ -438,9 +438,59 @@ for db in dead_branches:
     # Store: (x, y, text, css_class, anchor, estimated_width)
     char_w = 5.5 if is_rel else 5  # approx px per char at font size
     lbl_w = len(lbl) * char_w
-    left_labels.append({"x": x_branch - 8, "y": y_end + 4, "text": lbl, "cls": lbl_cls, "anchor": "end", "w": lbl_w, "h": 10})
+    left_labels.append({"x": x_branch - 8, "y": y_end + 12, "text": lbl, "cls": lbl_cls, "anchor": "end", "w": lbl_w, "h": 10, "branch_x": x_branch, "endcap_y": y_end, "orig_x": x_branch - 8})
     if is_rel:
-        left_labels.append({"x": x_branch - 8, "y": y_end + 14, "text": db["name"], "cls": "lbl", "anchor": "end", "w": len(db["name"]) * 5, "h": 9})
+        left_labels.append({"x": x_branch - 8, "y": y_end + 22, "text": db["name"], "cls": "lbl", "anchor": "end", "w": len(db["name"]) * 5, "h": 9, "branch_x": x_branch, "endcap_y": y_end, "orig_x": x_branch - 8})
+
+# ─── LEFT LABEL CROSSING CHECK: ensure no label crosses a branch vertical ───
+left_vert_segs = []
+for db in dead_branches:
+    bx = TRUNK_X - LEFT_START - db["col"] * LEFT_COL_SP
+    fork_off = l_fork_offset[id(db)]
+    y_top = yp(db["fork_idx"]) + fork_off + DIAG
+    y_bot = y_top + db["commits"] * BRANCH_DOT_SP
+    left_vert_segs.append({"x": bx, "y_top": y_top, "y_bot": y_bot})
+
+leader_lines = []
+
+for lbl in left_labels:
+    own_x = lbl["branch_x"]
+    lbl_y = lbl["y"]
+
+    # Iteratively move label left until it doesn't cross any other branch vertical
+    for _ in range(10):
+        lbl_x_right = lbl["x"]
+        lbl_x_left = lbl_x_right - lbl["w"]
+
+        crossing_xs = []
+        for v in left_vert_segs:
+            if abs(v["x"] - own_x) < 1:
+                continue  # skip own branch
+            if v["y_top"] - 3 <= lbl_y <= v["y_bot"] + 3:
+                if lbl_x_left - 2 < v["x"] < lbl_x_right + 2:
+                    crossing_xs.append(v["x"])
+
+        if not crossing_xs:
+            break
+        lbl["x"] = min(crossing_xs) - 5
+
+    # Add leader line if label was displaced significantly
+    if lbl["x"] < lbl["orig_x"] - 15:
+        leader_lines.append((own_x, lbl["endcap_y"] + 4, lbl["x"] + 3, lbl["y"] - 3))
+
+# ─── RIGHT-SIDE VERTICAL SEGMENTS for trunk label crossing checks ───
+right_vert_segs = []
+right_horiz_segs = []
+for mb in merge_branches:
+    bx = TRUNK_X + RIGHT_START + mb["col"] * RIGHT_COL_SP
+    fork_off = r_fork_offset[id(mb)]
+    merge_off = r_merge_offset[id(mb)]
+    y_top = yp(mb["fork_idx"]) + fork_off + DIAG
+    y_bot = yp(mb["merge_idx"]) - merge_off - DIAG
+    right_vert_segs.append({"x": bx, "y_top": y_top, "y_bot": y_bot})
+    # Horizontal connectors at fork and merge
+    right_horiz_segs.append({"y": y_top, "x_right": bx})
+    right_horiz_segs.append({"y": y_bot, "x_right": bx})
 
 # ─── TRUNK DOTS ───
 for i in range(N):
@@ -481,9 +531,32 @@ def resolve_collisions(labels, min_gap=11):
         if curr["y"] - prev["y"] < gap:
             curr["y"] = prev["y"] + gap
 
+# ─── TRUNK LABEL CROSSING CHECK ───
+for lbl in trunk_labels:
+    lbl_y = lbl["y"]
+    char_w = 5.5 if 'rel' in lbl["cls"] else (4.5 if 'pr' in lbl["cls"] else 5.0)
+    lbl_w = len(lbl["text"]) * char_w
+
+    max_cross_x = 0
+    for v in right_vert_segs:
+        if v["y_top"] - 3 <= lbl_y <= v["y_bot"] + 3:
+            if lbl["x"] - 2 < v["x"] < lbl["x"] + lbl_w + 2:
+                max_cross_x = max(max_cross_x, v["x"])
+    for h in right_horiz_segs:
+        if abs(h["y"] - lbl_y) < 5:
+            if lbl["x"] < h["x_right"] + 2:
+                max_cross_x = max(max_cross_x, h["x_right"])
+
+    if max_cross_x > 0:
+        lbl["x"] = max_cross_x + 8
+
 # Resolve collisions in each label group
 resolve_collisions(left_labels, min_gap=10)
 resolve_collisions(trunk_labels, min_gap=10)
+
+# Render leader lines for displaced left labels
+for x1, y1, x2, y2 in leader_lines:
+    lines.append(f'<line x1="{x1}" y1="{y1:.1f}" x2="{x2}" y2="{y2:.1f}" stroke="#484f58" stroke-width="0.5" stroke-dasharray="2,2"/>')
 
 # Render all labels
 for lbl in left_labels:
