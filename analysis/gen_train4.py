@@ -611,13 +611,24 @@ for mb in merge_branches:
 
 resolve_collisions_2d(right_branch_labels, min_gap=28, anchor="start")
 
-# Render right-side branch labels
+# Render right-side branch labels with background knockouts
 for lbl in right_branch_labels:
     mb = lbl["_mb"]
     y = lbl["y"]
-    lines.append(f'<text x="{lbl["x"]}" y="{y:.1f}" class="lbl-pr">{mb["_pr_text"]}</text>')
+    x = lbl["x"]
+    # Background rect to knock out any crossing branch lines
+    pr_w = len(mb["_pr_text"]) * 4.5 + 4
+    block_h = 12
     if mb["_src_text"]:
-        lines.append(f'<text x="{lbl["x"]}" y="{y+10:.1f}" class="lbl-src">{mb["_src_text"]}</text>')
+        src_w = len(mb["_src_text"]) * 4.2 + 4
+        block_w = max(pr_w, src_w)
+        block_h = 22
+    else:
+        block_w = pr_w
+    lines.append(f'<rect x="{x-1}" y="{y-9:.1f}" width="{block_w:.0f}" height="{block_h}" fill="#0d1117" rx="1"/>')
+    lines.append(f'<text x="{x}" y="{y:.1f}" class="lbl-pr">{mb["_pr_text"]}</text>')
+    if mb["_src_text"]:
+        lines.append(f'<text x="{x}" y="{y+10:.1f}" class="lbl-src">{mb["_src_text"]}</text>')
 
 # Build leader lines for displaced left labels
 leader_lines = []

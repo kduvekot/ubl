@@ -663,47 +663,69 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="800" cy="5039.020197021217" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="5046.0709465145255" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="5052.304110938559" r="5" class="dot-release"/>
+<rect x="835" y="202.9" width="44" height="12" fill="#0d1117" rx="1"/>
 <text x="836" y="211.9" class="lbl-pr">merge (2)</text>
+<rect x="835" y="626.0" width="40" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="635.0" class="lbl-pr">PR#4 (2)</text>
 <text x="836" y="645.0" class="lbl-src">UBL-330</text>
+<rect x="835" y="685.0" width="40" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="694.0" class="lbl-pr">PR#5 (1)</text>
 <text x="836" y="704.0" class="lbl-src">UBL-335</text>
+<rect x="835" y="769.1" width="101" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="778.1" class="lbl-pr">PR#6 (1)</text>
 <text x="836" y="788.1" class="lbl-src">UBL-339-skip-publishing</text>
+<rect x="835" y="827.1" width="113" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="836.1" class="lbl-pr">PR#7 (1)</text>
 <text x="836" y="846.1" class="lbl-src">UBL-338-invalid-schematron</text>
+<rect x="835" y="886.1" width="67" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="895.1" class="lbl-pr">PR#8 (2)</text>
 <text x="836" y="905.1" class="lbl-src">UBL-337-schxslt</text>
+<rect x="835" y="946.1" width="75" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="955.1" class="lbl-pr">PR#9 (4)</text>
 <text x="836" y="965.1" class="lbl-src">kd-action-updates</text>
+<rect x="835" y="1011.1" width="126" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="1020.1" class="lbl-pr">PR#10 (2)</text>
 <text x="836" y="1030.1" class="lbl-src">ubl-2.4-csd01wd02-new-samples</text>
+<rect x="890" y="1047.1" width="122" height="22" fill="#0d1117" rx="1"/>
 <text x="891" y="1056.1" class="lbl-pr">PR#11 (13)</text>
 <text x="891" y="1066.1" class="lbl-src">ubl-2.4-csd01wd02-rework-Ken</text>
+<rect x="835" y="1131.1" width="80" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="1140.1" class="lbl-pr">PR#12 (2)</text>
 <text x="836" y="1150.1" class="lbl-src">ubl-332-oasis-2020</text>
+<rect x="835" y="1209.2" width="134" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="1218.2" class="lbl-pr">PR#13 (4)</text>
 <text x="836" y="1228.2" class="lbl-src">ubl-2.4-csd01wd02-handle-bad-gc</text>
+<rect x="835" y="1268.2" width="67" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="1277.2" class="lbl-pr">PR#14 (1)</text>
 <text x="836" y="1287.2" class="lbl-src">UBL-183-catalog</text>
+<rect x="835" y="1326.2" width="92" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="1335.2" class="lbl-pr">PR#15 (1)</text>
 <text x="836" y="1345.2" class="lbl-src">ubl-2.4-csd01wd02-pub</text>
+<rect x="835" y="1385.2" width="54" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="1394.2" class="lbl-pr">PR#16 (5)</text>
 <text x="836" y="1404.2" class="lbl-src">UBL-359-work</text>
+<rect x="835" y="1475.2" width="49" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="1484.2" class="lbl-pr">PR#17 (18)</text>
 <text x="836" y="1494.2" class="lbl-src">UBL-360</text>
+<rect x="835" y="1720.2" width="75" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="1729.2" class="lbl-pr">PR#21 (27)</text>
 <text x="836" y="1739.2" class="lbl-src">ubl-2.4-csd01wd02</text>
+<rect x="835" y="1989.8" width="44" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="1998.8" class="lbl-pr">PR#23 (8)</text>
 <text x="836" y="2008.8" class="lbl-src">csd01-kd</text>
+<rect x="835" y="2423.3" width="54" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="2432.3" class="lbl-pr">PR#27 (5)</text>
 <text x="836" y="2442.3" class="lbl-src">test-2.4cs01</text>
+<rect x="835" y="4069.4" width="75" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="4078.4" class="lbl-pr">PR#28 (1)</text>
 <text x="836" y="4088.4" class="lbl-src">ubl-2.5-7zip-test</text>
+<rect x="835" y="4340.0" width="63" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="4349.0" class="lbl-pr">PR#32 (52)</text>
 <text x="836" y="4359.0" class="lbl-src">ubl-2.5-python</text>
+<rect x="835" y="4400.0" width="122" height="22" fill="#0d1117" rx="1"/>
 <text x="836" y="4409.0" class="lbl-pr">PR#34 (2)</text>
 <text x="836" y="4419.0" class="lbl-src">claude/fix-spreadsheet-links</text>
+<rect x="835" y="4851.5" width="44" height="12" fill="#0d1117" rx="1"/>
 <text x="836" y="4860.5" class="lbl-pr">merge (7)</text>
 <text x="762" y="226.9" class="lbl-rel" text-anchor="end">★ 2.3 CSD05  12 May 2021</text>
 <text x="612" y="228.9" class="lbl-rel" text-anchor="end">★ 2.3 CS02  25 May 2021</text>
