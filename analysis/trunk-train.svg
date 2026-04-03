@@ -4,7 +4,6 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 .dot-trunk { fill: #4a7a5a; }
 .dot-release { fill: #7ee787; }
 .dot-merge { fill: #58a6ff; }
-.dot-recovered { fill: #d2a8ff; }
 .dot-branch { fill: #6a8a7a; }
 .dot-branch-release { fill: #7ee787; }
 .dot-pr { fill: #4a6a8a; }
@@ -19,12 +18,10 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 .lbl-src { fill: #6a8a9e; font-size: 7px; }
 .lbl-year { fill: #484f58; font-size: 11px; font-weight: bold; }
 .year-line { stroke: #21262d; stroke-width: 1; stroke-dasharray: 2,4; }
-.rec-zone { fill: #2a1a3a; opacity: 0.25; }
 </style>
 <text x="10" y="16" fill="#58a6ff" font-size="13" font-weight="bold">oasis-tcs/ubl — Train Track View</text>
-<text x="10" y="30" fill="#8b949e" font-size="9">328 trunk commits (dots) · 160 PR branch commits (side tracks) · ★ = verified release · Blue = merge-back branches · Gray = dead ends</text>
-<text x="10" y="42" fill="#484f58" font-size="8">Generated 2026-04-02 · Time-proportional spacing</text>
-<rect x="785" y="3465.1560786457585" width="30" height="382.67298619315943" class="rec-zone" rx="5"/>
+<text x="10" y="30" fill="#8b949e" font-size="9">328 trunk commits (dots) · 161 PR branch commits (side tracks) · ★ = verified release · Blue = merge-back branches · Gray = dead ends</text>
+<text x="10" y="42" fill="#484f58" font-size="8">Generated 2026-04-03 · Time-proportional spacing</text>
 <line x1="10" y1="90" x2="770" y2="90" class="year-line"/>
 <text x="15" y="94" class="lbl-year">2018</text>
 <line x1="10" y1="140.92869714997443" x2="770" y2="140.92869714997443" class="year-line"/>
@@ -555,46 +552,46 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="800" cy="3413.606345604919" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="3423.533918094848" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="3450.741372938959" r="4" class="dot-merge"/>
-<circle cx="800" cy="3470.1560786457585" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3485.1755100093474" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3491.213235206888" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3502.111020264486" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3525.6437789154015" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3541.0461697963656" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3548.9581828878236" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3558.1639627568084" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3573.665604881024" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3581.6599904799773" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3591.6071446212363" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3613.784296655348" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3624.033666886905" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3630.2994575428447" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3638.366773674106" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3644.5713432155567" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3650.607238037575" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3657.662709407459" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3663.692189983632" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3669.7663130670735" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3675.8925165738583" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3682.0462258393495" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3688.692687928363" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3694.720333592142" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3701.4924347254932" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3723.5639357206624" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3745.383627153346" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3765.107894164337" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3771.5670373081093" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3777.988886551832" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3785.9485123956524" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3794.2142726794987" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3800.341367022862" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3806.418203982923" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3812.6340674936646" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3818.7718333358494" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3824.784763201578" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3830.797693067306" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3836.8060108827804" r="2.5" class="dot-recovered"/>
-<circle cx="800" cy="3842.829064838918" r="2.5" class="dot-recovered"/>
+<circle cx="800" cy="3470.1560786457585" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3485.1755100093474" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3491.213235206888" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3502.111020264486" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3525.6437789154015" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3541.0461697963656" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3548.9581828878236" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3558.1639627568084" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3573.665604881024" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3581.6599904799773" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3591.6071446212363" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3613.784296655348" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3624.033666886905" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3630.2994575428447" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3638.366773674106" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3644.5713432155567" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3650.607238037575" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3657.662709407459" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3663.692189983632" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3669.7663130670735" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3675.8925165738583" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3682.0462258393495" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3688.692687928363" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3694.720333592142" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3701.4924347254932" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3723.5639357206624" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3745.383627153346" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3765.107894164337" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3771.5670373081093" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3777.988886551832" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3785.9485123956524" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3794.2142726794987" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3800.341367022862" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3806.418203982923" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3812.6340674936646" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3818.7718333358494" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3824.784763201578" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3830.797693067306" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3836.8060108827804" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="3842.829064838918" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="3848.850280338405" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="3855.6355659877786" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="3861.651260021858" r="2.5" class="dot-trunk"/>
@@ -750,7 +747,6 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <text x="808" y="2469.3" class="lbl-pr" text-anchor="start">← PR#27</text>
 <text x="808" y="2521.5" class="lbl-rel" text-anchor="start">★ 2.4 CS01  17 Oct 2023</text>
 <text x="808" y="3454.7" class="lbl-mile" text-anchor="start">UBL-433-xsd-doc  06 Jul 2025</text>
-<text x="808" y="3846.8" class="lbl-mile" text-anchor="start">dc1249d (recovered)  06 Aug 2025</text>
 <text x="808" y="4115.4" class="lbl-rel" text-anchor="start">★ 2.5 CSD01  20 Aug 2025</text>
 <text x="838" y="4386.0" class="lbl-pr" text-anchor="start">← PR#32</text>
 <text x="808" y="4446.0" class="lbl-pr" text-anchor="start">← PR#34</text>

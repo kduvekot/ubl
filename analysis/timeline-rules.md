@@ -71,17 +71,6 @@ empty. This prevents GitHub's CSV viewer from collapsing columns.
 A header row is repeated every 50 data rows for navigation in GitHub's CSV viewer.
 These rows use the same format as the main header row.
 
-## Recovered History
-
-The repository contains 40 commits that were previously unreachable (not on any
-branch ref) but were recovered from GitHub's object store. These sit between
-`4c0ffc3` (UBL-433-xsd-doc tip) and `48ad2d8` (parent of `dc1249d`). They are
-preserved on the `recovered/ubl-2.5-lost-history` branch and are assigned to
-`ubl-2.5` in the timeline since that is the branch they were originally pushed to.
-
-With these recovered commits, the entire repository is **one connected tree**
-rooted at `71129c9` (2018-04-11). There is no disconnected/orphan tree.
-
 ## Data Sources
 
 - **Git first-parent chains**: `git rev-list --first-parent <branch>`

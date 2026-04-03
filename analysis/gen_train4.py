@@ -113,7 +113,6 @@ milestones = {
     0: "Repo created  11 Apr 2018",
     9: "PIVOT  26 May 2021",
     175: "UBL-433-xsd-doc  06 Jul 2025",
-    215: "dc1249d (recovered)  06 Aug 2025",
 }
 
 # ─── COMPUTE Y POSITIONS ───
@@ -283,7 +282,6 @@ lines.append('text { font-family: Helvetica, Arial, sans-serif; paint-order: str
 lines.append('.dot-trunk { fill: #4a7a5a; }')
 lines.append('.dot-release { fill: #7ee787; }')
 lines.append('.dot-merge { fill: #58a6ff; }')
-lines.append('.dot-recovered { fill: #d2a8ff; }')
 lines.append('.dot-branch { fill: #6a8a7a; }')
 lines.append('.dot-branch-release { fill: #7ee787; }')
 lines.append('.dot-pr { fill: #4a6a8a; }')
@@ -298,17 +296,15 @@ lines.append('.lbl-pr { fill: #58a6ff; font-size: 7.5px; }')
 lines.append('.lbl-src { fill: #6a8a9e; font-size: 7px; }')
 lines.append('.lbl-year { fill: #484f58; font-size: 11px; font-weight: bold; }')
 lines.append('.year-line { stroke: #21262d; stroke-width: 1; stroke-dasharray: 2,4; }')
-lines.append('.rec-zone { fill: #2a1a3a; opacity: 0.25; }')
 lines.append('</style>')
 
 # Title
 lines.append(f'<text x="10" y="16" fill="#58a6ff" font-size="13" font-weight="bold">oasis-tcs/ubl — Train Track View</text>')
-lines.append(f'<text x="10" y="30" fill="#8b949e" font-size="9">328 trunk commits (dots) · 160 PR branch commits (side tracks) · '
+pr_commits = sum(len(mb["commits"]) for mb in merge_branches)
+lines.append(f'<text x="10" y="30" fill="#8b949e" font-size="9">{N} trunk commits (dots) · {pr_commits} PR branch commits (side tracks) · '
              f'★ = verified release · Blue = merge-back branches · Gray = dead ends</text>')
-lines.append(f'<text x="10" y="42" fill="#484f58" font-size="8">Generated 2026-04-02 · Time-proportional spacing</text>')
-
-# Recovered zone
-lines.append(f'<rect x="{TRUNK_X-15}" y="{yp(176)-5}" width="30" height="{yp(215)-yp(176)+10}" class="rec-zone" rx="5"/>')
+from datetime import date
+lines.append(f'<text x="10" y="42" fill="#484f58" font-size="8">Generated {date.today()} · Time-proportional spacing</text>')
 
 # Year markers
 for year, idx in sorted(year_first.items()):
@@ -530,8 +526,6 @@ for i in range(N):
         r, cls = DOT_R_REL, "dot-release"
     elif any(mb["merge_idx"] == i for mb in merge_branches):
         r, cls = DOT_R_SIG, "dot-merge"
-    elif 176 <= i <= 215:
-        r, cls = DOT_R, "dot-recovered"
     elif i in milestones or any(mb["fork_idx"] == i for mb in merge_branches):
         r, cls = DOT_R_SIG, "dot-merge"
     else:
