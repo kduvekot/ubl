@@ -194,7 +194,7 @@ DOT_R = 2.5
 DOT_R_SIG = 4
 DOT_R_REL = 5
 TRUNK_X = 300
-RIGHT_COL_SP = 55   # tighter column spacing for right side
+RIGHT_COL_SP_MIN = 55   # minimum column spacing for right side
 LEFT_COL_SP = 150    # wide enough for even release labels to fit between columns
 RIGHT_START = 30     # gap from trunk to first right column
 LEFT_START = 30      # gap from trunk to first left column
@@ -219,6 +219,31 @@ for mb in merge_branches:
     right_tracks.append(mb)
 
 max_right_col = max((mb["col"] for mb in merge_branches), default=0)
+
+# ─── DYNAMIC RIGHT-COLUMN SPACING ───
+# Compute label widths per column so outer columns don't cross inner labels
+# Label text starts at x_branch + 6; width = max(pr_text, src_text) in pixels
+right_col_label_width = {}  # col -> max label pixel width
+for mb in merge_branches:
+    col = mb["col"]
+    pr_label = mb["pr"] if mb["pr"] else "merge"
+    pr_txt = f'{pr_label} ({len(mb["commits"])})'
+    src_txt = mb["source"] or ""
+    w = max(len(pr_txt) * 4.5, len(src_txt) * 4.2) if src_txt else len(pr_txt) * 4.5
+    right_col_label_width[col] = max(right_col_label_width.get(col, 0), w)
+
+# Build cumulative x-offsets: col N starts after col N-1's labels end
+# label_x = col_x + 6, so col N+1 must be at col_x + 6 + max_label_w + gap
+LABEL_OFFSET = 6   # label starts this far right of column line
+LABEL_GAP = 12     # min gap between end of label text and next column line
+right_col_x = {}   # col -> x offset from TRUNK_X + RIGHT_START
+cur_x = 0
+for c in range(max_right_col + 1):
+    right_col_x[c] = cur_x
+    label_w = right_col_label_width.get(c, 0)
+    needed = max(RIGHT_COL_SP_MIN, LABEL_OFFSET + label_w + LABEL_GAP)
+    cur_x += needed
+RIGHT_COL_TOTAL = cur_x  # total width of all right columns
 
 # ─── COLUMN ASSIGNMENT: left side ───
 # Crossing-aware: a branch's horizontal line to col C must not cross
@@ -270,11 +295,11 @@ for db in dead_sorted:
 
 max_left_col = max((db["col"] for db in dead_branches), default=0)
 
-svg_w = TRUNK_X + RIGHT_START + (max_right_col + 1) * RIGHT_COL_SP + 250
+svg_w = TRUNK_X + RIGHT_START + RIGHT_COL_TOTAL + 250
 left_margin = LEFT_START + (max_left_col + 1) * LEFT_COL_SP + 170
 if TRUNK_X < left_margin:
     TRUNK_X = left_margin  # ensure enough room for left branches + labels
-    svg_w = TRUNK_X + RIGHT_START + (max_right_col + 1) * RIGHT_COL_SP + 250
+    svg_w = TRUNK_X + RIGHT_START + RIGHT_COL_TOTAL + 250
 
 print(f"TRUNK_X={TRUNK_X}, svg_w={svg_w}")
 print(f"Right cols: max={max_right_col}, Left cols: max={max_left_col}")
@@ -360,7 +385,7 @@ for midx, group in r_merge_groups.items():
             r_merge_offset[id(mb)] = rank * OFFSET_STEP
 
 for mb in merge_branches:
-    x_branch = TRUNK_X + RIGHT_START + mb["col"] * RIGHT_COL_SP
+    x_branch = TRUNK_X + RIGHT_START + right_col_x[mb["col"]]
     y_fork_base = yp(mb["fork_idx"])
     y_merge_base = yp(mb["merge_idx"])
     n = len(mb["commits"])
@@ -525,7 +550,7 @@ def resolve_collisions_2d(labels, min_gap=12, anchor="end"):
 right_vert_segs = []
 right_horiz_segs = []
 for mb in merge_branches:
-    bx = TRUNK_X + RIGHT_START + mb["col"] * RIGHT_COL_SP
+    bx = TRUNK_X + RIGHT_START + right_col_x[mb["col"]]
     fork_off = r_fork_offset[id(mb)]
     merge_off = r_merge_offset[id(mb)]
     y_top = yp(mb["fork_idx"]) + fork_off + DIAG
@@ -611,24 +636,13 @@ for mb in merge_branches:
 
 resolve_collisions_2d(right_branch_labels, min_gap=28, anchor="start")
 
-# Render right-side branch labels with background knockouts
+# Render right-side branch labels
 for lbl in right_branch_labels:
     mb = lbl["_mb"]
     y = lbl["y"]
-    x = lbl["x"]
-    # Background rect to knock out any crossing branch lines
-    pr_w = len(mb["_pr_text"]) * 4.5 + 4
-    block_h = 12
+    lines.append(f'<text x="{lbl["x"]}" y="{y:.1f}" class="lbl-pr">{mb["_pr_text"]}</text>')
     if mb["_src_text"]:
-        src_w = len(mb["_src_text"]) * 4.2 + 4
-        block_w = max(pr_w, src_w)
-        block_h = 22
-    else:
-        block_w = pr_w
-    lines.append(f'<rect x="{x-1}" y="{y-9:.1f}" width="{block_w:.0f}" height="{block_h}" fill="#0d1117" rx="1"/>')
-    lines.append(f'<text x="{x}" y="{y:.1f}" class="lbl-pr">{mb["_pr_text"]}</text>')
-    if mb["_src_text"]:
-        lines.append(f'<text x="{x}" y="{y+10:.1f}" class="lbl-src">{mb["_src_text"]}</text>')
+        lines.append(f'<text x="{lbl["x"]}" y="{y+10:.1f}" class="lbl-src">{mb["_src_text"]}</text>')
 
 # Build leader lines for displaced left labels
 leader_lines = []
