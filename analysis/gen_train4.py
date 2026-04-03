@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """Train track SVG v4: 45° angled connections, tighter layout, no crossings."""
-import subprocess, re, math
+import subprocess, re, math, os, sys
 from collections import Counter
 
-REPO = "/home/user/ubl"
+# Use command-line arg, or default to the repo containing this script
+if len(sys.argv) > 1:
+    REPO = os.path.abspath(sys.argv[1])
+else:
+    REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def run(cmd):
     return subprocess.check_output(cmd, shell=True, text=True, cwd=REPO).strip()
@@ -43,7 +47,9 @@ for i, sha in enumerate(trunk):
     pr = f"PR#{pr_match.group(1)}" if pr_match else ""
     br_match = re.search(r'from (\S+)', msg)
     source = br_match.group(1) if br_match else ""
-    source = source.replace("oasis-tcs/", "").replace("kduvekot/", "")
+    # Strip org prefix (e.g. "oasis-tcs/ubl-2.5" → "ubl-2.5")
+    if "/" in source:
+        source = source.split("/", 1)[1]
 
     try:
         mb = run(f"git merge-base {p1} {p2}")
@@ -589,7 +595,8 @@ for lbl in trunk_labels:
 lines.append('</svg>')
 
 svg = "\n".join(lines)
-outpath = "/home/user/ubl/analysis/trunk-train.svg"
+outpath = os.path.join(REPO, "analysis", "trunk-train.svg")
+os.makedirs(os.path.dirname(outpath), exist_ok=True)
 with open(outpath, "w") as f:
     f.write(svg)
 
