@@ -59,8 +59,7 @@ def main():
     # ===== VERIFIED FORK TREE =====
     # Format: child -> (parent_branch, fork_sha)
     # This was manually verified by walking first-parent chains.
-    # Updated with recovered history: ubl-2.5 now connects through
-    # 40 recovered commits back to UBL-433-xsd-doc/ubl-2.5-dev.
+    # ubl-2.5 connects through UBL-433-xsd-doc back to ubl-2.5-dev.
     FORK_TREE = {
         "main": (None, None),
         # 2.3 branch family
@@ -86,8 +85,7 @@ def main():
         "ubl-2.5-kenneth": ("ubl-2.5-dev", "76dcc63"),
         "UBL-433-xsd-doc": ("ubl-2.5-dev", "39fae0d"),
         "retest": ("ubl-2.5-dev", "153236e"),
-        # 2.5 branch family (was "disconnected", now recovered)
-        # ubl-2.5 connects through 40 recovered commits back to UBL-433-xsd-doc tip
+        # 2.5 branch family
         "ubl-2.5": ("UBL-433-xsd-doc", "4c0ffc3"),
         "ubl-2.5-python": ("ubl-2.5", "0b44c38"),
         "server-test": ("ubl-2.5", "b122814"),
@@ -104,11 +102,6 @@ def main():
     for name in branch_names:
         fp_chains[name] = get_first_parent_chain(f"origin/{name}")
         print(f"  {name}: {len(fp_chains[name])} fp commits", file=sys.stderr)
-
-    # Also get the recovered chain (commits between UBL-433-xsd-doc tip and dc1249d)
-    recovered_chain = get_first_parent_chain("origin/recovered/ubl-2.5-lost-history")
-    recovered_set = set(recovered_chain)
-    print(f"  recovered: {len(recovered_chain)} fp commits", file=sys.stderr)
 
     # Build processing order: BFS from main through fork tree
     children = {name: [] for name in branch_names}
@@ -142,14 +135,6 @@ def main():
                 assignment[sha] = branch
                 claimed += 1
         print(f"  {branch}: claimed {claimed} new commits", file=sys.stderr)
-
-    # Assign recovered commits (on recovered branch but not on any regular branch)
-    recovered_count = 0
-    for sha in recovered_chain:
-        if sha not in assignment:
-            assignment[sha] = "ubl-2.5"
-            recovered_count += 1
-    print(f"  Recovered → ubl-2.5: {recovered_count} commits", file=sys.stderr)
 
     # Now assign "merged-in" commits: commits reachable from branches but NOT on
     # any first-parent chain. These came from PR/feature branches that were merged.
@@ -216,7 +201,7 @@ def main():
     # Use git log to batch - fetch ALL reachable commits' metadata
     all_refs = " ".join(
         f"origin/{name}" for name in branch_names
-    ) + " origin/recovered/ubl-2.5-lost-history"
+    )
     out = run(f'git log --format="%H|%ae|%ai|%s" {all_refs}')
     for line in out.split("\n"):
         if not line.strip():
