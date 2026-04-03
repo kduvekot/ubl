@@ -116,6 +116,7 @@ def main():
 
     # The trunk is the first-parent chain of ubl-2.5
     TRUNK_BRANCH = "ubl-2.5"
+    TRUNK_COLUMN = "UBL-Trunk"  # display name for the trunk column in CSV
 
     branch_names = list(FORK_TREE.keys())
     print(f"Branches: {len(branch_names)}", file=sys.stderr)
@@ -217,11 +218,11 @@ def main():
             prev = ab
 
     # Assign commits to branches using the trunk model:
-    # 1. All trunk commits → TRUNK_BRANCH column
+    # 1. All trunk commits → TRUNK_COLUMN (display name)
     # 2. Non-trunk commits → deepest branch (original logic)
     assignment = {}
     for sha in trunk_set:
-        assignment[sha] = TRUNK_BRANCH
+        assignment[sha] = TRUNK_COLUMN
 
     # Assign non-trunk first-parent commits
     for branch in process_order:
@@ -350,7 +351,7 @@ def main():
                 # If parent is a trunk alias (no column), remap to trunk
                 effective_parent = parent
                 if full_sha in trunk_set and parent not in branches_with_commits:
-                    effective_parent = TRUNK_BRANCH
+                    effective_parent = TRUNK_COLUMN
                 fork_points[full_sha].append((effective_parent, child))
                 # Update first appearance for child (only if it has a column)
                 if child in branches_with_commits:
@@ -359,7 +360,7 @@ def main():
                         first_appearance[child] = fork_idx
             else:
                 print(f"  WARNING: fork sha {fork_sha_short} not found for {child}", file=sys.stderr)
-    active_branches = [b for b in branch_names if b in branches_with_commits]
+    active_branches = [TRUNK_COLUMN] + [b for b in branch_names if b in branches_with_commits]
     print(f"\nBranches with commits: {len(active_branches)} (of {len(branch_names)} total)", file=sys.stderr)
     dropped = [b for b in branch_names if b not in branches_with_commits]
     if dropped:
@@ -371,7 +372,7 @@ def main():
     # 3. Left-side dead-end branches (by fork point)
     # 4. Other branches with unique commits
     TRAIN_TRACK_ORDER = [
-        'ubl-2.5',
+        TRUNK_COLUMN,
         # Right side (merge-back PRs)
         'ubl-2.4-csd01wd02', 'ubl-2.5-python',
         # Left side (dead-ends, by fork point)
@@ -459,8 +460,6 @@ def main():
         # Active branch: for trunk commits, show the original branch name
         # (only when it differs from TRUNK_BRANCH)
         ab = active_branch.get(sha, "")
-        if ab == TRUNK_BRANCH:
-            ab = ""  # no need to annotate when it matches the column
 
         # Build columns
         cols = []
