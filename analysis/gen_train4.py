@@ -178,7 +178,7 @@ DOT_R_SIG = 4
 DOT_R_REL = 5
 TRUNK_X = 300
 RIGHT_COL_SP = 55   # tighter column spacing for right side
-LEFT_COL_SP = 50     # spacing for left side columns
+LEFT_COL_SP = 90     # wide enough for branch-name labels to fit between columns
 RIGHT_START = 30     # gap from trunk to first right column
 LEFT_START = 30      # gap from trunk to first left column
 
@@ -464,8 +464,9 @@ def check_left_label_crossings(labels):
             for v in left_vert_segs:
                 if abs(v["x"] - own_x) < 1:
                     continue  # skip own branch
-                # Account for label height above baseline
-                if v["y_top"] - lbl_h - 2 <= lbl_y <= v["y_bot"] + 3:
+                # Label covers [lbl_y - lbl_h, lbl_y]; branch covers [y_top, y_bot]
+                # They overlap when lbl_y > y_top AND lbl_y - lbl_h < y_bot
+                if v["y_top"] - 3 < lbl_y and lbl_y < v["y_bot"] + lbl_h + 3:
                     if lbl_x_left - 3 < v["x"] < lbl_x_right + 3:
                         crossing_xs.append(v["x"])
             if not crossing_xs:
