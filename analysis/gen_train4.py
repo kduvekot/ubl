@@ -178,7 +178,7 @@ DOT_R_SIG = 4
 DOT_R_REL = 5
 TRUNK_X = 300
 RIGHT_COL_SP = 55   # tighter column spacing for right side
-LEFT_COL_SP = 45     # tighter for left side
+LEFT_COL_SP = 50     # spacing for left side columns
 RIGHT_START = 30     # gap from trunk to first right column
 LEFT_START = 30      # gap from trunk to first left column
 
@@ -451,32 +451,56 @@ for db in dead_branches:
     y_bot = y_top + db["commits"] * BRANCH_DOT_SP
     left_vert_segs.append({"x": bx, "y_top": y_top, "y_bot": y_bot})
 
-leader_lines = []
+def check_left_label_crossings(labels):
+    """Push left labels leftward so they don't cross any branch vertical."""
+    for lbl in labels:
+        own_x = lbl["branch_x"]
+        lbl_h = lbl.get("h", 10)
+        for _ in range(20):
+            lbl_y = lbl["y"]
+            lbl_x_right = lbl["x"]
+            lbl_x_left = lbl_x_right - lbl["w"]
+            crossing_xs = []
+            for v in left_vert_segs:
+                if abs(v["x"] - own_x) < 1:
+                    continue  # skip own branch
+                # Account for label height above baseline
+                if v["y_top"] - lbl_h - 2 <= lbl_y <= v["y_bot"] + 3:
+                    if lbl_x_left - 3 < v["x"] < lbl_x_right + 3:
+                        crossing_xs.append(v["x"])
+            if not crossing_xs:
+                break
+            lbl["x"] = min(crossing_xs) - 6
 
-for lbl in left_labels:
-    own_x = lbl["branch_x"]
-    lbl_y = lbl["y"]
-
-    # Iteratively move label left until it doesn't cross any other branch vertical
-    for _ in range(10):
-        lbl_x_right = lbl["x"]
-        lbl_x_left = lbl_x_right - lbl["w"]
-
-        crossing_xs = []
-        for v in left_vert_segs:
-            if abs(v["x"] - own_x) < 1:
-                continue  # skip own branch
-            if v["y_top"] - 3 <= lbl_y <= v["y_bot"] + 3:
-                if lbl_x_left - 2 < v["x"] < lbl_x_right + 2:
-                    crossing_xs.append(v["x"])
-
-        if not crossing_xs:
+def resolve_collisions_2d(labels, min_gap=12, anchor="end"):
+    """Nudge overlapping labels apart vertically, only when 2D bboxes overlap."""
+    if not labels:
+        return
+    labels.sort(key=lambda l: l["y"])
+    for _iteration in range(8):
+        moved = False
+        for i in range(len(labels)):
+            for j in range(i + 1, len(labels)):
+                if labels[j]["y"] - labels[i]["y"] > 50:
+                    break
+                # Check x overlap
+                if anchor == "end":
+                    a_left, a_right = labels[i]["x"] - labels[i]["w"], labels[i]["x"]
+                    b_left, b_right = labels[j]["x"] - labels[j]["w"], labels[j]["x"]
+                else:
+                    a_w = labels[i].get("w", len(labels[i]["text"]) * 5)
+                    b_w = labels[j].get("w", len(labels[j]["text"]) * 5)
+                    a_left, a_right = labels[i]["x"], labels[i]["x"] + a_w
+                    b_left, b_right = labels[j]["x"], labels[j]["x"] + b_w
+                if a_left >= b_right + 4 or b_left >= a_right + 4:
+                    continue  # no x overlap, skip
+                # y overlap with min_gap
+                if labels[j]["y"] - labels[i]["y"] < min_gap:
+                    labels[j]["y"] = labels[i]["y"] + min_gap
+                    moved = True
+        if not moved:
             break
-        lbl["x"] = min(crossing_xs) - 5
-
-    # Add leader line if label was displaced significantly
-    if lbl["x"] < lbl["orig_x"] - 15:
-        leader_lines.append((own_x, lbl["endcap_y"] + 4, lbl["x"] + 3, lbl["y"] - 3))
+        labels.sort(key=lambda l: l["y"])
 
 # ─── RIGHT-SIDE VERTICAL SEGMENTS for trunk label crossing checks ───
 right_vert_segs = []
@@ -510,49 +534,46 @@ for i in range(N):
 # ─── ALL LABELS: collect, resolve collisions, render ───
 trunk_labels = []
 for idx, label in releases.items():
-    trunk_labels.append({"x": TRUNK_X + 8, "y": yp(idx) + 4, "text": label, "cls": "lbl-rel", "anchor": "start", "h": 10})
+    trunk_labels.append({"x": TRUNK_X + 8, "y": yp(idx) + 4, "text": label, "cls": "lbl-rel", "anchor": "start", "h": 10, "w": len(label) * 5.5})
 for idx, label in milestones.items():
-    trunk_labels.append({"x": TRUNK_X + 8, "y": yp(idx) + 4, "text": label, "cls": "lbl-mile", "anchor": "start", "h": 10})
+    trunk_labels.append({"x": TRUNK_X + 8, "y": yp(idx) + 4, "text": label, "cls": "lbl-mile", "anchor": "start", "h": 10, "w": len(label) * 5.0})
 for mb in merge_branches:
     i = mb["merge_idx"]
     if i not in releases and i not in milestones:
         pr_label = mb["pr"] if mb["pr"] else "merge"
-        trunk_labels.append({"x": TRUNK_X + 8, "y": yp(i) + 3, "text": f"← {pr_label}", "cls": "lbl-pr", "anchor": "start", "h": 8})
+        txt = f"← {pr_label}"
+        trunk_labels.append({"x": TRUNK_X + 8, "y": yp(i) + 3, "text": txt, "cls": "lbl-pr", "anchor": "start", "h": 8, "w": len(txt) * 4.5})
 
-def resolve_collisions(labels, min_gap=11):
-    """Nudge overlapping labels apart vertically."""
-    if not labels:
-        return
-    labels.sort(key=lambda l: l["y"])
-    for i in range(1, len(labels)):
-        prev = labels[i - 1]
-        curr = labels[i]
-        gap = prev.get("h", 10) + 1  # minimum vertical gap
-        if curr["y"] - prev["y"] < gap:
-            curr["y"] = prev["y"] + gap
+# ─── ITERATIVE LABEL POSITIONING ───
+# Run crossing check + collision resolution in multiple rounds so that
+# labels pushed down by collision resolution get re-checked for crossings.
+for _round in range(3):
+    check_left_label_crossings(left_labels)
+    resolve_collisions_2d(left_labels, min_gap=12, anchor="end")
 
-# ─── TRUNK LABEL CROSSING CHECK ───
+# Trunk label crossing check
 for lbl in trunk_labels:
     lbl_y = lbl["y"]
-    char_w = 5.5 if 'rel' in lbl["cls"] else (4.5 if 'pr' in lbl["cls"] else 5.0)
-    lbl_w = len(lbl["text"]) * char_w
-
+    lbl_w = lbl["w"]
     max_cross_x = 0
     for v in right_vert_segs:
-        if v["y_top"] - 3 <= lbl_y <= v["y_bot"] + 3:
+        if v["y_top"] - 10 <= lbl_y <= v["y_bot"] + 3:
             if lbl["x"] - 2 < v["x"] < lbl["x"] + lbl_w + 2:
                 max_cross_x = max(max_cross_x, v["x"])
     for h in right_horiz_segs:
-        if abs(h["y"] - lbl_y) < 5:
+        if abs(h["y"] - lbl_y) < 8:
             if lbl["x"] < h["x_right"] + 2:
                 max_cross_x = max(max_cross_x, h["x_right"])
-
     if max_cross_x > 0:
         lbl["x"] = max_cross_x + 8
 
-# Resolve collisions in each label group
-resolve_collisions(left_labels, min_gap=10)
-resolve_collisions(trunk_labels, min_gap=10)
+resolve_collisions_2d(trunk_labels, min_gap=11, anchor="start")
+
+# Build leader lines for displaced left labels
+leader_lines = []
+for lbl in left_labels:
+    if lbl["x"] < lbl["orig_x"] - 15:
+        leader_lines.append((lbl["branch_x"], lbl["endcap_y"] + 4, lbl["x"] + 3, lbl["y"] - 3))
 
 # Render leader lines for displaced left labels
 for x1, y1, x2, y2 in leader_lines:
