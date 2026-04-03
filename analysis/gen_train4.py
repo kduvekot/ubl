@@ -112,8 +112,20 @@ for prefix, label in [
 milestones = {
     0: "Repo created  11 Apr 2018",
     9: "PIVOT  26 May 2021",
-    175: "UBL-433-xsd-doc  06 Jul 2025",
 }
+
+# ─── TRUNK BRANCH NAME TRANSITIONS (from forensics) ───
+forensics_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                              "branch-forensics.json")
+trunk_name_transitions = {}
+if os.path.exists(forensics_path):
+    import json
+    with open(forensics_path) as f:
+        forensics = json.load(f)
+    for seg in forensics.get("trunk_active_branch_timeline", {}).get("segments", []):
+        idx = seg["trunk_start"]
+        trunk_name_transitions[idx] = seg["branch"]
+    print(f"Loaded {len(trunk_name_transitions)} trunk name transitions from forensics")
 
 # ─── COMPUTE Y POSITIONS ───
 MIN_GAP = 6
@@ -292,6 +304,7 @@ lines.append('.line-pr { stroke: #2a4a6a; stroke-width: 1.5; }')
 lines.append('.lbl { fill: #8b949e; font-size: 8px; }')
 lines.append('.lbl-rel { fill: #7ee787; font-size: 9px; font-weight: bold; }')
 lines.append('.lbl-mile { fill: #ffa657; font-size: 9px; }')
+lines.append('.lbl-trunk-name { fill: #d2a8ff; font-size: 8px; font-style: italic; }')
 lines.append('.lbl-pr { fill: #58a6ff; font-size: 7.5px; }')
 lines.append('.lbl-src { fill: #6a8a9e; font-size: 7px; }')
 lines.append('.lbl-year { fill: #484f58; font-size: 11px; font-weight: bold; }')
@@ -526,7 +539,7 @@ for i in range(N):
         r, cls = DOT_R_REL, "dot-release"
     elif any(mb["merge_idx"] == i for mb in merge_branches):
         r, cls = DOT_R_SIG, "dot-merge"
-    elif i in milestones or any(mb["fork_idx"] == i for mb in merge_branches):
+    elif i in milestones or i in trunk_name_transitions or any(mb["fork_idx"] == i for mb in merge_branches):
         r, cls = DOT_R_SIG, "dot-merge"
     else:
         r, cls = DOT_R, "dot-trunk"
@@ -544,6 +557,12 @@ for mb in merge_branches:
         pr_label = mb["pr"] if mb["pr"] else "merge"
         txt = f"← {pr_label}"
         trunk_labels.append({"x": TRUNK_X + 8, "y": yp(i) + 3, "text": txt, "cls": "lbl-pr", "anchor": "start", "h": 8, "w": len(txt) * 4.5})
+# Trunk branch name transitions (right side, below releases/milestones)
+for idx, name in trunk_name_transitions.items():
+    if idx < N:
+        # Show as "▸ branch-name" on the right side of trunk
+        txt = f"▸ {name}"
+        trunk_labels.append({"x": TRUNK_X + 8, "y": yp(idx) + 4, "text": txt, "cls": "lbl-trunk-name", "anchor": "start", "h": 9, "w": len(txt) * 4.8})
 
 # ─── ITERATIVE LABEL POSITIONING ───
 # Run crossing check + collision resolution in multiple rounds so that

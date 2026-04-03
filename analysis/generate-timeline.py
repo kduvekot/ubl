@@ -151,49 +151,69 @@ def main():
     trunk_set = set(trunk_chain)
     print(f"\nTrunk ({TRUNK_BRANCH}): {len(trunk_set)} first-parent commits", file=sys.stderr)
 
-    # Determine the "active branch name" for each trunk commit by walking
-    # the trunk path through the FORK_TREE.
-    # Build path by walking BACKWARD from TRUNK_BRANCH to the root (main).
-    trunk_path = []
-    cur = TRUNK_BRANCH
-    while cur is not None:
-        trunk_path.append(cur)
-        parent, _ = FORK_TREE[cur]
-        cur = parent
-    trunk_path.reverse()  # now: main → ... → ubl-2.5
-    print(f"Trunk path: {' → '.join(trunk_path)}", file=sys.stderr)
+    # Load forensics data for trunk active branch timeline.
+    # This captures information that git alone cannot provide (renames,
+    # bookmarks, fast-forward merges) — derived from GitHub Activity API
+    # and workflow run evidence.
+    forensics_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                  "branch-forensics.json")
+    trunk_segments = None
+    if os.path.exists(forensics_path):
+        import json
+        with open(forensics_path) as f:
+            forensics = json.load(f)
+        trunk_segments = forensics.get("trunk_active_branch_timeline", {}).get("segments", [])
+        print(f"Loaded {len(trunk_segments)} trunk segments from forensics", file=sys.stderr)
 
-    # Build transition points: fork SHA → new branch name
-    transition_shas = {}
-    for i in range(1, len(trunk_path)):
-        child = trunk_path[i]
-        parent, fork_sha_short = FORK_TREE[child]
-        if fork_sha_short:
-            # Find full SHA
-            for sha in trunk_chain:
-                if sha.startswith(fork_sha_short):
-                    transition_shas[sha] = child
-                    break
-
-    # Walk trunk chain and assign active branch names
+    # Assign "active branch name" for each trunk commit.
     active_branch = {}
-    current_name = trunk_path[0]  # starts as "main"
-    for sha in trunk_chain:
-        if sha in transition_shas:
-            # This commit is the fork point — it belongs to the CURRENT name
-            # (the fork point is the last commit of the old name)
-            active_branch[sha] = current_name
-            current_name = transition_shas[sha]
-        else:
-            active_branch[sha] = current_name
+    if trunk_segments:
+        # Use forensics-based segments (includes renamed/deleted branches)
+        for seg in trunk_segments:
+            name = seg["branch"]
+            start = seg["trunk_start"]
+            end = seg["trunk_end"]
+            for i in range(start, min(end + 1, len(trunk_chain))):
+                active_branch[trunk_chain[i]] = name
+        # Any trunk commits not covered by segments get TRUNK_BRANCH
+        for sha in trunk_chain:
+            if sha not in active_branch:
+                active_branch[sha] = TRUNK_BRANCH
+    else:
+        # Fallback: derive from FORK_TREE by walking backward from TRUNK_BRANCH
+        trunk_path = []
+        cur = TRUNK_BRANCH
+        while cur is not None:
+            trunk_path.append(cur)
+            parent, _ = FORK_TREE[cur]
+            cur = parent
+        trunk_path.reverse()
+        print(f"Trunk path (FORK_TREE fallback): {' → '.join(trunk_path)}", file=sys.stderr)
+
+        transition_shas = {}
+        for i in range(1, len(trunk_path)):
+            child = trunk_path[i]
+            parent, fork_sha_short = FORK_TREE[child]
+            if fork_sha_short:
+                for sha in trunk_chain:
+                    if sha.startswith(fork_sha_short):
+                        transition_shas[sha] = child
+                        break
+
+        current_name = trunk_path[0]
+        for sha in trunk_chain:
+            if sha in transition_shas:
+                active_branch[sha] = current_name
+                current_name = transition_shas[sha]
+            else:
+                active_branch[sha] = current_name
 
     # Report transitions
     prev = None
-    for sha in trunk_chain:
+    for i, sha in enumerate(trunk_chain):
         ab = active_branch[sha]
         if ab != prev:
-            idx = trunk_chain.index(sha)
-            print(f"  Trunk [{idx}]: {ab} (from {sha[:7]})", file=sys.stderr)
+            print(f"  Trunk [{i}]: {ab} (from {sha[:7]})", file=sys.stderr)
             prev = ab
 
     # Assign commits to branches using the trunk model:

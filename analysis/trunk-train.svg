@@ -14,6 +14,7 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 .lbl { fill: #8b949e; font-size: 8px; }
 .lbl-rel { fill: #7ee787; font-size: 9px; font-weight: bold; }
 .lbl-mile { fill: #ffa657; font-size: 9px; }
+.lbl-trunk-name { fill: #d2a8ff; font-size: 8px; font-style: italic; }
 .lbl-pr { fill: #58a6ff; font-size: 7.5px; }
 .lbl-src { fill: #6a8a9e; font-size: 7px; }
 .lbl-year { fill: #484f58; font-size: 11px; font-weight: bold; }
@@ -386,7 +387,7 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="800" cy="250.90762561076218" r="4" class="dot-merge"/>
 <circle cx="800" cy="257.5434007137234" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="277.2455989221646" r="4" class="dot-merge"/>
-<circle cx="800" cy="313.9393339112324" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="313.9393339112324" r="4" class="dot-merge"/>
 <circle cx="800" cy="344.2709700987133" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="355.50770685408474" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="364.67297638191314" r="2.5" class="dot-trunk"/>
@@ -432,7 +433,7 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="800" cy="1428.1790658843747" r="4" class="dot-merge"/>
 <circle cx="800" cy="1488.1790658843747" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="1548.1790658843747" r="4" class="dot-merge"/>
-<circle cx="800" cy="1600.1129743196666" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="1600.1129743196666" r="4" class="dot-merge"/>
 <circle cx="800" cy="1643.6227194849525" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="1687.1034336746438" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="1735.5661866736914" r="2.5" class="dot-trunk"/>
@@ -445,7 +446,7 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="800" cy="1972.8301933311318" r="4" class="dot-merge"/>
 <circle cx="800" cy="2032.8301933311318" r="4" class="dot-merge"/>
 <circle cx="800" cy="2039.589794324613" r="5" class="dot-release"/>
-<circle cx="800" cy="2076.593707730763" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="2076.593707730763" r="4" class="dot-merge"/>
 <circle cx="800" cy="2097.5897943246127" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2106.284233735865" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2112.3465710718747" r="2.5" class="dot-trunk"/>
@@ -465,12 +466,12 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="800" cy="2255.6424007276355" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2273.7862340390147" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2282.202744409393" r="2.5" class="dot-trunk"/>
-<circle cx="800" cy="2308.874149432141" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="2308.874149432141" r="4" class="dot-merge"/>
 <circle cx="800" cy="2314.9546014586085" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2320.9968981998422" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2327.2763311921926" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2333.307645670623" r="5" class="dot-release"/>
-<circle cx="800" cy="2363.3899624043697" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="2363.3899624043697" r="4" class="dot-merge"/>
 <circle cx="800" cy="2369.5286159969573" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2376.0174563581363" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2382.07343020918" r="2.5" class="dot-trunk"/>
@@ -483,7 +484,7 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="800" cy="2502.5673288713874" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2509.804328334915" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2517.4615666921604" r="5" class="dot-release"/>
-<circle cx="800" cy="2552.9853542015035" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="2552.9853542015035" r="4" class="dot-merge"/>
 <circle cx="800" cy="2584.062850161309" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2611.2815815423132" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2620.288563036947" r="2.5" class="dot-trunk"/>
@@ -504,7 +505,7 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="800" cy="2814.2658415231435" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2841.3513137038767" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2857.6930120434404" r="2.5" class="dot-trunk"/>
-<circle cx="800" cy="2884.2658415231435" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="2884.2658415231435" r="4" class="dot-merge"/>
 <circle cx="800" cy="2900.9764804101815" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2909.3487954971897" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="2917.747788123257" r="2.5" class="dot-trunk"/>
@@ -551,7 +552,7 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="800" cy="3399.4466222143883" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="3413.606345604919" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="3423.533918094848" r="2.5" class="dot-trunk"/>
-<circle cx="800" cy="3450.741372938959" r="4" class="dot-merge"/>
+<circle cx="800" cy="3450.741372938959" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="3470.1560786457585" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="3485.1755100093474" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="3491.213235206888" r="2.5" class="dot-trunk"/>
@@ -724,8 +725,11 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <text x="762" y="4885.2" class="lbl" text-anchor="end">ubl-2.5-retry (1)</text>
 <text x="612" y="4931.5" class="lbl" text-anchor="end">kentest (9)</text>
 <text x="808" y="94.0" class="lbl-mile" text-anchor="start">Repo created  11 Apr 2018</text>
+<text x="808" y="105.0" class="lbl-trunk-name" text-anchor="start">▸ main</text>
 <text x="808" y="253.9" class="lbl-pr" text-anchor="start">← merge</text>
 <text x="808" y="281.2" class="lbl-mile" text-anchor="start">PIVOT  26 May 2021</text>
+<text x="808" y="317.9" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.4-csd01wd01</text>
+<text x="838" y="613.0" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.4-csd01wd02</text>
 <text x="838" y="672.0" class="lbl-pr" text-anchor="start">← PR#4</text>
 <text x="808" y="730.0" class="lbl-pr" text-anchor="start">← PR#5</text>
 <text x="838" y="814.1" class="lbl-pr" text-anchor="start">← PR#6</text>
@@ -740,13 +744,19 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <text x="838" y="1371.2" class="lbl-pr" text-anchor="start">← PR#15</text>
 <text x="838" y="1431.2" class="lbl-pr" text-anchor="start">← PR#16</text>
 <text x="838" y="1551.2" class="lbl-pr" text-anchor="start">← PR#17</text>
+<text x="838" y="1604.1" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.4-csd01</text>
 <text x="808" y="1921.2" class="lbl-pr" text-anchor="start">← PR#21</text>
 <text x="808" y="2035.8" class="lbl-pr" text-anchor="start">← PR#23</text>
 <text x="808" y="2046.8" class="lbl-rel" text-anchor="start">★ 2.4 CSD01  08 Feb 2023</text>
+<text x="808" y="2080.6" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.4-csd02-prd01-13</text>
+<text x="808" y="2312.9" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.4-csd02</text>
 <text x="808" y="2337.3" class="lbl-rel" text-anchor="start">★ 2.4 CSD02  26 Jul 2023</text>
+<text x="808" y="2367.4" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.4-cs01-work</text>
 <text x="808" y="2469.3" class="lbl-pr" text-anchor="start">← PR#27</text>
+<text x="808" y="2480.3" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.4-cs01</text>
 <text x="808" y="2521.5" class="lbl-rel" text-anchor="start">★ 2.4 CS01  17 Oct 2023</text>
-<text x="808" y="3454.7" class="lbl-mile" text-anchor="start">UBL-433-xsd-doc  06 Jul 2025</text>
+<text x="808" y="2557.0" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.5-csd01</text>
+<text x="808" y="2888.3" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.5</text>
 <text x="808" y="4115.4" class="lbl-rel" text-anchor="start">★ 2.5 CSD01  20 Aug 2025</text>
 <text x="838" y="4386.0" class="lbl-pr" text-anchor="start">← PR#32</text>
 <text x="808" y="4446.0" class="lbl-pr" text-anchor="start">← PR#34</text>
