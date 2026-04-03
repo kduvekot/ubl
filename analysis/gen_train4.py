@@ -595,8 +595,8 @@ for lbl in trunk_labels:
 lines.append('</svg>')
 
 svg = "\n".join(lines)
-outpath = os.path.join(REPO, "analysis", "trunk-train.svg")
-os.makedirs(os.path.dirname(outpath), exist_ok=True)
+# Output to current working directory (not into the target repo)
+outpath = os.path.join(os.getcwd(), "trunk-train.svg")
 with open(outpath, "w") as f:
     f.write(svg)
 
