@@ -69,7 +69,17 @@ def main():
     # ===== VERIFIED FORK TREE =====
     # Format: child -> (parent_branch, fork_sha)
     # This was manually verified by walking first-parent chains.
-    # ubl-2.5 connects through UBL-433-xsd-doc back to ubl-2.5-dev.
+    #
+    # TRUNK MODEL: The first-parent chain of ubl-2.5 (328 commits) is the
+    # single continuous trunk.  Many branch names pointed to different
+    # positions along this same chain at different times.  In the CSV,
+    # ALL trunk commits appear in the "ubl-2.5" column; the "Active Branch"
+    # metadata column records which name was active for each commit.
+    #
+    # Branches whose first-parent chains are entirely subsets of the trunk
+    # (no unique commits) are "trunk aliases" — they don't get their own
+    # column.  Branches with unique non-trunk commits keep a column for
+    # those commits only.
     FORK_TREE = {
         "main": (None, None),
         # 2.3 branch family
@@ -104,6 +114,9 @@ def main():
         "ubl-2.5-retry": ("ubl-2.5", "ea6223d"),
     }
 
+    # The trunk is the first-parent chain of ubl-2.5
+    TRUNK_BRANCH = "ubl-2.5"
+
     branch_names = list(FORK_TREE.keys())
     print(f"Branches: {len(branch_names)}", file=sys.stderr)
 
@@ -133,18 +146,72 @@ def main():
 
     print(f"\nProcess order: {process_order}", file=sys.stderr)
 
-    # Assign commits to branches
-    # Each branch claims its first-parent commits not yet claimed by an ancestor
-    assignment = {}
-    fp_sets = {name: set(chain) for name, chain in fp_chains.items()}
+    # Identify the trunk: the first-parent chain of TRUNK_BRANCH (oldest first)
+    trunk_chain = fp_chains[TRUNK_BRANCH]
+    trunk_set = set(trunk_chain)
+    print(f"\nTrunk ({TRUNK_BRANCH}): {len(trunk_set)} first-parent commits", file=sys.stderr)
 
+    # Determine the "active branch name" for each trunk commit by walking
+    # the trunk path through the FORK_TREE.
+    # Build path by walking BACKWARD from TRUNK_BRANCH to the root (main).
+    trunk_path = []
+    cur = TRUNK_BRANCH
+    while cur is not None:
+        trunk_path.append(cur)
+        parent, _ = FORK_TREE[cur]
+        cur = parent
+    trunk_path.reverse()  # now: main → ... → ubl-2.5
+    print(f"Trunk path: {' → '.join(trunk_path)}", file=sys.stderr)
+
+    # Build transition points: fork SHA → new branch name
+    transition_shas = {}
+    for i in range(1, len(trunk_path)):
+        child = trunk_path[i]
+        parent, fork_sha_short = FORK_TREE[child]
+        if fork_sha_short:
+            # Find full SHA
+            for sha in trunk_chain:
+                if sha.startswith(fork_sha_short):
+                    transition_shas[sha] = child
+                    break
+
+    # Walk trunk chain and assign active branch names
+    active_branch = {}
+    current_name = trunk_path[0]  # starts as "main"
+    for sha in trunk_chain:
+        if sha in transition_shas:
+            # This commit is the fork point — it belongs to the CURRENT name
+            # (the fork point is the last commit of the old name)
+            active_branch[sha] = current_name
+            current_name = transition_shas[sha]
+        else:
+            active_branch[sha] = current_name
+
+    # Report transitions
+    prev = None
+    for sha in trunk_chain:
+        ab = active_branch[sha]
+        if ab != prev:
+            idx = trunk_chain.index(sha)
+            print(f"  Trunk [{idx}]: {ab} (from {sha[:7]})", file=sys.stderr)
+            prev = ab
+
+    # Assign commits to branches using the trunk model:
+    # 1. All trunk commits → TRUNK_BRANCH column
+    # 2. Non-trunk commits → deepest branch (original logic)
+    assignment = {}
+    for sha in trunk_set:
+        assignment[sha] = TRUNK_BRANCH
+
+    # Assign non-trunk first-parent commits
     for branch in process_order:
         claimed = 0
         for sha in fp_chains[branch]:
             if sha not in assignment:
                 assignment[sha] = branch
                 claimed += 1
-        print(f"  {branch}: claimed {claimed} new commits", file=sys.stderr)
+        if claimed:
+            print(f"  {branch}: claimed {claimed} non-trunk commits", file=sys.stderr)
 
     # Now assign "merged-in" commits: commits reachable from branches but NOT on
     # any first-parent chain. These came from PR/feature branches that were merged.
@@ -244,6 +311,9 @@ def main():
         if branch not in first_appearance:
             first_appearance[branch] = idx
 
+    # Determine which branches have commits assigned (vs pure trunk aliases)
+    branches_with_commits = set(assignment.values())
+
     # Also account for fork point entries in child columns
     fork_points = {}  # sha -> [(parent_branch, child_branch), ...]
     for child, (parent, fork_sha_short) in FORK_TREE.items():
@@ -257,19 +327,29 @@ def main():
             if full_sha:
                 if full_sha not in fork_points:
                     fork_points[full_sha] = []
-                fork_points[full_sha].append((parent, child))
-                # Update first appearance for child
-                fork_idx = sha_to_row.get(full_sha, 9999)
-                if child not in first_appearance or fork_idx < first_appearance[child]:
-                    first_appearance[child] = fork_idx
+                # If parent is a trunk alias (no column), remap to trunk
+                effective_parent = parent
+                if full_sha in trunk_set and parent not in branches_with_commits:
+                    effective_parent = TRUNK_BRANCH
+                fork_points[full_sha].append((effective_parent, child))
+                # Update first appearance for child (only if it has a column)
+                if child in branches_with_commits:
+                    fork_idx = sha_to_row.get(full_sha, 9999)
+                    if child not in first_appearance or fork_idx < first_appearance[child]:
+                        first_appearance[child] = fork_idx
             else:
                 print(f"  WARNING: fork sha {fork_sha_short} not found for {child}", file=sys.stderr)
+    active_branches = [b for b in branch_names if b in branches_with_commits]
+    print(f"\nBranches with commits: {len(active_branches)} (of {len(branch_names)} total)", file=sys.stderr)
+    dropped = [b for b in branch_names if b not in branches_with_commits]
+    if dropped:
+        print(f"Trunk aliases (no column): {dropped}", file=sys.stderr)
 
     # Column order aligned with train track diagram:
     # 1. Trunk (ubl-2.5)
     # 2. Right-side merge-back branches
     # 3. Left-side dead-end branches (by fork point)
-    # 4. Other branches in the broader tree
+    # 4. Other branches with unique commits
     TRAIN_TRACK_ORDER = [
         'ubl-2.5',
         # Right side (merge-back PRs)
@@ -279,15 +359,14 @@ def main():
         'review', 'main', 'tsc-ubl-2.5-experimental',
         'ubl-2.4-os', 'ubl-2.4-os-iso-pub', 'retest', 'ubl-2.5-kenneth',
         'server-test', 'kentest', 'ubl-2.5-retry',
-        # Other (broader tree)
-        'ubl-2.5-dev', 'UBL-433-xsd-doc', 'ubl-2.5-2025-layout',
-        'ubl-2.4-csd01wd01', 'ubl-2.4-csd01', 'ubl-2.4-csd02-prd01-13',
-        'ubl-2.4-csd02-tsc', 'ubl-2.4-csd02', 'ubl-2.4-cs01-work', 'ubl-2.4-cs01',
+        # Other (branches with unique non-trunk commits)
+        'ubl-2.5-2025-layout',
+        'ubl-2.4-csd01', 'ubl-2.4-csd02-tsc', 'ubl-2.4-cs01',
     ]
-    # Use train track order for known branches, append any new ones at the end
+    # Use train track order for branches that have commits, append any new ones
     known = set(TRAIN_TRACK_ORDER)
-    sorted_branches = [b for b in TRAIN_TRACK_ORDER if b in branch_names]
-    sorted_branches += sorted([b for b in branch_names if b not in known],
+    sorted_branches = [b for b in TRAIN_TRACK_ORDER if b in active_branches]
+    sorted_branches += sorted([b for b in active_branches if b not in known],
                               key=lambda b: first_appearance.get(b, 9999))
     col_idx = {name: i for i, name in enumerate(sorted_branches)}
     print(f"\nColumn order: {sorted_branches}", file=sys.stderr)
@@ -316,7 +395,7 @@ def main():
     root_sha = sorted_shas[0] if sorted_shas else None
 
     # ===== GENERATE CSV =====
-    header = ["#", "Date", "SHA", "Author", "Message", "Event"] + sorted_branches
+    header = ["#", "Date", "SHA", "Author", "Message", "Active Branch", "Event"] + sorted_branches
 
     rows = []
     for idx, sha in enumerate(sorted_shas):
@@ -357,6 +436,12 @@ def main():
 
         event_str = " | ".join(events)
 
+        # Active branch: for trunk commits, show the original branch name
+        # (only when it differs from TRUNK_BRANCH)
+        ab = active_branch.get(sha, "")
+        if ab == TRUNK_BRANCH:
+            ab = ""  # no need to annotate when it matches the column
+
         # Build columns
         cols = []
         for b in sorted_branches:
@@ -386,7 +471,7 @@ def main():
                     else:
                         cols[c_i] = marker
 
-        row = [str(row_num), date, short_sha, author, message, event_str] + cols
+        row = [str(row_num), date, short_sha, author, message, ab, event_str] + cols
         rows.append(row)
 
     # Output to current working directory
