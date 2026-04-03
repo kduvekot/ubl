@@ -1,0 +1,274 @@
+{
+  "_comment": [
+    "Branch forensics for the oasis-tcs/ubl repository.",
+    "This file records information that CANNOT be derived from git alone:",
+    "branch renames, fast-forward merges, bookmarks, and deleted branches.",
+    "Sources: GitHub Activity API, GitHub Actions workflow runs, git reflog.",
+    "Generated: 2026-04-03."
+  ],
+
+  "branch_renames": [
+    {
+      "old_name": "ubl-2.5-csd01",
+      "new_name": "ubl-2.5",
+      "date": "2025-04-09",
+      "old_created": "2024-03-06T14:43:26Z",
+      "old_created_by": "klakegg",
+      "old_deleted": "2025-04-09T07:40:56Z",
+      "new_created": "2025-04-09T07:39:55Z",
+      "new_created_by": "gkholman",
+      "evidence": "GitHub Activity API: ubl-2.5 branch_creation at 07:39:55Z, ubl-2.5-csd01 branch_deletion at 07:40:56Z — 61 seconds apart by same actor.",
+      "trunk_positions": "Covers trunk positions ~107-127 (pushed as ubl-2.5-csd01), then 128+ (as ubl-2.5). Confirmed by workflow runs: sha=153236e at trunk[125] pushed to ubl-2.5-csd01, sha=0e6caf4 at trunk[128] pushed to ubl-2.5.",
+      "notes": "ubl-2.5-csd01 was the active trunk branch for over a year (March 2024 — April 2025). Three contributors pushed to it: klakegg (creator), kduvekot, bdxhub, gkholman. The branch ref no longer exists — it is invisible in the git data."
+    }
+  ],
+
+  "bookmarks": [
+    {
+      "branch": "UBL-433-xsd-doc",
+      "created": "2025-07-06T18:54:07Z",
+      "created_by": "gkholman",
+      "trunk_position": 175,
+      "trunk_sha": "4c0ffc3",
+      "push_count": 0,
+      "still_exists": true,
+      "evidence": "GitHub Activity API: 0 pushes. Commit 4c0ffc3 was pushed to ubl-2.5 at 19:38:24Z (44 min after branch creation). Branch created 27 seconds after commit was authored (18:53:40Z).",
+      "notes": "Retroactive bookmark marking the end of JIRA issue UBL-433 work. The 3 commits (d35a880, e41bda8, 4c0ffc3) were all pushed directly to ubl-2.5. No merge commit or PR exists."
+    },
+    {
+      "branch": "ubl-2.4-csd02-prd01-13",
+      "created": "2023-07-05T20:40:26Z",
+      "created_by": "bdxhub",
+      "trunk_position": 88,
+      "trunk_sha": "476e1ad",
+      "push_count": 0,
+      "still_exists": true,
+      "evidence": "GitHub Activity API: 0 pushes. Branch tip is at same commit as ubl-2.4-csd02-tsc.",
+      "notes": "Bookmark marking the PRD01-13 milestone on the trunk. Same tip as ubl-2.4-csd02-tsc."
+    },
+    {
+      "branch": "ubl-2.4-csd02-tsc",
+      "created": "2023-07-19T13:36:14Z",
+      "created_by": "bdxhub",
+      "trunk_position": 88,
+      "trunk_sha": "476e1ad",
+      "push_count": 0,
+      "still_exists": true,
+      "evidence": "GitHub Activity API: 0 pushes. Same trunk position as ubl-2.4-csd02-prd01-13.",
+      "notes": "Bookmark marking the TSC review point. Created 2 weeks after ubl-2.4-csd02-prd01-13 at the same commit."
+    },
+    {
+      "branch": "ubl-2.4-cs01-work",
+      "created": "2023-09-26T09:31:47Z",
+      "created_by": "gkholman",
+      "trunk_position": 101,
+      "trunk_sha": "7c01887",
+      "push_count": 0,
+      "still_exists": true,
+      "evidence": "GitHub Activity API: 0 pushes.",
+      "notes": "Bookmark marking the CS01 working state. Created same day as several other branches (csd01-temp, revert-24, test-2.4cs01)."
+    },
+    {
+      "branch": "ubl-2.5-dev",
+      "created": "2025-05-07T01:53:24Z",
+      "created_by": "gkholman",
+      "trunk_position": 172,
+      "trunk_sha": "39fae0d",
+      "push_count": 26,
+      "still_exists": true,
+      "evidence": "GitHub Activity API: 26 pushes (2025-05-08 to 2025-06-12). Workflow runs confirm: 2 commits (trunk[163-164]) were pushed to ubl-2.5-dev, but the rest went to ubl-2.5. All first-parent commits are on the trunk (0 unique).",
+      "notes": "Not a pure bookmark — this was a real development branch that ran in parallel with ubl-2.5 from May-June 2025. However, all its commits also landed on ubl-2.5 (the trunk). Created one month AFTER ubl-2.5 already existed. Think of it as a parallel workspace that was kept in sync with the trunk."
+    },
+    {
+      "branch": "server-test",
+      "created": "2026-01-21T19:10:13Z",
+      "created_by": "gkholman",
+      "trunk_position": null,
+      "trunk_sha": null,
+      "push_count": 0,
+      "still_exists": true,
+      "evidence": "GitHub Activity API: 0 pushes.",
+      "notes": "Bookmark or test branch. Created at a point off the trunk first-parent chain."
+    },
+    {
+      "branch": "ubl-2.5-retry",
+      "created": "2026-01-21T21:23:52Z",
+      "created_by": "gkholman",
+      "trunk_position": null,
+      "trunk_sha": null,
+      "push_count": 0,
+      "still_exists": true,
+      "evidence": "GitHub Activity API: 0 pushes.",
+      "notes": "Bookmark or retry branch. Created same day as server-test and kentest recreation."
+    }
+  ],
+
+  "deleted_branches": {
+    "pr_branches": [
+      {
+        "branch": "test-2.4cs01",
+        "created": "2023-09-26T09:03:57Z",
+        "deleted": "2023-09-26T10:41:36Z",
+        "created_by": "kduvekot",
+        "pr_number": 27,
+        "merge_commit": "16ca084",
+        "trunk_position": 102,
+        "notes": "PR#27 source branch. Merged into ubl-2.4-cs01, which is on the trunk. Branch deleted after merge."
+      },
+      {
+        "branch": "ubl-2.4-csd01-docx",
+        "created": "2023-09-26T08:50:42Z",
+        "deleted": "2023-09-26T08:47:58Z",
+        "created_by": "kduvekot",
+        "pr_numbers": [24, 26],
+        "merge_commits": ["0b0b0b3", "c7ec642"],
+        "notes": "Source branch for PR#24 (merged into ubl-2.4-csd01) and PR#26 (merged into ubl-2.4-csd01). Deleted timestamp appears before creation — likely API clock skew or recreated."
+      },
+      {
+        "branch": "ubl-2.5-7zip-test",
+        "created": "2025-08-16T18:38:31Z",
+        "deleted": "2025-08-21T00:23:45Z",
+        "created_by": "gkholman",
+        "pr_number": 28,
+        "merge_commit": "0b44c38",
+        "trunk_position": 242,
+        "notes": "PR#28 source branch. Short-lived feature branch (5 days). Merged into ubl-2.5 on the trunk."
+      }
+    ],
+    "ephemeral_branches": [
+      {
+        "branch": "kd-realta-24",
+        "created": "2024-06-19T12:35:53Z",
+        "deleted": "2024-06-19T12:38:50Z",
+        "created_by": "kduvekot",
+        "lifetime_minutes": 3,
+        "push_count": 0,
+        "notes": "Extremely short-lived test branch. Created and deleted within 3 minutes."
+      },
+      {
+        "branch": "kendebug",
+        "created": "2024-05-30T11:39:34Z",
+        "deleted": "2024-05-30T14:44:44Z",
+        "created_by": "gkholman",
+        "lifetime_hours": 3,
+        "push_count": 5,
+        "notes": "Debug branch used for 3 hours with 5 pushes. Same day as kendebug2 and kentest."
+      },
+      {
+        "branch": "kendebug2",
+        "created": "2024-05-30T12:46:02Z",
+        "deleted": "2024-05-30T14:44:11Z",
+        "created_by": "gkholman",
+        "lifetime_hours": 2,
+        "push_count": 1,
+        "notes": "Second debug branch, parallel to kendebug."
+      },
+      {
+        "branch": "ken-test",
+        "created": "2025-03-23T20:07:13Z",
+        "deleted": "2025-04-07T09:22:53Z",
+        "created_by": "gkholman",
+        "lifetime_days": 14,
+        "push_count": 1,
+        "notes": "Test branch. Note: this is different from 'kentest' (no hyphen)."
+      },
+      {
+        "branch": "temp-test",
+        "created": "2026-01-15T18:50:09Z",
+        "deleted": "2026-01-15T20:07:18Z",
+        "created_by": "gkholman",
+        "lifetime_minutes": 77,
+        "push_count": 0,
+        "notes": "Temporary test branch."
+      },
+      {
+        "branch": "csd01-temp",
+        "created": "2023-09-26T08:53:09Z",
+        "deleted": "2024-04-10T19:03:35Z",
+        "created_by": "kduvekot",
+        "lifetime_days": 197,
+        "push_count": 0,
+        "notes": "Stale temporary branch. Created same day as test-2.4cs01 and revert-24. Never pushed to, deleted 6 months later during cleanup."
+      },
+      {
+        "branch": "revert-24-ubl-2.4-csd01-docx",
+        "created": "2023-09-26T08:50:46Z",
+        "deleted": "2024-04-10T18:57:34Z",
+        "created_by": "kduvekot",
+        "lifetime_days": 197,
+        "push_count": 0,
+        "notes": "Unused revert branch for PR#24. Never pushed to, deleted same day as csd01-temp."
+      }
+    ],
+    "recreated_branches": [
+      {
+        "branch": "kentest",
+        "history": [
+          {"event": "branch_creation", "date": "2024-05-30T06:33:59Z", "actor": "gkholman"},
+          {"event": "pushes", "count": 4, "first": "2024-05-30T09:11:12Z", "last": "2024-05-30T15:08:01Z"},
+          {"event": "branch_deletion", "date": "2026-01-21T15:31:42Z", "actor": "gkholman"},
+          {"event": "branch_creation", "date": "2026-01-21T15:31:50Z", "actor": "gkholman"},
+          {"event": "branch_deletion", "date": "2026-01-21T16:20:45Z", "actor": "gkholman"},
+          {"event": "branch_creation", "date": "2026-01-21T17:00:59Z", "actor": "gkholman"},
+          {"event": "pushes", "count": 2, "first": "2026-01-21T17:09:04Z", "last": "2026-01-21T18:42:53Z"},
+          {"event": "branch_deletion", "date": "2026-01-21T20:28:18Z", "actor": "gkholman"},
+          {"event": "branch_creation", "date": "2026-01-21T20:28:32Z", "actor": "gkholman"},
+          {"event": "pushes", "count": 1, "first": "2026-01-21T20:44:25Z", "last": "2026-01-21T20:44:25Z"}
+        ],
+        "notes": "Test branch that was deleted and recreated 3 times on 2026-01-21 (same day). Originally created 2024-05-30. The recreations suggest the developer was resetting the branch to different starting points."
+      }
+    ]
+  },
+
+  "pre_api_branches": [
+    {
+      "branch": "main",
+      "notes": "Original default branch. Predates Activity API retention. 1 recorded push (2025-10-08 by kduvekot: 'sync main repo build.yml'). Creation date unknown.",
+      "trunk_positions": "0-9"
+    },
+    {
+      "branch": "ubl-2.4-csd01wd01",
+      "notes": "Predates Activity API. 0 recorded pushes. Tip at trunk[36]. Cannot determine if this was a working branch or bookmark.",
+      "trunk_positions": "10-36"
+    },
+    {
+      "branch": "ubl-2.4-csd01wd02",
+      "notes": "Predates Activity API. 0 recorded pushes. Has 1 unique non-trunk commit (PR#20 merge). PR-merged branch that continued to receive merges after trunk diverged.",
+      "trunk_positions": "37-55"
+    },
+    {
+      "branch": "ubl-2.4-csd01",
+      "notes": "Predates Activity API. 0 recorded pushes, 1 pr_merge recorded. Has 1 unique non-trunk commit (PR#24 merge). Similar to ubl-2.4-csd01wd02.",
+      "trunk_positions": "56-68"
+    }
+  ],
+
+  "trunk_active_branch_timeline": {
+    "_comment": "The actual branch name that was used for trunk work at each period. Combines git structure with GitHub API evidence.",
+    "segments": [
+      {"branch": "main",                "trunk_start": 0,   "trunk_end": 9,   "source": "FORK_TREE"},
+      {"branch": "ubl-2.4-csd01wd01",   "trunk_start": 10,  "trunk_end": 36,  "source": "FORK_TREE"},
+      {"branch": "ubl-2.4-csd01wd02",   "trunk_start": 37,  "trunk_end": 55,  "source": "FORK_TREE"},
+      {"branch": "ubl-2.4-csd01",       "trunk_start": 56,  "trunk_end": 68,  "source": "FORK_TREE"},
+      {"branch": "ubl-2.4-csd02-prd01-13", "trunk_start": 69, "trunk_end": 88, "source": "FORK_TREE (but 0 pushes — may be bookmark)"},
+      {"branch": "ubl-2.4-csd02",       "trunk_start": 89,  "trunk_end": 93,  "source": "Activity API: 25 pushes"},
+      {"branch": "ubl-2.4-cs01-work",   "trunk_start": 94,  "trunk_end": 101, "source": "FORK_TREE (but 0 pushes — likely bookmark)"},
+      {"branch": "ubl-2.4-cs01",        "trunk_start": 102, "trunk_end": 106, "source": "Activity API: 16 pushes"},
+      {"branch": "ubl-2.5-csd01",       "trunk_start": 107, "trunk_end": 127, "source": "Activity API: 18 pushes + workflow runs. RENAMED to ubl-2.5 on 2025-04-09."},
+      {"branch": "ubl-2.5",             "trunk_start": 128, "trunk_end": 327, "source": "Activity API: 168 pushes + workflow runs. Some commits at trunk[163-164] were also pushed to ubl-2.5-dev."}
+    ]
+  },
+
+  "methodology": {
+    "github_activity_api": "https://docs.github.com/en/rest/repos/repos#list-repository-activities — provides branch creation, deletion, push, and PR merge events. Retention appears to go back to ~2023 for this repo.",
+    "github_actions_workflow_runs": "Workflow runs record headBranch and headSha, providing evidence of which branch was pushed. Only available since workflows were configured (~April 2025).",
+    "git_first_parent_chain": "git rev-list --first-parent origin/ubl-2.5 gives the 328-commit trunk. Branch tips on this chain were classified as FF-MERGE or BOOKMARK.",
+    "limitations": [
+      "Activity API has finite retention — events for branches created before ~2023 may be missing.",
+      "Branches created before the Activity API existed (main, ubl-2.4-csd01wd01, ubl-2.4-csd01wd02, ubl-2.4-csd01) have no creation events.",
+      "Workflow runs only exist since ~April 2025 when build.yml was configured.",
+      "Fast-forward merges leave no trace in git — only the stale branch ref reveals them.",
+      "If a bookmark branch ref is ever deleted, the knowledge is lost permanently."
+    ]
+  }
+}
