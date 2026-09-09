@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 150" width="190" height="150">
+  <title>Supplier B</title>
+  <desc>Fulfilment figure icon: a second, distinct supplier, drawn as a bulk producer
+  with storage silos and a store building. Shares a baseline and stroke weight with the
+  Supplier icon so the two read as peers. Original artwork created for OASIS UBL; no
+  third-party material.</desc>
+  <g fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round">
+    <path d="M24 138 V44 A20 20 0 0 1 64 44 V138 Z" fill="#c8c8c8"/>
+    <line x1="24" y1="74" x2="64" y2="74"/>
+    <line x1="24" y1="104" x2="64" y2="104"/>
+    <path d="M72 138 V62 A16 16 0 0 1 104 62 V138 Z" fill="#e8e8e8"/>
+    <line x1="72" y1="90" x2="104" y2="90"/>
+    <path d="M106 86 L143 62 L180 86 Z" fill="#c8c8c8"/>
+    <rect x="112" y="86" width="62" height="52" fill="#e8e8e8"/>
+    <rect x="132" y="108" width="24" height="30" fill="#ffffff"/>
+  </g>
+</svg>
