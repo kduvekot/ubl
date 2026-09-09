@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 140" width="210" height="140">
+  <title>Freight forwarder</title>
+  <desc>Fulfilment figure icon: a freight forwarder, drawn as a box-body road vehicle.
+  Original artwork created for OASIS UBL; no third-party material.</desc>
+  <g fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round">
+    <rect x="10" y="28" width="112" height="66" fill="#e8e8e8"/>
+    <path d="M122 46 L156 46 L182 76 L182 94 L122 94 Z" fill="#c8c8c8"/>
+    <rect x="130" y="52" width="28" height="20" fill="#ffffff"/>
+    <line x1="10" y1="94" x2="182" y2="94"/>
+    <circle cx="46" cy="102" r="17" fill="#ffffff"/>
+    <circle cx="156" cy="102" r="17" fill="#ffffff"/>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 150" width="180" height="150">
+  <title>Buyer</title>
+  <desc>Fulfilment figure icon: a buyer, drawn as a receiving premises with a canopy
+  over a wide doorway. Original artwork created for OASIS UBL; no third-party material.</desc>
+  <g fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round">
+    <rect x="18" y="26" width="144" height="18" fill="#c8c8c8"/>
+    <rect x="28" y="44" width="124" height="94" fill="#e8e8e8"/>
+    <rect x="44" y="52" width="26" height="16" fill="#ffffff"/>
+    <rect x="110" y="52" width="26" height="16" fill="#ffffff"/>
+    <path d="M34 74 L146 74 L134 98 L46 98 Z" fill="#9a9a9a"/>
+    <rect x="64" y="100" width="52" height="38" fill="#ffffff"/>
+  </g>
+</svg>

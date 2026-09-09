@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 136" width="150" height="136">
+  <title>Parcel</title>
+  <desc>Fulfilment figure icon: a single parcel, drawn as a taped carton bearing a
+  shipping label, matching one carton of the palletised-goods icon. Original artwork
+  created for OASIS UBL; no third-party material.</desc>
+  <g fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round">
+    <rect x="16" y="28" width="118" height="80" fill="#e8e8e8"/>
+    <line x1="54" y1="28" x2="54" y2="108"/>
+    <rect x="86" y="74" width="36" height="22" fill="#ffffff"/>
+  </g>
+</svg>

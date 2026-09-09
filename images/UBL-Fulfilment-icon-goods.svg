@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 172" width="210" height="172">
+  <title>Palletised goods</title>
+  <desc>Fulfilment figure icon: a consignment of goods, drawn as four taped cartons on
+  a pallet, one carton bearing a shipping label. Original artwork created for OASIS UBL;
+  no third-party material.</desc>
+  <g fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round">
+    <rect x="26" y="18" width="76" height="52" fill="#e8e8e8"/>
+    <rect x="106" y="18" width="76" height="52" fill="#e8e8e8"/>
+    <rect x="26" y="70" width="76" height="52" fill="#e8e8e8"/>
+    <rect x="106" y="70" width="76" height="52" fill="#e8e8e8"/>
+    <line x1="64" y1="18" x2="64" y2="70"/>
+    <line x1="64" y1="70" x2="64" y2="122"/>
+    <line x1="144" y1="70" x2="144" y2="122"/>
+    <rect x="122" y="32" width="44" height="24" fill="#ffffff"/>
+    <rect x="12" y="124" width="184" height="12" fill="#c8c8c8"/>
+    <rect x="22" y="136" width="28" height="16" fill="#c8c8c8"/>
+    <rect x="90" y="136" width="28" height="16" fill="#c8c8c8"/>
+    <rect x="158" y="136" width="28" height="16" fill="#c8c8c8"/>
+    <rect x="12" y="152" width="184" height="10" fill="#9a9a9a"/>
+  </g>
+</svg>

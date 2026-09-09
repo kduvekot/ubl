@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660"
+     width="145mm" height="79.75mm">
+  <title>Simple Fulfilment</title>
+  <desc>One Shipment, One Consignment. The supplier is both the consignor of the goods
+  and the party to the shipment contract; the buyer is both the consignee and the
+  receiving party. Original artwork created for OASIS UBL; contains no third-party
+  material.</desc>
+
+  <defs>
+    <marker id="arrowhead" viewBox="0 0 12 12" refX="10" refY="6"
+            markerWidth="4" markerHeight="4" orient="auto-start-reverse"
+            markerUnits="strokeWidth">
+      <path d="M0 0 L12 6 L0 12 Z" fill="#1a1a1a"/>
+    </marker>
+
+    <symbol id="ic-supplier" viewBox="0 0 190 150">
+      <g fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round">
+        <rect x="28" y="8" width="18" height="36" fill="#c8c8c8"/>
+        <path d="M18 62 L18 38 L69 62 L69 38 L120 62 L120 38 L171 62 Z" fill="#c8c8c8"/>
+        <rect x="18" y="62" width="154" height="76" fill="#e8e8e8"/>
+        <rect x="30" y="76" width="24" height="18" fill="#ffffff"/>
+        <rect x="136" y="76" width="24" height="18" fill="#ffffff"/>
+        <rect x="66" y="88" width="58" height="50" fill="#ffffff"/>
+        <g stroke-width="3">
+          <line x1="66" y1="104" x2="124" y2="104"/>
+          <line x1="66" y1="120" x2="124" y2="120"/>
+        </g>
+      </g>
+    </symbol>
+
+    <symbol id="ic-buyer" viewBox="0 0 180 150">
+      <g fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round">
+        <rect x="18" y="26" width="144" height="18" fill="#c8c8c8"/>
+        <rect x="28" y="44" width="124" height="94" fill="#e8e8e8"/>
+        <rect x="44" y="52" width="26" height="16" fill="#ffffff"/>
+        <rect x="110" y="52" width="26" height="16" fill="#ffffff"/>
+        <path d="M34 74 L146 74 L134 98 L46 98 Z" fill="#9a9a9a"/>
+        <rect x="64" y="100" width="52" height="38" fill="#ffffff"/>
+      </g>
+    </symbol>
+
+    <symbol id="ic-document" viewBox="0 0 130 160">
+      <g fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round">
+        <path d="M12 10 H86 L118 42 V150 H12 Z" fill="#ffffff"/>
+        <path d="M86 10 V42 H118" fill="#e8e8e8"/>
+        <g stroke-linecap="round">
+          <line x1="30" y1="66" x2="100" y2="66"/>
+          <line x1="30" y1="86" x2="100" y2="86"/>
+          <line x1="30" y1="106" x2="100" y2="106"/>
+          <line x1="30" y1="126" x2="74" y2="126"/>
+        </g>
+      </g>
+    </symbol>
+
+    <symbol id="ic-goods" viewBox="0 0 210 172">
+      <g fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round">
+        <rect x="26" y="18" width="76" height="52" fill="#e8e8e8"/>
+        <rect x="106" y="18" width="76" height="52" fill="#e8e8e8"/>
+        <rect x="26" y="70" width="76" height="52" fill="#e8e8e8"/>
+        <rect x="106" y="70" width="76" height="52" fill="#e8e8e8"/>
+        <line x1="64" y1="18" x2="64" y2="70"/>
+        <line x1="64" y1="70" x2="64" y2="122"/>
+        <line x1="144" y1="70" x2="144" y2="122"/>
+        <rect x="122" y="32" width="44" height="24" fill="#ffffff"/>
+        <rect x="12" y="124" width="184" height="12" fill="#c8c8c8"/>
+        <rect x="22" y="136" width="28" height="16" fill="#c8c8c8"/>
+        <rect x="90" y="136" width="28" height="16" fill="#c8c8c8"/>
+        <rect x="158" y="136" width="28" height="16" fill="#c8c8c8"/>
+        <rect x="12" y="152" width="184" height="10" fill="#9a9a9a"/>
+      </g>
+    </symbol>
+  </defs>
+
+  <g font-family="Helvetica, Arial, sans-serif" fill="#1a1a1a">
+    <rect x="0" y="0" width="1200" height="660" fill="#ffffff"/>
+    <rect x="5" y="5" width="1190" height="650" fill="none" stroke="#1a1a1a" stroke-width="10"/>
+
+    <text x="600" y="86" font-size="48" text-anchor="middle">Simple Fulfilment</text>
+    <text x="600" y="130" font-size="28" text-anchor="middle">One Shipment — One Consignment</text>
+
+    <!-- flows: shipment is the contract (dotted), consignment is the goods (solid) -->
+    <line x1="285" y1="272" x2="938" y2="272" stroke="#1a1a1a" stroke-width="9"
+          stroke-dasharray="18 16" marker-end="url(#arrowhead)"/>
+    <line x1="285" y1="380" x2="938" y2="380" stroke="#1a1a1a" stroke-width="11"
+          marker-end="url(#arrowhead)"/>
+
+    <use href="#ic-supplier" x="85"  y="250" width="170" height="134"/>
+    <use href="#ic-buyer"    x="950" y="250" width="160" height="133"/>
+    <use href="#ic-document" x="790" y="158" width="85"  height="105"/>
+    <use href="#ic-goods"    x="505" y="455" width="190" height="156"/>
+
+    <g stroke="#1a1a1a" stroke-width="4">
+      <rect x="485" y="246" width="230" height="52" fill="#e8e8e8" stroke-dasharray="9 7"/>
+      <rect x="460" y="354" width="280" height="52" fill="#e8e8e8"/>
+    </g>
+    <text x="600" y="282" font-size="30" text-anchor="middle">SHIPMENT</text>
+    <text x="600" y="390" font-size="30" text-anchor="middle">CONSIGNMENT</text>
+
+    <g font-size="27" text-anchor="middle">
+      <text x="170"  y="426">Supplier</text>
+      <text x="170"  y="462">(Consignor)</text>
+      <text x="1030" y="426">Buyer</text>
+      <text x="1030" y="462">(Consignee)</text>
+    </g>
+  </g>
+</svg>
