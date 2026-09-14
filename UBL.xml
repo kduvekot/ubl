@@ -14,27 +14,27 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "db/spec-0.9/docbook/docbookx.dtd" [
 	<!ENTITY name "UBL">
-	<!ENTITY pversion "2.4">
-	<!ENTITY version  "2.5">
+	<!ENTITY pversion "2.5">
+	<!ENTITY version  "2.6">
 	<!ENTITY psversion "2.5">
-	<!ENTITY pstage   "cs01">
-	<!ENTITY PSTAGE   "CS01">
-	<!ENTITY stage    "os">
-	<!ENTITY STAGE    "OS">
+	<!ENTITY pstage   "os">
+	<!ENTITY PSTAGE   "OS">
+	<!ENTITY stage    "csd01">
+	<!ENTITY STAGE    "CSD01">
 	<!ENTITY isostage "WD">
-	<!ENTITY standard "OASIS Standard">
-	<!ENTITY stagetext "OASIS Standard">
-	<!ENTITY standard "Committee Specification 01">
-	<!ENTITY stagetext "Committee Specification 01">
+	<!ENTITY standard "Committee Specification Draft 01">
+	<!ENTITY stagetext "Committee Specification Draft 01">
 	<!ENTITY standard "Committee Specification 01xxxxx">
 	<!ENTITY stagetext "Committee Specification 01xxxxxx">
 	<!ENTITY standard "Committee Specification 02xxxxxxx">
 	<!ENTITY stagetext "Committee Specification 02xxxxxx">
-	<!ENTITY pubdate "12 August 2026">
+	<!ENTITY standard "OASIS Standardxxxxxxx">
+	<!ENTITY stagetext "OASIS Standardxxxxxxx">
+	<!ENTITY pubdate "14 September 2026">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2026">
-	<!ENTITY pubdate-iso "2026-08-12">
-	<!ENTITY reldate-iso "2026-08">
+	<!ENTITY pubdate-iso "ccyy-mm-dd">
+	<!ENTITY reldate-iso "ccyy-mm">
 	<!ENTITY this-loc "https://docs.oasis-open.org/ubl/&stage;-UBL-&version;">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&pstage;-UBL-&psversion;">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/ubl">
@@ -4993,6 +4993,15 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
         <para>
           <xref linkend="A-ACKNOWLEDGEMENTS"/> is changed to reflect the active membership of the technical committee during the development of UBL &version;.</para>
         <para>The semantic role of the <link linkend="S-DEBIT-NOTE-SCHEMA">Debit Note</link> document has been updated to reflect industry practice. It is now defined as a supplier-issued document increasing the amount of a previously issued invoice. See <xref linkend="S-BILLING-INTRODUCTION"/>.</para>
+      </section>
+    </section>
+    <section id="S-MINOR-REVISION-UBL-2.6">
+      <title>Minor Revision: UBL 2.6</title>
+      <section id="S-OVERVIEW-OF-UBL-2.6-UPDATES">
+        <title>Overview of UBL 2.6 Updates</title>
+        <para>TODO: the editors are to summarise the UBL &version; updates in this section as the
+          content of this version is agreed. This placeholder exists so that the reference to this
+          section from the introduction resolves while UBL &version; is being drafted.</para>
       </section>
     </section>
   </appendix>

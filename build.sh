@@ -8,18 +8,21 @@ export label=$3
 
 # Configuration parameters
 
-export title="UBL 2.5"
-export package=UBL-2.5
-export UBLversion=2.5
-export UBLstage=os
+export title="UBL 2.6"
+export package=UBL-2.6
+export UBLversion=2.6
+export UBLstage=csd01
 export UBLprevStageVersion=2.5
-export UBLprevStage=cs01
-export UBLprevVersion=2.4
+export UBLprevStage=os
+export UBLprevVersion=2.5
 export rawdir=raw
 export includeISO=false
 
-export libGoogle=https://docs.google.com/spreadsheets/d/18o1YqjHWUw0-s8mb3ja4i99obOUhs-4zpgso6RZrGaY
-export docGoogle=https://docs.google.com/spreadsheets/d/1024Th-Uj8cqliNEJc-3pDOR7DxAAW7gCG4e-pbtarsg
+# The library and documents spreadsheets are new documents for UBL 2.6, copied from
+# the UBL 2.5 OS masters. The signature spreadsheet is shared across UBL 2 versions
+# and is deliberately unchanged.
+export libGoogle=https://docs.google.com/spreadsheets/d/1kTDHeGm73EyAAa5b1WoZ-9J44qNwD_8JuCZpSzzkUrw
+export docGoogle=https://docs.google.com/spreadsheets/d/1Z3zXR7TtcnlgEXtx4Sr4CwnvAhwg3ebX_cyyqjN124k
 export sigGoogle=https://docs.google.com/spreadsheets/d/1T6z2NZ4mc69YllZOXE5TnT5Ey-FlVtaXN1oQ4AIMp7g
 
 # Ken's test spreadsheets

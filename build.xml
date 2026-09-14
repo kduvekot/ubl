@@ -388,12 +388,6 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     </java>
     <delete file="${dir}/UBL-Endorsed-Entities-${UBLversion}-raw.gc"/>
 
-    <!--once UBL-2.5 CSD01 is created then this temporary file copy is not needed-->
-    <echo message="Temporarily creating shadow UBL Endorsed 2.4 from UBL Endorsed 2.5 because it doesn't exist"/>
-    <copy preservelastmodified="true"
-          tofile="${dir}/UBL-Endorsed-Entities-2.4-os.gc"
-          file=  "${dir}/UBL-Endorsed-Entities-${UBLversion}.gc"/>
-    
     <!--different target directory for the endorsed artefacts-->
     <copy preservelastmodified="true"
           todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/mod/"

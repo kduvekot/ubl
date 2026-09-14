@@ -1,4 +1,4 @@
-UBLversion=2.5
+UBLversion=2.6
 sh validate.sh ../xsd/maindoc/UBL-Order-$UBLversion.xsd order-test-bad-syntax.xml
 sh validate.sh ../xsd/maindoc/UBL-Order-$UBLversion.xsd order-test-bad-model.xml
 sh validate.sh ../xsd/maindoc/UBL-Order-$UBLversion.xsd order-test-bad-code.xml

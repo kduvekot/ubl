@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Library:           OASIS Universal Business Language (UBL) 2.5 OS
-                     http://docs.oasis-open.org/ubl/os-UBL-2.5/
-  Release Date:      12 August 2026
-  Module:            UBL-xmldsig11-schema-2.5.xsd
+  Library:           OASIS Universal Business Language (UBL) 2.6 CSD01
+                     http://docs.oasis-open.org/ubl/csd01-UBL-2.6/
+  Release Date:      14 September 2026
+  Module:            UBL-xmldsig11-schema-2.6.xsd
   Generated on:      2016-06-24 19:50(UTC)
 
   This is a copy of http://www.w3.org/TR/xmldsig-core1/xmldsig11-schema.xsd
@@ -28,7 +28,7 @@
         xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
         xmlns:dsig11="http://www.w3.org/2009/xmldsig11#"
         targetNamespace="http://www.w3.org/2009/xmldsig11#"
-        version="2.5" elementFormDefault="qualified">
+        version="2.6" elementFormDefault="qualified">
 
   <import namespace="http://www.w3.org/2000/09/xmldsig#"/>
 
