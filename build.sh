@@ -18,11 +18,11 @@ export UBLprevVersion=2.5
 export rawdir=raw
 export includeISO=false
 
-# TODO UBL 2.6: these three URLs still point at the UBL 2.5 OS master spreadsheets.
-# Copy them to new UBL 2.6 spreadsheets, rename the copies with the 2.6 CSD01 stage
-# string, and replace the URLs below before running a 2.6 build.
-export libGoogle=https://docs.google.com/spreadsheets/d/18o1YqjHWUw0-s8mb3ja4i99obOUhs-4zpgso6RZrGaY
-export docGoogle=https://docs.google.com/spreadsheets/d/1024Th-Uj8cqliNEJc-3pDOR7DxAAW7gCG4e-pbtarsg
+# The library and documents spreadsheets are new documents for UBL 2.6, copied from
+# the UBL 2.5 OS masters. The signature spreadsheet is shared across UBL 2 versions
+# and is deliberately unchanged.
+export libGoogle=https://docs.google.com/spreadsheets/d/1kTDHeGm73EyAAa5b1WoZ-9J44qNwD_8JuCZpSzzkUrw
+export docGoogle=https://docs.google.com/spreadsheets/d/1Z3zXR7TtcnlgEXtx4Sr4CwnvAhwg3ebX_cyyqjN124k
 export sigGoogle=https://docs.google.com/spreadsheets/d/1T6z2NZ4mc69YllZOXE5TnT5Ey-FlVtaXN1oQ4AIMp7g
 
 # Ken's test spreadsheets

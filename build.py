@@ -35,9 +35,10 @@ class BuildConfig:
     ubl_prev_version: str = "2.5"
     raw_dir: str = "raw"
     is_draft: str = ""
-    # TODO UBL 2.6: still the UBL 2.5 OS master spreadsheets; replace with the 2.6 copies.
-    lib_google: str = "https://docs.google.com/spreadsheets/d/18o1YqjHWUw0-s8mb3ja4i99obOUhs-4zpgso6RZrGaY"
-    doc_google: str = "https://docs.google.com/spreadsheets/d/1024Th-Uj8cqliNEJc-3pDOR7DxAAW7gCG4e-pbtarsg"
+    # Library and documents spreadsheets are the UBL 2.6 copies of the 2.5 OS masters;
+    # the signature spreadsheet is shared across UBL 2 versions and stays as it is.
+    lib_google: str = "https://docs.google.com/spreadsheets/d/1kTDHeGm73EyAAa5b1WoZ-9J44qNwD_8JuCZpSzzkUrw"
+    doc_google: str = "https://docs.google.com/spreadsheets/d/1Z3zXR7TtcnlgEXtx4Sr4CwnvAhwg3ebX_cyyqjN124k"
     sig_google: str = "https://docs.google.com/spreadsheets/d/1T6z2NZ4mc69YllZOXE5TnT5Ey-FlVtaXN1oQ4AIMp7g"
 
 
