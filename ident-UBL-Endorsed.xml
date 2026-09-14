@@ -1,7 +1,7 @@
 <!DOCTYPE Identification [
-<!ENTITY short "OS">
-<!ENTITY dir   "os">
-<!ENTITY version "2.5">
+<!ENTITY short "CSD01">
+<!ENTITY dir   "csd01">
+<!ENTITY version "2.6">
 ]>
 <Identification>
   <ShortName>UBL-&version;-&short;-Endorsed</ShortName>

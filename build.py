@@ -26,15 +26,16 @@ class BuildConfig:
     delete_option: str = ""
 
     # UBL configuration
-    title: str = "UBL 2.5"
-    package: str = "UBL-2.5"
-    ubl_version: str = "2.5"
-    ubl_stage: str = "os"
+    title: str = "UBL 2.6"
+    package: str = "UBL-2.6"
+    ubl_version: str = "2.6"
+    ubl_stage: str = "csd01"
     ubl_prev_stage_version: str = "2.5"
-    ubl_prev_stage: str = "cs01"
-    ubl_prev_version: str = "2.4"
+    ubl_prev_stage: str = "os"
+    ubl_prev_version: str = "2.5"
     raw_dir: str = "raw"
     is_draft: str = ""
+    # TODO UBL 2.6: still the UBL 2.5 OS master spreadsheets; replace with the 2.6 copies.
     lib_google: str = "https://docs.google.com/spreadsheets/d/18o1YqjHWUw0-s8mb3ja4i99obOUhs-4zpgso6RZrGaY"
     doc_google: str = "https://docs.google.com/spreadsheets/d/1024Th-Uj8cqliNEJc-3pDOR7DxAAW7gCG4e-pbtarsg"
     sig_google: str = "https://docs.google.com/spreadsheets/d/1T6z2NZ4mc69YllZOXE5TnT5Ey-FlVtaXN1oQ4AIMp7g"
