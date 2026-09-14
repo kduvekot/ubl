@@ -57,9 +57,9 @@
     <releaseinfo role="OASIS-specification-this" lang="none">&this-loc;/&name;-&version;.pdf</releaseinfo>
     <releaseinfo role="OASIS-specification-this-authoritative" lang="none">&this-loc;/&name;-&version;.xml</releaseinfo>
     <!-- -->
-    <releaseinfo role="OASIS-specification-previous">&previous-loc;/UBL-&version;.html</releaseinfo>
-    <releaseinfo role="OASIS-specification-previous">&previous-loc;/UBL-&version;.pdf</releaseinfo>
-    <releaseinfo role="OASIS-specification-previous-authoritative">&previous-loc;/UBL-&version;.xml</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous">&previous-loc;/UBL-&psversion;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous">&previous-loc;/UBL-&psversion;.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous-authoritative">&previous-loc;/UBL-&psversion;.xml</releaseinfo>
     <!-- -->
     <!-- generic form of above
       <releaseinfo role="OASIS-specification-previous"
