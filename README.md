@@ -223,9 +223,10 @@ Each revision is described by the following configuration files for the artefact
   - [`skeletonDisplayEditSubset.ods`]( skeletonDisplayEditSubset.ods )
   - [`raw/val`]( raw/val )
     - note there are four shell and batch scripts in this directory that require the first line to be edited for new versions, but not new stages
-- when starting a new version you need copies of the genericode files of the previous version with the `-os` suffix:
+- when starting a new version you need copies of the genericode files of the previous version with the `-os` suffix, taken from that version's published OASIS Standard package:
   - `UBL-Entities-{UBLprevVersion}-os.gc`
   - `UBL-Signature-Entities-{UBLprevVersion}-os.gc`
+  - `UBL-Endorsed-Entities-{UBLprevVersion}-os.gc` (from UBL 2.6 onwards, since UBL 2.5 is the first version to publish endorsed entities)
 
 
 ### Configuring the hub document
