@@ -8,7 +8,7 @@ echo Usage: validate.bat  ubl-schema-file  ubl-xml-file
 exit /B 1
 :ready
 
-set UBLversion=2.5
+set UBLversion=2.6
 echo.
 echo ############################################################
 echo Validating %2
