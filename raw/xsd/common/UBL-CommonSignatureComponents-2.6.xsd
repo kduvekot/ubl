@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Library:           OASIS Universal Business Language (UBL) 2.5 OS
-                     http://docs.oasis-open.org/ubl/os-UBL-2.5/
-  Release Date:      12 August 2026
-  Module:            UBL-CommonSignatureComponents-2.5.xsd
+  Library:           OASIS Universal Business Language (UBL) 2.6 CSD01
+                     http://docs.oasis-open.org/ubl/csd01-UBL-2.6/
+  Release Date:      14 September 2026
+  Module:            UBL-CommonSignatureComponents-2.6.xsd
   Generated on:      2016-06-24 19:50(UTC)
   Copyright (c) OASIS Open 2025. All Rights Reserved.
 
@@ -22,10 +22,10 @@
             xmlns:ccts="urn:un:unece:uncefact:documentation:2"
             elementFormDefault="qualified" 
             attributeFormDefault="unqualified" 
-            version="2.5">
+            version="2.6">
 
    <!-- ===== Import ===== -->
-   <xsd:import schemaLocation="UBL-SignatureAggregateComponents-2.5.xsd" 
+   <xsd:import schemaLocation="UBL-SignatureAggregateComponents-2.6.xsd" 
                namespace=
 "urn:oasis:names:specification:ubl:schema:xsd:SignatureAggregateComponents-2"/>
 

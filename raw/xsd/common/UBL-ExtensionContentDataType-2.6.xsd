@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Library:           OASIS Universal Business Language (UBL) 2.5 OS
-                     http://docs.oasis-open.org/ubl/os-UBL-2.5/
-  Release Date:      12 August 2026
-  Module:            UBL-ExtensionContentDataType-2.5.xsd
+  Library:           OASIS Universal Business Language (UBL) 2.6 CSD01
+                     http://docs.oasis-open.org/ubl/csd01-UBL-2.6/
+  Release Date:      14 September 2026
+  Module:            UBL-ExtensionContentDataType-2.6.xsd
   Generated on:      2016-06-24 19:50(UTC)
   Copyright (c) OASIS Open 2025. All Rights Reserved.
 
@@ -17,20 +17,20 @@
      "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
             elementFormDefault="qualified" 
             attributeFormDefault="unqualified" 
-            version="2.5">
+            version="2.6">
 
   <!-- ===== import here all extension schemas ===== -->
   
   <!-- UBL Technical Committee extensions -->
   <xsd:import namespace=
      "urn:oasis:names:specification:ubl:schema:xsd:CommonSignatureComponents-2"
-              schemaLocation="UBL-CommonSignatureComponents-2.5.xsd"/>
+              schemaLocation="UBL-CommonSignatureComponents-2.6.xsd"/>
 
   <!-- Incorporate ETSI signature specifications -->
   <xsd:import namespace="http://uri.etsi.org/01903/v1.3.2#"
-              schemaLocation="UBL-XAdES01903v132-201601-2.5.xsd"/>
+              schemaLocation="UBL-XAdES01903v132-201601-2.6.xsd"/>
   <xsd:import namespace="http://uri.etsi.org/01903/v1.4.1#"
-              schemaLocation="UBL-XAdES01903v141-201601-2.5.xsd"/>
+              schemaLocation="UBL-XAdES01903v141-201601-2.6.xsd"/>
 
   <!-- ===== Type Declaration ===== -->
   <xsd:complexType name="ExtensionContentType">
