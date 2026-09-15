@@ -197,6 +197,19 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
       <include name="**"/>
     </fileset>
   </copy>
+
+  <!--The raw fragments carry tokens rather than a stage or date, so that the
+      repository never claims a stage it has not reached. Stamp them only after
+      every copy out of ${rawdir} has run: each of those copies takes fresh
+      tokenised bytes from ${rawdir}, so stamping earlier is undone by the next
+      copy. This one pass covers the main tree and both endorsed trees.-->
+  <echo message="Stamping raw fragments: stage=${UBLstage} (${UBLstageUC}) date=${UBLreleaseDate}"/>
+  <replace dir="${dir}" summary="true"
+           includes="**/xsd/common/UBL-*.xsd,**/xsdrt/common/UBL-*.xsd">
+    <replacefilter token="@@UBLSTAGEUC@@"     value="${UBLstageUC}"/>
+    <replacefilter token="@@UBLSTAGE@@"       value="${UBLstage}"/>
+    <replacefilter token="@@UBLRELEASEDATE@@" value="${UBLreleaseDate}"/>
+  </replace>
   
   <!--add the configuration files found in the base directory-->
   <copy preservelastmodified="true" todir="${dir}">
@@ -209,6 +222,17 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
       <exclude name="**/${rawdir}/**"/>
     </fileset>
   </copy>
+
+  <!--Stamp the stage and release date into the working copies. The repository
+      keeps tokens so it never claims a stage or date it does not have; the
+      values come from build.sh.-->
+  <echo message="Stamping stage=${UBLstage} (${UBLstageUC}) date=${UBLreleaseDate}"/>
+  <replace dir="${dir}" includes="UBL.xml,ident-UBL.xml,ident-UBL-Signature.xml,ident-UBL-Endorsed.xml,config-UBL.xml,config-UBL-Signature.xml" summary="true">
+    <replacefilter token="@@UBLSTAGEUC@@"     value="${UBLstageUC}"/>
+    <replacefilter token="@@UBLSTAGETEXT@@"   value="${UBLstageText}"/>
+    <replacefilter token="@@UBLSTAGE@@"       value="${UBLstage}"/>
+    <replacefilter token="@@UBLRELEASEDATE@@" value="${UBLreleaseDate}"/>
+  </replace>
 
   <!--create GC files for business and signature-->
   <sequential if:set="skip-gc">
@@ -458,7 +482,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     <param name="checkWarningName" value="NDR-CHECK-WARNING"/>
     <param name="change"  value="UBL"/>
     <param name="source"  value="${dir}/UBL-Entities-${UBLversion}.gc"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
     <param name="words"   value="wordlist-UBL-${UBLversion}.txt"/>
     <param name="library" value="UBL-CommonLibrary-${UBLversion}"/>
     <param name="fatal"   value="no"/>
@@ -479,7 +503,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     <param name="checkWarningName" value="NDR-CHECK-WARNING"/>
     <param name="change"  value="UBL"/>
     <param name="source"  value="${dir}/UBL-Entities-${UBLversion}.gc"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
     <param name="words"   value="wordlist-UBL-${UBLversion}.txt"/>
     <param name="library"  value="UBL-CommonLibrary-${UBLversion}"/>
     <param name="fatal"   value="yes"/>
@@ -510,7 +534,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     <param name="checkWarningName" value="NDR-ENDORSED-CHECK-WARNING"/>
     <param name="change"  value="UBL"/>
     <param name="source"  value="${dir}/UBL-Endorsed-Entities-${UBLversion}.gc"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
     <param name="words"   value="wordlist-UBL-${UBLversion}.txt"/>
     <param name="library" value="UBL-CommonLibrary-${UBLversion}"/>
     <param name="fatal"   value="no"/>
@@ -531,7 +555,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     <param name="checkWarningName" value="NDR-ENDORSED-CHECK-WARNING"/>
     <param name="change"  value="UBL"/>
     <param name="source"  value="${dir}/UBL-Endorsed-Entities-${UBLversion}.gc"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
     <param name="words"   value="wordlist-UBL-${UBLversion}.txt"/>
     <param name="library"  value="UBL-CommonLibrary-${UBLversion}"/>
     <param name="fatal"   value="yes"/>
@@ -617,13 +641,13 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
   <antcall target="-gc2cva">
     <param name="source"  value="${dir}/UBL-Entities-${UBLversion}.gc"/>
     <param name="output"  value="${dir}/${UBLstage}-${UBLversion}"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
   </antcall>
 
   <antcall target="-gc2cva">
     <param name="source"  value="${dir}/UBL-Endorsed-Entities-${UBLversion}.gc"/>
     <param name="output"  value="${dir}/Endorsed-${UBLstage}-${UBLversion}"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
   </antcall>
 
   <copy preservelastmodified="true" todir="${dir}">
@@ -654,9 +678,9 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     <param name="okay"    value="xsd-sig-okay"/>
     <param name="source"  value="${dir}/UBL-Signature-Entities-${UBLversion}.gc"/>
     <param name="compare" value="UBL-Signature-Entities-${UBLprevVersion}-os.gc"/>
-    <param name="config"  value="config-UBL-Signature.xml"/>
+    <param name="config"  value="${dir}/config-UBL-Signature.xml"/>
     <param name="basegc"  value="UBL-Entities-${UBLversion}.gc"/>
-    <param name="basecf"  value="config-UBL.xml"/>
+    <param name="basecf"  value="${dir}/config-UBL.xml"/>
     <param name="title"   value="Universal Business Language (UBL) Signature"/>
     <param name="change"  value="UBL Signature"/>
     <param name="dbcmn"   value="old2newDocBook-UBL-Signature-library-ent.xml"/>
@@ -1549,6 +1573,17 @@ file="${dir}/artefacts-${package}-${UBLstage}-${label}/intermediate-support-file
       <include name="UBL*.xml"/>
     </fileset>
   </copy>
+
+  <!--This copy takes a fresh, tokenised UBL.xml from the repository, undoing
+      the stamping done in -make-artefacts. Re-stamp here, after the copy that
+      would otherwise win.-->
+  <echo message="Stamping hub XML: stage=${UBLstage} (${UBLstageUC}) date=${UBLreleaseDate}"/>
+  <replace dir="${dir}" includes="UBL*.xml" summary="true">
+    <replacefilter token="@@UBLSTAGEUC@@"     value="${UBLstageUC}"/>
+    <replacefilter token="@@UBLSTAGETEXT@@"   value="${UBLstageText}"/>
+    <replacefilter token="@@UBLSTAGE@@"       value="${UBLstage}"/>
+    <replacefilter token="@@UBLRELEASEDATE@@" value="${UBLreleaseDate}"/>
+  </replace>
   <available property="db-ready"
              file="${dir}/db/spec-0.9/docbook/docbookx.dtd"/>
   <copy unless:set="db-ready" todir="${dir}/db">

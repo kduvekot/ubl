@@ -1,6 +1,6 @@
 <!DOCTYPE Identification [
-<!ENTITY short "CSD01">
-<!ENTITY dir   "csd01">
+<!ENTITY short "@@UBLSTAGEUC@@">
+<!ENTITY dir   "@@UBLSTAGE@@">
 <!ENTITY version "2.6">
 ]>
 <Identification>

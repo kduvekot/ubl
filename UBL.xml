@@ -19,18 +19,18 @@
 	<!ENTITY psversion "2.5">
 	<!ENTITY pstage   "os">
 	<!ENTITY PSTAGE   "OS">
-	<!ENTITY stage    "csd01">
-	<!ENTITY STAGE    "CSD01">
+	<!ENTITY stage    "@@UBLSTAGE@@">
+	<!ENTITY STAGE    "@@UBLSTAGEUC@@">
 	<!ENTITY isostage "WD">
-	<!ENTITY standard "Committee Specification Draft 01">
-	<!ENTITY stagetext "Committee Specification Draft 01">
+	<!ENTITY standard "@@UBLSTAGETEXT@@">
+	<!ENTITY stagetext "@@UBLSTAGETEXT@@">
 	<!ENTITY standard "Committee Specification 01xxxxx">
 	<!ENTITY stagetext "Committee Specification 01xxxxxx">
 	<!ENTITY standard "Committee Specification 02xxxxxxx">
 	<!ENTITY stagetext "Committee Specification 02xxxxxx">
 	<!ENTITY standard "OASIS Standardxxxxxxx">
 	<!ENTITY stagetext "OASIS Standardxxxxxxx">
-	<!ENTITY pubdate "14 September 2026">
+	<!ENTITY pubdate "@@UBLRELEASEDATE@@">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2026">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">

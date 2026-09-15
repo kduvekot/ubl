@@ -11,7 +11,29 @@ export label=$3
 export title="UBL 2.6"
 export package=UBL-2.6
 export UBLversion=2.6
-export UBLstage=csd01
+export UBLstage=pre-csd01
+# Stage text as it appears on the specification cover page.
+export UBLstageText="Pre-CSD01 interim build"
+# Release date. While drafting leave this empty and the build stamps the
+# build time, so interim builds can be told apart. For a real publication
+# set the date the TC approved, e.g. "19 November 2026".
+export UBLreleaseDate=""
+
+# --- derived, do not edit ---------------------------------------------------
+# Upper-case form of the stage, used on the cover page and in schema headers.
+export UBLstageUC=$(printf '%s' "$UBLstage" | tr '[:lower:]' '[:upper:]')
+# If no release date was set, stamp this build so interim builds are
+# distinguishable. Prefer the run label (YYYYMMDD-HHMMz) so the document and
+# the package name agree; fall back to the current UTC time.
+if [ -z "$UBLreleaseDate" ]; then
+  if printf '%s' "$label" | grep -qE '^[0-9]{8}-[0-9]{4}z$'; then
+    UBLreleaseDate=$(printf '%s' "$label" | sed -E 's/^(....)(..)(..)-(..)(..)z$/\1-\2-\3 \4:\5z/')
+  else
+    UBLreleaseDate=$(date -u +'%Y-%m-%d %H:%Mz')
+  fi
+  export UBLreleaseDate
+fi
+# ---------------------------------------------------------------------------
 export UBLprevStageVersion=2.5
 export UBLprevStage=os
 export UBLprevVersion=2.5
