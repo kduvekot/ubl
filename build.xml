@@ -2238,6 +2238,25 @@ file2="${dir}/hub-${package}-${UBLstage}-${label}/intermediate-support-files/new
      <arg value="gc-uri=${dir}/${package}-${UBLstage}-${label}/mod/UBL-Entities-${UBLversion}.gc"/>
      <arg value="pub-version=${UBLversion}"/>
   </java>
+  <!--No build token may survive into the distribution. A token that reaches
+      here means a copy ran after the <replace> that was meant to stamp it,
+      which is silent otherwise: the document simply renders "@@UBLSTAGE@@"
+      where the stage belongs and the build still reports success.-->
+  <echo message="Checking for unstamped build tokens..."/>
+  <fileset dir="${dir}/${package}-${UBLstage}-${label}" id="unstamped-fileset">
+    <include name="**/*.xsd"/>
+    <include name="**/*.xml"/>
+    <include name="**/*.html"/>
+    <containsregexp expression="@@UBL[A-Z]*@@"/>
+  </fileset>
+  <property name="unstamped-files" refid="unstamped-fileset"/>
+  <condition property="unstamped-found">
+    <not><equals arg1="${unstamped-files}" arg2=""/></not>
+  </condition>
+  <echo if:set="unstamped-found" append="true"
+        file="${dir}/INTEGRITY-PROBLEMS.txt"
+        message="Unstamped build tokens survived into the distribution:${line.separator}${unstamped-files}${line.separator}"/>
+
   <condition property="integrity-problems">
     <length file="${dir}/INTEGRITY-PROBLEMS.txt" when="greater" length="0"/>
   </condition>
