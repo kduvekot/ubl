@@ -177,12 +177,22 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
       <include name="**"/>
     </fileset>
   </copy>
-  <copy preservelastmodified="true" todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/xsd">
+  <!--overwrite="true" is required: these two copies exist only to clobber the
+      files written by the two copies above. Ant <copy> defaults to
+      overwrite="false", which copies only when the source is strictly newer,
+      and preservelastmodified="true" above gives the destination the mtime of
+      raw/xsd. A git checkout writes the working tree in index order, so
+      raw/endorsed/... is older than raw/xsd/... and both overrides are silently
+      skipped. That shipped non-endorsed run-time schemas in the endorsed
+      run-time tree of UBL 2.5 OS.-->
+  <copy preservelastmodified="true" overwrite="true"
+        todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/xsd">
     <fileset dir="${rawdir}/endorsed/xsd">
       <include name="**"/>
     </fileset>
   </copy>
-  <copy preservelastmodified="true" todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/xsdrt">
+  <copy preservelastmodified="true" overwrite="true"
+        todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/xsdrt">
     <fileset dir="${rawdir}/endorsed/xsd">
       <include name="**"/>
     </fileset>
@@ -2077,7 +2087,10 @@ file2="${dir}/hub-${package}-${UBLstage}-${label}/intermediate-support-files/new
     </fileset>
   </copy>
   <mkdir dir="${dir}/${package}-${UBLstage}-${label}/endorsed"/>
-  <copy todir="${dir}/${package}-${UBLstage}-${label}/endorsed">
+  <!--overwrite="true" is required: the artefacts copy above already placed
+      raw/endorsed/xsd/** here (via the main tree) with mtime "now", so without
+      it this overlay is skipped for exactly the files it exists to deliver.-->
+  <copy overwrite="true" todir="${dir}/${package}-${UBLstage}-${label}/endorsed">
     <fileset dir="${dir}/Endorsed-${UBLstage}-${UBLversion}">
       <include name="xsdrt/**"/>
       <include name="xsd/**"/>
