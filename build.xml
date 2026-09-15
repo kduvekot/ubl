@@ -149,6 +149,24 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
 -->
 
 <target name="-make-artefacts">
+  <!--The run-time trees exist for instance validation and carry no
+      documentation. Every module the generator produces is already stripped,
+      but the hand-maintained modules under raw/xsd are copied rather than
+      generated, so their annotations and comments used to survive into xsdrt.
+      Derive stripped versions once here; the run-time copies below take their
+      files from these directories instead of from raw. Nothing packages
+      ${dir}/rt-stripped: -package-artefacts sweeps only the stage directory.-->
+  <xslt basedir="${rawdir}/xsd" destdir="${dir}/rt-stripped/xsd"
+        style="xsd2rt.xsl" extension=".xsd" includes="**/*.xsd" force="true">
+    <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+    <classpath><pathelement location="utilities/saxon9he/saxon9he.jar"/></classpath>
+  </xslt>
+  <xslt basedir="${rawdir}/endorsed/xsd" destdir="${dir}/rt-stripped/endorsed-xsd"
+        style="xsd2rt.xsl" extension=".xsd" includes="**/*.xsd" force="true">
+    <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+    <classpath><pathelement location="utilities/saxon9he/saxon9he.jar"/></classpath>
+  </xslt>
+
   <!--start with the raw hand-edited files-->
   <copy preservelastmodified="true" todir="${dir}/${UBLstage}-${UBLversion}">
     <fileset dir="${rawdir}">
@@ -156,7 +174,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     </fileset>
   </copy>
   <copy preservelastmodified="true" todir="${dir}/${UBLstage}-${UBLversion}/xsdrt">
-    <fileset dir="${rawdir}/xsd">
+    <fileset dir="${dir}/rt-stripped/xsd">
       <include name="**"/>
     </fileset>
   </copy>
@@ -167,7 +185,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     </fileset>
   </copy>
   <copy preservelastmodified="true" todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/xsdrt">
-    <fileset dir="${rawdir}/xsd">
+    <fileset dir="${dir}/rt-stripped/xsd">
       <include name="**"/>
     </fileset>
   </copy>
@@ -193,7 +211,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
   </copy>
   <copy preservelastmodified="true" overwrite="true"
         todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/xsdrt">
-    <fileset dir="${rawdir}/endorsed/xsd">
+    <fileset dir="${dir}/rt-stripped/endorsed-xsd">
       <include name="**"/>
     </fileset>
   </copy>
