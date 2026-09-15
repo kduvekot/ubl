@@ -200,13 +200,13 @@
       <para>This specification supersedes: </para>
       <bibliolist>
         <bibliomixed conformance="skip">
-          <abbrev condition="oasis">UBL-2.4</abbrev>
-          <citetitle>Universal Business Language Version 2.4.</citetitle>
-          <bibliomisc>Edited by Kenneth Bengtsson and Kees Duvekot.</bibliomisc>
-          <date>20 June 2024.</date>
+          <abbrev condition="oasis">UBL-&psversion;</abbrev>
+          <citetitle>Universal Business Language Version &psversion;.</citetitle>
+          <bibliomisc>Edited by Kenneth Bengtsson.</bibliomisc>
+          <date>12 August 2026.</date>
           <releaseinfo>OASIS Standard.</releaseinfo>
           <bibliomisc>
-            <ulink url="https://docs.oasis-open.org/ubl/os-UBL-2.4/UBL-2.4.html">https://docs.oasis-open.org/ubl/os-UBL-2.4/UBL-2.4.html</ulink>. </bibliomisc>
+            <ulink url="&previous-loc;/UBL-&psversion;.html">&previous-loc;/UBL-&psversion;.html</ulink>. </bibliomisc>
         </bibliomixed>
       </bibliolist>
     </legalnotice>
