@@ -4,16 +4,16 @@
 <!--
   This is the configuration of the base schema fragments for UBL 2.6 Signatures
 
-  Library:           OASIS Universal Business Language (UBL) 2.6 CSD01
-                     http://docs.oasis-open.org/ubl/csd01-UBL-2.6/
-  Release Date:      14 September 2026
+  Library:           OASIS Universal Business Language (UBL) 2.6 @@UBLSTAGEUC@@
+                     http://docs.oasis-open.org/ubl/@@UBLSTAGE@@-UBL-2.6/
+  Release Date:      @@UBLRELEASEDATE@@
 
 -->
 <!ENTITY copyrightYear      "2026">
-<!ENTITY versionDate "14 September 2026">
+<!ENTITY versionDate "@@UBLRELEASEDATE@@">
 <!ENTITY version        "2.6">
-<!ENTITY versionDisplay "2.6 CSD01">
-<!ENTITY versionDirectory   "csd01-UBL-2.6">
+<!ENTITY versionDisplay "2.6 @@UBLSTAGEUC@@">
+<!ENTITY versionDirectory   "@@UBLSTAGE@@-UBL-2.6">
 ]>
 <configuration xmlns:xsd="http://www.w3.org/2001/XMLSchema">
  <ndr>

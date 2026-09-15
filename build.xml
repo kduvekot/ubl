@@ -149,6 +149,24 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
 -->
 
 <target name="-make-artefacts">
+  <!--The run-time trees exist for instance validation and carry no
+      documentation. Every module the generator produces is already stripped,
+      but the hand-maintained modules under raw/xsd are copied rather than
+      generated, so their annotations and comments used to survive into xsdrt.
+      Derive stripped versions once here; the run-time copies below take their
+      files from these directories instead of from raw. Nothing packages
+      ${dir}/rt-stripped: -package-artefacts sweeps only the stage directory.-->
+  <xslt basedir="${rawdir}/xsd" destdir="${dir}/rt-stripped/xsd"
+        style="xsd2rt.xsl" extension=".xsd" includes="**/*.xsd" force="true">
+    <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+    <classpath><pathelement location="utilities/saxon9he/saxon9he.jar"/></classpath>
+  </xslt>
+  <xslt basedir="${rawdir}/endorsed/xsd" destdir="${dir}/rt-stripped/endorsed-xsd"
+        style="xsd2rt.xsl" extension=".xsd" includes="**/*.xsd" force="true">
+    <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+    <classpath><pathelement location="utilities/saxon9he/saxon9he.jar"/></classpath>
+  </xslt>
+
   <!--start with the raw hand-edited files-->
   <copy preservelastmodified="true" todir="${dir}/${UBLstage}-${UBLversion}">
     <fileset dir="${rawdir}">
@@ -156,7 +174,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     </fileset>
   </copy>
   <copy preservelastmodified="true" todir="${dir}/${UBLstage}-${UBLversion}/xsdrt">
-    <fileset dir="${rawdir}/xsd">
+    <fileset dir="${dir}/rt-stripped/xsd">
       <include name="**"/>
     </fileset>
   </copy>
@@ -167,7 +185,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     </fileset>
   </copy>
   <copy preservelastmodified="true" todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/xsdrt">
-    <fileset dir="${rawdir}/xsd">
+    <fileset dir="${dir}/rt-stripped/xsd">
       <include name="**"/>
     </fileset>
   </copy>
@@ -177,16 +195,39 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
       <include name="**"/>
     </fileset>
   </copy>
-  <copy preservelastmodified="true" todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/xsd">
+  <!--overwrite="true" is required: these two copies exist only to clobber the
+      files written by the two copies above. Ant <copy> defaults to
+      overwrite="false", which copies only when the source is strictly newer,
+      and preservelastmodified="true" above gives the destination the mtime of
+      raw/xsd. A git checkout writes the working tree in index order, so
+      raw/endorsed/... is older than raw/xsd/... and both overrides are silently
+      skipped. That shipped non-endorsed run-time schemas in the endorsed
+      run-time tree of UBL 2.5 OS.-->
+  <copy preservelastmodified="true" overwrite="true"
+        todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/xsd">
     <fileset dir="${rawdir}/endorsed/xsd">
       <include name="**"/>
     </fileset>
   </copy>
-  <copy preservelastmodified="true" todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/xsdrt">
-    <fileset dir="${rawdir}/endorsed/xsd">
+  <copy preservelastmodified="true" overwrite="true"
+        todir="${dir}/Endorsed-${UBLstage}-${UBLversion}/xsdrt">
+    <fileset dir="${dir}/rt-stripped/endorsed-xsd">
       <include name="**"/>
     </fileset>
   </copy>
+
+  <!--The raw fragments carry tokens rather than a stage or date, so that the
+      repository never claims a stage it has not reached. Stamp them only after
+      every copy out of ${rawdir} has run: each of those copies takes fresh
+      tokenised bytes from ${rawdir}, so stamping earlier is undone by the next
+      copy. This one pass covers the main tree and both endorsed trees.-->
+  <echo message="Stamping raw fragments: stage=${UBLstage} (${UBLstageUC}) date=${UBLreleaseDate}"/>
+  <replace dir="${dir}" summary="true"
+           includes="**/xsd/common/UBL-*.xsd,**/xsdrt/common/UBL-*.xsd">
+    <replacefilter token="@@UBLSTAGEUC@@"     value="${UBLstageUC}"/>
+    <replacefilter token="@@UBLSTAGE@@"       value="${UBLstage}"/>
+    <replacefilter token="@@UBLRELEASEDATE@@" value="${UBLreleaseDate}"/>
+  </replace>
   
   <!--add the configuration files found in the base directory-->
   <copy preservelastmodified="true" todir="${dir}">
@@ -199,6 +240,17 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
       <exclude name="**/${rawdir}/**"/>
     </fileset>
   </copy>
+
+  <!--Stamp the stage and release date into the working copies. The repository
+      keeps tokens so it never claims a stage or date it does not have; the
+      values come from build.sh.-->
+  <echo message="Stamping stage=${UBLstage} (${UBLstageUC}) date=${UBLreleaseDate}"/>
+  <replace dir="${dir}" includes="UBL.xml,ident-UBL.xml,ident-UBL-Signature.xml,ident-UBL-Endorsed.xml,config-UBL.xml,config-UBL-Signature.xml" summary="true">
+    <replacefilter token="@@UBLSTAGEUC@@"     value="${UBLstageUC}"/>
+    <replacefilter token="@@UBLSTAGETEXT@@"   value="${UBLstageText}"/>
+    <replacefilter token="@@UBLSTAGE@@"       value="${UBLstage}"/>
+    <replacefilter token="@@UBLRELEASEDATE@@" value="${UBLreleaseDate}"/>
+  </replace>
 
   <!--create GC files for business and signature-->
   <sequential if:set="skip-gc">
@@ -448,7 +500,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     <param name="checkWarningName" value="NDR-CHECK-WARNING"/>
     <param name="change"  value="UBL"/>
     <param name="source"  value="${dir}/UBL-Entities-${UBLversion}.gc"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
     <param name="words"   value="wordlist-UBL-${UBLversion}.txt"/>
     <param name="library" value="UBL-CommonLibrary-${UBLversion}"/>
     <param name="fatal"   value="no"/>
@@ -469,7 +521,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     <param name="checkWarningName" value="NDR-CHECK-WARNING"/>
     <param name="change"  value="UBL"/>
     <param name="source"  value="${dir}/UBL-Entities-${UBLversion}.gc"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
     <param name="words"   value="wordlist-UBL-${UBLversion}.txt"/>
     <param name="library"  value="UBL-CommonLibrary-${UBLversion}"/>
     <param name="fatal"   value="yes"/>
@@ -500,7 +552,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     <param name="checkWarningName" value="NDR-ENDORSED-CHECK-WARNING"/>
     <param name="change"  value="UBL"/>
     <param name="source"  value="${dir}/UBL-Endorsed-Entities-${UBLversion}.gc"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
     <param name="words"   value="wordlist-UBL-${UBLversion}.txt"/>
     <param name="library" value="UBL-CommonLibrary-${UBLversion}"/>
     <param name="fatal"   value="no"/>
@@ -521,7 +573,7 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     <param name="checkWarningName" value="NDR-ENDORSED-CHECK-WARNING"/>
     <param name="change"  value="UBL"/>
     <param name="source"  value="${dir}/UBL-Endorsed-Entities-${UBLversion}.gc"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
     <param name="words"   value="wordlist-UBL-${UBLversion}.txt"/>
     <param name="library"  value="UBL-CommonLibrary-${UBLversion}"/>
     <param name="fatal"   value="yes"/>
@@ -607,13 +659,13 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
   <antcall target="-gc2cva">
     <param name="source"  value="${dir}/UBL-Entities-${UBLversion}.gc"/>
     <param name="output"  value="${dir}/${UBLstage}-${UBLversion}"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
   </antcall>
 
   <antcall target="-gc2cva">
     <param name="source"  value="${dir}/UBL-Endorsed-Entities-${UBLversion}.gc"/>
     <param name="output"  value="${dir}/Endorsed-${UBLstage}-${UBLversion}"/>
-    <param name="config"  value="config-UBL.xml"/>
+    <param name="config"  value="${dir}/config-UBL.xml"/>
   </antcall>
 
   <copy preservelastmodified="true" todir="${dir}">
@@ -644,9 +696,9 @@ file="${utilitydir}Crane-cva2sch/utility/iso_schematron_assembly.xsl"/>
     <param name="okay"    value="xsd-sig-okay"/>
     <param name="source"  value="${dir}/UBL-Signature-Entities-${UBLversion}.gc"/>
     <param name="compare" value="UBL-Signature-Entities-${UBLprevVersion}-os.gc"/>
-    <param name="config"  value="config-UBL-Signature.xml"/>
+    <param name="config"  value="${dir}/config-UBL-Signature.xml"/>
     <param name="basegc"  value="UBL-Entities-${UBLversion}.gc"/>
-    <param name="basecf"  value="config-UBL.xml"/>
+    <param name="basecf"  value="${dir}/config-UBL.xml"/>
     <param name="title"   value="Universal Business Language (UBL) Signature"/>
     <param name="change"  value="UBL Signature"/>
     <param name="dbcmn"   value="old2newDocBook-UBL-Signature-library-ent.xml"/>
@@ -1539,6 +1591,17 @@ file="${dir}/artefacts-${package}-${UBLstage}-${label}/intermediate-support-file
       <include name="UBL*.xml"/>
     </fileset>
   </copy>
+
+  <!--This copy takes a fresh, tokenised UBL.xml from the repository, undoing
+      the stamping done in -make-artefacts. Re-stamp here, after the copy that
+      would otherwise win.-->
+  <echo message="Stamping hub XML: stage=${UBLstage} (${UBLstageUC}) date=${UBLreleaseDate}"/>
+  <replace dir="${dir}" includes="UBL*.xml" summary="true">
+    <replacefilter token="@@UBLSTAGEUC@@"     value="${UBLstageUC}"/>
+    <replacefilter token="@@UBLSTAGETEXT@@"   value="${UBLstageText}"/>
+    <replacefilter token="@@UBLSTAGE@@"       value="${UBLstage}"/>
+    <replacefilter token="@@UBLRELEASEDATE@@" value="${UBLreleaseDate}"/>
+  </replace>
   <available property="db-ready"
              file="${dir}/db/spec-0.9/docbook/docbookx.dtd"/>
   <copy unless:set="db-ready" todir="${dir}/db">
@@ -2078,7 +2141,10 @@ file2="${dir}/hub-${package}-${UBLstage}-${label}/intermediate-support-files/new
     </fileset>
   </copy>
   <mkdir dir="${dir}/${package}-${UBLstage}-${label}/endorsed"/>
-  <copy todir="${dir}/${package}-${UBLstage}-${label}/endorsed">
+  <!--overwrite="true" is required: the artefacts copy above already placed
+      raw/endorsed/xsd/** here (via the main tree) with mtime "now", so without
+      it this overlay is skipped for exactly the files it exists to deliver.-->
+  <copy overwrite="true" todir="${dir}/${package}-${UBLstage}-${label}/endorsed">
     <fileset dir="${dir}/Endorsed-${UBLstage}-${UBLversion}">
       <include name="xsdrt/**"/>
       <include name="xsd/**"/>
@@ -2190,6 +2256,25 @@ file2="${dir}/hub-${package}-${UBLstage}-${label}/intermediate-support-files/new
      <arg value="gc-uri=${dir}/${package}-${UBLstage}-${label}/mod/UBL-Entities-${UBLversion}.gc"/>
      <arg value="pub-version=${UBLversion}"/>
   </java>
+  <!--No build token may survive into the distribution. A token that reaches
+      here means a copy ran after the <replace> that was meant to stamp it,
+      which is silent otherwise: the document simply renders "@@UBLSTAGE@@"
+      where the stage belongs and the build still reports success.-->
+  <echo message="Checking for unstamped build tokens..."/>
+  <fileset dir="${dir}/${package}-${UBLstage}-${label}" id="unstamped-fileset">
+    <include name="**/*.xsd"/>
+    <include name="**/*.xml"/>
+    <include name="**/*.html"/>
+    <containsregexp expression="@@UBL[A-Z]*@@"/>
+  </fileset>
+  <property name="unstamped-files" refid="unstamped-fileset"/>
+  <condition property="unstamped-found">
+    <not><equals arg1="${unstamped-files}" arg2=""/></not>
+  </condition>
+  <echo if:set="unstamped-found" append="true"
+        file="${dir}/INTEGRITY-PROBLEMS.txt"
+        message="Unstamped build tokens survived into the distribution:${line.separator}${unstamped-files}${line.separator}"/>
+
   <condition property="integrity-problems">
     <length file="${dir}/INTEGRITY-PROBLEMS.txt" when="greater" length="0"/>
   </condition>

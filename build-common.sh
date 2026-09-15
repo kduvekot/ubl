@@ -11,7 +11,7 @@ fi
 targetdirabs=$(cd "$targetdir" && pwd)
 
 echo Building package...
-java -Dant.home=utilities/ant -classpath "utilities/saxon/saxon.jar:utilities/ant/lib/ant-launcher.jar:utilities/saxon9he/saxon9he.jar" org.apache.tools.ant.launch.Launcher -buildfile build.xml "-Dtitle=$title" "-Dpackage=$package" "-DUBLversion=$UBLversion" "-DUBLprevStageVersion=$UBLprevStageVersion" "-DUBLprevStage=$UBLprevStage" "-DUBLprevVersion=$UBLprevVersion" "-Drawdir=$rawdir" "-DlibraryGoogle=$libGoogle" "-DdocumentsGoogle=$docGoogle" "-DsignatureGoogle=$sigGoogle" "-Ddir=$targetdirabs" "-DUBLstage=$UBLstage" "-Dlabel=$label" "-DisDraft=$isDraft" "-Drealtauser=$4" "-Drealtapass=$5" "-Dplatform=$platform"
+java -Dant.home=utilities/ant -classpath "utilities/saxon/saxon.jar:utilities/ant/lib/ant-launcher.jar:utilities/saxon9he/saxon9he.jar" org.apache.tools.ant.launch.Launcher -buildfile build.xml "-Dtitle=$title" "-Dpackage=$package" "-DUBLversion=$UBLversion" "-DUBLprevStageVersion=$UBLprevStageVersion" "-DUBLprevStage=$UBLprevStage" "-DUBLprevVersion=$UBLprevVersion" "-Drawdir=$rawdir" "-DlibraryGoogle=$libGoogle" "-DdocumentsGoogle=$docGoogle" "-DsignatureGoogle=$sigGoogle" "-Ddir=$targetdirabs" "-DUBLstage=$UBLstage" "-DUBLstageText=$UBLstageText" "-DUBLstageUC=$UBLstageUC" "-DUBLreleaseDate=$UBLreleaseDate" "-Dlabel=$label" "-DisDraft=$isDraft" "-Drealtauser=$4" "-Drealtapass=$5" "-Dplatform=$platform"
 serverReturn=$?
 sleep 2
 

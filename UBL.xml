@@ -19,18 +19,12 @@
 	<!ENTITY psversion "2.5">
 	<!ENTITY pstage   "os">
 	<!ENTITY PSTAGE   "OS">
-	<!ENTITY stage    "csd01">
-	<!ENTITY STAGE    "CSD01">
+	<!ENTITY stage    "@@UBLSTAGE@@">
+	<!ENTITY STAGE    "@@UBLSTAGEUC@@">
 	<!ENTITY isostage "WD">
-	<!ENTITY standard "Committee Specification Draft 01">
-	<!ENTITY stagetext "Committee Specification Draft 01">
-	<!ENTITY standard "Committee Specification 01xxxxx">
-	<!ENTITY stagetext "Committee Specification 01xxxxxx">
-	<!ENTITY standard "Committee Specification 02xxxxxxx">
-	<!ENTITY stagetext "Committee Specification 02xxxxxx">
-	<!ENTITY standard "OASIS Standardxxxxxxx">
-	<!ENTITY stagetext "OASIS Standardxxxxxxx">
-	<!ENTITY pubdate "14 September 2026">
+	<!ENTITY standard "@@UBLSTAGETEXT@@">
+	<!ENTITY stagetext "@@UBLSTAGETEXT@@">
+	<!ENTITY pubdate "@@UBLRELEASEDATE@@">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2026">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -57,9 +51,9 @@
     <releaseinfo role="OASIS-specification-this" lang="none">&this-loc;/&name;-&version;.pdf</releaseinfo>
     <releaseinfo role="OASIS-specification-this-authoritative" lang="none">&this-loc;/&name;-&version;.xml</releaseinfo>
     <!-- -->
-    <releaseinfo role="OASIS-specification-previous">&previous-loc;/UBL-&version;.html</releaseinfo>
-    <releaseinfo role="OASIS-specification-previous">&previous-loc;/UBL-&version;.pdf</releaseinfo>
-    <releaseinfo role="OASIS-specification-previous-authoritative">&previous-loc;/UBL-&version;.xml</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous">&previous-loc;/UBL-&psversion;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous">&previous-loc;/UBL-&psversion;.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous-authoritative">&previous-loc;/UBL-&psversion;.xml</releaseinfo>
     <!-- -->
     <!-- generic form of above
       <releaseinfo role="OASIS-specification-previous"
@@ -200,13 +194,13 @@
       <para>This specification supersedes: </para>
       <bibliolist>
         <bibliomixed conformance="skip">
-          <abbrev condition="oasis">UBL-2.4</abbrev>
-          <citetitle>Universal Business Language Version 2.4.</citetitle>
-          <bibliomisc>Edited by Kenneth Bengtsson and Kees Duvekot.</bibliomisc>
-          <date>20 June 2024.</date>
+          <abbrev condition="oasis">UBL-&psversion;</abbrev>
+          <citetitle>Universal Business Language Version &psversion;.</citetitle>
+          <bibliomisc>Edited by Kenneth Bengtsson.</bibliomisc>
+          <date>12 August 2026.</date>
           <releaseinfo>OASIS Standard.</releaseinfo>
           <bibliomisc>
-            <ulink url="https://docs.oasis-open.org/ubl/os-UBL-2.4/UBL-2.4.html">https://docs.oasis-open.org/ubl/os-UBL-2.4/UBL-2.4.html</ulink>. </bibliomisc>
+            <ulink url="&previous-loc;/UBL-&psversion;.html">&previous-loc;/UBL-&psversion;.html</ulink>. </bibliomisc>
         </bibliomixed>
       </bibliolist>
     </legalnotice>
