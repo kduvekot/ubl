@@ -24,12 +24,6 @@
 	<!ENTITY isostage "WD">
 	<!ENTITY standard "@@UBLSTAGETEXT@@">
 	<!ENTITY stagetext "@@UBLSTAGETEXT@@">
-	<!ENTITY standard "Committee Specification 01xxxxx">
-	<!ENTITY stagetext "Committee Specification 01xxxxxx">
-	<!ENTITY standard "Committee Specification 02xxxxxxx">
-	<!ENTITY stagetext "Committee Specification 02xxxxxx">
-	<!ENTITY standard "OASIS Standardxxxxxxx">
-	<!ENTITY stagetext "OASIS Standardxxxxxxx">
 	<!ENTITY pubdate "@@UBLRELEASEDATE@@">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2026">
