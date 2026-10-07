@@ -7,7 +7,10 @@ on:
   workflow_dispatch:
 
 jobs:
+  # Only the build-py job uses this; the build job makes its own timestamp so
+  # it does not wait for a second runner to start.
   staging:
+    if: github.ref == 'refs/heads/ubl-2.5-python' && !startsWith(github.ref, 'refs/heads/claude/')
     runs-on: ubuntu-latest
     outputs:
       timestamp: ${{ steps.timestamp.outputs.timestamp }}
@@ -21,10 +24,16 @@ jobs:
         echo "Generated timestamp: ${timestamp}"
 
   build:
-    needs: staging
     runs-on: ubuntu-latest
 
     steps:
+    - name: Generate Timestamp
+      id: timestamp
+      run: |
+        timestamp=$(date -u +%Y%m%d-%H%M)
+        echo "timestamp=${timestamp}" >> $GITHUB_OUTPUT
+        echo "Generated timestamp: ${timestamp}"
+
     - uses: actions/checkout@v7
 
     - name: Display Machine Details
@@ -50,7 +59,14 @@ jobs:
     - name: Dependencies
       run: |
         sudo apt update
-        sudo apt install -y aspell libreoffice pandoc
+        # LibreOffice is only used to convert spreadsheets from ODS to XLS, so
+        # only its spreadsheet part is installed, without the desktop. The fonts
+        # are the ones the full LibreOffice installs: XLS column widths are
+        # worked out from font measurements, so the same fonts must be there.
+        sudo apt install -y aspell pandoc libreoffice-calc-nogui \
+          fonts-crosextra-caladea fonts-crosextra-carlito fonts-liberation-sans-narrow \
+          fonts-linuxlibertine fonts-noto-core fonts-noto-extra fonts-noto-mono \
+          fonts-noto-ui-core fonts-opensymbol fonts-sil-gentium fonts-sil-gentium-basic
 
     - name: Build
       env:
@@ -58,7 +74,7 @@ jobs:
         REALTA_PASSWORD: ${{ secrets.REALTA_PASSWORD }}
       run: |
         mkdir target
-        bash build.sh target github ${{ needs.staging.outputs.timestamp }}z "${REALTA_USERNAME:-}" "${REALTA_PASSWORD:-}" DELETE-REPOSITORY-FILES-AS-WELL
+        bash build.sh target github ${{ steps.timestamp.outputs.timestamp }}z "${REALTA_USERNAME:-}" "${REALTA_PASSWORD:-}" DELETE-REPOSITORY-FILES-AS-WELL
 
     - name: List Shell Build Directory Structure
       if: always()
@@ -84,7 +100,7 @@ jobs:
 
     - uses: actions/upload-artifact@v7
       with:
-        name: UBL-package-github-${{ needs.staging.outputs.timestamp }}z
+        name: UBL-package-github-${{ steps.timestamp.outputs.timestamp }}z
         path: ./*
 
   build-py:
