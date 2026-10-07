@@ -57,6 +57,9 @@ jobs:
         java-package: jdk
 
     - name: Dependencies
+      # normally under a minute; when an Ubuntu package mirror stops answering,
+      # apt waits without end, so stop it rather than hold the runner for hours
+      timeout-minutes: 10
       run: |
         sudo apt update
         # LibreOffice is only used to convert spreadsheets from ODS to XLS, so
