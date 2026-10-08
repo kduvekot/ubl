@@ -141,7 +141,17 @@ to "17 October 2023" at `e4809af`/`b448cd7`.
 
 ## UBL 2.5 Releases
 
-All UBL 2.5 releases are on the `ubl-2.5` branch (no separate branch per stage).
+CSD01 to CSD03 are on the `ubl-2.5` branch (no separate branch per stage). From CS01 on,
+each stage has a branch of its own, each started from the tip of the one before:
+`ubl-2.5-cs01` (from `3d81e8a`), `ubl-2.5-os` (from `ca125df`) and `ubl-2.5-iso` (from
+`345386a`). `ubl-2.5` itself has not moved since `3d81e8a`. All of these commits are on the
+first-parent chain of `ubl-2.6`.
+
+Since the analysis was brought up to date (8 October 2026), the GitHub workflow runs are part
+of the evidence: each run records the commit and branch it built. The runs, the two OS build
+logs and the comparisons with the OS build artifacts are kept in `api-data/2026-10-08/`
+(see its `REPORT.md`). Runs before 21 August 2025 are no longer kept by GitHub, so CSD01 has
+none.
 
 ### UBL 2.5 CSD01 — `0b44c38` ★ VERIFIED
 
@@ -170,6 +180,7 @@ All UBL 2.5 releases are on the `ubl-2.5` branch (no separate branch per stage).
 | XSD Generated on | `2025-12-03 12:42z` (3 min after commit at 13:39 CET = 12:39z) |
 | Zip filename | `UBL-2.5-csd02-20251203-1239z.zip` — **timestamp matches commit to the minute** (12:39z) |
 | Entity-resolved | Zip `UBL-2.5.xml` has unfixed `&version;` bug in 2.3/2.4 sections ("UBL 2.5 is technically a minor release") — **matches b122814 only**; next commit `ea6223d` fixed this to "UBL 2.3"/"UBL 2.4" |
+| Workflow run | Run 19894134352, started by hand (`workflow_dispatch`) on `ubl-2.5` at `b122814`, 2025-12-03 12:39:25Z, success; it explains the `1239z` label in the zip filename. The push run for `b122814` (19894125456) was cancelled. (Added 2026-10-08, from `api-data/2026-10-08/runs.json`.) |
 | Uniqueness | **Three independent discriminators**: pubdate, entity-resolved text bug, zip filename timestamp |
 
 ### UBL 2.5 CSD03 — `3d81e8a` ★ VERIFIED
@@ -186,8 +197,81 @@ All UBL 2.5 releases are on the `ubl-2.5` branch (no separate branch per stage).
 | XSD Release Date | `11 February 2026` ✓ |
 | XSD Generated on | `2026-02-09 15:16z` (commit at 19:13 +0400 = 15:13z — 3 min before build) |
 | Entity-resolved | Zip `UBL-2.5.xml` contains `Committee Specification Draft 03` and editor `Kenneth Bengtsson` — **matches 3d81e8a only** |
-| Branch tip | Yes — current tip of `ubl-2.5` |
+| Workflow run | Run 21830603834, started by the push of `3d81e8a` to `ubl-2.5`, 2026-02-09 15:13:06Z, success; the XSDs were generated 3 minutes later. (Added 2026-10-08, from `api-data/2026-10-08/runs.json`.) |
+| Branch tip | Yes — tip of `ubl-2.5` (still so on 8 October 2026: `ubl-2.5` has not moved since) |
 | Uniqueness | **Multiple discriminators**: pubdate, stage, editor name all changed from parent |
+
+### UBL 2.5 CS01 — `ca125df` ★ VERIFIED
+
+Published 15 April 2026 at `https://docs.oasis-open.org/ubl/cs01-UBL-2.5/`. All the CS01
+changes were made on 13 April 2026 as 18 single-file edits in the GitHub web editor, pushed to
+`ubl-2.5-cs01` one by one: 17 commits titled "CS01" (`9992180` to `8f108d8`), then `ca125df`
+"CSD03 entities".
+
+| Evidence | Detail |
+|----------|--------|
+| Blob matches | **672 / 1304** (51%) identical to commit tree (the same at `8f108d8`; 642 at `3d81e8a`) |
+| Content differs | 2 files: `UBL-CommonSignatureComponents-2.5.xsd` (xsd + xsdrt) |
+| config-UBL.xml | `versionDate: 15 April 2026`, `versionDisplay: 2.5 CS01`, `versionDirectory: cs01-UBL-2.5` (set by `b926367`) |
+| UBL.xml | `stage: cs01`, `stagetext: Committee Specification 01`, `pubdate: 15 April 2026` (set by `5738516`) |
+| Zip spec | `UBL-2.5.xml`: pubdate `15 April 2026`, `Committee Specification 01` ✓ |
+| XSD Release Date | `15 April 2026` ✓; Signature XSDs: `Library: … (UBL) 2.5 CS01` ✓ |
+| XSD Generated on | `2026-04-13 18:35z`, in all 410 "Generated on" lines of the package |
+| Previous-stage files | The build compares the new entities with those of the previous stage (`UBLprevStage=csd03`; `build.xml` reads `UBL-Entities-2.5-csd03.gc` and `UBL-Endorsed-Entities-2.5-csd03.gc`). Those files are added by `ca125df` and are missing at `8f108d8` and before. The OS build of `d2a042f` (below) shows what a build without them gives: an incomplete package of 599 files with `MISSING-COMPARISON-GC-FILE.txt`. The published CS01 package is complete (1304 files). |
+| Workflow runs | Two runs on 13 April 2026, **both of `ca125df`** on `ubl-2.5-cs01`: 24357437746, started by its push (build job 17:32:02–19:03:20Z), and 24360121095, started by hand (build job 18:32:15–19:17:01Z). No run built any of the 17 commits before it. The `18:35z` stamp fits the hand-started run: in the OS run the XSDs were generated about 2 minutes after the build step began. Logs and artifacts of both runs have expired (HTTP 410), so the build output cannot be compared directly. |
+| Zip packaging | Internal timestamps `2026-04-15 17:00`; zip on the OASIS server dated 22 April 2026 |
+| Branch tip | Yes — last commit on `ubl-2.5-cs01` |
+| Uniqueness | **`ca125df` is the only commit that was built**, and the only CS01 commit with the previous-stage files the build needs. Its content differs from `8f108d8` only in those three `.gc` files, which are not in the package, so the zip alone cannot tell the two apart. Verified on run records, timing and the build's dependence on the `.gc` files; not on a build artifact. |
+
+Note: `d0d1d91` (15 August 2026, first commit of `ubl-2.5-os`) commits
+`UBL-Entities-2.5-cs01.gc` and `UBL-Signature-Entities-2.5-cs01.gc`, identical to the ones in
+the CS01 package (674 blob matches from there on); `345386a` adds the endorsed one.
+
+### UBL 2.5 OS — `345386a` ★ VERIFIED
+
+Published 12 August 2026 at `https://docs.oasis-open.org/ubl/os-UBL-2.5/` (zip dated 26 August
+2026 on the server; OASIS announced the approval on 26 August 2026). The OS changes were made on
+15 August 2026, again as single-file web-editor edits, pushed to `ubl-2.5-os`: `d0d1d91`
+"CS01 entities", 16 commits titled "OASIS Standard" (`7959d83` to `d2a042f`), then `345386a`
+"CS01 endorsed entities".
+
+| Evidence | Detail |
+|----------|--------|
+| Blob matches | **670 / 1304** (51%) identical to commit tree (the same at `d2a042f` and `8630a5f`) |
+| Content differs | 4 files: `UBL-CommonSignatureComponents-2.5.xsd` (xsd + xsdrt), as always, and two files in `endorsed/xsdrt/common/` (see the anomaly below) |
+| config-UBL.xml | `versionDate: 12 August 2026`, `versionDisplay: 2.5 OS`, `versionDirectory: os-UBL-2.5` |
+| UBL.xml | `stage: os`, `stagetext: OASIS Standard`, `pubdate: 12 August 2026` |
+| XSD Release Date | `12 August 2026` ✓; Signature XSDs: `Library: … (UBL) 2.5 OS` ✓ |
+| XSD Generated on | `2026-08-15 15:15z` and `15:16z` |
+| Build artifact | **Artifact 9249368308** (`UBL-package-github-20260815-1513z`) of run 31892096050, started by the push of `345386a` to `ubl-2.5-os` at 15:13:09Z: its package `UBL-2.5-os-20260815-1513z.7z` is **identical to the published package in 1302 of 1304 files**, with no file missing on either side. `UBL-Invoice-2.5.xsd` says `Generated on: 2026-08-15 15:15z` in both. |
+| Neighbour `d2a042f` | Built by hand in run 31891163801 (14:53Z). The log shows `Unable to open … UBL-Endorsed-Entities-2.5-cs01.gc`; the package has 599 files, `MISSING-COMPARISON-GC-FILE.txt` and no spec, and only 178 files identical to the published package. `345386a` is the commit that adds that file. |
+| ISO commit `8630a5f` | Excluded: it removed the eBiz bibliography entry and its link from `UBL.xml`, and both the CS01 and the OS spec in the zips still contain it. |
+| Branch tip | Yes — last commit on `ubl-2.5-os`; also where `ubl-2.5-iso` and `ubl-2.6` start |
+| Uniqueness | **The published package is the build of `345386a`**, compared file by file with that build's artifact |
+
+**Anomaly**: the two differing files are
+`endorsed/xsdrt/common/BDNDR-CCTS_CCT_SchemaModule-1.1.xsd` and
+`endorsed/xsdrt/common/BDNDR-UnqualifiedDataTypes-1.1.xsd`. The build artifact has the full,
+hand-edited versions (45268 and 75029 bytes; the second says "manually-edited copy … UBL-383"),
+the same as in the published CS01 package. The published OS package has short generated
+versions instead (7124 and 7673 bytes), headed "UBL 2.5 OS / Release Date: 12 August 2026 /
+Generated on: 2026-08-15 15:16z". So the two files were replaced after the build, with versions
+from the same day's generation, before the package was published. Where those versions come
+from is not known.
+
+The artifacts expire on 13 November 2026; their hash lists are kept in `api-data/2026-10-08/`
+(`h-1513.tsv`, `h-1453.tsv`).
+
+### UBL 2.5 for ISO/IEC — `8630a5f`
+
+Branch `ubl-2.5-iso`, created 2 September 2026 from `345386a`, with one commit, `8630a5f`
+"Removed broken links" (3 September 2026), which removes the eBiz bibliography entry and
+replaces the ISO "Publicly Available Standards" link in `UBL.xml`. It was built by run
+33767494654 (started by its push, success; artifact 9900047567, expiring 2 December 2026).
+This commit was merged into `ubl-2.6` through PR #46 (`072318b`, `bb79377`).
+
+No ISO/IEC publication of UBL 2.5 was found (October 2026), and docs.oasis-open.org has no
+ISO package, so this cannot be verified: listed without ★.
 
 ## Summary
 
@@ -203,6 +287,9 @@ All UBL 2.5 releases are on the `ubl-2.5` branch (no separate branch per stage).
 | UBL 2.5 CSD01 | 20 Aug 2025 | `0b44c38` | ★ 620/2539 blobs | Merge commit; build from first-parent 09e538e |
 | UBL 2.5 CSD02 | 03 Dec 2025 | `b122814` | ★ 624/1256 blobs | Pubdate + entity text bug + zip timestamp |
 | UBL 2.5 CSD03 | 11 Feb 2026 | `3d81e8a` | ★ 672/1304 blobs | Pubdate + stage + editor all changed from parent |
+| UBL 2.5 CS01 | 15 Apr 2026 | `ca125df` | ★ 672/1304 blobs | Only commit built (2 runs); adds the CSD03 .gc files the build needs |
+| UBL 2.5 OS | 12 Aug 2026 | `345386a` | ★ 670/1304 blobs | Build artifact identical in 1302/1304 files (2 files swapped after the build) |
+| UBL 2.5 ISO/IEC | — | `8630a5f` | No published package | Tip of `ubl-2.5-iso` |
 
 ## Sources
 
@@ -212,3 +299,8 @@ All UBL 2.5 releases are on the `ubl-2.5` branch (no separate branch per stage).
 - **UBL.xml**: DocBook source with `stage`, `version`, `stagetext`, `pubdate` ENTITY declarations
 - **Generated XSDs**: Embed `Release Date:` and `Generated on:` in XML comments from build
 - **GitHub Activity API**: Branch creation/push events from `repos/oasis-tcs/ubl/activity`
+- **GitHub workflow runs, logs and build artifacts** (from 2026-10-08): `repos/oasis-tcs/ubl/actions/runs`
+  and `actions/artifacts`; the raw data, the two OS build logs and the hash lists of the build
+  artifacts and of the published CS01 and OS packages are in `api-data/2026-10-08/`
+- **UBL 2.5 CS01 and OS zips**: `https://docs.oasis-open.org/ubl/cs01-UBL-2.5/UBL-2.5.zip` and
+  `https://docs.oasis-open.org/ubl/os-UBL-2.5/UBL-2.5.zip`, downloaded 2026-10-08
