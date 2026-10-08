@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1363.8000000000002" height="5132" style="background-color:#0d1117">
+<svg xmlns="http://www.w3.org/2000/svg" width="1363.8000000000002" height="5882" style="background-color:#0d1117">
 <style>
 text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stroke: #0d1117; stroke-width: 3px; stroke-linejoin: round; }
 .dot-trunk { fill: #4a7a5a; }
@@ -21,8 +21,8 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 .year-line { stroke: #21262d; stroke-width: 1; stroke-dasharray: 2,4; }
 </style>
 <text x="10" y="16" fill="#58a6ff" font-size="13" font-weight="bold">oasis-tcs/ubl — Train Track View</text>
-<text x="10" y="30" fill="#8b949e" font-size="9">328 trunk commits (dots) · 161 PR branch commits (side tracks) · ★ = verified release · Blue = merge-back branches · Gray = dead ends</text>
-<text x="10" y="42" fill="#484f58" font-size="8">Generated 2026-04-03 · Time-proportional spacing</text>
+<text x="10" y="30" fill="#8b949e" font-size="9">373 trunk commits (dots) · 196 PR branch commits (side tracks) · ★ = verified release · Blue = merge-back branches · Gray = dead ends</text>
+<text x="10" y="42" fill="#484f58" font-size="8">Generated 2026-10-08 · Time-proportional spacing</text>
 <line x1="10" y1="90" x2="770" y2="90" class="year-line"/>
 <text x="15" y="94" class="lbl-year">2018</text>
 <line x1="10" y1="140.92869714997443" x2="770" y2="140.92869714997443" class="year-line"/>
@@ -37,7 +37,7 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <text x="15" y="2818.2658415231435" class="lbl-year">2025</text>
 <line x1="10" y1="4849.210114765924" x2="770" y2="4849.210114765924" class="year-line"/>
 <text x="15" y="4853.210114765924" class="lbl-year">2026</text>
-<line x1="800" y1="90" x2="800" y2="5052.304110938559" class="line-trunk"/>
+<line x1="800" y1="90" x2="800" y2="5802.876460970992" class="line-trunk"/>
 <path d="M 800,180.90762561076215 L 812,192.90762561076215 L 830,192.90762561076215 L 830,238.90762561076218 L 812,238.90762561076218 L 800,250.90762561076218" class="line-pr" fill="none"/>
 <circle cx="830" cy="208.2409589440955" r="2.5" class="dot-pr"/>
 <circle cx="830" cy="223.57429227742884" r="2.5" class="dot-pr"/>
@@ -221,6 +221,50 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="830" cy="4877.7515565688045" r="2.5" class="dot-pr"/>
 <circle cx="830" cy="4891.0015565688045" r="2.5" class="dot-pr"/>
 <circle cx="830" cy="4904.2515565688045" r="2.5" class="dot-pr"/>
+<path d="M 800,5322.686718477774 L 812,5334.686718477774 L 830,5334.686718477774 L 830,5370.686718477774 L 812,5370.686718477774 L 800,5382.686718477774" class="line-pr" fill="none"/>
+<circle cx="830" cy="5337.959445750501" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5341.232173023229" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5344.504900295956" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5347.777627568683" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5351.05035484141" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5354.323082114138" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5357.595809386865" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5360.868536659592" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5364.141263932319" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5367.413991205047" r="2.5" class="dot-pr"/>
+<path d="M 800,5382.686718477774 L 812,5394.686718477774 L 830,5394.686718477774 L 830,5430.686718477774 L 812,5430.686718477774 L 800,5442.686718477774" class="line-pr" fill="none"/>
+<circle cx="830" cy="5399.186718477774" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5403.686718477774" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5408.186718477774" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5412.686718477774" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5417.186718477774" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5421.686718477774" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5426.186718477774" r="2.5" class="dot-pr"/>
+<path d="M 800,5442.686718477774 L 812,5454.686718477774 L 830,5454.686718477774 L 830,5490.686718477774 L 812,5490.686718477774 L 800,5502.686718477774" class="line-pr" fill="none"/>
+<circle cx="830" cy="5466.686718477774" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5478.686718477774" r="2.5" class="dot-pr"/>
+<path d="M 800,5512.686718477774 L 812,5524.686718477774 L 830,5524.686718477774 L 830,5550.686718477774 L 812,5550.686718477774 L 800,5562.686718477774" class="line-pr" fill="none"/>
+<circle cx="830" cy="5527.05035484141" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5529.413991205047" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5531.777627568683" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5534.141263932319" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5536.504900295956" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5538.868536659592" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5541.232173023229" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5543.595809386865" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5545.959445750501" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5548.323082114138" r="2.5" class="dot-pr"/>
+<path d="M 800,5502.686718477774 L 812,5514.686718477774 L 978.2,5514.686718477774 L 978.2,5556.876460970992 L 812,5556.876460970992 L 800,5568.876460970992" class="line-pr" fill="none"/>
+<circle cx="978.2" cy="5535.781589724384" r="2.5" class="dot-pr"/>
+<path d="M 800,5568.876460970992 L 812,5580.876460970992 L 830,5580.876460970992 L 830,5614.876460970992 L 812,5614.876460970992 L 800,5626.876460970992" class="line-pr" fill="none"/>
+<circle cx="830" cy="5597.876460970992" r="2.5" class="dot-pr"/>
+<path d="M 800,5626.876460970992 L 812,5638.876460970992 L 830,5638.876460970992 L 830,5672.876460970992 L 812,5672.876460970992 L 800,5684.876460970992" class="line-pr" fill="none"/>
+<circle cx="830" cy="5655.876460970992" r="2.5" class="dot-pr"/>
+<path d="M 800,5684.876460970992 L 812,5696.876460970992 L 830,5696.876460970992 L 830,5732.876460970992 L 812,5732.876460970992 L 800,5744.876460970992" class="line-pr" fill="none"/>
+<circle cx="830" cy="5708.876460970992" r="2.5" class="dot-pr"/>
+<circle cx="830" cy="5720.876460970992" r="2.5" class="dot-pr"/>
+<path d="M 800,5744.876460970992 L 812,5756.876460970992 L 830,5756.876460970992 L 830,5790.876460970992 L 812,5790.876460970992 L 800,5802.876460970992" class="line-pr" fill="none"/>
+<circle cx="830" cy="5773.876460970992" r="2.5" class="dot-pr"/>
 <path d="M 800,190.90762561076215 L 788,202.90762561076215 L 770,202.90762561076215 L 770,214.90762561076215" class="line-dead-rel" fill="none"/>
 <circle cx="770" cy="214.90762561076215" r="4" class="dot-branch-release"/>
 <line x1="767" y1="214.90762561076215" x2="773" y2="214.90762561076215" stroke="#7ee787" stroke-width="2"/>
@@ -663,6 +707,51 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="800" cy="5039.020197021217" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="5046.0709465145255" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="5052.304110938559" r="5" class="dot-release"/>
+<circle cx="800" cy="5082.699312239559" r="4" class="dot-merge"/>
+<circle cx="800" cy="5088.720527739046" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5095.243551715949" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5101.264767215436" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5107.285063105983" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5113.300757140062" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5119.316451174142" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5125.551340757906" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5131.673086504937" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5137.7071499451795" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5143.732959685315" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5149.758769425451" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5155.781823381589" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5161.815886821832" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5167.842614650265" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5173.872095226438" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5179.90707448342" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5186.20432867499" r="5" class="dot-release"/>
+<circle cx="800" cy="5218.84689203054" r="4" class="dot-merge"/>
+<circle cx="800" cy="5224.970421597355" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5230.984273107401" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5236.99720297313" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5243.114484987259" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5249.137538943397" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5255.178921877639" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5261.213901134621" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5267.369377190589" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5273.514238420688" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5279.52070962671" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5285.550190202884" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5291.557584841584" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5297.5631323588805" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5303.570526997581" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5309.576998203603" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5315.584392842303" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="5322.686718477774" r="5" class="dot-release"/>
+<circle cx="800" cy="5382.686718477774" r="4" class="dot-merge"/>
+<circle cx="800" cy="5442.686718477774" r="4" class="dot-merge"/>
+<circle cx="800" cy="5502.686718477774" r="4" class="dot-merge"/>
+<circle cx="800" cy="5562.686718477774" r="4" class="dot-merge"/>
+<circle cx="800" cy="5568.876460970992" r="4" class="dot-merge"/>
+<circle cx="800" cy="5626.876460970992" r="4" class="dot-merge"/>
+<circle cx="800" cy="5684.876460970992" r="4" class="dot-merge"/>
+<circle cx="800" cy="5744.876460970992" r="4" class="dot-merge"/>
+<circle cx="800" cy="5802.876460970992" r="4" class="dot-merge"/>
 <text x="836" y="211.9" class="lbl-pr">merge (2)</text>
 <text x="836" y="635.0" class="lbl-pr">PR#4 (2)</text>
 <text x="836" y="645.0" class="lbl-src">UBL-330</text>
@@ -705,7 +794,25 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <text x="836" y="4409.0" class="lbl-pr">PR#34 (2)</text>
 <text x="836" y="4419.0" class="lbl-src">claude/fix-spreadsheet-links</text>
 <text x="836" y="4860.5" class="lbl-pr">merge (7)</text>
-<text x="762" y="226.9" class="lbl-rel" text-anchor="end">★ 2.3 CSD05  12 May 2021</text>
+<text x="836" y="5348.7" class="lbl-pr">PR#38 (10)</text>
+<text x="836" y="5358.7" class="lbl-src">ubl-2.6-prep</text>
+<text x="836" y="5408.7" class="lbl-pr">PR#39 (7)</text>
+<text x="836" y="5418.7" class="lbl-src">ubl-2.6-prep</text>
+<text x="836" y="5468.7" class="lbl-pr">PR#40 (2)</text>
+<text x="836" y="5478.7" class="lbl-src">ubl-2.6-drawio</text>
+<text x="984.2" y="5531.8" class="lbl-pr">PR#43 (1)</text>
+<text x="984.2" y="5541.8" class="lbl-src">ubl-2.6-archive-only-fix</text>
+<text x="836" y="5533.7" class="lbl-pr">PR#42 (10)</text>
+<text x="836" y="5543.7" class="lbl-src">ubl-2.6-build-speed</text>
+<text x="836" y="5593.9" class="lbl-pr">PR#44 (1)</text>
+<text x="836" y="5603.9" class="lbl-src">ubl-2.6-pin-ubuntu-24.04</text>
+<text x="836" y="5651.9" class="lbl-pr">PR#45 (1)</text>
+<text x="836" y="5661.9" class="lbl-src">ubl-2.6-remove-python-build</text>
+<text x="836" y="5710.9" class="lbl-pr">PR#46 (2)</text>
+<text x="836" y="5720.9" class="lbl-src">ubl-2.6-merge-2.5-iso</text>
+<text x="836" y="5769.9" class="lbl-pr">PR#47 (1)</text>
+<text x="836" y="5779.9" class="lbl-src">ubl-2.6-environment-setup-paths</text>
+<text x="762" y="226.9" class="lbl-rel" text-anchor="end">2.3 CSD05  12 May 2021</text>
 <text x="612" y="228.9" class="lbl-rel" text-anchor="end">★ 2.3 CS02  25 May 2021</text>
 <text x="762" y="240.9" class="lbl" text-anchor="end">ubl-2.3-csd05-copy</text>
 <text x="612" y="242.9" class="lbl" text-anchor="end">ubl-2.3-cs02</text>
@@ -763,4 +870,18 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <text x="838" y="4803.5" class="lbl-rel" text-anchor="start">★ 2.5 CSD02  03 Dec 2025</text>
 <text x="808" y="4932.5" class="lbl-pr" text-anchor="start">← merge</text>
 <text x="808" y="5056.3" class="lbl-rel" text-anchor="start">★ 2.5 CSD03  11 Feb 2026</text>
+<text x="808" y="5086.7" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.5-cs01</text>
+<text x="808" y="5190.2" class="lbl-rel" text-anchor="start">★ 2.5 CS01  15 Apr 2026</text>
+<text x="808" y="5222.8" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.5-os</text>
+<text x="838" y="5326.7" class="lbl-rel" text-anchor="start">★ 2.5 OS  12 Aug 2026</text>
+<text x="838" y="5385.7" class="lbl-pr" text-anchor="start">← PR#38</text>
+<text x="838" y="5397.7" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.6</text>
+<text x="838" y="5445.7" class="lbl-pr" text-anchor="start">← PR#39</text>
+<text x="808" y="5505.7" class="lbl-pr" text-anchor="start">← PR#40</text>
+<text x="808" y="5565.7" class="lbl-pr" text-anchor="start">← PR#42</text>
+<text x="838" y="5577.7" class="lbl-pr" text-anchor="start">← PR#43</text>
+<text x="838" y="5629.9" class="lbl-pr" text-anchor="start">← PR#44</text>
+<text x="838" y="5687.9" class="lbl-pr" text-anchor="start">← PR#45</text>
+<text x="838" y="5747.9" class="lbl-pr" text-anchor="start">← PR#46</text>
+<text x="808" y="5805.9" class="lbl-pr" text-anchor="start">← PR#47</text>
 </svg>
