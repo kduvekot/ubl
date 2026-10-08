@@ -1,0 +1,330 @@
+{
+  "_comment": [
+    "Branch tree of oasis-tcs/ubl, read by generate-timeline.py and gen_train4.py.",
+    "branches: every branch of the timeline, oldest family first; parent and fork_point (7-character commit on the parent's first-parent chain) were verified by walking first-parent chains; head is the branch's full head commit as recorded, which the scripts use instead of origin/<branch>.",
+    "trunk_branch: the branch whose first-parent chain (from its recorded head) is the trunk.",
+    "column_order: CSV column order after the trunk column, matching the diagram: merge-back branches, then dead ends by fork point, then the rest.",
+    "diagram.side_branches: the dead-end branches drawn left of the trunk; fork_idx is a trunk position, commits the number of dots.",
+    "diagram.releases: trunk commits marked as releases (★ only for releases verified in release-commit-mapping.md); diagram.milestones: other trunk labels by trunk position.",
+    "See timeline-rules.md and README.md."
+  ],
+  "as_of": "2026-04-03",
+  "trunk_branch": "ubl-2.5",
+  "trunk_column": "UBL-Trunk",
+  "branches": [
+    {
+      "name": "main",
+      "parent": null,
+      "fork_point": null,
+      "head": "c12b81a5d412fdb56a11d7e638be61b08c60c3ab"
+    },
+    {
+      "name": "ubl-2.3-csd05-copy",
+      "parent": "main",
+      "fork_point": "6d153bf",
+      "head": "57dda2e5c24ea9693ed5a2365dce350e422f9d35"
+    },
+    {
+      "name": "ubl-2.3-cs02",
+      "parent": "ubl-2.3-csd05-copy",
+      "fork_point": "57dda2e",
+      "head": "47eb1f5627116f966b215c09fa9109d134cd9311"
+    },
+    {
+      "name": "ubl-2.3-os",
+      "parent": "ubl-2.3-cs02",
+      "fork_point": "47eb1f5",
+      "head": "bc995206894f069cebc7272ed9a2de1d2b0ab91c"
+    },
+    {
+      "name": "ubl-2.3-os-iso",
+      "parent": "ubl-2.3-os",
+      "fork_point": "bc99520",
+      "head": "bc995206894f069cebc7272ed9a2de1d2b0ab91c"
+    },
+    {
+      "name": "review",
+      "parent": "ubl-2.3-os",
+      "fork_point": "bc99520",
+      "head": "876778c2b322f23bc4a8841573424e252303cd56"
+    },
+    {
+      "name": "ubl-2.4-csd01wd01",
+      "parent": "main",
+      "fork_point": "f71d2be",
+      "head": "21efa9ebf3286ee715682c9fedc4d771daef5a92"
+    },
+    {
+      "name": "ubl-2.4-csd01wd02",
+      "parent": "ubl-2.4-csd01wd01",
+      "fork_point": "21efa9e",
+      "head": "33d45279a29822868347e1c0397e5c0da97753b1"
+    },
+    {
+      "name": "ubl-2.4-csd01",
+      "parent": "ubl-2.4-csd01wd02",
+      "fork_point": "294527e",
+      "head": "0b0b0b336372c5477e022fd665f2aec641e5a0bc"
+    },
+    {
+      "name": "ubl-2.4-csd02-prd01-13",
+      "parent": "ubl-2.4-csd01",
+      "fork_point": "2e3c601",
+      "head": "476e1addf09f308b761dd6371e4609f36e228a3e"
+    },
+    {
+      "name": "ubl-2.4-csd02-tsc",
+      "parent": "ubl-2.4-csd02-prd01-13",
+      "fork_point": "476e1ad",
+      "head": "476e1addf09f308b761dd6371e4609f36e228a3e"
+    },
+    {
+      "name": "ubl-2.4-csd02",
+      "parent": "ubl-2.4-csd02-prd01-13",
+      "fork_point": "476e1ad",
+      "head": "9b42a40a11815a471ba5ce18913f6855c576810a"
+    },
+    {
+      "name": "ubl-2.4-cs01-work",
+      "parent": "ubl-2.4-csd02",
+      "fork_point": "9b42a40",
+      "head": "7c0188743662b51d34186ab806b68ba4a901961a"
+    },
+    {
+      "name": "ubl-2.4-cs01",
+      "parent": "ubl-2.4-cs01-work",
+      "fork_point": "7c01887",
+      "head": "8c4d077183bb199891fc01a48c5ea6384037a543"
+    },
+    {
+      "name": "ubl-2.4-os",
+      "parent": "ubl-2.4-cs01",
+      "fork_point": "6cc2cf5",
+      "head": "779bf4b42548123781b10b284a3ee662866038b4"
+    },
+    {
+      "name": "ubl-2.4-os-iso-pub",
+      "parent": "ubl-2.4-os",
+      "fork_point": "8c99636",
+      "head": "c55958d4b0e04d5ca42911f0eb789601f1b7dc23"
+    },
+    {
+      "name": "tsc-ubl-2.5-experimental",
+      "parent": "ubl-2.4-cs01",
+      "fork_point": "16ca084",
+      "head": "0b381cc002a893903eb62bb27150ef08192051ac"
+    },
+    {
+      "name": "ubl-2.5-dev",
+      "parent": "ubl-2.4-cs01",
+      "fork_point": "b9df309",
+      "head": "39fae0da26cc068040dadaee406d18e582252b36"
+    },
+    {
+      "name": "ubl-2.5-kenneth",
+      "parent": "ubl-2.5-dev",
+      "fork_point": "76dcc63",
+      "head": "154a8bcdffe5990b28edbae919f5a30426936ea4"
+    },
+    {
+      "name": "UBL-433-xsd-doc",
+      "parent": "ubl-2.5-dev",
+      "fork_point": "39fae0d",
+      "head": "4c0ffc314368f519529cf253a5bd662ecf2da7d0"
+    },
+    {
+      "name": "retest",
+      "parent": "ubl-2.5-dev",
+      "fork_point": "153236e",
+      "head": "15c714c5caafa34b4b25fcdaf3c340fbd862ef0b"
+    },
+    {
+      "name": "ubl-2.5",
+      "parent": "UBL-433-xsd-doc",
+      "fork_point": "4c0ffc3",
+      "head": "3d81e8acf790522057776b7d8503084d7b2bca3a"
+    },
+    {
+      "name": "ubl-2.5-python",
+      "parent": "ubl-2.5",
+      "fork_point": "0b44c38",
+      "head": "6c4d31425d6e1b0ca445c6c988bedbd6d6a47c2b"
+    },
+    {
+      "name": "server-test",
+      "parent": "ubl-2.5",
+      "fork_point": "b122814",
+      "head": "68aabb910b3a2e5fb59afa4d8911d709b4bf8027"
+    },
+    {
+      "name": "ubl-2.5-2025-layout",
+      "parent": "ubl-2.5",
+      "fork_point": "b122814",
+      "head": "5e984b8c5e716ae96fc879eb886a36dd2592a5a3"
+    },
+    {
+      "name": "kentest",
+      "parent": "ubl-2.5-2025-layout",
+      "fork_point": "5e984b8",
+      "head": "7f8f0465682cde4dbbd2bc645cefa8e6df9d47cf"
+    },
+    {
+      "name": "ubl-2.5-retry",
+      "parent": "ubl-2.5",
+      "fork_point": "ea6223d",
+      "head": "f738ca337ff2a1cff48afbd9bca0007bb430038d"
+    }
+  ],
+  "column_order": [
+    "ubl-2.4-csd01wd02",
+    "ubl-2.5-python",
+    "ubl-2.3-csd05-copy",
+    "ubl-2.3-cs02",
+    "ubl-2.3-os",
+    "ubl-2.3-os-iso",
+    "review",
+    "main",
+    "tsc-ubl-2.5-experimental",
+    "ubl-2.4-os",
+    "ubl-2.4-os-iso-pub",
+    "retest",
+    "ubl-2.5-kenneth",
+    "server-test",
+    "kentest",
+    "ubl-2.5-retry",
+    "ubl-2.5-2025-layout",
+    "ubl-2.4-csd01",
+    "ubl-2.4-csd02-tsc",
+    "ubl-2.4-cs01"
+  ],
+  "diagram": {
+    "side_branches": [
+      {
+        "name": "ubl-2.3-csd05-copy",
+        "fork_idx": 5,
+        "commits": 1,
+        "release": "★ 2.3 CSD05  12 May 2021"
+      },
+      {
+        "name": "ubl-2.3-cs02",
+        "fork_idx": 5,
+        "commits": 2,
+        "release": "★ 2.3 CS02  25 May 2021"
+      },
+      {
+        "name": "ubl-2.3-os (+os-iso)",
+        "fork_idx": 9,
+        "commits": 2,
+        "release": "★ 2.3 OS  15 Jun 2021"
+      },
+      {
+        "name": "review",
+        "fork_idx": 9,
+        "commits": 5,
+        "release": null
+      },
+      {
+        "name": "main",
+        "fork_idx": 9,
+        "commits": 1,
+        "release": null
+      },
+      {
+        "name": "ubl-2.4-csd01 tip",
+        "fork_idx": 68,
+        "commits": 1,
+        "release": null
+      },
+      {
+        "name": "tsc-ubl-2.5-exp",
+        "fork_idx": 102,
+        "commits": 14,
+        "release": null
+      },
+      {
+        "name": "ubl-2.4-cs01 tip",
+        "fork_idx": 106,
+        "commits": 7,
+        "release": null
+      },
+      {
+        "name": "ubl-2.4-os",
+        "fork_idx": 106,
+        "commits": 14,
+        "release": "★ 2.4 OS  20 Jun 2024"
+      },
+      {
+        "name": "ubl-2.4-os-iso-pub",
+        "fork_idx": 106,
+        "commits": 22,
+        "release": null
+      },
+      {
+        "name": "retest",
+        "fork_idx": 125,
+        "commits": 2,
+        "release": null
+      },
+      {
+        "name": "ubl-2.5-kenneth",
+        "fork_idx": 138,
+        "commits": 2,
+        "release": null
+      },
+      {
+        "name": "kentest",
+        "fork_idx": 307,
+        "commits": 9,
+        "release": null
+      },
+      {
+        "name": "server-test",
+        "fork_idx": 307,
+        "commits": 1,
+        "release": null
+      },
+      {
+        "name": "ubl-2.5-retry",
+        "fork_idx": 308,
+        "commits": 1,
+        "release": null
+      }
+    ],
+    "releases": [
+      {
+        "commit": "2e3c601",
+        "label": "★ 2.4 CSD01  08 Feb 2023"
+      },
+      {
+        "commit": "9b42a40",
+        "label": "★ 2.4 CSD02  26 Jul 2023"
+      },
+      {
+        "commit": "b9df309",
+        "label": "★ 2.4 CS01  17 Oct 2023"
+      },
+      {
+        "commit": "0b44c38",
+        "label": "★ 2.5 CSD01  20 Aug 2025"
+      },
+      {
+        "commit": "b122814",
+        "label": "★ 2.5 CSD02  03 Dec 2025"
+      },
+      {
+        "commit": "3d81e8a",
+        "label": "★ 2.5 CSD03  11 Feb 2026"
+      }
+    ],
+    "milestones": [
+      {
+        "trunk_idx": 0,
+        "label": "Repo created  11 Apr 2018"
+      },
+      {
+        "trunk_idx": 9,
+        "label": "PIVOT  26 May 2021"
+      }
+    ]
+  }
+}

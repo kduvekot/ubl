@@ -12,13 +12,21 @@ else:
 def run(cmd):
     return subprocess.check_output(cmd, shell=True, text=True, cwd=REPO).strip()
 
+# ─── BRANCH TREE (branch-tree.json, next to this script) ───
+import json
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                       "branch-tree.json")) as f:
+    tree = json.load(f)
+TRUNK_HEAD = next(b["head"] for b in tree["branches"]
+                  if b["name"] == tree["trunk_branch"])
+
 # ─── TRUNK ───
-trunk = run("git rev-list --first-parent origin/ubl-2.5").split("\n")
+trunk = run(f"git rev-list --first-parent {TRUNK_HEAD}").split("\n")
 trunk.reverse()
 trunk_set = set(trunk)
 trunk_idx = {sha: i for i, sha in enumerate(trunk)}
 
-log_data = run(f"git rev-list --first-parent origin/ubl-2.5 --reverse --format='%at %as %s'")
+log_data = run(f"git rev-list --first-parent {TRUNK_HEAD} --reverse --format='%at %as %s'")
 log_lines = [l for l in log_data.split("\n") if not l.startswith("commit ")]
 trunk_ts = []
 trunk_dates = []
@@ -76,43 +84,18 @@ for i, sha in enumerate(trunk):
         })
 
 # ─── DEAD-END branches ───
-dead_branches = [
-    {"name": "ubl-2.3-csd05-copy", "fork_idx": 5, "commits": 1, "release": "★ 2.3 CSD05  12 May 2021"},
-    {"name": "ubl-2.3-cs02", "fork_idx": 5, "commits": 2, "release": "★ 2.3 CS02  25 May 2021"},
-    {"name": "ubl-2.3-os (+os-iso)", "fork_idx": 9, "commits": 2, "release": "★ 2.3 OS  15 Jun 2021"},
-    {"name": "review", "fork_idx": 9, "commits": 5, "release": None},
-    {"name": "main", "fork_idx": 9, "commits": 1, "release": None},
-    {"name": "ubl-2.4-csd01 tip", "fork_idx": 68, "commits": 1, "release": None},
-    {"name": "tsc-ubl-2.5-exp", "fork_idx": 102, "commits": 14, "release": None},
-    {"name": "ubl-2.4-cs01 tip", "fork_idx": 106, "commits": 7, "release": None},
-    {"name": "ubl-2.4-os", "fork_idx": 106, "commits": 14, "release": "★ 2.4 OS  20 Jun 2024"},
-    {"name": "ubl-2.4-os-iso-pub", "fork_idx": 106, "commits": 22, "release": None},
-    {"name": "retest", "fork_idx": 125, "commits": 2, "release": None},
-    {"name": "ubl-2.5-kenneth", "fork_idx": 138, "commits": 2, "release": None},
-    {"name": "kentest", "fork_idx": 307, "commits": 9, "release": None},
-    {"name": "server-test", "fork_idx": 307, "commits": 1, "release": None},
-    {"name": "ubl-2.5-retry", "fork_idx": 308, "commits": 1, "release": None},
-]
+dead_branches = [dict(db) for db in tree["diagram"]["side_branches"]]
 
 # ─── RELEASES on trunk ───
 releases = {}
-for prefix, label in [
-    ("2e3c601", "★ 2.4 CSD01  08 Feb 2023"),
-    ("9b42a40", "★ 2.4 CSD02  26 Jul 2023"),
-    ("b9df309", "★ 2.4 CS01  17 Oct 2023"),
-    ("0b44c38", "★ 2.5 CSD01  20 Aug 2025"),
-    ("b122814", "★ 2.5 CSD02  03 Dec 2025"),
-    ("3d81e8a", "★ 2.5 CSD03  11 Feb 2026"),
-]:
+for rel in tree["diagram"]["releases"]:
+    prefix, label = rel["commit"], rel["label"]
     for sha in trunk:
         if sha.startswith(prefix):
             releases[trunk_idx[sha]] = label
 
 # ─── MILESTONES ───
-milestones = {
-    0: "Repo created  11 Apr 2018",
-    9: "PIVOT  26 May 2021",
-}
+milestones = {m["trunk_idx"]: m["label"] for m in tree["diagram"]["milestones"]}
 
 # ─── TRUNK BRANCH NAME TRANSITIONS (from forensics) ───
 forensics_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
@@ -341,8 +324,9 @@ lines.append(f'<text x="10" y="16" fill="#58a6ff" font-size="13" font-weight="bo
 pr_commits = sum(len(mb["commits"]) for mb in merge_branches)
 lines.append(f'<text x="10" y="30" fill="#8b949e" font-size="9">{N} trunk commits (dots) · {pr_commits} PR branch commits (side tracks) · '
              f'★ = verified release · Blue = merge-back branches · Gray = dead ends</text>')
-from datetime import date
-lines.append(f'<text x="10" y="42" fill="#484f58" font-size="8">Generated {date.today()} · Time-proportional spacing</text>')
+# The date of the recorded branch heads, not today's date, so that the same
+# data always gives the same file.
+lines.append(f'<text x="10" y="42" fill="#484f58" font-size="8">Generated {tree["as_of"]} · Time-proportional spacing</text>')
 
 # Year markers
 for year, idx in sorted(year_first.items()):

@@ -66,85 +66,53 @@ def csv_escape(val):
     return val
 
 def main():
-    # ===== VERIFIED FORK TREE =====
-    # Format: child -> (parent_branch, fork_sha)
-    # This was manually verified by walking first-parent chains.
+    # ===== BRANCH TREE (branch-tree.json) =====
+    # The fork tree, the recorded head of every branch, the trunk branch and
+    # the column order are kept in branch-tree.json, next to this script.
     #
-    # TRUNK MODEL: The first-parent chain of ubl-2.5 (328 commits) is the
-    # single continuous trunk.  Many branch names pointed to different
-    # positions along this same chain at different times.  In the CSV,
-    # ALL trunk commits appear in the "ubl-2.5" column; the "Active Branch"
-    # metadata column records which name was active for each commit.
+    # TRUNK MODEL: the first-parent chain of the trunk branch is the single
+    # continuous trunk.  Many branch names pointed to different positions
+    # along this same chain at different times.  In the CSV, ALL trunk
+    # commits appear in the trunk column; the "Active Branch" metadata
+    # column records which name was active for each commit.
     #
     # Branches whose first-parent chains are entirely subsets of the trunk
     # (no unique commits) are "trunk aliases" — they don't get their own
     # column.  Branches with unique non-trunk commits keep a column for
-    # those commits only.
-    FORK_TREE = {
-        "main": (None, None),
-        # 2.3 branch family
-        "ubl-2.3-csd05-copy": ("main", "6d153bf"),
-        "ubl-2.3-cs02": ("ubl-2.3-csd05-copy", "57dda2e"),
-        "ubl-2.3-os": ("ubl-2.3-cs02", "47eb1f5"),
-        "ubl-2.3-os-iso": ("ubl-2.3-os", "bc99520"),
-        "review": ("ubl-2.3-os", "bc99520"),
-        # 2.4 branch family
-        "ubl-2.4-csd01wd01": ("main", "f71d2be"),
-        "ubl-2.4-csd01wd02": ("ubl-2.4-csd01wd01", "21efa9e"),
-        "ubl-2.4-csd01": ("ubl-2.4-csd01wd02", "294527e"),
-        "ubl-2.4-csd02-prd01-13": ("ubl-2.4-csd01", "2e3c601"),
-        "ubl-2.4-csd02-tsc": ("ubl-2.4-csd02-prd01-13", "476e1ad"),
-        "ubl-2.4-csd02": ("ubl-2.4-csd02-prd01-13", "476e1ad"),
-        "ubl-2.4-cs01-work": ("ubl-2.4-csd02", "9b42a40"),
-        "ubl-2.4-cs01": ("ubl-2.4-cs01-work", "7c01887"),
-        "ubl-2.4-os": ("ubl-2.4-cs01", "6cc2cf5"),
-        "ubl-2.4-os-iso-pub": ("ubl-2.4-os", "8c99636"),
-        # 2.5 branch family (connected tree)
-        "tsc-ubl-2.5-experimental": ("ubl-2.4-cs01", "16ca084"),
-        "ubl-2.5-dev": ("ubl-2.4-cs01", "b9df309"),
-        "ubl-2.5-kenneth": ("ubl-2.5-dev", "76dcc63"),
-        "UBL-433-xsd-doc": ("ubl-2.5-dev", "39fae0d"),
-        "retest": ("ubl-2.5-dev", "153236e"),
-        # 2.5 branch family
-        "ubl-2.5": ("UBL-433-xsd-doc", "4c0ffc3"),
-        "ubl-2.5-python": ("ubl-2.5", "0b44c38"),
-        "server-test": ("ubl-2.5", "b122814"),
-        "ubl-2.5-2025-layout": ("ubl-2.5", "b122814"),
-        "kentest": ("ubl-2.5-2025-layout", "5e984b8"),
-        "ubl-2.5-retry": ("ubl-2.5", "ea6223d"),
-    }
-
-    # The trunk is the first-parent chain of ubl-2.5
-    TRUNK_BRANCH = "ubl-2.5"
-    TRUNK_COLUMN = "UBL-Trunk"  # display name for the trunk column in CSV
+    # those commits only.  See timeline-rules.md.
+    import json
+    tree_file = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                             "branch-tree.json")
+    with open(tree_file) as f:
+        tree = json.load(f)
+    FORK_TREE = OrderedDict(
+        (b["name"], (b["parent"], b["fork_point"])) for b in tree["branches"])
+    TRUNK_BRANCH = tree["trunk_branch"]
+    TRUNK_COLUMN = tree["trunk_column"]  # display name for the trunk column in CSV
 
     branch_names = list(FORK_TREE.keys())
     print(f"Branches: {len(branch_names)}", file=sys.stderr)
 
-    # Where to find each branch: origin/<branch>, or, for a branch deleted
-    # from the repository since, the last commit recorded for it in
-    # branch-forensics.json (deleted_branches / deleted_after_analysis).
-    deleted_heads = {}
-    forensics_file = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                  "branch-forensics.json")
-    if os.path.exists(forensics_file):
-        import json
-        with open(forensics_file) as f:
-            recorded = json.load(f).get("deleted_branches", {})
-        for entry in recorded.get("deleted_after_analysis", []):
-            deleted_heads[entry["branch"]] = entry["last_commit"]
+    # Each branch is read from its recorded head commit, not from
+    # origin/<branch>, so the timeline does not change when a branch moves
+    # on or is deleted.  Differences from the clone are reported.
     refs = {}
-    for name in branch_names:
+    for b in tree["branches"]:
+        name, head = b["name"], b["head"]
         try:
-            run(f"git rev-parse --verify --quiet origin/{name}")
-            refs[name] = f"origin/{name}"
+            run(f"git cat-file -e {head}^{{commit}}")
         except subprocess.CalledProcessError:
-            if name not in deleted_heads:
-                sys.exit(f"origin/{name} does not exist and branch-forensics.json "
-                         f"records no last commit for it")
-            refs[name] = deleted_heads[name]
-            print(f"  {name}: deleted, using its recorded last commit "
-                  f"{refs[name][:7]}", file=sys.stderr)
+            sys.exit(f"Recorded head {head[:7]} of {name} is not in the clone "
+                     f"(a shallow clone or a fork?)")
+        refs[name] = head
+        try:
+            current = run(f"git rev-parse --verify --quiet origin/{name}")
+            if current != head:
+                print(f"  {name}: origin/{name} is now {current[:7]}, "
+                      f"using the recorded head {head[:7]}", file=sys.stderr)
+        except subprocess.CalledProcessError:
+            print(f"  {name}: no longer in the repository, using the "
+                  f"recorded head {head[:7]}", file=sys.stderr)
 
     # Build first-parent chains
     fp_chains = {}
@@ -273,7 +241,7 @@ def main():
     print(f"  Non-first-parent commits to assign: {len(non_fp)}", file=sys.stderr)
 
     # For each merge commit, find what it brought in and assign those commits
-    merge_out = run(f'git log --all --merges --format="%H %P" {all_refs_str}')
+    merge_out = run(f'git log --merges --format="%H %P" {all_refs_str}')
     for line in merge_out.split("\n"):
         if not line.strip():
             continue
@@ -391,24 +359,12 @@ def main():
     if dropped:
         print(f"Trunk aliases (no column): {dropped}", file=sys.stderr)
 
-    # Column order aligned with train track diagram:
-    # 1. Trunk (ubl-2.5)
+    # Column order aligned with train track diagram (branch-tree.json):
+    # 1. Trunk
     # 2. Right-side merge-back branches
     # 3. Left-side dead-end branches (by fork point)
     # 4. Other branches with unique commits
-    TRAIN_TRACK_ORDER = [
-        TRUNK_COLUMN,
-        # Right side (merge-back PRs)
-        'ubl-2.4-csd01wd02', 'ubl-2.5-python',
-        # Left side (dead-ends, by fork point)
-        'ubl-2.3-csd05-copy', 'ubl-2.3-cs02', 'ubl-2.3-os', 'ubl-2.3-os-iso',
-        'review', 'main', 'tsc-ubl-2.5-experimental',
-        'ubl-2.4-os', 'ubl-2.4-os-iso-pub', 'retest', 'ubl-2.5-kenneth',
-        'server-test', 'kentest', 'ubl-2.5-retry',
-        # Other (branches with unique non-trunk commits)
-        'ubl-2.5-2025-layout',
-        'ubl-2.4-csd01', 'ubl-2.4-csd02-tsc', 'ubl-2.4-cs01',
-    ]
+    TRAIN_TRACK_ORDER = [TRUNK_COLUMN] + tree["column_order"]
     # Use train track order for branches that have commits, append any new ones
     known = set(TRAIN_TRACK_ORDER)
     sorted_branches = [b for b in TRAIN_TRACK_ORDER if b in active_branches]
@@ -418,7 +374,7 @@ def main():
     print(f"\nColumn order: {sorted_branches}", file=sys.stderr)
 
     # Get merge info
-    out = run(f'git log --all --merges --format="%H|%P|%s" {all_refs}')
+    out = run(f'git log --merges --format="%H|%P|%s" {all_refs}')
     merges = {}
     for line in out.split("\n"):
         if not line.strip():
