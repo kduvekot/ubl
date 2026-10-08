@@ -1,0 +1,242 @@
+[
+  {
+    "name": "UBL-433-xsd-doc",
+    "commit": {
+      "sha": "4c0ffc314368f519529cf253a5bd662ecf2da7d0",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/4c0ffc314368f519529cf253a5bd662ecf2da7d0"
+    },
+    "protected": false
+  },
+  {
+    "name": "kentest",
+    "commit": {
+      "sha": "7f8f0465682cde4dbbd2bc645cefa8e6df9d47cf",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/7f8f0465682cde4dbbd2bc645cefa8e6df9d47cf"
+    },
+    "protected": false
+  },
+  {
+    "name": "main",
+    "commit": {
+      "sha": "c12b81a5d412fdb56a11d7e638be61b08c60c3ab",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/c12b81a5d412fdb56a11d7e638be61b08c60c3ab"
+    },
+    "protected": true
+  },
+  {
+    "name": "retest",
+    "commit": {
+      "sha": "15c714c5caafa34b4b25fcdaf3c340fbd862ef0b",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/15c714c5caafa34b4b25fcdaf3c340fbd862ef0b"
+    },
+    "protected": false
+  },
+  {
+    "name": "review",
+    "commit": {
+      "sha": "876778c2b322f23bc4a8841573424e252303cd56",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/876778c2b322f23bc4a8841573424e252303cd56"
+    },
+    "protected": true
+  },
+  {
+    "name": "server-test",
+    "commit": {
+      "sha": "68aabb910b3a2e5fb59afa4d8911d709b4bf8027",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/68aabb910b3a2e5fb59afa4d8911d709b4bf8027"
+    },
+    "protected": false
+  },
+  {
+    "name": "tsc-ubl-2.5-experimental",
+    "commit": {
+      "sha": "0b381cc002a893903eb62bb27150ef08192051ac",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/0b381cc002a893903eb62bb27150ef08192051ac"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.3-cs02",
+    "commit": {
+      "sha": "47eb1f5627116f966b215c09fa9109d134cd9311",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/47eb1f5627116f966b215c09fa9109d134cd9311"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.3-csd05-copy",
+    "commit": {
+      "sha": "57dda2e5c24ea9693ed5a2365dce350e422f9d35",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/57dda2e5c24ea9693ed5a2365dce350e422f9d35"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.3-os",
+    "commit": {
+      "sha": "bc995206894f069cebc7272ed9a2de1d2b0ab91c",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/bc995206894f069cebc7272ed9a2de1d2b0ab91c"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.3-os-iso",
+    "commit": {
+      "sha": "bc995206894f069cebc7272ed9a2de1d2b0ab91c",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/bc995206894f069cebc7272ed9a2de1d2b0ab91c"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.4-cs01-work",
+    "commit": {
+      "sha": "7c0188743662b51d34186ab806b68ba4a901961a",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/7c0188743662b51d34186ab806b68ba4a901961a"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.4-cs01",
+    "commit": {
+      "sha": "8c4d077183bb199891fc01a48c5ea6384037a543",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/8c4d077183bb199891fc01a48c5ea6384037a543"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.4-csd01wd01",
+    "commit": {
+      "sha": "21efa9ebf3286ee715682c9fedc4d771daef5a92",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/21efa9ebf3286ee715682c9fedc4d771daef5a92"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.4-csd01wd02",
+    "commit": {
+      "sha": "33d45279a29822868347e1c0397e5c0da97753b1",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/33d45279a29822868347e1c0397e5c0da97753b1"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.4-csd01",
+    "commit": {
+      "sha": "0b0b0b336372c5477e022fd665f2aec641e5a0bc",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/0b0b0b336372c5477e022fd665f2aec641e5a0bc"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.4-csd02-prd01-13",
+    "commit": {
+      "sha": "476e1addf09f308b761dd6371e4609f36e228a3e",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/476e1addf09f308b761dd6371e4609f36e228a3e"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.4-csd02-tsc",
+    "commit": {
+      "sha": "476e1addf09f308b761dd6371e4609f36e228a3e",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/476e1addf09f308b761dd6371e4609f36e228a3e"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.4-csd02",
+    "commit": {
+      "sha": "9b42a40a11815a471ba5ce18913f6855c576810a",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/9b42a40a11815a471ba5ce18913f6855c576810a"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.4-os",
+    "commit": {
+      "sha": "779bf4b42548123781b10b284a3ee662866038b4",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/779bf4b42548123781b10b284a3ee662866038b4"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.4-os-iso-pub",
+    "commit": {
+      "sha": "c55958d4b0e04d5ca42911f0eb789601f1b7dc23",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/c55958d4b0e04d5ca42911f0eb789601f1b7dc23"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.5-2025-layout",
+    "commit": {
+      "sha": "5e984b8c5e716ae96fc879eb886a36dd2592a5a3",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/5e984b8c5e716ae96fc879eb886a36dd2592a5a3"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.5-cs01",
+    "commit": {
+      "sha": "ca125dfd71f6484cd8ec7d3c91bc0d9092310c49",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/ca125dfd71f6484cd8ec7d3c91bc0d9092310c49"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.5-dev",
+    "commit": {
+      "sha": "39fae0da26cc068040dadaee406d18e582252b36",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/39fae0da26cc068040dadaee406d18e582252b36"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.5-iso",
+    "commit": {
+      "sha": "8630a5f96c82453ee56865fe7ae814df63a45b2e",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/8630a5f96c82453ee56865fe7ae814df63a45b2e"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.5-kenneth",
+    "commit": {
+      "sha": "154a8bcdffe5990b28edbae919f5a30426936ea4",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/154a8bcdffe5990b28edbae919f5a30426936ea4"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.5-os",
+    "commit": {
+      "sha": "345386aa0504488aebdbec1c7d629ce9b7d08826",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/345386aa0504488aebdbec1c7d629ce9b7d08826"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.5-retry",
+    "commit": {
+      "sha": "f738ca337ff2a1cff48afbd9bca0007bb430038d",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/f738ca337ff2a1cff48afbd9bca0007bb430038d"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.5",
+    "commit": {
+      "sha": "3d81e8acf790522057776b7d8503084d7b2bca3a",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/3d81e8acf790522057776b7d8503084d7b2bca3a"
+    },
+    "protected": false
+  },
+  {
+    "name": "ubl-2.6",
+    "commit": {
+      "sha": "29ae6b44af4d62e4d9d0ef26541c47d6c45df6cb",
+      "url": "https://api.github.com/repos/oasis-tcs/ubl/commits/29ae6b44af4d62e4d9d0ef26541c47d6c45df6cb"
+    },
+    "protected": false
+  }
+]
