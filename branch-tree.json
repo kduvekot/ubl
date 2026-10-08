@@ -8,8 +8,8 @@
     "diagram.releases: trunk commits marked as releases (★ only for releases verified in release-commit-mapping.md); diagram.milestones: other trunk labels by trunk position.",
     "See timeline-rules.md and README.md."
   ],
-  "as_of": "2026-04-03",
-  "trunk_branch": "ubl-2.5",
+  "as_of": "2026-10-08",
+  "trunk_branch": "ubl-2.6",
   "trunk_column": "UBL-Trunk",
   "branches": [
     {
@@ -173,11 +173,36 @@
       "parent": "ubl-2.5",
       "fork_point": "ea6223d",
       "head": "f738ca337ff2a1cff48afbd9bca0007bb430038d"
+    },
+    {
+      "name": "ubl-2.5-cs01",
+      "parent": "ubl-2.5",
+      "fork_point": "3d81e8a",
+      "head": "ca125dfd71f6484cd8ec7d3c91bc0d9092310c49"
+    },
+    {
+      "name": "ubl-2.5-os",
+      "parent": "ubl-2.5-cs01",
+      "fork_point": "ca125df",
+      "head": "345386aa0504488aebdbec1c7d629ce9b7d08826"
+    },
+    {
+      "name": "ubl-2.5-iso",
+      "parent": "ubl-2.5-os",
+      "fork_point": "345386a",
+      "head": "8630a5f96c82453ee56865fe7ae814df63a45b2e"
+    },
+    {
+      "name": "ubl-2.6",
+      "parent": "ubl-2.5-os",
+      "fork_point": "345386a",
+      "head": "29ae6b44af4d62e4d9d0ef26541c47d6c45df6cb"
     }
   ],
   "column_order": [
     "ubl-2.4-csd01wd02",
     "ubl-2.5-python",
+    "ubl-2.5-iso",
     "ubl-2.3-csd05-copy",
     "ubl-2.3-cs02",
     "ubl-2.3-os",
@@ -203,7 +228,7 @@
         "name": "ubl-2.3-csd05-copy",
         "fork_idx": 5,
         "commits": 1,
-        "release": "★ 2.3 CSD05  12 May 2021"
+        "release": "2.3 CSD05  12 May 2021"
       },
       {
         "name": "ubl-2.3-cs02",
@@ -314,6 +339,14 @@
       {
         "commit": "3d81e8a",
         "label": "★ 2.5 CSD03  11 Feb 2026"
+      },
+      {
+        "commit": "ca125df",
+        "label": "★ 2.5 CS01  15 Apr 2026"
+      },
+      {
+        "commit": "345386a",
+        "label": "★ 2.5 OS  12 Aug 2026"
       }
     ],
     "milestones": [
