@@ -6,10 +6,25 @@ with each commit placed in exactly one branch column to show which branch "owns"
 
 ## Trunk Model
 
-The first-parent chain of `ubl-2.5` (328 commits) forms a single continuous
-**trunk**. Many branch names pointed to different positions along this same
-chain at different times (main, ubl-2.4-csd01wd01, ubl-2.5-csd01, ubl-2.5,
-etc.), but in the CSV they all appear in one column: **UBL-Trunk**.
+The first-parent chain of `ubl-2.6` (373 commits, up to `29ae6b4` of
+8 October 2026) forms a single continuous **trunk**. Many branch names
+pointed to different positions along this same chain at different times
+(main, ubl-2.4-csd01wd01, ubl-2.5-csd01, ubl-2.5, ubl-2.5-cs01, ubl-2.5-os,
+ubl-2.6, etc.), but in the CSV they all appear in one column: **UBL-Trunk**.
+
+Up to the analysis of April 2026 the trunk was the first-parent chain of
+`ubl-2.5` (328 commits, ending at `3d81e8a`). That chain is the first 328
+commits of the `ubl-2.6` chain, unchanged: `ubl-2.5` itself never moved
+after `3d81e8a`, and the work continued on `ubl-2.5-cs01`, then
+`ubl-2.5-os`, then `ubl-2.6`, each started from the tip of the one before.
+
+### Branch Heads Are Fixed
+The data file `branch-tree.json` records the head commit of every branch
+as it was when the analysis was last brought up to date. The scripts use
+those commits, not the current `origin/<branch>` refs, so that they keep
+producing the same timeline after branches move on or are deleted. A
+branch that has moved is reported on stderr; bringing it into the timeline
+means updating its recorded head.
 
 The **Active Branch** column records which git branch name was active at each
 trunk commit, based on forensic evidence from the GitHub Activity API.
@@ -17,12 +32,14 @@ trunk commit, based on forensic evidence from the GitHub Activity API.
 ### Trunk Aliases
 Branches whose first-parent chains are entirely subsets of the trunk have no
 unique commits — they are "trunk aliases" and don't get their own column.
-Examples: ubl-2.4-csd01wd01, ubl-2.4-csd02, ubl-2.5-dev.
+Examples: ubl-2.4-csd01wd01, ubl-2.4-csd02, ubl-2.5-dev, ubl-2.5,
+ubl-2.5-cs01, ubl-2.5-os.
 
 ### Non-Trunk Branches
 Branches with unique commits that are not on the trunk's first-parent chain
 get their own column for those commits only. Examples: ubl-2.5-python,
-ubl-2.4-csd01wd02, tsc-ubl-2.5-experimental.
+ubl-2.4-csd01wd02, tsc-ubl-2.5-experimental, ubl-2.5-iso (one commit,
+`8630a5f`, merged into ubl-2.6 by PR #46).
 
 ## Branch Assignment Rules
 
@@ -32,7 +49,7 @@ from the branch tip back to the root. Only commits on this first-parent path are
 candidates for assignment to that branch.
 
 ### Trunk First
-All 328 trunk commits are assigned to the UBL-Trunk column before any other
+All 373 trunk commits are assigned to the UBL-Trunk column before any other
 branch assignment happens.
 
 ### Deepest Branch Wins
@@ -41,7 +58,7 @@ the commit is assigned to the **deepest branch** — the one created first,
 from which the others forked.
 
 ### Fork Tree
-The fork tree (hardcoded in `generate-timeline.py`) defines which branch forked
+The fork tree (in `branch-tree.json`) defines which branch forked
 from which, and at what commit SHA. This was manually verified by walking
 first-parent chains. It determines processing order: parent branches are
 processed before children, so parent branches claim shared commits first.
@@ -105,7 +122,9 @@ A header row is repeated every 50 data rows for navigation in GitHub's CSV viewe
 ## Data Sources
 
 - **Git first-parent chains**: `git rev-list --first-parent <branch>`
-- **Fork tree**: Manually verified parent-child relationships with fork-point SHAs
+- **Fork tree** (`branch-tree.json`): Manually verified parent-child
+  relationships with fork-point SHAs, the recorded head of every branch, the
+  column order, and the releases and side branches of the diagram
 - **`branch-forensics.json`**: Curated metadata preserving information that git
   alone cannot provide:
   - **Branch renames**: e.g., ubl-2.5-csd01 → ubl-2.5 (April 2025)
