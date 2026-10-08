@@ -2378,6 +2378,24 @@ file2="${dir}/hub-${package}-${UBLstage}-${label}/intermediate-support-files/new
       <include name="**"/>
     </fileset>
   </move>
+  <!--the endorsed subset's JSON files likewise, under endorsed/ as the endorsed
+      files are in the distribution-->
+  <available property="jsonEndorsedLegacyFilesAvailable"
+             file="${dir}/Endorsed-${UBLstage}-${UBLversion}/json-schema-legacy"/>
+  <copy preservelastmodified="true" if:set="jsonEndorsedLegacyFilesAvailable"
+        todir="${dir}/${package}-${UBLstage}-${label}-archive-only/endorsed/json-schema-legacy">
+    <fileset dir="${dir}/Endorsed-${UBLstage}-${UBLversion}/json-schema-legacy">
+      <include name="**"/>
+    </fileset>
+  </copy>
+  <available property="jsonEndorsedSchemaFilesAvailable"
+             file="${dir}/Endorsed-${UBLstage}-${UBLversion}/json-schema-model"/>
+  <copy preservelastmodified="true" if:set="jsonEndorsedSchemaFilesAvailable"
+        todir="${dir}/${package}-${UBLstage}-${label}-archive-only/endorsed/json-schema-model">
+    <fileset dir="${dir}/Endorsed-${UBLstage}-${UBLversion}/json-schema-model">
+      <include name="**"/>
+    </fileset>
+  </copy>
   
   <!--peel off the STS results into the archive
   <move file="${dir}/${package}-${UBLstage}-${label}/iso-iec-19845-draft-sts"
