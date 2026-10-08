@@ -121,10 +121,35 @@ def main():
     branch_names = list(FORK_TREE.keys())
     print(f"Branches: {len(branch_names)}", file=sys.stderr)
 
+    # Where to find each branch: origin/<branch>, or, for a branch deleted
+    # from the repository since, the last commit recorded for it in
+    # branch-forensics.json (deleted_branches / deleted_after_analysis).
+    deleted_heads = {}
+    forensics_file = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                  "branch-forensics.json")
+    if os.path.exists(forensics_file):
+        import json
+        with open(forensics_file) as f:
+            recorded = json.load(f).get("deleted_branches", {})
+        for entry in recorded.get("deleted_after_analysis", []):
+            deleted_heads[entry["branch"]] = entry["last_commit"]
+    refs = {}
+    for name in branch_names:
+        try:
+            run(f"git rev-parse --verify --quiet origin/{name}")
+            refs[name] = f"origin/{name}"
+        except subprocess.CalledProcessError:
+            if name not in deleted_heads:
+                sys.exit(f"origin/{name} does not exist and branch-forensics.json "
+                         f"records no last commit for it")
+            refs[name] = deleted_heads[name]
+            print(f"  {name}: deleted, using its recorded last commit "
+                  f"{refs[name][:7]}", file=sys.stderr)
+
     # Build first-parent chains
     fp_chains = {}
     for name in branch_names:
-        fp_chains[name] = get_first_parent_chain(f"origin/{name}")
+        fp_chains[name] = get_first_parent_chain(refs[name])
         print(f"  {name}: {len(fp_chains[name])} fp commits", file=sys.stderr)
 
     # Build processing order: BFS from main through fork tree
@@ -240,7 +265,7 @@ def main():
     print("\nAssigning merged-in (non-first-parent) commits...", file=sys.stderr)
 
     # Get all reachable commits
-    all_refs_str = " ".join(f"origin/{name}" for name in branch_names)
+    all_refs_str = " ".join(refs[name] for name in branch_names)
     all_reachable_out = run(f"git rev-list {all_refs_str}")
     all_reachable = set(all_reachable_out.split("\n"))
 
@@ -283,7 +308,7 @@ def main():
         for sha in still_unassigned:
             for name in process_order:
                 try:
-                    run(f"git merge-base --is-ancestor {sha} origin/{name}")
+                    run(f"git merge-base --is-ancestor {sha} {refs[name]}")
                     assignment[sha] = name
                     break
                 except subprocess.CalledProcessError:
@@ -298,7 +323,7 @@ def main():
     commit_info = {}
     # Use git log to batch - fetch ALL reachable commits' metadata
     all_refs = " ".join(
-        f"origin/{name}" for name in branch_names
+        refs[name] for name in branch_names
     )
     out = run(f'git log --format="%H|%ae|%ai|%s" {all_refs}')
     for line in out.split("\n"):

@@ -217,6 +217,17 @@
         ],
         "notes": "Test branch that was deleted and recreated 3 times on 2026-01-21 (same day). Originally created 2024-05-30. The recreations suggest the developer was resetting the branch to different starting points."
       }
+    ],
+    "deleted_after_analysis": [
+      {
+        "branch": "ubl-2.5-python",
+        "deleted": "2026-10-08",
+        "deleted_by": "kduvekot",
+        "last_commit": "6c4d31425d6e1b0ca445c6c988bedbd6d6a47c2b",
+        "last_commit_message": "Merge pull request #33 from kduvekot/ubl-2.5-python",
+        "source": "git ls-remote of oasis-tcs/ubl before and after the deletion; recorded 2026-10-08.",
+        "notes": "Branch of the Python variant of the build (build.py, build-py.xml); its workflow job ran only on this branch. Deleted after oasis-tcs/ubl PR #45 removed the Python build from ubl-2.6. All its commits are also in ubl-2.5 and ubl-2.6. generate-timeline.py uses last_commit for a branch of its fork tree that no longer exists in the clone."
+      }
     ]
   },
 

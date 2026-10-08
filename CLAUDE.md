@@ -49,11 +49,12 @@ involves.
 
 What an update to the present involves:
 
-1. **Branches deleted from the official repository.** The scripts need every
-   branch in their branch tree. Record a deleted branch's last commit in
-   `branch-forensics.json` and recreate its ref in the clone before running
-   the scripts (see `README.md`). Deleted so far since the analysis:
-   `ubl-2.5-python` (8 October 2026, last commit `6c4d314`).
+1. **Branches deleted from the official repository.** The timeline script
+   needs every branch in its branch tree. When one is deleted, record it in
+   `branch-forensics.json` under `deleted_branches`, `deleted_after_analysis`,
+   with its full last commit; the script then uses that commit. Deleted so far
+   since the analysis: `ubl-2.5-python` (8 October 2026, last commit
+   `6c4d314`).
 2. **The main line ("trunk").** The scripts take the trunk as the
    first-parent chain of `ubl-2.5`, which stops at `3d81e8a`. That chain
    continues unchanged in `ubl-2.6`: its first-parent chain contains all 328

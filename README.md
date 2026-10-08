@@ -54,14 +54,7 @@ as `origin/<branch>`, as a normal clone has them.
    git clone https://github.com/oasis-tcs/ubl.git ubl-official
    ```
 
-2. Put back the branches the scripts expect that have been deleted from the
-   official repository since, at their last commit:
-
-   ```sh
-   git -C ubl-official update-ref refs/remotes/origin/ubl-2.5-python 6c4d314
-   ```
-
-3. In the folder where the results should go (for example a checkout of this
+2. In the folder where the results should go (for example a checkout of this
    branch), run:
 
    ```sh
@@ -72,8 +65,15 @@ as `origin/<branch>`, as a normal clone has them.
    They write `chronological-timeline.csv` and `trunk-train.svg` to the current
    folder, and read `branch-forensics.json` from the folder the scripts are in.
 
-On 8 October 2026 this reproduced the committed `chronological-timeline.csv`
-byte for byte, and `trunk-train.svg` apart from its "Generated" date.
+A branch that has been deleted from the official repository since the
+analysis is taken from `branch-forensics.json`, where its last commit is
+recorded (under `deleted_branches`, `deleted_after_analysis`); so far that is
+`ubl-2.5-python`. If a branch is missing and not recorded there, the timeline
+script stops and names it.
+
+On 8 October 2026 this reproduced, from a plain clone, the committed
+`chronological-timeline.csv` byte for byte, and `trunk-train.svg` apart from
+its "Generated" date.
 
 The scripts have the branch tree and the releases written into them, so they
 make the same picture of the same period until they are updated; see
