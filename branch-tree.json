@@ -228,7 +228,7 @@
         "name": "ubl-2.3-csd05-copy",
         "fork_idx": 5,
         "commits": 1,
-        "release": "2.3 CSD05  12 May 2021"
+        "release": null
       },
       {
         "name": "ubl-2.3-cs02",
@@ -316,6 +316,10 @@
       }
     ],
     "releases": [
+      {
+        "commit": "cb67846",
+        "label": "2.3 CSD05  12 May 2021"
+      },
       {
         "commit": "2e3c601",
         "label": "★ 2.4 CSD01  08 Feb 2023"

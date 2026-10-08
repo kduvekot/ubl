@@ -40,12 +40,25 @@ The 2.3 source was loaded into the repo on 2021-05-15. Earlier 2.3 stages predat
 as a bulk copy. The official OASIS-published progression was: CSPRD01 (07 Aug 2019) → CSPRD02 (29 Jan 2020)
 → CSD03 (29 Jul 2020) → CSD04 (25 Nov 2020) → CS01 (19 Jan 2021) → CS02 (25 May 2021) → OS (15 Jun 2021).
 
-### UBL 2.3 CSD05 — `57dda2e`
+### UBL 2.3 CSD05 — `cb67846` (content), `6d153bf` (last change)
 
 - **No zip available** for validation (CSD05 was not published on OASIS as a formal stage —
   appears to be an internal working label)
-- Branch tip of `ubl-2.3-csd05-copy`
 - `config-UBL.xml` confirms `versionDisplay: 2.3 CSD05`, `versionDate: 12 May 2021`
+- **Where it sits** (corrected 2026-10-08; this entry used to give `57dda2e`, the tip of
+  `ubl-2.3-csd05-copy`, as the CSD05 commit). CSD05 is where the 2.3 history in the repository
+  starts, not a stage between CSD04 and CS01: CSD04 and CS01 were published before any 2.3
+  content was in the repository. The content was loaded on 2021-05-15 as `cb67846` "Initial
+  load of files - copy of 2.3 CSD05" (2,464 files), on the trunk. `7b7ecf6` and `6d153bf`
+  only edit `README.md`. At `6d153bf` the trunk forks: `00ffdbd` "Rebuild results on review
+  branch" stays on the trunk, `57dda2e` "Rebuild results on edit branch" is the one commit of
+  `ubl-2.3-csd05-copy`. Both are empty commits (same tree as `6d153bf`), pushed only to start a
+  build. So `ubl-2.3-csd05-copy` is a real branch that still exists, but it holds no CSD05
+  content of its own; it served as the base for CS02 (`47eb1f5`).
+- **Previous stage**: the build settings make CSD05 a stage between CS01 and CS02
+  (`cb67846`: `UBLstage=csd05`, `UBLprevStage=cs01`; CS02 at `47eb1f5`: `UBLprevStage=csd05`),
+  so the CS02 build compared its entities with CSD05. The published documents skip it: the
+  "Previous stage" of the published CS02 is CS01, and no published stage names CSD05.
 
 ### UBL 2.3 CS02 — `47eb1f5` ★ VERIFIED
 
@@ -277,7 +290,7 @@ ISO package, so this cannot be verified: listed without ★.
 
 | Release | Date | Commit | Verification | Discriminating Evidence |
 |---------|------|--------|-------------|------------------------|
-| UBL 2.3 CSD05 | 12 May 2021 | `57dda2e` | No zip | Internal label only |
+| UBL 2.3 CSD05 | 12 May 2021 | `cb67846` / `6d153bf` | No zip | Internal label only; initial 2.3 load |
 | UBL 2.3 CS02 | 25 May 2021 | `47eb1f5` | ★ 590/891 blobs | config versionDate differs from parent |
 | UBL 2.3 OS | 15 June 2021 | `bc99520` | ★ 590/890 blobs | Entity-resolved text ("membership of OASIS") |
 | UBL 2.4 CSD01 | 08 Feb 2023 | `2e3c601` | ★ 597/910 blobs | UBL.xml pubdate differs from parent |

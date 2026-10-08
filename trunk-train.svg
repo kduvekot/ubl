@@ -265,9 +265,9 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="830" cy="5720.876460970992" r="2.5" class="dot-pr"/>
 <path d="M 800,5744.876460970992 L 812,5756.876460970992 L 830,5756.876460970992 L 830,5790.876460970992 L 812,5790.876460970992 L 800,5802.876460970992" class="line-pr" fill="none"/>
 <circle cx="830" cy="5773.876460970992" r="2.5" class="dot-pr"/>
-<path d="M 800,190.90762561076215 L 788,202.90762561076215 L 770,202.90762561076215 L 770,214.90762561076215" class="line-dead-rel" fill="none"/>
-<circle cx="770" cy="214.90762561076215" r="4" class="dot-branch-release"/>
-<line x1="767" y1="214.90762561076215" x2="773" y2="214.90762561076215" stroke="#7ee787" stroke-width="2"/>
+<path d="M 800,190.90762561076215 L 788,202.90762561076215 L 770,202.90762561076215 L 770,214.90762561076215" class="line-dead" fill="none"/>
+<circle cx="770" cy="214.90762561076215" r="2.5" class="dot-branch"/>
+<line x1="767" y1="214.90762561076215" x2="773" y2="214.90762561076215" stroke="#484f58" stroke-width="2"/>
 <path d="M 800,180.90762561076215 L 788,192.90762561076215 L 620,192.90762561076215 L 620,216.90762561076215" class="line-dead-rel" fill="none"/>
 <circle cx="620" cy="204.90762561076215" r="2.5" class="dot-branch-release"/>
 <circle cx="620" cy="216.90762561076215" r="4" class="dot-branch-release"/>
@@ -382,7 +382,7 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <circle cx="800" cy="90" r="4" class="dot-merge"/>
 <circle cx="800" cy="100.92869714997444" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="140.92869714997443" r="2.5" class="dot-trunk"/>
-<circle cx="800" cy="159.96920135752035" r="2.5" class="dot-trunk"/>
+<circle cx="800" cy="159.96920135752035" r="5" class="dot-release"/>
 <circle cx="800" cy="174.45655439574296" r="2.5" class="dot-trunk"/>
 <circle cx="800" cy="180.90762561076215" r="4" class="dot-merge"/>
 <circle cx="800" cy="208.93478462692894" r="2.5" class="dot-trunk"/>
@@ -812,9 +812,8 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <text x="836" y="5720.9" class="lbl-src">ubl-2.6-merge-2.5-iso</text>
 <text x="836" y="5769.9" class="lbl-pr">PR#47 (1)</text>
 <text x="836" y="5779.9" class="lbl-src">ubl-2.6-environment-setup-paths</text>
-<text x="762" y="226.9" class="lbl-rel" text-anchor="end">2.3 CSD05  12 May 2021</text>
+<text x="762" y="226.9" class="lbl" text-anchor="end">ubl-2.3-csd05-copy (1)</text>
 <text x="612" y="228.9" class="lbl-rel" text-anchor="end">★ 2.3 CS02  25 May 2021</text>
-<text x="762" y="240.9" class="lbl" text-anchor="end">ubl-2.3-csd05-copy</text>
 <text x="612" y="242.9" class="lbl" text-anchor="end">ubl-2.3-cs02</text>
 <text x="762" y="333.2" class="lbl" text-anchor="end">main (1)</text>
 <text x="612" y="335.2" class="lbl-rel" text-anchor="end">★ 2.3 OS  15 Jun 2021</text>
@@ -833,6 +832,7 @@ text { font-family: Helvetica, Arial, sans-serif; paint-order: stroke fill; stro
 <text x="612" y="4931.5" class="lbl" text-anchor="end">kentest (9)</text>
 <text x="808" y="94.0" class="lbl-mile" text-anchor="start">Repo created  11 Apr 2018</text>
 <text x="808" y="108.0" class="lbl-trunk-name" text-anchor="start">▸ main</text>
+<text x="808" y="164.0" class="lbl-rel" text-anchor="start">2.3 CSD05  12 May 2021</text>
 <text x="808" y="253.9" class="lbl-pr" text-anchor="start">← merge</text>
 <text x="808" y="281.2" class="lbl-mile" text-anchor="start">PIVOT  26 May 2021</text>
 <text x="808" y="317.9" class="lbl-trunk-name" text-anchor="start">▸ ubl-2.4-csd01wd01</text>
