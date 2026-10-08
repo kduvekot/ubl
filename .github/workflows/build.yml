@@ -4,6 +4,9 @@ on:
   push:
     branches-ignore:
       - 'claude/**'
+    # a push that changes only the benchmark (benchmark.yml) needs no build
+    paths-ignore:
+      - '.github/workflows/benchmark.yml'
   workflow_dispatch:
 
 jobs:

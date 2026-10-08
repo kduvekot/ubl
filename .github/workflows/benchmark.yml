@@ -1,0 +1,136 @@
+name: Benchmark
+
+# Experiments on GitHub's own machines, apart from the build. It runs only
+# when started by hand (Actions > Benchmark > Run workflow) or when this file
+# changes on ubl-2.6, and it changes nothing: it reads the packages of the
+# latest successful build and makes only the table on its summary page.
+#
+# Experiment: the sample checks (val/testsamples.sh, the longest part of the
+# build) with Java as today, and with Java told to start quickly: only its
+# quick compiler (-XX:TieredStopAtLevel=1) and simple memory cleanup
+# (-XX:+UseSerialGC). Five machines run it at the same time. Each runs both
+# ways twice, alternately (today, quick, quick, today), so that every
+# comparison is made on one machine, and checks that both ways give the same
+# result for every sample.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ubl-2.6]
+    paths: ['.github/workflows/benchmark.yml']
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  samples:
+    name: Machine ${{ matrix.machine }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        machine: [1, 2, 3, 4, 5]
+
+    steps:
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v6
+      with:
+        distribution: 'zulu'
+        java-version: 8
+        java-package: jdk
+
+    - name: Get the package of the latest successful build
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        run=$(gh run list -R "$GITHUB_REPOSITORY" --workflow build.yml --branch ubl-2.6 \
+                --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+        echo "Using the packages of build run $run"
+        gh run download "$run" -R "$GITHUB_REPOSITORY" --dir "$RUNNER_TEMP/download"
+        main=$(ls "$RUNNER_TEMP"/download/*/*.7z | grep -v -e '-archive-only\.7z$' -e '-iso-iec-19845\.7z$')
+        7z x -y -o"$RUNNER_TEMP/extract" "$main" > /dev/null
+        mv "$RUNNER_TEMP"/extract/* package
+        ls package
+
+    - name: Validate the samples, both ways
+      run: |
+        cd package/val
+        echo "CPU: $(lscpu | sed -n 's/^Model name:[[:space:]]*//p'), $(nproc) processors"
+        # the checks of testsamples.sh, one per line: <number> <schema> <sample>
+        version=$(sed -n 's/^UBLversion=//p' testsamples.sh)
+        grep '^sh validate.sh ' testsamples.sh | sed "s/\$UBLversion/$version/g; s/^sh validate.sh //" \
+          | nl -n ln -w 1 -s ' ' > "$RUNNER_TEMP/checks.txt"
+        echo "$(wc -l < "$RUNNER_TEMP/checks.txt") checks"
+        # one check, its output and exit code kept for the comparison
+        cat > "$RUNNER_TEMP/check.sh" <<'EOF'
+        way=$1 n=$2; shift 2
+        out=$(sh validate.sh "$@" 2>&1); rc=$?
+        printf '%s\nexit code %s\n' "$out" "$rc" > "$RUNNER_TEMP/out-$way/$n.txt"
+        EOF
+        # "java" for the quick way: the same Java, told to start quickly
+        mkdir "$RUNNER_TEMP/quick-java"
+        printf '#!/bin/sh\nexec "%s/bin/java" -XX:TieredStopAtLevel=1 -XX:+UseSerialGC "$@"\n' "$JAVA_HOME" \
+          > "$RUNNER_TEMP/quick-java/java"
+        chmod +x "$RUNNER_TEMP/quick-java/java"
+        PATH="$RUNNER_TEMP/quick-java:$PATH" java -XX:+PrintFlagsFinal -version 2>/dev/null \
+          | grep -E ' (TieredStopAtLevel|UseSerialGC) '
+        # run <way> <round>: all checks, four at a time as the build does
+        run() {
+          mkdir -p "$RUNNER_TEMP/out-$1-$2"
+          if [ "$1" = quick ]; then p="$RUNNER_TEMP/quick-java:$PATH"; else p="$PATH"; fi
+          start=$EPOCHREALTIME
+          PATH="$p" xargs -P 4 -L 1 sh "$RUNNER_TEMP/check.sh" "$1-$2" < "$RUNNER_TEMP/checks.txt"
+          awk -v a="$start" -v b="$EPOCHREALTIME" 'BEGIN { printf "%.0f", b - a }'
+        }
+        t1=$(run today 1); echo "today, round 1: $t1 s"
+        q1=$(run quick 1); echo "quick, round 1: $q1 s"
+        q2=$(run quick 2); echo "quick, round 2: $q2 s"
+        t2=$(run today 2); echo "today, round 2: $t2 s"
+        # the same result for every sample? (parse times in brackets masked)
+        for r in 1 2; do
+          for w in today quick; do
+            sed -E 's/\([0-9.]+\)/(t)/g' "$RUNNER_TEMP"/out-$w-$r/*.txt > "$RUNNER_TEMP/all-$w-$r.txt"
+          done
+        done
+        same=yes
+        for r in 1 2; do
+          diff "$RUNNER_TEMP/all-today-$r.txt" "$RUNNER_TEMP/all-quick-$r.txt" || same=NO
+        done
+        failed=$(grep -h '^exit code' "$RUNNER_TEMP"/out-*/*.txt | grep -c -v '^exit code 0$' || true)
+        echo "same results: $same; checks that failed: $failed"
+        cpu=$(lscpu | sed -n 's/^Model name:[[:space:]]*//p')
+        mkdir -p "$RUNNER_TEMP/result"
+        printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' "${{ matrix.machine }}" "$cpu" "$t1" "$t2" "$q1" "$q2" "$same" "$failed" \
+          > "$RUNNER_TEMP/result/machine-${{ matrix.machine }}.tsv"
+
+    - uses: actions/upload-artifact@v7
+      with:
+        name: bench-${{ matrix.machine }}
+        path: ${{ runner.temp }}/result/
+
+  summary:
+    needs: samples
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v7
+      with:
+        pattern: bench-*
+        merge-multiple: true
+        path: results
+
+    - name: Table
+      run: |
+        {
+          echo "### Sample checks: Java as today and Java told to start quickly"
+          echo
+          echo "Each machine ran all checks four times (today, quick, quick, today); the times are the averages."
+          echo
+          echo "| Machine | CPU | As today | Quick start | Saved | Same results | Failed checks |"
+          echo "|---|---|---:|---:|---:|---|---:|"
+          cat results/*.tsv | sort -n | awk -F '\t' '{
+            t = ($3 + $4) / 2; q = ($5 + $6) / 2
+            printf "| %s | %s | %.0f s | %.0f s | %.0f s (%.0f%%) | %s | %s |\n", $1, $2, t, q, t - q, 100 * (t - q) / t, $7, $8
+          }'
+        } >> "$GITHUB_STEP_SUMMARY"
