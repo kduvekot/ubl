@@ -12,11 +12,13 @@ involves.
   co-maintainer of `oasis-tcs/ubl`. It is an orphan branch with only the
   analysis: never merge it into a UBL branch, never base a UBL branch on it,
   and never push it to `oasis-tcs/ubl`.
-- The analysis was made between 31 March and 3 April 2026 and covers the
-  history up to `3d81e8a` (UBL 2.5 CSD03, 9 February 2026).
+- The analysis was made between 31 March and 3 April 2026 and brought up to
+  date on 8 October 2026. It covers the history up to `29ae6b4` on `ubl-2.6`
+  (8 October 2026), including UBL 2.5 CS01 and OS.
 - Its most valuable parts are the two that exist nowhere else: the release
   mapping (the official repository has no release tags apart from two old
-  ones) and the GitHub API facts in `branch-forensics.json`.
+  ones) and the GitHub API facts in `branch-forensics.json`, with the raw
+  API data behind the latest of them in `api-data/`.
 
 ## Rules
 
@@ -37,9 +39,14 @@ involves.
   XSD files, text in the published `UBL-2.x.xml`). The two
   `UBL-CommonSignatureComponents-2.x.xsd` files always differ; that is
   expected. A release that cannot be checked against a published zip is
-  listed without the ★.
+  listed without the ★. Since 2026 the workflow runs say which commit each
+  build ran on, and a build artifact can be compared with the published zip
+  file by file; artifacts and logs expire after about 90 days, so save their
+  evidence soon after a release.
 - **The timeline follows `timeline-rules.md`.** Change the rules there first
-  when the model changes, then the script.
+  when the model changes, then the scripts or `branch-tree.json`.
+- **`api-data/<date>/` is raw evidence**: never edit it. A new snapshot goes in
+  a folder of its own, with a `REPORT.md` and `SHA256SUMS.txt`.
 - **Check the scripts reproduce the committed files before changing them**
   (see `README.md`), so that any difference afterwards comes from the change.
 - Commit hashes in the files are 7 characters; give longer ones where a
@@ -47,35 +54,33 @@ involves.
 
 ## Keeping it up to date
 
-What an update to the present involves:
+What an update to the present involves (as done on 8 October 2026):
 
-1. **Branches deleted from the official repository.** The timeline script
-   needs every branch in its branch tree. When one is deleted, record it in
-   `branch-forensics.json` under `deleted_branches`, `deleted_after_analysis`,
-   with its full last commit; the script then uses that commit. Deleted so far
-   since the analysis: `ubl-2.5-python` (8 October 2026, last commit
-   `6c4d314`).
-2. **The main line ("trunk").** The scripts take the trunk as the
-   first-parent chain of `ubl-2.5`, which stops at `3d81e8a`. That chain
-   continues unchanged in `ubl-2.6`: its first-parent chain contains all 328
-   trunk commits and goes on from there (372 commits on 8 October 2026). So
-   the trunk can become the first-parent chain of `ubl-2.6`. The release
-   branches `ubl-2.5-cs01`, `ubl-2.5-os` and `ubl-2.5-iso` then need a place in
-   the branch tree.
-3. **The data written into the scripts**: `FORK_TREE` and `TRUNK_BRANCH` in
-   `generate-timeline.py`; the trunk branch, `dead_branches` and `releases`
-   in `gen_train4.py`. Moving this data into one data file that both scripts
-   read would make later updates a matter of editing data.
-4. **New releases** in `release-commit-mapping.md`: UBL 2.5 CS01 (published
-   15 April 2026), UBL 2.5 OS (12 August 2026), the ISO/IEC version of 2.5,
-   and the UBL 2.6 stages as they are published. Published packages are at
-   `https://docs.oasis-open.org/ubl/` (for example `cs01-UBL-2.5/`).
-5. **`branch-forensics.json`**: new branches, renames and deletions since
-   April 2026, and the active branch names along the trunk after position
-   327. The file has two known slips to correct: the rename note says
-   "Three contributors" but names four, and the deletion time of
-   `ubl-2.4-csd01-docx` is before its creation (the file already says so).
-6. **`trunk-train.png`** has no script: render it again from the SVG.
+1. **A full clone of `oasis-tcs/ubl`**, and a check that the scripts still
+   reproduce the committed `chronological-timeline.csv` and `trunk-train.svg`.
+2. **The GitHub API data.** It is not reachable from every environment:
+   the Activity API, the workflow runs (`actions/runs`), the artifacts
+   (`actions/artifacts`) and the logs of release builds. Kees can fetch it
+   with `gh` (`gh api repos/oasis-tcs/ubl/activity --paginate`, and the same
+   for `actions/runs` and `actions/artifacts`; `gh run view <id> --log` and
+   `gh run download <id>` for a release build). Keep it in
+   `api-data/<date>/` with a `REPORT.md` and `SHA256SUMS.txt`.
+3. **`branch-tree.json`**: add new branches with parent, fork point and full
+   head; update the recorded heads of branches that moved, including the
+   trunk branch; add releases and side branches for the diagram; set
+   `as_of`. Today the trunk is the first-parent chain of `ubl-2.6`.
+4. **`branch-forensics.json`**: new branches, renames and deletions, and the
+   active branch names along the trunk after position 372, all with source
+   and date, and additions only.
+5. **New releases** in `release-commit-mapping.md`: the UBL 2.6 stages as
+   they are published, at `https://docs.oasis-open.org/ubl/`.
+6. **Run the scripts and render `trunk-train.png`** (see `README.md`), and
+   check that the earlier rows of the timeline did not change.
 
 After an update, change "What it covers" in `README.md` and the dates in
 this file.
+
+Open since 8 October 2026: why the single-file web-editor pushes of
+13 April and 15 August 2026 have no workflow runs (`branch-forensics.json`,
+`open_questions_2026_10_08`), and where the two replaced BDNDR files in the
+published UBL 2.5 OS package come from (`release-commit-mapping.md`).
