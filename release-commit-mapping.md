@@ -55,10 +55,12 @@ as a bulk copy. The official OASIS-published progression was: CSPRD01 (07 Aug 20
   `ubl-2.3-csd05-copy`. Both are empty commits (same tree as `6d153bf`), pushed only to start a
   build. So `ubl-2.3-csd05-copy` is a real branch that still exists, but it holds no CSD05
   content of its own; it served as the base for CS02 (`47eb1f5`).
-- **Previous stage**: the build settings make CSD05 a stage between CS01 and CS02
-  (`cb67846`: `UBLstage=csd05`, `UBLprevStage=cs01`; CS02 at `47eb1f5`: `UBLprevStage=csd05`),
-  so the CS02 build compared its entities with CSD05. The published documents skip it: the
-  "Previous stage" of the published CS02 is CS01, and no published stage names CSD05.
+- **Previous stage**: in the repository CSD05 sits between CS01 and CS02. At `cb67846`,
+  `UBL.xml` has `stage csd05` with `pstage cs01`; at `47eb1f5` (CS02) it has `stage cs02` with
+  `pstage csd05`. `pstage` fills in the document's "Previous stage" links, and `build.sh` has
+  the same values (`UBLprevStage`) for the comparison of the entities with the previous stage.
+  So the CS02 document as built from its source named CSD05 as its previous stage. The
+  published CS02 names CS01 instead (see the CS02 entry), and no published stage names CSD05.
 
 ### UBL 2.3 CS02 — `47eb1f5` ★ VERIFIED
 
@@ -72,6 +74,7 @@ as a bulk copy. The official OASIS-published progression was: CSPRD01 (07 Aug 20
 | XSD Release Date | `25 May 2021` ✓ |
 | XSD Generated on | `2021-05-24 00:10z` (CI run ~5h after commit at 19:22 EDT) |
 | Branch tip | Yes — last commit on `ubl-2.3-cs02` |
+| Previous stage (added 2026-10-08) | **Differs from the source.** `UBL.xml` at `47eb1f5` has `pstage csd05`, which makes the "Previous stage" links point to `csd05-UBL-2.3`. The published `UBL-2.3.xml` and `UBL-2.3.html`, in the zip (891 files, dated 25 May 2021) and on the OASIS server, point to `cs01-UBL-2.3`. No commit has `stage cs02` with `pstage cs01`, so the published document was changed after the build, most likely because CSD05 was never published and the link would not resolve. The 590 matching files and the other evidence are not affected; the spec files are generated and never match a commit's files. |
 | Uniqueness | **config-UBL.xml versionDate differs from parent → uniquely this commit** |
 
 ### UBL 2.3 OS — `bc99520` ★ VERIFIED
