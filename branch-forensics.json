@@ -4,7 +4,8 @@
     "This file records information that CANNOT be derived from git alone:",
     "branch renames, fast-forward merges, bookmarks, and deleted branches.",
     "Sources: GitHub Activity API, GitHub Actions workflow runs, git reflog.",
-    "Generated: 2026-04-03."
+    "Generated: 2026-04-03.",
+    "Updated: 2026-10-08, from the GitHub API snapshot of that day kept in api-data/2026-10-08/ (Activity API, workflow runs, artifacts; see its REPORT.md). Facts added then carry the date 2026-10-08 and name their source; nothing recorded before was removed."
   ],
 
   "branch_renames": [
@@ -19,7 +20,8 @@
       "new_created_by": "gkholman",
       "evidence": "GitHub Activity API: ubl-2.5 branch_creation at 07:39:55Z, ubl-2.5-csd01 branch_deletion at 07:40:56Z — 61 seconds apart by same actor.",
       "trunk_positions": "Covers trunk positions ~107-127 (pushed as ubl-2.5-csd01), then 128+ (as ubl-2.5). Confirmed by workflow runs: sha=153236e at trunk[125] pushed to ubl-2.5-csd01, sha=0e6caf4 at trunk[128] pushed to ubl-2.5.",
-      "notes": "ubl-2.5-csd01 was the active trunk branch for over a year (March 2024 — April 2025). Three contributors pushed to it: klakegg (creator), kduvekot, bdxhub, gkholman. The branch ref no longer exists — it is invisible in the git data."
+      "notes": "ubl-2.5-csd01 was the active trunk branch for over a year (March 2024 — April 2025). Three contributors pushed to it: klakegg (creator), kduvekot, bdxhub, gkholman. The branch ref no longer exists — it is invisible in the git data.",
+      "clarification_2026_10_08": "The note above names four people for 'three contributors'. Both are right: the Activity API records 18 pushes to ubl-2.5-csd01, by three people (kduvekot 12, gkholman 5, bdxhub 1); klakegg created the branch but made no recorded push. Source: api-data/2026-10-08/activity.json."
     }
   ],
 
@@ -122,7 +124,14 @@
         "created_by": "kduvekot",
         "pr_numbers": [24, 26],
         "merge_commits": ["0b0b0b3", "c7ec642"],
-        "notes": "Source branch for PR#24 (merged into ubl-2.4-csd01) and PR#26 (merged into ubl-2.4-csd01). Deleted timestamp appears before creation — likely API clock skew or recreated."
+        "notes": "Source branch for PR#24 (merged into ubl-2.4-csd01) and PR#26 (merged into ubl-2.4-csd01). Deleted timestamp appears before creation — likely API clock skew or recreated.",
+        "correction_2026_10_08": "Not clock skew: the branch was deleted and recreated. It existed before 2023-09-26: gkholman pushed its commit ea473c0 to it on 2023-04-21T14:31:12Z, and PR#24 merged it (0b0b0b3, committed 2023-09-26T08:47:47Z). kduvekot deleted it 11 seconds later, at 2023-09-26T08:47:58Z, and recreated it at the same commit at 08:50:42Z; PR#26 merged it again (c7ec642, on top of trunk commit 7c01887, not on ubl-2.4-csd01 as the note above says; c7ec642 reached ubl-2.4-cs01 through PR#27, 16ca084). It was finally deleted on 2024-04-10T19:00:02Z by kduvekot, the same evening as revert-24-ubl-2.4-csd01-docx and csd01-temp. So 'created' above is the recreation and 'deleted' the first deletion. Source: api-data/2026-10-08/activity.json; parents of 0b0b0b3 and c7ec642 in git.",
+        "events_2026_10_08": [
+          {"event": "push", "date": "2023-04-21T14:31:12Z", "actor": "gkholman", "after": "ea473c0"},
+          {"event": "branch_deletion", "date": "2023-09-26T08:47:58Z", "actor": "kduvekot", "before": "ea473c0"},
+          {"event": "branch_creation", "date": "2023-09-26T08:50:42Z", "actor": "kduvekot", "after": "ea473c0"},
+          {"event": "branch_deletion", "date": "2024-04-10T19:00:02Z", "actor": "kduvekot", "before": "ea473c0"}
+        ]
       },
       {
         "branch": "ubl-2.5-7zip-test",
@@ -226,9 +235,73 @@
         "last_commit": "6c4d31425d6e1b0ca445c6c988bedbd6d6a47c2b",
         "last_commit_message": "Merge pull request #33 from kduvekot/ubl-2.5-python",
         "source": "git ls-remote of oasis-tcs/ubl before and after the deletion; recorded 2026-10-08.",
-        "notes": "Branch of the Python variant of the build (build.py, build-py.xml); its workflow job ran only on this branch. Deleted after oasis-tcs/ubl PR #45 removed the Python build from ubl-2.6. All its commits are also in ubl-2.5 and ubl-2.6. generate-timeline.py uses last_commit for a branch of its fork tree that no longer exists in the clone."
+        "notes": "Branch of the Python variant of the build (build.py, build-py.xml); its workflow job ran only on this branch. Deleted after oasis-tcs/ubl PR #45 removed the Python build from ubl-2.6. All its commits are also in ubl-2.5 and ubl-2.6. generate-timeline.py uses last_commit for a branch of its fork tree that no longer exists in the clone.",
+        "created_2026_10_08": "2025-10-07T09:37:49Z by kduvekot (Activity API branch_creation).",
+        "deleted_exact_2026_10_08": "2026-10-08T10:39:06Z by kduvekot (Activity API branch_deletion, before 6c4d314). Its activity: 21 pushes and 4 pr_merge events, all by kduvekot; 26 workflow runs. Source: api-data/2026-10-08/activity.json and runs.json.",
+        "scripts_2026_10_08": "Since 2026-10-08 both scripts read every branch from the head recorded in branch-tree.json (for this branch the same commit, 6c4d314), not from this entry."
       }
     ]
+  },
+
+  "branches_since_analysis": {
+    "_comment": "Branches created between the analysis of April 2026 and 2026-10-08. Source: api-data/2026-10-08/activity.json (Activity API) and runs.json (workflow runs), gathered 2026-10-08; heads from git. All their commits are on the first-parent chain of ubl-2.6, apart from the one commit of ubl-2.5-iso.",
+    "branches": [
+      {
+        "branch": "ubl-2.5-cs01",
+        "created": "2026-04-13T16:59:57Z",
+        "created_by": "bdxhub",
+        "created_at_commit": "3d81e8a",
+        "pushes": 18,
+        "pushes_by": "bdxhub",
+        "first_push": "2026-04-13T17:03:21Z",
+        "last_push": "2026-04-13T17:31:45Z",
+        "head_2026_10_08": "ca125df",
+        "trunk_positions": "328-345",
+        "workflow_runs": "24357437746 (push of ca125df) and 24360121095 (workflow_dispatch on ca125df); no runs for the 17 pushes before ca125df.",
+        "notes": "Branch of UBL 2.5 CS01. Every commit is a single-file edit made in the GitHub web editor (committer: GitHub), pushed one at a time. ca125df is the commit CS01 was built from (release-commit-mapping.md)."
+      },
+      {
+        "branch": "ubl-2.5-os",
+        "created": "2026-08-15T14:31:38Z",
+        "created_by": "bdxhub",
+        "created_at_commit": "ca125df",
+        "pushes": 18,
+        "pushes_by": "bdxhub",
+        "first_push": "2026-08-15T14:36:05Z",
+        "last_push": "2026-08-15T15:13:07Z",
+        "head_2026_10_08": "345386a",
+        "trunk_positions": "346-363",
+        "workflow_runs": "31891163801 (workflow_dispatch on d2a042f, incomplete package) and 31892096050 (push of 345386a, the published OS package); no runs for the other 16 pushes.",
+        "notes": "Branch of UBL 2.5 OS, created from the tip of ubl-2.5-cs01. Single-file web-editor edits again. 345386a is the commit OS was built from (release-commit-mapping.md)."
+      },
+      {
+        "branch": "ubl-2.5-iso",
+        "created": "2026-09-02T08:55:37Z",
+        "created_by": "bdxhub",
+        "created_at_commit": "345386a",
+        "pushes": 1,
+        "pushes_by": "bdxhub",
+        "first_push": "2026-09-03T14:32:53Z",
+        "last_push": "2026-09-03T14:32:53Z",
+        "head_2026_10_08": "8630a5f",
+        "trunk_positions": "none of its own: its one commit 8630a5f is not on the trunk; it was merged into ubl-2.6 by PR #46 (072318b, merged as bb79377 on 2026-10-08)",
+        "workflow_runs": "33611333059 (push at creation, 345386a) and 33767494654 (push of 8630a5f).",
+        "notes": "Branch for the ISO/IEC version of UBL 2.5, created from the tip of ubl-2.5-os. 8630a5f 'Removed broken links' changes UBL.xml only."
+      },
+      {
+        "branch": "ubl-2.6",
+        "created": "2026-09-14T13:07:58Z",
+        "created_by": "kduvekot",
+        "created_at_commit": "345386a",
+        "pushes": 0,
+        "pr_merges": "9 by 2026-10-08T12:10:46Z: PR #38, #39, #40, #42, #43, #44, #45, #46, #47 (no #41 on this branch)",
+        "head_2026_10_08": "29ae6b4",
+        "trunk_positions": "364-372",
+        "workflow_runs": "one per pr_merge, plus 34847338944 at creation (345386a).",
+        "notes": "Branch of UBL 2.6, created from the tip of ubl-2.5-os; the default branch of oasis-tcs/ubl on 2026-10-08. Changes reach it only through pull requests from kduvekot/ubl branches. Its first-parent chain contains the whole trunk; from 2026-10-08 the trunk is taken as the first-parent chain of ubl-2.6."
+      }
+    ],
+    "frozen_branch_2026_10_08": "ubl-2.5 has not moved since 3d81e8a (2026-02-09, UBL 2.5 CSD03): the Activity API records no event on it after that date, and CS01, OS, ISO and 2.6 all continued on branches of their own."
   },
 
   "pre_api_branches": [
@@ -266,8 +339,12 @@
       {"branch": "ubl-2.4-cs01-work",   "trunk_start": 94,  "trunk_end": 101, "source": "FORK_TREE (but 0 pushes — likely bookmark)"},
       {"branch": "ubl-2.4-cs01",        "trunk_start": 102, "trunk_end": 106, "source": "Activity API: 16 pushes"},
       {"branch": "ubl-2.5-csd01",       "trunk_start": 107, "trunk_end": 127, "source": "Activity API: 18 pushes + workflow runs. RENAMED to ubl-2.5 on 2025-04-09."},
-      {"branch": "ubl-2.5",             "trunk_start": 128, "trunk_end": 327, "source": "Activity API: 168 pushes + workflow runs. Some commits at trunk[163-164] were also pushed to ubl-2.5-dev."}
-    ]
+      {"branch": "ubl-2.5",             "trunk_start": 128, "trunk_end": 327, "source": "Activity API: 168 pushes + workflow runs. Some commits at trunk[163-164] were also pushed to ubl-2.5-dev."},
+      {"branch": "ubl-2.5-cs01",        "trunk_start": 328, "trunk_end": 345, "source": "Added 2026-10-08. Activity API: branch created at 3d81e8a, 18 pushes, each pushing one of trunk[328-345]."},
+      {"branch": "ubl-2.5-os",          "trunk_start": 346, "trunk_end": 363, "source": "Added 2026-10-08. Activity API: branch created at ca125df, 18 pushes, each pushing one of trunk[346-363]."},
+      {"branch": "ubl-2.6",             "trunk_start": 364, "trunk_end": 372, "source": "Added 2026-10-08. Activity API: branch created at 345386a, 9 pr_merge events, each adding one of trunk[364-372]."}
+    ],
+    "trunk_2026_10_08": "From 2026-10-08 the trunk is the first-parent chain of ubl-2.6 up to 29ae6b4 (373 commits, trunk[0-372]); trunk[0-327] is the old ubl-2.5 trunk, unchanged."
   },
 
   "methodology": {
@@ -280,6 +357,15 @@
       "Workflow runs only exist since ~April 2025 when build.yml was configured.",
       "Fast-forward merges leave no trace in git — only the stale branch ref reveals them.",
       "If a bookmark branch ref is ever deleted, the knowledge is lost permanently."
+    ],
+    "retention_2026_10_08": [
+      "Activity API: on 2026-10-08 it returned 439 events, the oldest from 2023-04-21T14:31:12Z.",
+      "Workflow runs: on 2026-10-08 GitHub returned 138 runs, the oldest from 2025-08-21T12:22:22Z. The runs cited above for April 2025 (sha=153236e pushed to ubl-2.5-csd01, sha=0e6caf4 pushed to ubl-2.5) are no longer returned, so this file is now the only record of them.",
+      "Run logs: the logs of the runs of 2026-04-13 were gone (HTTP 410); those of 2026-08-15 were still there and are kept in api-data/2026-10-08/.",
+      "Artifacts: 13 left, all from 2026-08-15 or later, expiring 90 days after their run (the OS build artifact on 2026-11-13). Their hash lists for the OS builds are kept in api-data/2026-10-08/."
+    ],
+    "open_questions_2026_10_08": [
+      "The single-file web-editor pushes of 2026-04-13 (17 of 18 to ubl-2.5-cs01) and 2026-08-15 (16 of 18 to ubl-2.5-os) have no workflow runs, although build.yml runs on every push and the similar pushes of 2026-02-09 to ubl-2.5 all have runs (most cancelled). Either the workflow was disabled during those edits, or their runs were deleted afterwards. The API data cannot tell which."
     ]
   }
 }
