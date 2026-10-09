@@ -236,6 +236,75 @@ The schema counts (107 at PRD1) and the model counts (104) differ because
 the schemas also declare some aggregates that the models keep in the document
 spreadsheets.
 
+### How the specification text grew, 2004 – 2008
+
+The models and schemas are only part of UBL 2.0. The specification document
+itself (introduction, context of use, the business processes, release notes,
+the appendices on code lists, design rules and upgrading from 1.0) was
+written alongside them. The archive holds six unpublished drafts of that text around the
+public review drafts, and its sources from 2005.
+
+**It was not DocBook from the start.** Up to and including PRD3 the
+specification was a hand-written XHTML file (`index.html`, from 19 July 2006
+`UBL-index-2.0.html`) with the internal stylesheet and `W3C-REC.css`
+reference of the UBL 1.0 specification of 2004. DocBook XML 4.4 arrived with
+PRD3R1 on 5 October 2006: `UBL-2.0.xml` is from then on "the 'original' of
+this specification", the HTML is generated with the DocBook XSL stylesheets
+1.69.1 and the OASIS specification stylesheets, and the package carries them
+in `db/` and `css/`. Every PDF, from PRD1 to OS, was printed from the HTML
+with OpenOffice.org 2.0; PRD1 says the PDF "has no practical purpose and
+should be ignored", and the OS PDF was made on 18 December 2006, six days
+after the standard's date. The 2.0 Update of 2008 is a separate OpenOffice
+Writer document.
+
+How this was measured: the text of each version was taken from its HTML, the
+section numbers removed (they shift as sections move), and each version
+compared word by word with the one before. "Words" is the size of that text.
+
+| Version | File date | By | Format | Words | Change from the previous version |
+|---|---|---|---|---|---|
+| UBL 1.0 CD (`cd-UBL-1.0`) | 15 Sep 2004 | Jon Bosak | XHTML | about 9,600 | Starting point: about a quarter of the first 2.0 draft is text of the 1.0 specification |
+| `wd-UBL-2.0` "Candidate UBL 2.0 CD 1 for initial public review" | 8 Jan 2006 | Jon Bosak | XHTML, PDF | 11,415 | First 2.0 text in the archive |
+| **PRD1** (published) | 19 Jan 2006 | Jon Bosak, Tim McGrath (editors) | XHTML, PDF | 11,488 | +105 −31: stage and locations; the note on the PDF; copyright 2006 |
+| `2-test01` "Just a mechanical test -- incomplete" | 9 Jul 2006 | Jon Bosak | XHTML | 14,234 | +4,900 −2,198: the UBL 1.0 material in the introduction moves to a new appendix "Upgrading from UBL 1.0 to UBL 2.0"; the transport documents get full descriptions and the document type table almost doubles; the code list appendix is rewritten for two-phase validation (`cl/gc/default`, `cl/gc/cefact`, `cl/gc/special-purpose`); the methodology and model appendices are rewritten |
+| `2-prd2-sanity1` | 17 Jul 2006 | Jon Bosak | XHTML | 14,856 | +886 −286: the extension element `UBLExtensions` and the extension schemas; `cl/xsdcl`; the ASN.1 appendix; "Collaboration" dropped from the process headings; Forwarding Instruction becomes Forwarding Instructions |
+| `2-prd2-sanity3` | 19 Jul 2006 | Tim McGrath | XHTML | 14,943 | +112 −29: the file is renamed `UBL-index-2.0.html`; imported code list schemas; "Customization and Profiling" becomes "Customization" |
+| `2-prd2-cd` | 20 Jul 2006 | Tim McGrath | XHTML | 14,984 | +61 −20: code list schemas, acknowledgements |
+| `prd2-UBL-2.0-test` | 24 Jul 2006 | Jon Bosak | XHTML, PDF | 14,972 | +4 −16; its PDF is the published one (same SHA-256) |
+| **PRD2** (published) | 27 Jul 2006 | Jon Bosak, Ken Holman, Tim McGrath | XHTML, PDF | 14,948 | +3 −27 |
+| **PRD3** (published) | 21 Sep 2006 | same | XHTML, PDF | 19,784 | +7,107 −2,313: the new OASIS title page (artifact type and identifier, chairs) with the notices in front; a new section 7, "Additional Document Constraints" (validation, character encoding, empty elements); a table of about 4,500 words of changes to the basic information entities since UBL 1.0; "Report Status of Goods"; "Business Rules" becomes "Business Rules Assumed"; "Supporting Materials" becomes the "Support Package" |
+| **PRD3R1** (published) | 5 Oct 2006 | same | **DocBook XML**, HTML, PDF | 20,134 | +602 −332: converted to DocBook with little change to the text; the normative references move to the end, so the sections renumber (Context of Use becomes section 4); the ASN.1 modules are added |
+| **CS** (published) | 12 Oct 2006 | same | DocBook XML, HTML, PDF | 20,134 | +25 −24: stage and date |
+| **OS** (published) | 12 Dec 2006 | same | DocBook XML, HTML, PDF | 20,339 | +453 −248: the notices of the new OASIS IPR Policy; a link to the errata page |
+
+No drafts of the text are in the archive between January and July 2006, nor
+between PRD2 and PRD3, nor for the conversion to DocBook. The two change logs
+of 2006 (PRD1 to PRD2, PRD2 to PRD3) cover the models only, not the text.
+
+**Where the first text came from.** Much of the Context of Use in the January
+2006 draft was taken from the process proposals of the subcommittees. Counting
+runs of eight words that appear in both, 37% of section 5 is found in three
+documents from the archive:
+
+| Source in the archive | By | Date | Sections of the January 2006 draft taken from it |
+|---|---|---|---|
+| "Proposal for UBL 2.0 process", version 10 (`ubl-psc/business1404`) | Sylvia Webb (Procurement SC) | 30 Aug 2005 | Punchout (72%), Fulfilment (80%), Billing (70%), Traditional Billing (66%), Self Billing (46%) |
+| "Proposal for UBL 2.0 Catalogue process", 6 Nov 2005 (in `catalogue20051107.zip`) | Tim McGrath for the catalogue working group | 9 Nov 2005 | Items (62%), Catalogue Provision (42%) |
+| "Proposal for UBL 2.0 transport process", five versions 4–22 Dec 2005 | Jern-Kuan Leong, Chi-Yuen Ng (Transportation SC) | 21 Dec 2005 | Initiate Transport Services (71%), Forwarding Instruction (75%), Bill of Lading (89%), Waybill (67%), Certification of Origin (63%), Freight Billing (44%) |
+
+About 43% of the transport proposal is in the specification word for word,
+and between a quarter and a third of it is still there in the OS.
+
+**The 2.0 Update, 2008.** "UBL 2.0 Errata 01" is a separate document of about
+6,500 words, edited by Jon Bosak, Ken Holman and Tim McGrath in OpenOffice
+Writer with the OASIS template. Its drafts are in the update packages:
+14 March 2008 (6,298 words), 18 March (+367 −194), 26 March (+428 −397),
+11 April (+52 −51; published as `prd-UBL-2.0-update.pdf`), 10 May (+108 −81;
+the approved `os-UBL-2.0-update.pdf`), and 17 May (the same text, re-uploaded).
+Ken Holman's "UBL Methodology for Code List and Value Validation" (version
+0.8, drafts D2 to D6, January – June 2007) is in DocBook with the OASIS
+template, but shares only about 4% of its text with the Update.
+
 ### Published packages compared
 
 The UBL 2.0 packages published at `https://docs.oasis-open.org/ubl/`,
