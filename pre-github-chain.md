@@ -128,6 +128,43 @@ generated on Tue Oct 03 2006, the same as the schemas of the 2.0 Update
 | 2008-05-10, 05-17 | Jon Bosak | `ubl/standards/…os-UBL-2.0-update-delta.zip` (2 uploads) | Tue Oct 03 2006 | 16 | Update as approved |
 | 2009-07-06 | Ken Holman | `ubl/discussion979/2009-07-06_UBL-2.0-Entities-gc-20090706-2240z.zip` | | | All 2.0 entities as one genericode file: the start of the genericode-based build used from 2.1 on |
 
+### How the content changed between the stages
+
+The Kavi schema rounds make it possible to follow the library below the
+published stages. The table compares each round with the one before it, on
+the common aggregate components (`UBL-CommonAggregateComponents-2.0.xsd`):
+which aggregates (ABIEs) appear or disappear, which member names change, and
+which cardinalities change. Header comments and definitions are left out
+here; "definitions" counts aggregates whose definition text alone changed.
+
+| Round | ABIEs | What changed |
+|---|---|---|
+| PRD1, 19 Jan 2006 | 107 | Starting point |
+| WD4 schemas, 18 Jun | 113 | 10 aggregates added (among them `BillingReference`, `Price`, `PricingReference`, `Status`, `TransportEvent`, the lines for catalogue request, catalogue updates and reminder), 4 removed (`AccountingDocumentReference` and its line, `BasePrice`, `Port`). **And a new naming rule**: almost every member name gets its representation term repeated or added, `CityName` becomes `CityNameName`, `Line` becomes `LineText`, `AccountID` becomes `AccountIDID`, `ActualDeliveryDateTime` splits into `ActualDeliveryDateDate` and `ActualDeliveryTimeTime` (219 names gone, 263 new) |
+| WD5, 20 Jun | 113 | One cardinality: `DocumentReference/CopyIndicatorIndicator` becomes optional |
+| WD6, 28 Jun | 113 | No change in the aggregates |
+| WD7 schemas, 3 Jul | 113 | **The naming rule is dropped again**: the names go back to the PRD1 form (`CityName`, `Line`, `AccountID`), keeping the split of date-time into date and time (`ActualDeliveryDate`, `ActualDeliveryTime`); `Price/PriceAmount` comes back |
+| PRD2 candidates, 4 and 6 Jul | 113 | No change in the aggregates (the document schemas are added: 30, then 31) |
+| PRD2 GEFEG build, 13 Jul | 113 | Renames: `Reason`/`ReasonCode` become `AllowanceChargeReason`/`AllowanceChargeReasonCode` and `StatusReason`/`StatusReasonCode`; `UniversallyUniqueID` becomes `UUIDID` in most aggregates; `URI` and `WebsiteURI` become `URIID` and `WebsiteURIID`; `TransportEventTypeCode` added |
+| wd9spec, 14 Jul | 113 | Final namespaces; `DirectionCode` back, `OrderLineReference` gets a UUID |
+| PRD2 sanity check, 17 Jul | 113 | `UUIDID` becomes `UUID`; 16 aggregates with new definitions |
+| PRD2, 28 Jul | 113 | As the sanity check (the published PRD2) |
+| PRD3 schema test 2, 6 Sep | 113 | `LegalTotal` becomes `MonetaryTotal`, `TaxSubTotal` becomes `TaxSubtotal`; 15 member names made specific (`FormatCode` → `AddressFormatCode`, `ChipCode` → `CardChipCode`, `OperatorCode` → `MathematicOperatorCode`, `EndPointID` → `EndpointID`, …); `TaxExemptionReason` added; `HazardousItem` gets quantity, net weight and net volume; `ItemInstance/ProductTraceID` becomes optional; 95 aggregates with new definitions |
+| PRD3 schema test 3, 7 Sep | 113 | `GoodsItem/Quantity` and `Status/Percent` added; leftovers of the old naming (`TimingComplaintCodeCode`) fixed |
+| PRD3_7, 9 Sep | 113 | `CreditedQuantity` and `DebitedQuantity` added |
+| PRD3_8, 10 Sep | 113 | `CreditNoteLine/LineExtensionAmount` becomes optional |
+| PRD3_10, 12 Sep | 113 | No change: the PRD3 schemas as published |
+| PRD3R1, 5 Oct (published only) | 113 | No change in structure; 53 aggregates with new definitions |
+| CS, OS | 113 | No change |
+
+So the structure of the 2.0 library settled during PRD3, in September 2006;
+after that only definitions changed. The naming experiment of June 2006
+(WD4 to WD6) left no trace in any published package.
+
+The model spreadsheets of the same weeks (WD3 to WD9 and the PRD3
+spreadsheets, uploaded by Sven Rasmussen, Tim McGrath, Jon Bosak and Alan
+Lemming) are the inputs to these rounds; they are not yet compared here.
+
 ### Published packages compared
 
 The UBL 2.0 packages published at `https://docs.oasis-open.org/ubl/`,
