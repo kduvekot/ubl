@@ -128,42 +128,113 @@ generated on Tue Oct 03 2006, the same as the schemas of the 2.0 Update
 | 2008-05-10, 05-17 | Jon Bosak | `ubl/standards/…os-UBL-2.0-update-delta.zip` (2 uploads) | Tue Oct 03 2006 | 16 | Update as approved |
 | 2009-07-06 | Ken Holman | `ubl/discussion979/2009-07-06_UBL-2.0-Entities-gc-20090706-2240z.zip` | | | All 2.0 entities as one genericode file: the start of the genericode-based build used from 2.1 on |
 
-### How the content changed between the stages
+### How UBL 2.0 grew, August 2005 – December 2006
 
-The Kavi schema rounds make it possible to follow the library below the
-published stages. The table compares each round with the one before it, on
-the common aggregate components (`UBL-CommonAggregateComponents-2.0.xsd`):
-which aggregates (ABIEs) appear or disappear, which member names change, and
-which cardinalities change. Header comments and definitions are left out
-here; "definitions" counts aggregates whose definition text alone changed.
+The archive holds 23 dated uploads with the UBL 2.0 model spreadsheets and 18
+with schemas generated from them, between the first phase 1 spreadsheets of
+August 2005 and the OASIS Standard of December 2006. Taken in order, they show
+how the 2.0 library came about, far more finely than the five published
+stages.
+
+How this was measured: every model spreadsheet (`UBL-*.xls`, the source the
+schemas were generated from) was read row by row, and each snapshot compared
+with the one before it, matching components on their Dictionary Entry Name. A
+component that only changed its notation (a qualifier written `Inhouse_ Mail`
+instead of `Inhouse Mail`, or an association named with or without its target
+class) counts as notation, not as a change. The published packages carry the
+same spreadsheets under `mod/`, so the published stages are in the same series.
+Dates are the upload date, with the newest file date inside the upload where
+the two differ; that shows when the content was last edited.
+
+#### The document types
+
+| First seen | Document types | Notes |
+|---|---|---|
+| 12 Aug 2005 | Credit Note, Debit Note, Despatch Advice, Invoice, Order, Receipt Advice, Request For Quotation, Self Billed Invoice, Statement; also Account Response, Quote, Remittance, Self Billing Credit Note | Phase 0/1, the procurement documents of UBL 1.0 and their first additions |
+| 15 Aug 2005 | Order Cancellation, Order Change, Order Response, Order Response Simple | Phase 1 draft 2 |
+| Nov – Dec 2005 | Bill Of Lading, Certificate Of Origin, Forwarding Instruction, Freight Invoice, Packing List, Waybill | Modelled by the Transportation SC (Tim McGrath, Chi-Yuen Ng, Jern-Kuan Leong) in Enterprise Architect and spreadsheets |
+| 19 Jan 2006 (PRD1) | Application Response, Attached Document, Catalogue, Catalogue Deletion, Catalogue Item Specification Update, Catalogue Pricing Update, Catalogue Request, Quotation, Remittance Advice, Self Billed Credit Note, and the six transport documents | 29 document types. Quote becomes Quotation, Remittance becomes Remittance Advice, Self Billing Credit Note becomes Self Billed Credit Note; Account Response is gone |
+| 9 Jun 2006 (WD3) | Reminder, Transportation Status | 31 document types, the final number. Forwarding Instruction becomes Forwarding Instructions |
+
+There are no model snapshots from September 2005 to January 2006 on the main
+line (only the transport models), nor from February to early June 2006: the
+working drafts WD1 and WD2 are not in the archive.
+
+#### The library
+
+Until February 2006 the reusable components were kept in three libraries:
+Common, Procurement and, from November 2005, Transportation. From WD3 (June
+2006) there is one Common Library. The counts below take the libraries
+together.
+
+| Snapshot | Date (newest file) | ABIE | BBIE | ASBIE | What changed |
+|---|---|---|---|---|---|
+| Phase 0/1 "rough diamond" (Stephen Green) | 12 Aug 2005 | 69 | 319 | 136 | Starting point: Common and Procurement libraries |
+| Phase 1 draft 2 (Stephen Green) | 15 Aug 2005 (14 Aug) | 68 | 316 | 138 | `Rounding` removed; `Despatch Line. Back Order Allowed` removed; `Payment. Paid Date Time` added |
+| Phase 1 draft 3 (Stephen Green) | 23 Aug 2005 (21 Aug) | 70 | 317 | 153 | `Related Document` and `Response` added; credit and debit note lines get a `Discrepancy Response` instead of reason code and note |
+| Phase 1 draft 4 (Sylvia Webb) | 31 Aug 2005 (30 Aug) | 70 | 317 | 155 | `Item Instance` moves from `Item` to the despatch and invoice lines |
+| Transportation library (TSC) | 21 Nov and 9 Dec 2005 | 99 | 522 | 262 | Third library, with the transport components |
+| **PRD1** (published) | 19 Jan 2006 | 104 | 541 | 278 | 166 components removed and 547 added against draft 4: the catalogue, transport and response components; many definitions rewritten (342) |
+| Library with CC IDs (Tim McGrath) | 1 Feb 2006 (31 Jan) | 105 | 545 | 279 | PRD1 library with candidate Core Component identifiers, for the submission to UN/CEFACT |
+| WD3 (Sven Rasmussen) | 9 Jun 2006 (8 Jun) | 113 | 612 | 314 | The three libraries merged into one. Added: `Billing Reference` and its line, `Price`, `Pricing Reference`, `Location`, `Line Reference`, `Line Response`, `Reminder Line`, the catalogue request and update lines; removed: `Accounting Document Reference` and its line, `Base Price`, `Port`. 84 components renamed, 218 added, 97 removed, 19 cardinalities changed. `Consignment` is now `Transport Handling Unit` in the UBL names |
+| WD3 with QDT | 13 Jun 2006 | 113 | 612 | 314 | Same library; a spreadsheet of qualified data types added |
+| WD4 | 16 Jun 2006 | 113 | 614 | 314 | `Attention Of`/`Care Of` become `Mark Attention`/`Mark Care`; `To Be Paid Amount` becomes `Payable Amount`; `Party. Website Identifier` becomes `Website_ Uniform Ressource Identifier` (UBL name `WebSiteURI`); `Transport Contract` moves from `Shipment` to `Consignment` |
+| WD5 | 19 Jun 2006 | 113 | 614 | 320 | Catalogue lines get contractor and seller parties; `Copy Indicator` optional |
+| WD7 | 30 Jun 2006 | 113 | 614 | 320 | Three definitions |
+| WD8 (Tim McGrath) | 10 Jul 2006 | 113 | 613 | 320 | Property terms made explicit in 112 entries (`Allowance Charge. Reason. Code` becomes `Allowance Charge. Allowance Charge Reason Code. Code`); `Reason` becomes `AllowanceChargeReason`; `Classification Scheme. Status` removed |
+| WD9 (Jon Bosak) | 16 Jul 2006 (14 Jul) | 113 | 613 | 320 | `Universally Unique Identifier` becomes `UUID` |
+| **PRD2** (published) | 28 Jul 2006 (27 Jul) | 113 | 613 | 320 | Same as WD9 |
+| PRD3 spreadsheets (Alan Lemming) | 30 Aug 2006 | 113 | 618 | 322 | `Legal Total` becomes `Monetary Total`, `Tax Sub Total` becomes `Tax Subtotal`; codes made specific (`Address. Code` → `Address Type Code`, `Chip` → `Card Chip Code`, …); `EndPointID` → `EndpointID`; 887 definitions rewritten |
+| PRD3 schema test 2 and 3 | 6 and 7 Sep 2006 | 113 | 618 | 322 | Representation terms corrected (`Goods Item. Quantity` was `Numeric`, now `Quantity`; `Status. Percent` now `Percent`) |
+| PRD3_7 (Sylvia Webb) | 9 Sep 2006 (8 Sep) | 113 | 620 | 332 | Credit and debit note lines get credited/debited quantity, delivery, item and price; credit and debit notes get despatch and receipt line references |
+| PRD3_8 | 11 Sep 2006 (10 Sep) | 113 | 620 | 332 | Credit and debit note line `Item` and `Line Extension Amount` made optional |
+| PRD3_9, PRD3_10 | 12 Sep 2006 | 113 | 620 | 332 | No change in the library |
+| **PRD3** (published) | 21 Sep 2006 | 113 | 620 | 332 | Same as PRD3_10 |
+| **PRD3R1** (published) | 5 Oct 2006 | 113 | 620 | 332 | 106 definitions in the library and 214 in the documents rewritten; `ServiceCode` becomes `TransportServiceCode` |
+| **CS**, **OS** (published) | 12 Oct, 12 Dec 2006 | 113 | 620 | 332 | No change |
+
+Three periods stand out. In August 2005 the library was small and stable while
+the documents were being worked out. Between September 2005 and June 2006,
+mostly outside the archive, it grew from 70 to 113 aggregates as the
+catalogue, transport and response documents were added. From June to
+September 2006 the aggregates stayed at 113 while their members were renamed,
+moved and completed; after PRD3 only definitions changed.
+
+#### The schemas generated from the models
+
+The schemas follow the models a few days later. Comparing each schema round
+with the one before it, on the common aggregate components
+(`UBL-CommonAggregateComponents-2.0.xsd`), gives the same story, with one
+episode that is in the schemas only: from WD4 to WD6 the schema generation
+added the representation term to almost every element name (`CityName`
+became `CityNameName`, `Line` became `LineText`, `AccountID` became
+`AccountIDID`). The spreadsheets of those weeks still say `CityName`, so this
+was a setting of the generation, not a modelling decision; it was dropped
+again in the WD7 schemas of 3 July 2006 and is in no published package.
 
 | Round | ABIEs | What changed |
 |---|---|---|
 | PRD1, 19 Jan 2006 | 107 | Starting point |
-| WD4 schemas, 18 Jun | 113 | 10 aggregates added (among them `BillingReference`, `Price`, `PricingReference`, `Status`, `TransportEvent`, the lines for catalogue request, catalogue updates and reminder), 4 removed (`AccountingDocumentReference` and its line, `BasePrice`, `Port`). **And a new naming rule**: almost every member name gets its representation term repeated or added, `CityName` becomes `CityNameName`, `Line` becomes `LineText`, `AccountID` becomes `AccountIDID`, `ActualDeliveryDateTime` splits into `ActualDeliveryDateDate` and `ActualDeliveryTimeTime` (219 names gone, 263 new) |
-| WD5, 20 Jun | 113 | One cardinality: `DocumentReference/CopyIndicatorIndicator` becomes optional |
+| WD4 schemas, 18 Jun | 113 | The aggregates added and removed in WD3 (above); the doubled element names (219 names gone, 263 new); `ActualDeliveryDateTime` split into date and time |
+| WD5, 20 Jun | 113 | `DocumentReference/CopyIndicator` becomes optional |
 | WD6, 28 Jun | 113 | No change in the aggregates |
-| WD7 schemas, 3 Jul | 113 | **The naming rule is dropped again**: the names go back to the PRD1 form (`CityName`, `Line`, `AccountID`), keeping the split of date-time into date and time (`ActualDeliveryDate`, `ActualDeliveryTime`); `Price/PriceAmount` comes back |
-| PRD2 candidates, 4 and 6 Jul | 113 | No change in the aggregates (the document schemas are added: 30, then 31) |
-| PRD2 GEFEG build, 13 Jul | 113 | Renames: `Reason`/`ReasonCode` become `AllowanceChargeReason`/`AllowanceChargeReasonCode` and `StatusReason`/`StatusReasonCode`; `UniversallyUniqueID` becomes `UUIDID` in most aggregates; `URI` and `WebsiteURI` become `URIID` and `WebsiteURIID`; `TransportEventTypeCode` added |
-| wd9spec, 14 Jul | 113 | Final namespaces; `DirectionCode` back, `OrderLineReference` gets a UUID |
+| WD7 schemas, 3 Jul | 113 | Element names back to the model names (`CityName`, `Line`, `AccountID`), keeping the split of date-time into date and time |
+| PRD2 candidates, 4 and 6 Jul | 113 | The document schemas are added: 30, then 31 |
+| PRD2 GEFEG build, 13 Jul | 113 | The WD8 renames (`AllowanceChargeReason`, `StatusReason`, …); `UniversallyUniqueID` becomes `UUIDID`; `URI` becomes `URIID` |
+| wd9spec, 14 Jul | 113 | Final namespaces |
 | PRD2 sanity check, 17 Jul | 113 | `UUIDID` becomes `UUID`; 16 aggregates with new definitions |
-| PRD2, 28 Jul | 113 | As the sanity check (the published PRD2) |
-| PRD3 schema test 2, 6 Sep | 113 | `LegalTotal` becomes `MonetaryTotal`, `TaxSubTotal` becomes `TaxSubtotal`; 15 member names made specific (`FormatCode` → `AddressFormatCode`, `ChipCode` → `CardChipCode`, `OperatorCode` → `MathematicOperatorCode`, `EndPointID` → `EndpointID`, …); `TaxExemptionReason` added; `HazardousItem` gets quantity, net weight and net volume; `ItemInstance/ProductTraceID` becomes optional; 95 aggregates with new definitions |
-| PRD3 schema test 3, 7 Sep | 113 | `GoodsItem/Quantity` and `Status/Percent` added; leftovers of the old naming (`TimingComplaintCodeCode`) fixed |
-| PRD3_7, 9 Sep | 113 | `CreditedQuantity` and `DebitedQuantity` added |
-| PRD3_8, 10 Sep | 113 | `CreditNoteLine/LineExtensionAmount` becomes optional |
-| PRD3_10, 12 Sep | 113 | No change: the PRD3 schemas as published |
-| PRD3R1, 5 Oct (published only) | 113 | No change in structure; 53 aggregates with new definitions |
+| PRD2, 28 Jul | 113 | As the sanity check |
+| PRD3 schema test 2, 6 Sep | 113 | The PRD3 spreadsheet changes (`MonetaryTotal`, `TaxSubtotal`, specific code names); 95 aggregates with new definitions |
+| PRD3 schema test 3, 7 Sep | 113 | `GoodsItem/Quantity`, `Status/Percent`; leftover doubled names (`TimingComplaintCodeCode`) fixed |
+| PRD3_7, 9 Sep | 113 | `CreditedQuantity`, `DebitedQuantity` |
+| PRD3_8, 10 Sep | 113 | `CreditNoteLine/LineExtensionAmount` optional |
+| PRD3_10, 12 Sep | 113 | The PRD3 schemas as published |
+| PRD3R1, 5 Oct | 113 | 53 aggregates with new definitions |
 | CS, OS | 113 | No change |
 
-So the structure of the 2.0 library settled during PRD3, in September 2006;
-after that only definitions changed. The naming experiment of June 2006
-(WD4 to WD6) left no trace in any published package.
-
-The model spreadsheets of the same weeks (WD3 to WD9 and the PRD3
-spreadsheets, uploaded by Sven Rasmussen, Tim McGrath, Jon Bosak and Alan
-Lemming) are the inputs to these rounds; they are not yet compared here.
+The schema counts (107 at PRD1) and the model counts (104) differ because
+the schemas also declare some aggregates that the models keep in the document
+spreadsheets.
 
 ### Published packages compared
 
