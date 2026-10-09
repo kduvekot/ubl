@@ -112,11 +112,12 @@ tests until a "final".
 | 2006-09-12 | Sylvia Webb | `ubl/temporary919/2006-09-12_UBL_2.0_PRD3_10.zip` | Tue Sep 12 2006 | 31 | Last PRD3 schema set |
 | 2006-09-20 | Jon Bosak | `ubl/comment1140/2006-09-20_ChangeLogPRD2-to-PRD3.zip` | | | Change log PRD2 → PRD3 |
 
-### CS and OS, October – December 2006
+### PRD3R1, CS and OS, October – December 2006
 
-No CS or OS package of UBL 2.0 is in the archive. The schemas of the 2.0
-Update (below) say they were generated on Tue Oct 03 2006, which dates the
-final 2.0 schemas.
+No package of these three stages is in the archive; they exist only as
+published at `https://docs.oasis-open.org/ubl/`. Their schemas say they were
+generated on Tue Oct 03 2006, the same as the schemas of the 2.0 Update
+(below). See "Published packages compared" for how the three relate.
 
 ### UBL 2.0 Update, 2007 – 2008
 
@@ -127,7 +128,77 @@ final 2.0 schemas.
 | 2008-05-10, 05-17 | Jon Bosak | `ubl/standards/…os-UBL-2.0-update-delta.zip` (2 uploads) | Tue Oct 03 2006 | 16 | Update as approved |
 | 2009-07-06 | Ken Holman | `ubl/discussion979/2009-07-06_UBL-2.0-Entities-gc-20090706-2240z.zip` | | | All 2.0 entities as one genericode file: the start of the genericode-based build used from 2.1 on |
 
-### To check in a later step
+### Published packages compared
 
-- Which of these packages are byte-identical to the published PRD1, PRD2, PRD3,
-  CS, OS and Update packages at `https://docs.oasis-open.org/ubl/`.
+The UBL 2.0 packages published at `https://docs.oasis-open.org/ubl/`,
+downloaded on 9 October 2026, compared file by file with each other and with
+the Kavi uploads. Working backwards from the OASIS Standard:
+
+| Published package | Bytes | SHA-256 (first 16) | Files | Stage on the title page | In Kavi? |
+|---|---|---|---|---|---|
+| `os-UBL-2.0.zip` | 32,192,754 | `d3eb3356d425bcf1` | 752 | OASIS Standard, 12 December 2006 | No |
+| `cs-UBL-2.0.zip` | 32,188,680 | `820791475696948b` | 752 | Committee Specification, 12 October 2006 | No |
+| `prd3r1-UBL-2.0.zip` | 32,190,155 | `626dc7a9fa82cecf` | 752 | Committee Specification, 5 October 2006 | No |
+| `prd3-UBL-2.0.zip` | 31,576,116 | `cf5595a2103b258a` | 633 | (no specification document; files dated 21 September 2006) | Schemas only |
+| `prd2-UBL-2.0.zip` | 30,471,968 | `4dbbc56364a41f21` | 623 | Public Review Draft 2 | **Yes, the same zip** |
+| `prd-UBL-2.0.zip` | 12,443,604 | `b37bd8a7e990c00b` | 198 | Public Review Draft | **Yes, the same zip** |
+| `os-UBL-2.0-update-delta.zip` | 8,703,923 | `8e2b160b97281236` | 289 | UBL 2.0 Update | **Yes, the same zip** |
+
+**OS = CS apart from the stage identification.** 747 of the 752 files are
+identical, including every schema, code list, model and example. The
+differences are the specification document (`UBL-2.0.xml`, `.html`, `.pdf`:
+"Committee Specification" becomes "Standard", the date becomes 12 December
+2006, the location points to `os-UBL-2.0`, the OASIS notices are replaced by
+the newer copyright and IPR text, and a pointer to the errata page is added),
+the stylesheet (`css/spec.css` becomes `css/oasis-standard.css`), and one model
+spreadsheet (`mod/maindoc/UBL-CatalogueDeletion-2.0.xls`) whose bytes differ.
+
+**CS = PRD3R1 apart from the date and editorial touches.** 746 of 752 files
+are identical, again including all schemas. The package published as `prd3r1`
+already calls itself "Committee Specification, 5 October 2006" and names
+`cs-UBL-2.0` as its current version: it is the CS candidate. The CS of 12
+October changes the date, a few headings and words ("implementors" becomes
+"implementers"), one DocBook stylesheet (`db/UBL-2.0-html.xsl`) and the ASN.1
+files (the order of two elements in Receipt Advice).
+
+**PRD3R1 differs from PRD3 in content.** The schemas were regenerated on
+3 October 2006: the document and common schemas carry revised definitions (for
+example "A computer-generated universally unique identifier (UUID) for the
+Invoice instance" becomes "A universally unique identifier for an instance of
+this ABIE"), and the code-list schemas point to the genericode files by their
+full name (`…/AccountTypeCode-2.0` becomes `…/AccountTypeCode-2.0.gc`). Both
+already point to `os-ubl-2.0` locations. PRD3R1 also adds the ASN.1 modules,
+the stylesheets for each stage, and the specification document in place of
+the PRD3 index.
+
+**PRD3 = the last Kavi schema round, plus one later file.** Of the 43
+document and common schemas in the published PRD3, 42 are byte-identical to
+`2006-09-12_UBL_2.0_PRD3_10.zip`. The one other, `UBL-QualifiedDatatypes-2.0.xsd`,
+was generated again on Tue Sep 19 2006 and derives the code types from
+`udt:CodeType` where the Kavi upload has `xsd:normalizedString`. The 90 code-list
+schemas and the rest of the PRD3 package are not in Kavi.
+
+**PRD2 is in Kavi, with its candidates.** `2006-07-28_prd2-UBL-2.0.zip` is the
+published zip. The candidate of 21 July (`2-prd2-cd`) differs from it in four
+files: the index page was titled "Second Public Review Draft Candidate" where
+the published one says "Second Public Review Draft", two schemas included
+`UBL-ExtensionContentDataType-2.0.xsd` while the file is named
+`UBL-ExtensionContentDatatype-2.0.xsd` (fixed in the published package), and
+a test script; it also had
+an ASN.1 readme instead of the ASN.1 package and no PDF index. The check build
+of 25 July differs in one file, a paragraph of the release notes.
+
+**PRD1 is in Kavi, with its working draft.** `2006-01-19_prd-UBL-2.0.zip` is the
+published zip. The working draft of 8 January (`wd-UBL-2.0`) has the same 198
+files; the 74 that differ differ only in their header comments: the copyright
+year 2005 becomes 2006, and "Copyright updated: Thu Jan 19 2006" and
+"Annotations stripped: Thu Jan 19 2006" replace "Stripped: Sun Jan 1 2006".
+
+**The 2.0 Update is in Kavi.** `2008-05-17_os-UBL-2.0-update-delta.zip` is the
+published zip. The earlier uploads of March to May 2008 are its review
+drafts.
+
+So for UBL 2.0 the chain is complete for the schemas from PRD1 to PRD3. The
+step from PRD3 to the final schemas (the regeneration of 3 October 2006)
+happened outside Kavi; after it, CS and OS only changed the identification of
+the stage in the specification document.
