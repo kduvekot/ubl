@@ -151,7 +151,7 @@ the two differ; that shows when the content was last edited.
 | First seen | Document types | Notes |
 |---|---|---|
 | 12 Aug 2005 | Credit Note, Debit Note, Despatch Advice, Invoice, Order, Receipt Advice, Request For Quotation, Self Billed Invoice, Statement; also Account Response, Quote, Remittance, Self Billing Credit Note | Phase 0/1, the procurement documents of UBL 1.0 and their first additions |
-| 15 Aug 2005 | Order Cancellation, Order Change, Order Response, Order Response Simple | Phase 1 draft 2 |
+| 15 Aug 2005 | Order Cancellation, Order Change, Order Response, Order Response Simple | Phase 1 draft 2. These four were already modelled in Tim McGrath's spreadsheets of 3–4 August 2005, which are only on the mailing list (see below) |
 | Nov – Dec 2005 | Bill Of Lading, Certificate Of Origin, Forwarding Instruction, Freight Invoice, Packing List, Waybill | Modelled by the Transportation SC (Tim McGrath, Chi-Yuen Ng, Jern-Kuan Leong) in Enterprise Architect and spreadsheets |
 | 19 Jan 2006 (PRD1) | Application Response, Attached Document, Catalogue, Catalogue Deletion, Catalogue Item Specification Update, Catalogue Pricing Update, Catalogue Request, Quotation, Remittance Advice, Self Billed Credit Note, and the six transport documents | 29 document types. Quote becomes Quotation, Remittance becomes Remittance Advice, Self Billing Credit Note becomes Self Billed Credit Note; Account Response is gone |
 | 9 Jun 2006 (WD3) | Reminder, Transportation Status | 31 document types, the final number. Forwarding Instruction becomes Forwarding Instructions |
@@ -304,6 +304,45 @@ the approved `os-UBL-2.0-update.pdf`), and 17 May (the same text, re-uploaded).
 Ken Holman's "UBL Methodology for Code List and Value Validation" (version
 0.8, drafts D2 to D6, January – June 2007) is in DocBook with the OASIS
 template, but shares only about 4% of its text with the Update.
+
+### What the mailing lists add, 2005 – 2006
+
+Not everything was uploaded to Kavi: much was sent to the TC mailing lists as
+attachments. The live list archive at `lists.oasis-open.org` is behind a
+browser check, but the Internet Archive (Wayback Machine) holds copies. For
+2005 – 2008 it has every monthly index of `ubl`, `ubl-psc`, `ubl-tsc`,
+`ubl-dev` and `ubl-comment`, and a part of the messages:
+
+| List | Messages 2005 – 2008 | Captured | Notes |
+|---|---|---|---|
+| `ubl` | 3,382 | 2,421 (72%) | Complete for most months; almost nothing for May, June and August 2006 |
+| `ubl-psc` (Procurement SC) | 570 | 263 (46%) | |
+| `ubl-tsc` (Transportation SC) | 395 | 321 (81%) | |
+| `ubl-dev` | 1,752 | 407 (23%) | |
+| `ubl-comment` | 1,861 | 313 (17%) | |
+
+51 attachments from June 2005 to April 2006 were captured. Only two of
+them are in Kavi as they are. The ones that matter for the 2.0 chain:
+
+| Sent | By | Message | Attachment | What it is |
+|---|---|---|---|---|
+| 5 Jul 2005 | Tim McGrath | `ubl` 200507/msg00005 "Proposal for UBL 2.0 Extended Procurement Process Model" | `Proposal for UBL 2.0 process_09.pdf` | Version 9 of the procurement process proposal, the source of much of the Context of Use; version 10 followed on 12 July (msg00033) and is the file later uploaded to Kavi |
+| 15 Jul 2005 | David Kruppke (GEFEG) | `ubl` 200507/msg00074 "UBL 2.0 schemas" | `xsd.zz`, `xsdrt.zz` | The earliest UBL 2.0 schemas found: generated on 14 July 2005, draft namespaces, 8 document types (the UBL 1.0 set), 60 aggregates, 234 basic components, with code list schemas |
+| 19 Jul 2005 | Tim McGrath | `ubl` 200507/msg00097 "Draft of Templates for UBL 2.0 spreadsheets" | `UBL-2.0-templates.zzz` | The 2.0 spreadsheet templates: Invoice, Common and Procurement libraries (59 ABIEs, 257 BBIEs, 104 ASBIEs) |
+| 4 Aug 2005 | Tim McGrath | `ubl` 200508, zip00000 | 10 spreadsheets `…-20050803-tm.xls` | Model snapshot: the Order documents, including Order Change, Order Response, Order Response Simple and Order Cancellation; library 62/278/105 |
+| 9 Aug 2005 | (Ottawa face-to-face) | `ubl` 200508, zip00003 and zip00005 | `ModelSpreadsheets-20050809-f2f`, Additions list of 8 Aug | Model snapshot during the meeting; library 62/281/105 |
+| 10 Aug 2005 | (Ottawa face-to-face) | `ubl` 200508, bin00004 | `Model-Fulfilment-20050810-tl` | Despatch Advice and Receipt Advice models, with the EA model and slides |
+| April 2006 | Procurement SC | `ubl-psc` 200604 | five spreadsheets | Comments on PRD1 from the public review (issues ISS-4 to ISS-171, and a sheet of general comments that starts with the layout of `index.pdf`) |
+
+The issues list of 2.0 was also kept on the list: Stephen Green and Tim
+McGrath sent `UBL-2-0-Additions_v0507xx` versions on 6, 11, 17, 18, 19 and
+24 July 2005, before the first Kavi upload of 12 August. Of these, only the
+names are known so far where the Wayback Machine did not keep the file.
+
+So the series of model snapshots now starts on 19 July 2005, three weeks
+before the first Kavi upload, and the first generated 2.0 schemas are from
+14 July 2005. The download of the remaining captured messages was cut short
+when the Wayback Machine stopped answering; 149 of about 2,700 have been read.
 
 ### Published packages compared
 
