@@ -44,11 +44,13 @@ h4       {
          }
 
 h5       {
+	   font-size: 100%;     /* added */
 	   font-style: italic;
            color: #446CAA;
          }
 
 h6       {
+	   font-size: 100%;     /* added */
 	   font-variant: small-caps;
            color: #446CAA;
          }
