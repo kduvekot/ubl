@@ -1,9 +1,12 @@
 name: Benchmark
 
-# Experiments on GitHub's own machines, apart from the build. It runs only
-# when started by hand (Actions > Benchmark > Run workflow) or when this file
-# changes on ubl-2.6, and it changes nothing: it reads the packages of the
-# latest successful build and makes only the table on its summary page.
+# Experiments on GitHub's own machines, apart from the build. It lives only
+# on the branch ubl-2.6-benchmark, so that ubl-2.6 stays identical to the
+# OASIS branch, and it runs when this file changes on ubl-2.6-benchmark
+# (GitHub offers Actions > Benchmark > Run workflow only for workflows on the
+# default branch, ubl-2.6). It changes nothing: it reads the packages of the
+# latest successful build of ubl-2.6 and makes only the table on its summary
+# page.
 #
 # Experiment: the sample checks (val/testsamples.sh, the longest part of the
 # build) with Java as today, and with Java told to start quickly: only its
@@ -16,7 +19,7 @@ name: Benchmark
 on:
   workflow_dispatch:
   push:
-    branches: [ubl-2.6]
+    branches: [ubl-2.6-benchmark]
     paths: ['.github/workflows/benchmark.yml']
 
 permissions:
