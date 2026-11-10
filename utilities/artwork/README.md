@@ -4,7 +4,7 @@ The figures of the specification are drawn in [draw.io](https://www.drawio.com):
 **`images/<figure>.drawio` is each figure's source.** Every build renders them, before it
 packages the specification (`render.sh`, called by `build-common.sh`), into
 
-- `images/<figure>.svg`: the picture as real vector (text as text), the revisable file ISO asks for;
+- `art-svg/<figure>.svg`: the picture as real vector (text as text), the revisable file ISO asks for;
 - `art/<figure>.png`: for print, 600 dpi, at most 3425 px (5.7 in) wide, black and white (grey for
   the illustrations and the few figures with a grey fill);
 - `htmlart/<figure>.png`: for the web, at most 750 px wide;
@@ -46,17 +46,17 @@ left as it is.
    conventions above, and that the file is in the form draw.io writes; after a script wrote one:
    `python3 utilities/artwork/drawio_format.py <file>`).
 6. Render and check: `bash utilities/artwork/render.sh` (it needs what the build installs, below).
-   Commit the drawing with its rendered files, `images/<figure>.drawio`, `images/<figure>.svg`,
+   Commit the drawing with its rendered files, `images/<figure>.drawio`, `art-svg/<figure>.svg`,
    `art/<figure>.png` and `htmlart/<figure>.png`, and only those: on another machine than the last
    render's, the other figures' PNGs come out a fraction of a pixel apart (their text), which is not
-   a change (add yours by name, `git add images/<figure>.* art/<figure>.png htmlart/<figure>.png`;
+   a change (add yours by name, `git add images/<figure>.drawio art-svg/<figure>.svg art/<figure>.png htmlart/<figure>.png`;
    then `git restore art htmlart` drops the rest).
 
 ## The build
 
 `render.sh` renders the figures into a scratch folder and checks the result (`check_svg.py`: the
 drawing well-formed, the SVG real vector with its text as text, the PNGs' sizes and depth). Only a
-render that passes replaces the committed `images/*.svg`, `art/` and `htmlart/`; where the tools
+render that passes replaces the committed `art-svg/`, `art/` and `htmlart/`; where the tools
 are missing, or the render fails (a drawing that is not well-formed, cut short, say, is refused, not
 drawn in part), the committed files are used, and the run says so (on GitHub, an annotation). Where
 a committed SVG is not what its drawing gives, the run says that too: render again and commit. (The

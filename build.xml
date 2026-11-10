@@ -2105,6 +2105,11 @@ file="${dir}/artefacts-${package}-${UBLstage}-${label}/INVALID-ASSEMBLED-HUB-XML
       <istrue value="${preview-made}"/>
     </or>
   </condition>
+  <!--the artwork: UBL.xml names each figure once, art/<figure>.png, for the
+      PDF and the HTML alike. Realta was sent art/ (-pub-zip: the high-res
+      PNGs, for the PDF); the package's art/ is htmlart/ (the low-res PNGs, so
+      that the HTML's art/<figure>.png is the web one), and art/ goes beside
+      it as art/artpdf/ (below). README.md, "Subdirectories"-->
   <sequential if:set="html-supplemental-needed">
     <mkdir dir="${dir}/hub-${package}-${UBLstage}-${label}/art"/>
     <copy preservelastmodified="true"

@@ -280,12 +280,14 @@ The `old2newDoc` version entities are always in play in the hub document, throug
 Please note the documentation above regarding `ATTENTION-new-entities.txt` and how to remove that file from the build process by replacing the authoring environment "old" entities with the build environment "new" entities.
 
 Subdirectories:
-- [`images`]( images ) - original revisable source vector artwork in `.svg` or `.drawio` (incomplete set of files because many originals have been lost; please add originals here using same base name as published)
+- [`images`]( images ) - the source of every figure: its draw.io drawing, `<figure>.drawio`, named as the figure is published (see [Artwork](#artwork))
+- [`art-svg`]( art-svg ) - the figures as vector `.svg`, the revisable files ISO asks for; rendered from `images/` by every build
 - [`art`]( art ) - high-res PNG artwork for print publishing (max width: 5.7in/14.5cm)
   - at a resolution of 600dpi: max width: 3425 pixels
   - at a resolution of 400dpi: max width: 2283 pixels
   - at a resolution of 300dpi (minimum): max width: 1713 pixels
 - [`htmlart`]( htmlart ) - low-res PNG artwork for web publishing (max width: 750 pixels)
+  - `UBL.xml` names each figure once, `art/<figure>.png`, for the PDF and the HTML alike; the build therefore swaps the folders: Realta is sent `art/` (the PDF's high-res PNGs), and the published package's `art/` is `htmlart/` (the HTML's low-res PNGs), with the high-res PNGs beside them in `art/artpdf/`
 - [`os-UBL-2.0`]( os-UBL-2.0 ) - code list subdirectory copied from released version of UBL 2.0
 - [`os-UBL-2.1`]( os-UBL-2.1 ) - code list subdirectory copied from released version of UBL 2.1
 - [`os-UBL-2.2`]( os-UBL-2.2 ) - code list subdirectory copied from released version of UBL 2.2
@@ -307,7 +309,7 @@ Subdirectories:
 ### Artwork
 
 Each figure is drawn in [draw.io](https://www.drawio.com): `images/<figure>.drawio` is its
-source, and every build renders it into `images/<figure>.svg`, `art/<figure>.png` and
+source, and every build renders it into `art-svg/<figure>.svg`, `art/<figure>.png` and
 `htmlart/<figure>.png`. How to edit a figure, or add one:
 [`utilities/artwork/README.md`](utilities/artwork/README.md).
 

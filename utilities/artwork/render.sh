@@ -1,7 +1,7 @@
 #!/bin/bash
 # Render the figures from their drawings, before the build packages art/ and htmlart/ (build-common.sh):
 #
-#   images/<figure>.drawio  ->  images/<figure>.svg, art/<figure>.png, htmlart/<figure>.png
+#   images/<figure>.drawio  ->  art-svg/<figure>.svg, art/<figure>.png, htmlart/<figure>.png
 #
 # for every figure UBL.xml shows (art/<figure>.png) that has a drawing.
 #
@@ -34,10 +34,10 @@ problem() { [ -n "$report" ] && printf '%s\n' "$1" >> "$report"; }
 export NODE_PATH="${NODE_PATH:+$NODE_PATH:}$(npm root -g 2>/dev/null)"
 if ! command -v node >/dev/null 2>&1 || ! node -e "require('playwright')" >/dev/null 2>&1 \
    || ! python3 -c "import PIL" >/dev/null 2>&1; then
-  say "not rendered (Node with playwright, or Python 3 with Pillow, is missing): the committed images/*.svg, art/ and htmlart/ are used"
+  say "not rendered (Node with playwright, or Python 3 with Pillow, is missing): the committed art-svg/, art/ and htmlart/ are used"
   annotate warning "not rendered: the committed artwork is used (the tools are missing)"
   problem "The figures were not rendered from their drawings: Node with playwright, or Python 3 with
-Pillow, is missing. This build used the committed images/*.svg, art/ and htmlart/."
+Pillow, is missing. This build used the committed art-svg/, art/ and htmlart/."
   exit 0
 fi
 
@@ -64,7 +64,7 @@ if ! node "$here/export_drawio.js" "$out" "${figures[@]}" > "$out.log" 2>&1; the
   say "the render failed: the committed artwork is used"
   annotate error "the render failed: the committed artwork is used (see the log of this step)"
   problem "The figures were not rendered from their drawings: the render failed. This build used the
-committed images/*.svg, art/ and htmlart/. The end of the render's log:"
+committed art-svg/, art/ and htmlart/. The end of the render's log:"
   problem "$(tail -20 "$out.log")"
   exit 0
 fi
@@ -73,21 +73,23 @@ if ! python3 "$here/check_svg.py" "$out" > "$out.check" 2>&1; then
   say "the rendered artwork did not pass its check: the committed artwork is used"
   annotate error "the rendered artwork did not pass its check: the committed artwork is used"
   problem "The figures rendered from their drawings did not pass their check (check_svg.py). This
-build used the committed images/*.svg, art/ and htmlart/. The check found:"
+build used the committed art-svg/, art/ and htmlart/. The check found:"
   problem "$(grep -v ': ok$' "$out.check")"
   exit 0
 fi
 cat "$out.check"
 
-cp "$out"/images/*.svg images/
+# the export's scratch folder keeps the layout of its own tools (export_drawio.js, check_svg.py):
+# <out>/images/ holds the drawing and its SVG; the SVG goes to art-svg/
+cp "$out"/images/*.svg art-svg/
 cp "$out"/art/*.png art/
 cp "$out"/htmlart/*.png htmlart/
-say "rendered and checked: images/*.svg, art/ and htmlart/ are this build's"
+say "rendered and checked: art-svg/, art/ and htmlart/ are this build's"
 
 # the committed SVGs should be what the drawings give (the PNGs are not compared: their text is
 # rasterised a fraction of a pixel apart from one machine to another)
 if git rev-parse --git-dir >/dev/null 2>&1; then
-  stale="$(git diff --name-only -- 'images/*.svg')"
+  stale="$(git diff --name-only -- 'art-svg/*.svg')"
   if [ -n "$stale" ]; then
     say "the committed SVG of these figures is not what their drawing gives (render again and commit):"
     echo "$stale" | sed 's/^/  /'
